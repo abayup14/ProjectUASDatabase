@@ -172,7 +172,7 @@
             this.ClientSize = new System.Drawing.Size(836, 276);
             this.Controls.Add(this.panel1);
             this.Name = "FormLogin";
-            this.Text = "Login";
+            this.Text = "Login DiBa";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
