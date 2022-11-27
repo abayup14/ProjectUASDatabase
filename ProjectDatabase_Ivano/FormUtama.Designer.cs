@@ -49,7 +49,7 @@ namespace ProjectDatabase_Ivano
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuToolStripMenuItem,
@@ -57,7 +57,7 @@ namespace ProjectDatabase_Ivano
             this.keluarSistemToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(979, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(979, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -68,7 +68,7 @@ namespace ProjectDatabase_Ivano
             this.jenisTransaksiToolStripMenuItem,
             this.PositionToolStripMenuItem});
             this.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem";
-            this.MenuToolStripMenuItem.Size = new System.Drawing.Size(68, 26);
+            this.MenuToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.MenuToolStripMenuItem.Text = "Master";
             // 
             // penggunaToolStripMenuItem
@@ -100,7 +100,7 @@ namespace ProjectDatabase_Ivano
             this.daftarNomorRekeningToolStripMenuItem,
             this.riwayatTransaksiToolStripMenuItem});
             this.transaksiToolStripMenuItem.Name = "transaksiToolStripMenuItem";
-            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(82, 26);
+            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.transaksiToolStripMenuItem.Text = "Transaksi";
             // 
             // topUpToolStripMenuItem
@@ -130,7 +130,7 @@ namespace ProjectDatabase_Ivano
             // keluarSistemToolStripMenuItem
             // 
             this.keluarSistemToolStripMenuItem.Name = "keluarSistemToolStripMenuItem";
-            this.keluarSistemToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
+            this.keluarSistemToolStripMenuItem.Size = new System.Drawing.Size(113, 24);
             this.keluarSistemToolStripMenuItem.Text = "Keluar Sistem";
             this.keluarSistemToolStripMenuItem.Click += new System.EventHandler(this.keluarSistemToolStripMenuItem_Click);
             // 
@@ -138,7 +138,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(635, 8);
+            this.label4.Location = new System.Drawing.Point(700, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(15, 20);
             this.label4.TabIndex = 8;
@@ -148,7 +148,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.labelNama.AutoSize = true;
             this.labelNama.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNama.Location = new System.Drawing.Point(714, 8);
+            this.labelNama.Location = new System.Drawing.Point(721, 9);
             this.labelNama.Name = "labelNama";
             this.labelNama.Size = new System.Drawing.Size(49, 20);
             this.labelNama.TabIndex = 7;
@@ -158,7 +158,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.labelKode.AutoSize = true;
             this.labelKode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKode.Location = new System.Drawing.Point(528, 8);
+            this.labelKode.Location = new System.Drawing.Point(593, 9);
             this.labelKode.Name = "labelKode";
             this.labelKode.Size = new System.Drawing.Size(44, 20);
             this.labelKode.TabIndex = 6;
@@ -168,7 +168,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(377, 8);
+            this.label1.Location = new System.Drawing.Point(442, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 20);
             this.label1.TabIndex = 5;
