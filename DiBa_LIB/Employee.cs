@@ -57,7 +57,7 @@ namespace DiBa_LIB
             if (kriteria == "")
             {
                 sql = "SELECT e.id, e.nama_depan, e.nama_keluarga, e.position, e.nik, e.email, e.password, e.tgl_buat, e.tgl_perubahan " +
-                      "from employee e INNER JOIN position p ON e.position = p.id";
+                      "FROM employee e INNER JOIN position p ON e.position = p.id";
             }
             else
             {
