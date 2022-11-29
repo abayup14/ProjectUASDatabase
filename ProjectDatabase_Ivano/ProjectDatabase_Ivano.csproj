@@ -85,6 +85,12 @@
     <Compile Include="FormPendaftaranPengguna.Designer.cs">
       <DependentUpon>FormPendaftaranPengguna.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarEmployee.Designer.cs">
+      <DependentUpon>FormDaftarEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTambahPosition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPendaftaranPengguna.resx">
       <DependentUpon>FormPendaftaranPengguna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarEmployee.resx">
+      <DependentUpon>FormDaftarEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahPosition.resx">
       <DependentUpon>FormTambahPosition.cs</DependentUpon>
