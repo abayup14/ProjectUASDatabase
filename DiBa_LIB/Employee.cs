@@ -9,6 +9,7 @@ namespace DiBa_LIB
 {
     public class Employee
     {
+        #region DATA MEMBERS
         private int id;
         private string nama_depan;
         private string nama_keluarga;
@@ -18,7 +19,9 @@ namespace DiBa_LIB
         private string password;
         private DateTime tgl_buat;
         private DateTime tgl_perubahan;
+        #endregion
 
+        #region CONSTRUCTORS
         public Employee(int id, string nama_depan, string nama_keluarga, Position position, string nik, string email, string password, 
                         DateTime tgl_buat, DateTime tgl_perubahan)
         {
@@ -32,7 +35,9 @@ namespace DiBa_LIB
             this.Tgl_buat = tgl_buat;
             this.Tgl_perubahan = tgl_perubahan;
         }
+        #endregion
 
+        #region PROPERTIES
         public int Id { get => id; set => id = value; }
         public string Nama_depan { get => nama_depan; set => nama_depan = value; }
         public string Nama_keluarga { get => nama_keluarga; set => nama_keluarga = value; }
@@ -42,7 +47,9 @@ namespace DiBa_LIB
         public string Password { get => password; set => password = value; }
         public DateTime Tgl_buat { get => tgl_buat; set => tgl_buat = value; }
         public DateTime Tgl_perubahan { get => tgl_perubahan; set => tgl_perubahan = value; }
+        #endregion
 
+        #region METHODS
         public static List<Employee> BacaData(string kriteria, string nilaiKriteria)
         {
             string sql = "";
@@ -97,5 +104,6 @@ namespace DiBa_LIB
 
             Koneksi.JalankanPerintahDML(sql);
         }
+        #endregion
     }
 }
