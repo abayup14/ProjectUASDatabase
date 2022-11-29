@@ -34,9 +34,9 @@
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonKirim = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.buttonKirim = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             this.labelInbox.Name = "labelInbox";
             this.labelInbox.Size = new System.Drawing.Size(721, 39);
             this.labelInbox.TabIndex = 38;
-            this.labelInbox.Text = "Inbox";
+            this.labelInbox.Text = "Tambah Inbox";
             this.labelInbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -104,19 +104,6 @@
             this.label3.Size = new System.Drawing.Size(0, 18);
             this.label3.TabIndex = 0;
             // 
-            // buttonKirim
-            // 
-            this.buttonKirim.BackColor = System.Drawing.Color.Navy;
-            this.buttonKirim.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKirim.ForeColor = System.Drawing.Color.White;
-            this.buttonKirim.Location = new System.Drawing.Point(32, 346);
-            this.buttonKirim.Name = "buttonKirim";
-            this.buttonKirim.Size = new System.Drawing.Size(202, 53);
-            this.buttonKirim.TabIndex = 40;
-            this.buttonKirim.Text = "KIRIM";
-            this.buttonKirim.UseVisualStyleBackColor = false;
-            this.buttonKirim.Click += new System.EventHandler(this.buttonKirim_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
@@ -137,14 +124,26 @@
             this.textBox1.Size = new System.Drawing.Size(380, 22);
             this.textBox1.TabIndex = 10;
             // 
+            // buttonKirim
+            // 
+            this.buttonKirim.BackColor = System.Drawing.Color.Navy;
+            this.buttonKirim.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKirim.ForeColor = System.Drawing.Color.White;
+            this.buttonKirim.Location = new System.Drawing.Point(18, 346);
+            this.buttonKirim.Name = "buttonKirim";
+            this.buttonKirim.Size = new System.Drawing.Size(202, 53);
+            this.buttonKirim.TabIndex = 42;
+            this.buttonKirim.Text = "&KIRIM";
+            this.buttonKirim.UseVisualStyleBackColor = false;
+            // 
             // FormInbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 416);
+            this.Controls.Add(this.buttonKirim);
             this.Controls.Add(this.labelInbox);
             this.Controls.Add(this.buttonKeluar);
-            this.Controls.Add(this.buttonKirim);
             this.Controls.Add(this.panel1);
             this.Name = "FormInbox";
             this.Text = "FormInbox";
@@ -162,8 +161,8 @@
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button buttonKirim;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button buttonKirim;
     }
 }
