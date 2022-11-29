@@ -8,5 +8,6 @@ namespace DiBa_LIB
 {
     public class Inbox
     {
+        
     }
 }
