@@ -35,9 +35,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.buttonTambah = new System.Windows.Forms.Button();
-            this.dataGridViewJenisTransaksi = new System.Windows.Forms.DataGridView();
+            this.dataGridViewEmployee = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJenisTransaksi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -123,15 +123,15 @@
             this.buttonTambah.Text = "&TAMBAH";
             this.buttonTambah.UseVisualStyleBackColor = false;
             // 
-            // dataGridViewJenisTransaksi
+            // dataGridViewEmployee
             // 
-            this.dataGridViewJenisTransaksi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewJenisTransaksi.Location = new System.Drawing.Point(14, 147);
-            this.dataGridViewJenisTransaksi.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridViewJenisTransaksi.Name = "dataGridViewJenisTransaksi";
-            this.dataGridViewJenisTransaksi.RowHeadersWidth = 51;
-            this.dataGridViewJenisTransaksi.Size = new System.Drawing.Size(803, 287);
-            this.dataGridViewJenisTransaksi.TabIndex = 36;
+            this.dataGridViewEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEmployee.Location = new System.Drawing.Point(14, 147);
+            this.dataGridViewEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewEmployee.Name = "dataGridViewEmployee";
+            this.dataGridViewEmployee.RowHeadersWidth = 51;
+            this.dataGridViewEmployee.Size = new System.Drawing.Size(803, 287);
+            this.dataGridViewEmployee.TabIndex = 36;
             // 
             // FormDaftarEmployee
             // 
@@ -142,12 +142,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonTambah);
-            this.Controls.Add(this.dataGridViewJenisTransaksi);
+            this.Controls.Add(this.dataGridViewEmployee);
             this.Name = "FormDaftarEmployee";
             this.Text = "Daftar Employee";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJenisTransaksi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -161,6 +161,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Button buttonTambah;
-        public System.Windows.Forms.DataGridView dataGridViewJenisTransaksi;
+        public System.Windows.Forms.DataGridView dataGridViewEmployee;
     }
 }
