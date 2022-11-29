@@ -104,6 +104,28 @@ namespace DiBa_LIB
 
             Koneksi.JalankanPerintahDML(sql);
         }
+        public static int GenerateKode()
+        {
+            string sql = "SELECT max(id) from employee";
+
+            int hasilKode = 0;
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                if (hasil.GetString(0) != "")
+                {
+                    hasilKode = int.Parse(hasil.GetString(0)) + 1;
+                }
+                else
+                {
+                    hasilKode = 1;
+                }
+            }
+
+            return hasilKode;
+        }
         #endregion
     }
 }
