@@ -55,6 +55,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>db.Settings</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarEmployee.Designer.cs">
+      <DependentUpon>FormDaftarEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDaftarPosition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDaftarEmployee.resx">
+      <DependentUpon>FormDaftarEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarPosition.resx">
       <DependentUpon>FormDaftarPosition.cs</DependentUpon>
     </EmbeddedResource>
