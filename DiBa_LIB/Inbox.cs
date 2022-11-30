@@ -18,12 +18,12 @@ namespace DiBa_LIB
 
         public Inbox(Pengguna pengguna, int id, string pesan, DateTime tanggal_kirim, string status, DateTime tanggal_perubahan)
         {
-            this.pengguna = pengguna;
-            this.id = id;
-            this.pesan = pesan;
-            this.tanggal_kirim = tanggal_kirim;
-            this.status = status;
-            this.tanggal_perubahan = tanggal_perubahan;
+            this.Pengguna = pengguna;
+            this.Id = id;
+            this.Pesan = pesan;
+            this.Tanggal_kirim = tanggal_kirim;
+            this.Status = status;
+            this.Tanggal_perubahan = tanggal_perubahan;
         }
 
         public Pengguna Pengguna { get => pengguna; set => pengguna = value; }
@@ -39,12 +39,12 @@ namespace DiBa_LIB
             if (kriteria == "")
             {
                 sql = "select i.id_pengguna, i.id_pesan, i.pesan, i,tanggal_kirim, i.status, i.tgl_perubahan from " +
-                    "pengguna p inner join inbox i on p.nik = i.id_pesan";
+                    "pengguna p inner join inbox i on p.nik = i.id_pengguna";
             }
             else
             { 
                 sql = "select i.id_pengguna, i.id_pesan, i.pesan, i,tanggal_kirim, i.status, i.tgl_perubahan from " +
-                    "pengguna p inner join inbox i on p.nik = i.id_pesan where "+kriteria+" LIKE '%"+nilaiKriteria+"%'";
+                    "pengguna p inner join inbox i on p.nik = i.id_pengguna where "+kriteria+" LIKE '%"+nilaiKriteria+"%'";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
             List<Inbox> listInbox = new List<Inbox>();

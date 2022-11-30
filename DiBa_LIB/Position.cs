@@ -24,7 +24,6 @@ namespace DiBa_LIB
         {
             Nama = nama;
         }
-
         public Position(int positionID, string nama, string keterangan)
         {
             PositionID = positionID;
@@ -69,14 +68,15 @@ namespace DiBa_LIB
         public static void TambahData(Position p)
         {
             string sql = "insert into position (id, nama, keterangan) values (" + 
-                p.PositionID + ", '" + p.Nama.Replace("'", "\\'") + "', '" + p.Keterangan + "')";
+                         p.PositionID + ", '" + p.Nama.Replace("'", "\\'") + "', '" + p.Keterangan + "')";
 
             Koneksi.JalankanPerintahDML(sql);
         }
 
-        public static Position AmbilDataByCode(string kode)
+        public static Position AmbilDataByCode(int kode)
         {
-            string sql = "select * from position where id = " + kode + "";
+            string sql = "select p.id, p.nama, p.keterangan from position p inner join employee e on p.id = e.position " +
+                         "where e.id = " + kode; 
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 

@@ -111,7 +111,7 @@ namespace ProjectDatabase_Ivano
             }
             else if (e.ColumnIndex == dataGridViewPengguna.Columns["buttonUbahPasswordGrid"].Index && e.RowIndex >= 0)
             {
-                FormUbahPassword formUbahPassword = new FormUbahPassword();
+                FormUbahPasswordPengguna formUbahPassword = new FormUbahPasswordPengguna();
 
                 formUbahPassword.Owner = this;
 
