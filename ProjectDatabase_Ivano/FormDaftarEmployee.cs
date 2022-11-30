@@ -16,5 +16,14 @@ namespace ProjectDatabase_Ivano
         {
             InitializeComponent();
         }
+
+        private void buttonTambah_Click(object sender, EventArgs e)
+        {
+            FormTambahEmployee formTambahEmployee = new FormTambahEmployee();
+
+            formTambahEmployee.Owner = this;
+
+            formTambahEmployee.Show();
+        }
     }
 }

@@ -122,6 +122,7 @@
             this.buttonTambah.TabIndex = 37;
             this.buttonTambah.Text = "&TAMBAH";
             this.buttonTambah.UseVisualStyleBackColor = false;
+            this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
             // 
             // dataGridViewEmployee
             // 
