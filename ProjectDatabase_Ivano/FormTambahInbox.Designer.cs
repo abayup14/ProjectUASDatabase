@@ -1,6 +1,6 @@
 ﻿namespace ProjectDatabase_Ivano
 {
-    partial class FormInbox
+    partial class FormTambahInbox
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             this.labelInbox.Name = "labelInbox";
             this.labelInbox.Size = new System.Drawing.Size(721, 39);
             this.labelInbox.TabIndex = 38;
-            this.labelInbox.Text = "Tambah Inbox";
+            this.labelInbox.Text = "TAMBAH INBOX";
             this.labelInbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -136,7 +136,7 @@
             this.buttonKirim.Text = "&KIRIM";
             this.buttonKirim.UseVisualStyleBackColor = false;
             // 
-            // FormInbox
+            // FormTambahInbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -145,8 +145,8 @@
             this.Controls.Add(this.labelInbox);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.panel1);
-            this.Name = "FormInbox";
-            this.Text = "FormInbox";
+            this.Name = "FormTambahInbox";
+            this.Text = "Tambah Inbox";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

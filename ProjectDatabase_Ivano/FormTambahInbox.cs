@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjectDatabase_Ivano
 {
-    public partial class FormInbox : Form
+    public partial class FormTambahInbox : Form
     {
-        public FormInbox()
+        public FormTambahInbox()
         {
             InitializeComponent();
         }
