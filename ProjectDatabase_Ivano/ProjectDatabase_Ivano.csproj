@@ -121,11 +121,23 @@
     <Compile Include="FormTambahPenggguna.designer.cs">
       <DependentUpon>FormTambahPenggguna.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUbahEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUbahEmployee.Designer.cs">
+      <DependentUpon>FormUbahEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUbahJenisTransaksi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormUbahJenisTransaksi.Designer.cs">
       <DependentUpon>FormUbahJenisTransaksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUbahPasswordPegawai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUbahPasswordPegawai.Designer.cs">
+      <DependentUpon>FormUbahPasswordPegawai.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUbahPosition.cs">
       <SubType>Form</SubType>
@@ -133,11 +145,11 @@
     <Compile Include="FormUbahPosition.Designer.cs">
       <DependentUpon>FormUbahPosition.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUbahPassword.cs">
+    <Compile Include="FormUbahPasswordPengguna.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUbahPassword.designer.cs">
-      <DependentUpon>FormUbahPassword.cs</DependentUpon>
+    <Compile Include="FormUbahPasswordPengguna.designer.cs">
+      <DependentUpon>FormUbahPasswordPengguna.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUbahPengguna.cs">
       <SubType>Form</SubType>
@@ -186,14 +198,20 @@
     <EmbeddedResource Include="FormTambahPenggguna.resx">
       <DependentUpon>FormTambahPenggguna.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUbahEmployee.resx">
+      <DependentUpon>FormUbahEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUbahJenisTransaksi.resx">
       <DependentUpon>FormUbahJenisTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUbahPasswordPegawai.resx">
+      <DependentUpon>FormUbahPasswordPegawai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUbahPosition.resx">
       <DependentUpon>FormUbahPosition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUbahPassword.resx">
-      <DependentUpon>FormUbahPassword.cs</DependentUpon>
+    <EmbeddedResource Include="FormUbahPasswordPengguna.resx">
+      <DependentUpon>FormUbahPasswordPengguna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUbahPengguna.resx">
       <DependentUpon>FormUbahPengguna.cs</DependentUpon>
