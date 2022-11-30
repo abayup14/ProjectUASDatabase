@@ -45,8 +45,8 @@
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBoxPosition = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxPosition = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +85,7 @@
             this.buttonSimpan.TabIndex = 36;
             this.buttonSimpan.Text = "&SIMPAN";
             this.buttonSimpan.UseVisualStyleBackColor = false;
+            this.buttonSimpan.Click += new System.EventHandler(this.buttonSimpan_Click);
             // 
             // textBoxNamaKeluarga
             // 
@@ -229,15 +230,6 @@
             this.panel1.Size = new System.Drawing.Size(716, 361);
             this.panel1.TabIndex = 35;
             // 
-            // comboBoxPosition
-            // 
-            this.comboBoxPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxPosition.FormattingEnabled = true;
-            this.comboBoxPosition.Location = new System.Drawing.Point(230, 297);
-            this.comboBoxPosition.Name = "comboBoxPosition";
-            this.comboBoxPosition.Size = new System.Drawing.Size(426, 26);
-            this.comboBoxPosition.TabIndex = 15;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -247,6 +239,16 @@
             this.label5.Size = new System.Drawing.Size(80, 18);
             this.label5.TabIndex = 16;
             this.label5.Text = "Position :";
+            // 
+            // comboBoxPosition
+            // 
+            this.comboBoxPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxPosition.FormattingEnabled = true;
+            this.comboBoxPosition.Location = new System.Drawing.Point(230, 297);
+            this.comboBoxPosition.Name = "comboBoxPosition";
+            this.comboBoxPosition.Size = new System.Drawing.Size(426, 26);
+            this.comboBoxPosition.TabIndex = 15;
             // 
             // FormTambahEmployee
             // 
@@ -260,6 +262,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormTambahEmployee";
             this.Text = "Tambah Employee";
+            this.Load += new System.EventHandler(this.FormTambahEmployee_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

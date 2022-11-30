@@ -44,7 +44,8 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
-            FormDaftarPosition formDaftarPosition = new FormDaftarPosition();
+            FormDaftarPosition formDaftarPosition = (FormDaftarPosition)this.Owner;
+
             formDaftarPosition.FormDaftarPosition_Load(buttonKeluar, e);
 
             this.Close();
