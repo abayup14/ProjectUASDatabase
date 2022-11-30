@@ -16,3 +16,21 @@ C:\Users\Andreas Bayu P\Documents\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\D
 C:\Users\Andreas Bayu P\Documents\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.csproj.CopyComplete
 C:\Users\Andreas Bayu P\Documents\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.dll
 C:\Users\Andreas Bayu P\Documents\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.pdb
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\DiBa_LIB.dll
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\DiBa_LIB.pdb
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\MySql.Data.dll
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\Google.Protobuf.dll
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\ZstdNet.dll
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\BouncyCastle.Crypto.dll
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\System.Memory.dll
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\System.Buffers.dll
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\K4os.Compression.LZ4.dll
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\K4os.Hash.xxHash.dll
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\System.Numerics.Vectors.dll
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\MySql.Data.xml
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.csproj.AssemblyReference.cache
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.csproj.CoreCompileInputs.cache
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.csproj.CopyComplete
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.dll
+D:\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.pdb
