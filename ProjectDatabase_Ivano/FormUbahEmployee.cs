@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiBa_LIB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,11 @@ namespace ProjectDatabase_Ivano
 
         private void FormUbahEmployee_Load(object sender, EventArgs e)
         {
+            List<Position> listPosition = Position.BacaData("", "");
 
+            comboBoxPosition.DataSource = listPosition;
+
+            comboBoxPosition.DisplayMember = "Nama";
         }
     }
 }

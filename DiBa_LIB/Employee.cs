@@ -137,7 +137,29 @@ namespace DiBa_LIB
 
             return hasilKode;
         }
+        /*public static Employee AmbilDataByKode(int id)
+        {
+            string sql = "SELECT e.id, e.nama_depan, e.nama_keluarga, p.nama as nama_position, e.nik, e.email, e.password, e.tgl_buat, e.tgl_perubahan " +
+                         "FROM employee e INNER JOIN position p ON e.position = p.id " + 
+                         "where e.id = " + id;
 
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                Position p = new Position(hasil.GetValue(3).ToString());
+
+                Employee em = new Employee(int.Parse(hasil.GetValue(0).ToString()), hasil.GetValue(1).ToString(), hasil.GetString(2), p, hasil.GetString(4),
+                                          hasil.GetString(5), hasil.GetString(6), DateTime.Parse(hasil.GetString(7)), DateTime.Parse(hasil.GetString(8)));
+
+                return em;
+            }
+            else
+            {
+                return null;
+            }
+            
+        }*/
         public override string ToString()
         {
             return Position.ToString();
