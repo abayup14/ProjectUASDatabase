@@ -110,5 +110,24 @@ namespace ProjectDatabase_Ivano
         {
             Application.Exit();
         }
+
+        private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarEmployee"];
+            if (form == null)
+            {
+                FormDaftarEmployee formDaftarEmployee = new FormDaftarEmployee();
+
+                formDaftarEmployee.MdiParent = this;
+
+                formDaftarEmployee.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
     }
 }
