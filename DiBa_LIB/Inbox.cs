@@ -8,6 +8,9 @@ namespace DiBa_LIB
 {
     public class Inbox
     {
+        private Pengguna pengguna;
+        private int id;
+
         
     }
 }
