@@ -60,18 +60,21 @@ namespace DiBa_LIB
             }
             return listInbox;
         }
+
         public static void TambahData(Inbox i)
         {
             string sql = "insert into inbox (id_pesan, pesan, tanggal_kirim, status, tgl_perubahan) values ("+i.Id+", " +
                 "'"+i.Pesan+"', '"+i.Tanggal_kirim+"', '"+i.Status+"', '"+i.Tanggal_perubahan+"')";
             Koneksi.JalankanPerintahDML(sql);
         }
+
         public static void UbahData(Inbox i)
         {
             string sql = "update inbox set id_pesan = "+i.Id+", pesan = '"+i.Pesan+"', tanggal_kirim = '"+
                 i.Tanggal_kirim+"', status = '"+i.Status+"', tgl_perubahan = '"+i.Tanggal_perubahan+"'";
             Koneksi.JalankanPerintahDML(sql);
         }
+
         public static void HapusData(Inbox i)
         {
             string sql = "DELETE from inbox where id = " + i.Id;
