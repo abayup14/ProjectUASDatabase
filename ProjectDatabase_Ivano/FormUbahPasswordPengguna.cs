@@ -11,9 +11,9 @@ using DiBa_LIB;
 
 namespace ProjectDatabase_Ivano
 {
-    public partial class FormUbahPassword : Form
+    public partial class FormUbahPasswordPengguna : Form
     {
-        public FormUbahPassword()
+        public FormUbahPasswordPengguna()
         {
             InitializeComponent();
         }

@@ -35,6 +35,10 @@ namespace DiBa_LIB
             this.Tgl_perubahan = tgl_perubahan;
             this.Position = position;
         }
+        public Employee(int id)
+        {
+            Id = id;
+        }
         #endregion
 
         #region PROPERTIES
@@ -93,9 +97,16 @@ namespace DiBa_LIB
         public static void UbahData(Employee em)
         {
             string sql = "UPDATE employee set nama_depan = '" + em.Nama_depan + "', nama_keluarga = '" + em.Nama_keluarga + "', position = " +
-                         em.Position.PositionID + ", email = '" + em.Email + "', password = '" + em.Password + "', tgl_buat = '" + em.Tgl_buat + "', " +
+                         em.Position.PositionID + ", email = '" + em.Email + "', tgl_buat = '" + em.Tgl_buat + "', " +
                          "tgl_perubahan = '" + em.Tgl_perubahan + "' where id = " + em.Id;
 
+            Koneksi.JalankanPerintahDML(sql);
+        }
+        public static void UbahPassword(Employee em, string passwordLama, string passwordBaru)
+        {
+            string sql = "UPDATE employee SET password = '" + passwordBaru + "', tgl_perubahan = '" + em.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") +
+                "' WHERE nik = '" + em.Nik + "' AND password = '" + passwordLama + "'";
+ 
             Koneksi.JalankanPerintahDML(sql);
         }
         public static void HapusData(Employee em)
@@ -125,6 +136,11 @@ namespace DiBa_LIB
             }
 
             return hasilKode;
+        }
+
+        public override string ToString()
+        {
+            return Position.ToString();
         }
         #endregion
     }
