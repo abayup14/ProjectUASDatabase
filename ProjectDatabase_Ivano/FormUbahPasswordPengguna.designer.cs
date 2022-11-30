@@ -1,6 +1,6 @@
 ﻿namespace ProjectDatabase_Ivano
 {
-    partial class FormUbahPassword
+    partial class FormUbahPasswordPengguna
     {
         /// <summary>
         /// Required designer variable.
@@ -50,7 +50,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(799, 39);
             this.label2.TabIndex = 34;
-            this.label2.Text = "UBAH PASSWORD";
+            this.label2.Text = "UBAH PASSWORD PENGGUNA";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonKeluar
@@ -153,7 +153,7 @@
             this.label8.TabIndex = 41;
             this.label8.Text = "Password Lama :";
             // 
-            // FormUbahPassword
+            // FormUbahPasswordPengguna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -162,7 +162,7 @@
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonUbah);
             this.Controls.Add(this.label2);
-            this.Name = "FormUbahPassword";
+            this.Name = "FormUbahPasswordPengguna";
             this.Text = "Ubah Password";
             this.Load += new System.EventHandler(this.FormUbahPassword_Load);
             this.panel1.ResumeLayout(false);

@@ -133,6 +133,7 @@
             this.dataGridViewEmployee.RowHeadersWidth = 51;
             this.dataGridViewEmployee.Size = new System.Drawing.Size(803, 287);
             this.dataGridViewEmployee.TabIndex = 36;
+            this.dataGridViewEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployee_CellContentClick);
             // 
             // FormDaftarEmployee
             // 
