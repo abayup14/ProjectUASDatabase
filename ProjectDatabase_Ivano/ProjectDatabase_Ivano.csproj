@@ -61,6 +61,12 @@
     <Compile Include="FormDaftarEmployee.Designer.cs">
       <DependentUpon>FormDaftarEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarInbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarInbox.Designer.cs">
+      <DependentUpon>FormDaftarInbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDaftarPosition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,12 @@
     <Compile Include="FormUbahEmployee.Designer.cs">
       <DependentUpon>FormUbahEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUbahInbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUbahInbox.Designer.cs">
+      <DependentUpon>FormUbahInbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUbahJenisTransaksi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +180,9 @@
     <EmbeddedResource Include="FormDaftarEmployee.resx">
       <DependentUpon>FormDaftarEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarInbox.resx">
+      <DependentUpon>FormDaftarInbox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarPosition.resx">
       <DependentUpon>FormDaftarPosition.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUbahEmployee.resx">
       <DependentUpon>FormUbahEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUbahInbox.resx">
+      <DependentUpon>FormUbahInbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUbahJenisTransaksi.resx">
       <DependentUpon>FormUbahJenisTransaksi.cs</DependentUpon>
