@@ -71,6 +71,7 @@ namespace ProjectDatabase_Ivano
             this.textBoxNilaiKriteria.Name = "textBoxNilaiKriteria";
             this.textBoxNilaiKriteria.Size = new System.Drawing.Size(335, 24);
             this.textBoxNilaiKriteria.TabIndex = 2;
+            this.textBoxNilaiKriteria.TextChanged += new System.EventHandler(this.textBoxNilaiKriteria_TextChanged);
             // 
             // comboBoxKriteria
             // 
@@ -90,6 +91,7 @@ namespace ProjectDatabase_Ivano
             this.comboBoxKriteria.Name = "comboBoxKriteria";
             this.comboBoxKriteria.Size = new System.Drawing.Size(268, 26);
             this.comboBoxKriteria.TabIndex = 1;
+            this.comboBoxKriteria.SelectedIndexChanged += new System.EventHandler(this.comboBoxKriteria_SelectedIndexChanged);
             // 
             // label2
             // 

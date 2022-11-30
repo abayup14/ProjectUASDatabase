@@ -91,7 +91,7 @@ namespace ProjectDatabase_Ivano
             if (e.ColumnIndex == dataGridViewJabatan.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
             {
                 //ambil kode kategori dari kolom dengan nama KodeKategori pada row yang sedang diklik
-                string pKodeKategori = dataGridViewJabatan.CurrentRow.Cells["PositionID"].Value.ToString();
+                int pKodeKategori = int.Parse(dataGridViewJabatan.CurrentRow.Cells["PositionID"].Value.ToString());
 
                 //buat objek kategori baru untuk menampung hasil pengambilan data kategori sesuai kode yang dikirim
                 Position p = Position.AmbilDataByCode(pKodeKategori);

@@ -24,6 +24,7 @@ namespace ProjectDatabase_Ivano
             listInbox = Inbox.BacaData("", "");
             if (listInbox.Count > 0)
             {
+                dataGridViewInbox.DataSource = listInbox;
                 if (dataGridViewInbox.ColumnCount == 6)
                 {
                     DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
@@ -74,7 +75,7 @@ namespace ProjectDatabase_Ivano
             }
             else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
-                string id_pesan = dataGridViewInbox.CurrentRow.Cells["id_pesan"].Value.ToString();
+                int id_pesan = int.Parse(dataGridViewInbox.CurrentRow.Cells["id_pesan"].Value.ToString());
                 string pesan= dataGridViewInbox.CurrentRow.Cells["pesan"].Value.ToString();
                 DateTime tanggal_kirim = DateTime.Parse(dataGridViewInbox.CurrentRow.Cells["tanggal_kirim"].Value.ToString());
                 string staus = dataGridViewInbox.CurrentRow.Cells["status"].Value.ToString();
@@ -82,6 +83,54 @@ namespace ProjectDatabase_Ivano
                 DialogResult hasil = MessageBox.Show("Apakah anda ingin menghapus " +
                     "id_pesan = " + id_pesan + "\npesan = " + pesan + "\ntanggal_kirim" + tanggal_kirim +
                     "\nstatus = " + staus + "\ntgl_perubahan" + tgl_perubahan, "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (hasil == DialogResult.Yes)
+                {
+                    Inbox i = new Inbox(id_pesan, pesan, tanggal_kirim, staus, tgl_perubahan);
+                    Inbox.HapusData(i);
+                    MessageBox.Show("Data berhasil dihapus.", "Informasi");
+                    FormDaftarInbox_Load(buttonKeluar, e);
+                }
+            }
+        }
+
+        private void textBoxNilaiKriteria_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBoxKriteria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxKriteria.Text == "id_pengguna")
+            {
+                listInbox = Inbox.BacaData("id_pengguna", textBoxNilaiKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "id_pesan")
+            {
+                listInbox = Inbox.BacaData("id_pesan", textBoxNilaiKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "pesan")
+            {
+                listInbox = Inbox.BacaData("pesan", textBoxNilaiKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "tanggal_kirim")
+            {
+                listInbox = Inbox.BacaData("tanggal_kirim", textBoxNilaiKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "status")
+            {
+                listInbox = Inbox.BacaData("status", textBoxNilaiKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "tgl_perubahan")
+            {
+                listInbox = Inbox.BacaData("tgl_perubahan", textBoxNilaiKriteria.Text);
+            }
+            if (listInbox.Count > 0)
+            {
+                dataGridViewInbox.DataSource = listInbox;
+            }
+            else
+            {
+                dataGridViewInbox.DataSource = null;
             }
         }
     }
