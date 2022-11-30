@@ -96,7 +96,7 @@
             // textBoxKonfirmasiPasswordBaru
             // 
             this.textBoxKonfirmasiPasswordBaru.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKonfirmasiPasswordBaru.Location = new System.Drawing.Point(332, 118);
+            this.textBoxKonfirmasiPasswordBaru.Location = new System.Drawing.Point(306, 118);
             this.textBoxKonfirmasiPasswordBaru.Name = "textBoxKonfirmasiPasswordBaru";
             this.textBoxKonfirmasiPasswordBaru.Size = new System.Drawing.Size(421, 24);
             this.textBoxKonfirmasiPasswordBaru.TabIndex = 46;
@@ -107,7 +107,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(66, 121);
+            this.label3.Location = new System.Drawing.Point(40, 121);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(219, 18);
             this.label3.TabIndex = 45;
@@ -116,7 +116,7 @@
             // textBoxPasswordBaru
             // 
             this.textBoxPasswordBaru.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPasswordBaru.Location = new System.Drawing.Point(332, 69);
+            this.textBoxPasswordBaru.Location = new System.Drawing.Point(306, 69);
             this.textBoxPasswordBaru.Name = "textBoxPasswordBaru";
             this.textBoxPasswordBaru.Size = new System.Drawing.Size(421, 24);
             this.textBoxPasswordBaru.TabIndex = 44;
@@ -127,7 +127,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(152, 72);
+            this.label1.Location = new System.Drawing.Point(126, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 18);
             this.label1.TabIndex = 43;
@@ -136,7 +136,7 @@
             // textBoxPasswordLama
             // 
             this.textBoxPasswordLama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPasswordLama.Location = new System.Drawing.Point(332, 20);
+            this.textBoxPasswordLama.Location = new System.Drawing.Point(306, 20);
             this.textBoxPasswordLama.Name = "textBoxPasswordLama";
             this.textBoxPasswordLama.Size = new System.Drawing.Size(421, 24);
             this.textBoxPasswordLama.TabIndex = 42;
@@ -147,7 +147,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(146, 23);
+            this.label8.Location = new System.Drawing.Point(120, 23);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(139, 18);
             this.label8.TabIndex = 41;
