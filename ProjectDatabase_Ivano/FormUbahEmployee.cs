@@ -21,6 +21,10 @@ namespace ProjectDatabase_Ivano
         private void FormUbahEmployee_Load(object sender, EventArgs e)
         {
             List<Position> listPosition = Position.BacaData("", "");
+
+            comboBoxPosition.DataSource = listPosition;
+
+            comboBoxPosition.DisplayMember = "Nama";
         }
     }
 }
