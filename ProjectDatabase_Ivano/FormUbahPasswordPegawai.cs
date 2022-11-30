@@ -20,17 +20,17 @@ namespace ProjectDatabase_Ivano
 
         private void FormUbahPasswordPegawai_Load(object sender, EventArgs e)
         {
-            textBoxPasswordLama.Text = "Masukkan password lama anda";
-            textBoxPasswordLama.Font = new Font(textBoxPasswordLama.Font, FontStyle.Italic);
-            textBoxPasswordLama.ForeColor = Color.Gray;
+            //textBoxPasswordLama.Text = "Masukkan password lama anda";
+            //textBoxPasswordLama.Font = new Font(textBoxPasswordLama.Font, FontStyle.Italic);
+            //textBoxPasswordLama.ForeColor = Color.Gray;
 
-            textBoxPasswordBaru.Text = "Masukkan password baru anda";
-            textBoxPasswordBaru.Font = new Font(textBoxPasswordBaru.Font, FontStyle.Italic);
-            textBoxPasswordBaru.ForeColor = Color.Gray;
+            //textBoxPasswordBaru.Text = "Masukkan password baru anda";
+            //textBoxPasswordBaru.Font = new Font(textBoxPasswordBaru.Font, FontStyle.Italic);
+            //textBoxPasswordBaru.ForeColor = Color.Gray;
 
-            textBoxKonfirmasiPasswordBaru.Text = "Masukkan kembali password baru anda";
-            textBoxKonfirmasiPasswordBaru.Font = new Font(textBoxKonfirmasiPasswordBaru.Font, FontStyle.Italic);
-            textBoxKonfirmasiPasswordBaru.ForeColor = Color.Gray;
+            //textBoxKonfirmasiPasswordBaru.Text = "Masukkan kembali password baru anda";
+            //textBoxKonfirmasiPasswordBaru.Font = new Font(textBoxKonfirmasiPasswordBaru.Font, FontStyle.Italic);
+            //textBoxKonfirmasiPasswordBaru.ForeColor = Color.Gray;
         }
 
         private void buttonUbah_Click(object sender, EventArgs e)
@@ -45,14 +45,14 @@ namespace ProjectDatabase_Ivano
                 {
                     DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin mengubah password anda?", "Konfirmasi", MessageBoxButtons.YesNo,
                                                          MessageBoxIcon.Question);
-                    if(DialogResult == DialogResult.Yes)
+                    if(hasil == DialogResult.Yes)
                     {
                         FormDaftarEmployee formDaftarEmployee = (FormDaftarEmployee)this.Owner;
 
-                        int id = (int)formDaftarEmployee.dataGridViewEmployee.CurrentRow.Cells["id"].Value;
+                        int id = int.Parse(formDaftarEmployee.dataGridViewEmployee.CurrentRow.Cells["id"].Value.ToString());
                         string namaDepan = formDaftarEmployee.dataGridViewEmployee.CurrentRow.Cells["nama_depan"].Value.ToString();
                         string namaKeluarga = formDaftarEmployee.dataGridViewEmployee.CurrentRow.Cells["nama_keluarga"].Value.ToString();
-                        Position position = new Position(formDaftarEmployee.dataGridViewEmployee.CurrentRow.Cells["position"].Value.ToString());
+                        Position position = Position.AmbilDataByCode(id);
                         string nik = formDaftarEmployee.dataGridViewEmployee.CurrentRow.Cells["nik"].Value.ToString();
                         string email = formDaftarEmployee.dataGridViewEmployee.CurrentRow.Cells["email"].Value.ToString();
                         string password = formDaftarEmployee.dataGridViewEmployee.CurrentRow.Cells["password"].Value.ToString();
@@ -61,7 +61,12 @@ namespace ProjectDatabase_Ivano
                         Employee em = new Employee(id, namaDepan, namaKeluarga, position, nik, email, password, tglBuat, DateTime.Now);
 
                         Employee.UbahPassword(em, textBoxPasswordLama.Text, textBoxPasswordBaru.Text);
+
                         MessageBox.Show("Password anda berhasil diubah.", "Informasi");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Gagal");
                     }
                 }
             }
@@ -69,6 +74,15 @@ namespace ProjectDatabase_Ivano
             {
                 MessageBox.Show("Gagal mengubah password anda. Pesan kesalahan : " + ex.Message, "Kesalahan");
             }
+        }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            FormDaftarEmployee formDaftarEmployee = (FormDaftarEmployee)this.Owner;
+
+            formDaftarEmployee.FormDaftarEmployee_Load(buttonKeluar, e);
+
+            Close();
         }
     }
 }
