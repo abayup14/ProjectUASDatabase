@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiBa_LIB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormDaftarEmployee : Form
     {
+        List<Employee> listEmployee;
+
         public FormDaftarEmployee()
         {
             InitializeComponent();
@@ -24,6 +27,20 @@ namespace ProjectDatabase_Ivano
             formTambahEmployee.Owner = this;
 
             formTambahEmployee.Show();
+        }
+
+        private void FormDaftarEmployee_Load(object sender, EventArgs e)
+        {
+            listEmployee = Employee.BacaData("", "");
+
+            if (listEmployee.Count > 0)
+            {
+                dataGridViewEmployee.DataSource = listEmployee;
+            }
+            else
+            {
+                dataGridViewEmployee.DataSource = null;
+            }
         }
     }
 }

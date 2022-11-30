@@ -13,8 +13,8 @@ namespace DiBa_LIB
         private int id;
         private string nama_depan;
         private string nama_keluarga;
-        private Position position;
         private string nik;
+        private Position position;
         private string email;
         private string password;
         private DateTime tgl_buat;
@@ -28,12 +28,12 @@ namespace DiBa_LIB
             this.Id = id;
             this.Nama_depan = nama_depan;
             this.Nama_keluarga = nama_keluarga;
-            this.Position = position;
             this.Nik = nik;
             this.Email = email;
             this.Password = password;
             this.Tgl_buat = tgl_buat;
             this.Tgl_perubahan = tgl_perubahan;
+            this.Position = position;
         }
         #endregion
 
@@ -56,12 +56,12 @@ namespace DiBa_LIB
 
             if (kriteria == "")
             {
-                sql = "SELECT e.id, e.nama_depan, e.nama_keluarga, e.position, e.nik, e.email, e.password, e.tgl_buat, e.tgl_perubahan " +
+                sql = "SELECT e.id, e.nama_depan, e.nama_keluarga, p.nama as nama_position, e.nik, e.email, e.password, e.tgl_buat, e.tgl_perubahan " +
                       "FROM employee e INNER JOIN position p ON e.position = p.id";
             }
             else
             {
-                sql = "SELECT e.id, e.nama_depan, e.nama_keluarga, e.position, e.nik, e.email, e.password, e.tgl_buat, e.tgl_perubahan " +
+                sql = "SELECT e.id, e.nama_depan, e.nama_keluarga, p.nama as nama_position, e.nik, e.email, e.password, e.tgl_buat, e.tgl_perubahan " +
                       "FROM employee e INNER JOIN position p ON e.position = p.id " +
                       "WHERE " + kriteria + " LIKE '%" + nilaiKriteria + "%'";
             }
@@ -72,35 +72,35 @@ namespace DiBa_LIB
 
             while (hasil.Read() == true)
             {
-                Position p = new Position(int.Parse(hasil.GetString(3)), hasil.GetString(4), hasil.GetString(5));
+                Position p = new Position(hasil.GetValue(3).ToString());
 
-                Employee e = new Employee(int.Parse(hasil.GetString(0)), hasil.GetString(1), hasil.GetString(2), p, hasil.GetString(6),
-                                          hasil.GetString(7), hasil.GetString(8), DateTime.Parse(hasil.GetString(9)), DateTime.Parse(hasil.GetString(10)));
+                Employee em = new Employee(int.Parse(hasil.GetValue(0).ToString()), hasil.GetValue(1).ToString(), hasil.GetString(2), p, hasil.GetString(4),
+                                          hasil.GetString(5), hasil.GetString(6), DateTime.Parse(hasil.GetString(7)), DateTime.Parse(hasil.GetString(8)));
 
-                listEmployee.Add(e);
+                listEmployee.Add(em);
             }
 
             return listEmployee;
         }
-        public static void TambahData(Employee e)
+        public static void TambahData(Employee em)
         {
             string sql = "INSERT into employee (id, nama_depan, nama_keluarga, position, nik, email, password, tgl_buat, tgl_perubahan) " +
-                         "values (" + e.Id + ", '" + e.Nama_depan + "', '" + e.Nama_keluarga + "', " + e.Position.PositionID + ", '" + e.Nik +
-                         "', '" + e.Email + "', '" + e.Password + "', '" + e.Tgl_buat + "', '" + e.Tgl_perubahan + "')";
+                         "values ('" + em.Id + "', '" + em.Nama_depan + "', '" + em.Nama_keluarga + "', '" + em.Position.PositionID + "', '" + em.Nik +
+                         "', '" + em.Email + "', '" + em.Password + "', '" + em.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + em.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
             Koneksi.JalankanPerintahDML(sql);
         }
-        public static void UbahData(Employee e)
+        public static void UbahData(Employee em)
         {
-            string sql = "UPDATE employee set nama_depan = '" + e.Nama_depan + "', nama_keluarga = '" + e.Nama_keluarga + "', position = " +
-                         e.Position.PositionID + ", email = '" + e.Email + "', password = '" + e.Password + "', tgl_buat = '" + e.Tgl_buat + "', " +
-                         "tgl_perubahan = '" + e.Tgl_perubahan + "' where id = " + e.Id;
+            string sql = "UPDATE employee set nama_depan = '" + em.Nama_depan + "', nama_keluarga = '" + em.Nama_keluarga + "', position = " +
+                         em.Position.PositionID + ", email = '" + em.Email + "', password = '" + em.Password + "', tgl_buat = '" + em.Tgl_buat + "', " +
+                         "tgl_perubahan = '" + em.Tgl_perubahan + "' where id = " + em.Id;
 
             Koneksi.JalankanPerintahDML(sql);
         }
-        public static void HapusData(Employee e)
+        public static void HapusData(Employee em)
         {
-            string sql = "DELETE from employee where id = " + e.id;
+            string sql = "DELETE from employee where id = " + em.id;
 
             Koneksi.JalankanPerintahDML(sql);
         }
@@ -114,9 +114,9 @@ namespace DiBa_LIB
 
             if (hasil.Read() == true)
             {
-                if (hasil.GetString(0) != "")
+                if (hasil.GetValue(0).ToString() != "")
                 {
-                    hasilKode = int.Parse(hasil.GetString(0)) + 1;
+                    hasilKode = int.Parse(hasil.GetValue(0).ToString()) + 1;
                 }
                 else
                 {

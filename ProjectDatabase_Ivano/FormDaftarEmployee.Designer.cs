@@ -146,6 +146,7 @@
             this.Controls.Add(this.dataGridViewEmployee);
             this.Name = "FormDaftarEmployee";
             this.Text = "Daftar Employee";
+            this.Load += new System.EventHandler(this.FormDaftarEmployee_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).EndInit();

@@ -13,6 +13,7 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormTambahEmployee : Form
     {
+        List<Employee> listEmployee = new List<Employee>();
         public FormTambahEmployee()
         {
             InitializeComponent();
@@ -24,11 +25,18 @@ namespace ProjectDatabase_Ivano
             {
                 Position positionDipilih = (Position)comboBoxPosition.SelectedItem;
 
+                int id = Employee.GenerateKode();
 
+                Employee em = new Employee(id, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, positionDipilih, textBoxNIK.Text,
+                                          textBoxEmail.Text, textBoxPassword.Text, DateTime.Now, DateTime.Now);
+
+                Employee.TambahData(em);
+
+                MessageBox.Show("Data employee berhasil ditambah.", "Informasi");
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
+                MessageBox.Show("Data employee gagal ditambahkan. Pesan kesalahan : " + ex.Message, "Kesalahan");
             }
         }
 

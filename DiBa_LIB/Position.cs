@@ -20,6 +20,10 @@ namespace DiBa_LIB
         {
             PositionID = positionID;
         }
+        public Position(string nama)
+        {
+            Nama = nama;
+        }
 
         public Position(int positionID, string nama, string keterangan)
         {
@@ -100,6 +104,10 @@ namespace DiBa_LIB
             string perintah = "delete from position where id='" + p.PositionID + "'";
 
             Koneksi.JalankanPerintahDML(perintah);
+        }
+        public override string ToString()
+        {
+            return Nama;
         }
         #endregion
     }
