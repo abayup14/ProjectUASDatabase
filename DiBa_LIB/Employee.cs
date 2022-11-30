@@ -138,6 +138,25 @@ namespace DiBa_LIB
 
             return hasilKode;
         }
+        public static Employee CekLogin(string email, string password)
+        {
+            string sql = "SELECT * from employee WHERE email = '" + email + "' AND password = SHA2('" + password + "', 512)";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            while (hasil.Read() == true)
+            {
+                Position p = new Position(hasil.GetValue(3).ToString());
+
+                Employee em = new Employee(int.Parse(hasil.GetValue(0).ToString()), hasil.GetString(1), hasil.GetString(2), p,
+                                           hasil.GetString(4), hasil.GetString(5), hasil.GetString(6), DateTime.Parse(hasil.GetString(7)),
+                                           DateTime.Parse(hasil.GetString(8)));
+
+                return em;
+            }
+
+            return null;
+        }
         /*public static Employee AmbilDataByKode(int id)
         {
             string sql = "SELECT e.id, e.nama_depan, e.nama_keluarga, p.nama as nama_position, e.nik, e.email, e.password, e.tgl_buat, e.tgl_perubahan " +

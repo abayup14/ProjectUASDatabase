@@ -20,17 +20,19 @@ namespace ProjectDatabase_Ivano
 
         private void FormUbahPasswordPegawai_Load(object sender, EventArgs e)
         {
-            //textBoxPasswordLama.Text = "Masukkan password lama anda";
-            //textBoxPasswordLama.Font = new Font(textBoxPasswordLama.Font, FontStyle.Italic);
-            //textBoxPasswordLama.ForeColor = Color.Gray;
+            ActiveControl = label1;
 
-            //textBoxPasswordBaru.Text = "Masukkan password baru anda";
-            //textBoxPasswordBaru.Font = new Font(textBoxPasswordBaru.Font, FontStyle.Italic);
-            //textBoxPasswordBaru.ForeColor = Color.Gray;
+            textBoxPasswordLama.Text = "Masukkan password lama anda";
+            textBoxPasswordLama.Font = new Font(textBoxPasswordLama.Font, FontStyle.Italic);
+            textBoxPasswordLama.ForeColor = Color.Gray;
 
-            //textBoxKonfirmasiPasswordBaru.Text = "Masukkan kembali password baru anda";
-            //textBoxKonfirmasiPasswordBaru.Font = new Font(textBoxKonfirmasiPasswordBaru.Font, FontStyle.Italic);
-            //textBoxKonfirmasiPasswordBaru.ForeColor = Color.Gray;
+            textBoxPasswordBaru.Text = "Masukkan password baru anda";
+            textBoxPasswordBaru.Font = new Font(textBoxPasswordBaru.Font, FontStyle.Italic);
+            textBoxPasswordBaru.ForeColor = Color.Gray;
+
+            textBoxKonfirmasiPasswordBaru.Text = "Masukkan kembali password baru anda";
+            textBoxKonfirmasiPasswordBaru.Font = new Font(textBoxKonfirmasiPasswordBaru.Font, FontStyle.Italic);
+            textBoxKonfirmasiPasswordBaru.ForeColor = Color.Gray;
         }
 
         private void buttonUbah_Click(object sender, EventArgs e)
@@ -64,10 +66,6 @@ namespace ProjectDatabase_Ivano
 
                         MessageBox.Show("Password anda berhasil diubah.", "Informasi");
                     }
-                    else
-                    {
-                        MessageBox.Show("Gagal");
-                    }
                 }
             }
             catch(Exception ex)
@@ -83,6 +81,72 @@ namespace ProjectDatabase_Ivano
             formDaftarEmployee.FormDaftarEmployee_Load(buttonKeluar, e);
 
             Close();
+        }
+
+        private void textBoxPasswordLama_Enter(object sender, EventArgs e)
+        {
+            if (textBoxPasswordLama.Text == "Masukkan password lama anda")
+            {
+                textBoxPasswordLama.Text = "";
+                textBoxPasswordLama.Font = new Font(textBoxPasswordLama.Font, FontStyle.Regular);
+                textBoxPasswordLama.UseSystemPasswordChar = true;
+                textBoxPasswordLama.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxPasswordLama_Leave(object sender, EventArgs e)
+        {
+            if (textBoxPasswordLama.Text == "")
+            {
+                textBoxPasswordLama.Text = "Masukkan password lama anda";
+                textBoxPasswordLama.Font = new Font(textBoxPasswordLama.Font, FontStyle.Italic);
+                textBoxPasswordLama.UseSystemPasswordChar = false;
+                textBoxPasswordLama.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBoxPasswordBaru_Enter(object sender, EventArgs e)
+        {
+            if (textBoxPasswordBaru.Text == "Masukkan password baru anda")
+            {
+                textBoxPasswordBaru.Text = "";
+                textBoxPasswordBaru.Font = new Font(textBoxPasswordBaru.Font, FontStyle.Regular);
+                textBoxPasswordBaru.UseSystemPasswordChar = true;
+                textBoxPasswordBaru.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxPasswordBaru_Leave(object sender, EventArgs e)
+        {
+            if (textBoxPasswordBaru.Text == "")
+            {
+                textBoxPasswordBaru.Text = "Masukkan password baru anda";
+                textBoxPasswordBaru.Font = new Font(textBoxPasswordBaru.Font, FontStyle.Italic);
+                textBoxPasswordBaru.UseSystemPasswordChar = false;
+                textBoxPasswordBaru.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBoxKonfirmasiPasswordBaru_Enter(object sender, EventArgs e)
+        {
+            if (textBoxKonfirmasiPasswordBaru.Text == "Masukkan kembali password baru anda")
+            {
+                textBoxKonfirmasiPasswordBaru.Text = "";
+                textBoxKonfirmasiPasswordBaru.Font = new Font(textBoxKonfirmasiPasswordBaru.Font, FontStyle.Regular);
+                textBoxKonfirmasiPasswordBaru.UseSystemPasswordChar = true;
+                textBoxKonfirmasiPasswordBaru.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxKonfirmasiPasswordBaru_Leave(object sender, EventArgs e)
+        {
+            if (textBoxKonfirmasiPasswordBaru.Text == "")
+            {
+                textBoxKonfirmasiPasswordBaru.Text = "Masukkan kembali password baru anda";
+                textBoxKonfirmasiPasswordBaru.Font = new Font(textBoxKonfirmasiPasswordBaru.Font, FontStyle.Italic);
+                textBoxKonfirmasiPasswordBaru.UseSystemPasswordChar = false;
+                textBoxKonfirmasiPasswordBaru.ForeColor = Color.Gray;
+            }
         }
     }
 }

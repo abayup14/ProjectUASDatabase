@@ -9,13 +9,16 @@ namespace DiBa_LIB
 {
     public class Inbox
     {
+        #region Data Members
         private Pengguna pengguna;
         private int id;
         private string pesan;
         private DateTime tanggal_kirim;
         private string status;
         private DateTime tanggal_perubahan;
+        #endregion
 
+        #region Constructors
         public Inbox(Pengguna pengguna, int id, string pesan, DateTime tanggal_kirim, string status, DateTime tanggal_perubahan)
         {
             this.Pengguna = pengguna;
@@ -25,26 +28,30 @@ namespace DiBa_LIB
             this.Status = status;
             this.Tanggal_perubahan = tanggal_perubahan;
         }
+        #endregion
 
+        #region Properties
         public Pengguna Pengguna { get => pengguna; set => pengguna = value; }
         public int Id { get => id; set => id = value; }
         public string Pesan { get => pesan; set => pesan = value; }
         public DateTime Tanggal_kirim { get => tanggal_kirim; set => tanggal_kirim = value; }
         public string Status { get => status; set => status = value; }
         public DateTime Tanggal_perubahan { get => tanggal_perubahan; set => tanggal_perubahan = value; }
+        #endregion
 
+        #region Methods
         public static List<Inbox> BacaData(string kriteria, string nilaiKriteria)
         {
             string sql = "";
             if (kriteria == "")
             {
-                sql = "select i.id_pengguna, i.id_pesan, i.pesan, i,tanggal_kirim, i.status, i.tgl_perubahan from " +
-                    "pengguna p inner join inbox i on p.nik = i.id_pengguna";
+                sql = "select i.id_pengguna, i.id_pesan, i.pesan, i.tanggal_kirim, i.status, i.tgl_perubahan from " +
+                    "inbox i inner join pengguna p on p.nik = i.id_pengguna";
             }
             else
             { 
-                sql = "select i.id_pengguna, i.id_pesan, i.pesan, i,tanggal_kirim, i.status, i.tgl_perubahan from " +
-                    "pengguna p inner join inbox i on p.nik = i.id_pengguna where "+kriteria+" LIKE '%"+nilaiKriteria+"%'";
+                sql = "select i.id_pengguna, i.id_pesan, i.pesan, i.tanggal_kirim, i.status, i.tgl_perubahan from " +
+                    "inbox i inner join pengguna p on p.nik = i.id_pengguna where "+kriteria+" LIKE '%"+nilaiKriteria+"%'";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
             List<Inbox> listInbox = new List<Inbox>();
@@ -81,5 +88,6 @@ namespace DiBa_LIB
 
             Koneksi.JalankanPerintahDML(sql);
         }
+        #endregion
     }
 }

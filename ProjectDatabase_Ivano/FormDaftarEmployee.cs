@@ -101,8 +101,25 @@ namespace ProjectDatabase_Ivano
             {
                 int id = int.Parse(dataGridViewEmployee.CurrentRow.Cells["id"].Value.ToString());
 
-                DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin menghapus data di atas ?", "Konfirmasi", MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Question);
+                string nik = dataGridViewEmployee.CurrentRow.Cells["nik"].Value.ToString();
+
+                string namaDepan = dataGridViewEmployee.CurrentRow.Cells["nama_depan"].Value.ToString();
+
+                string namaKeluarga = dataGridViewEmployee.CurrentRow.Cells["nama_keluarga"].Value.ToString();
+
+                string email = dataGridViewEmployee.CurrentRow.Cells["email"].Value.ToString();
+
+                string position = dataGridViewEmployee.CurrentRow.Cells["position"].Value.ToString();
+
+                DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah : " +
+                                                     "\nId Pegawai : " + id +
+                                                     "\nNIK : " + nik +
+                                                     "\nNama Depan : " + namaDepan + 
+                                                     "\nNama Keluarga : " + namaKeluarga +
+                                                     "\nEmail : " + email + 
+                                                     "\nPosition : " + position + 
+                                                     "\n\nApakah anda yakin ingin menghapus data di atas ?", "Konfirmasi", 
+                                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (hasil == DialogResult.Yes)
                 {

@@ -62,6 +62,8 @@
             this.textBoxKonfirmasiPasswordBaru.Name = "textBoxKonfirmasiPasswordBaru";
             this.textBoxKonfirmasiPasswordBaru.Size = new System.Drawing.Size(421, 24);
             this.textBoxKonfirmasiPasswordBaru.TabIndex = 46;
+            this.textBoxKonfirmasiPasswordBaru.Enter += new System.EventHandler(this.textBoxKonfirmasiPasswordBaru_Enter);
+            this.textBoxKonfirmasiPasswordBaru.Leave += new System.EventHandler(this.textBoxKonfirmasiPasswordBaru_Leave);
             // 
             // label3
             // 
@@ -80,6 +82,8 @@
             this.textBoxPasswordBaru.Name = "textBoxPasswordBaru";
             this.textBoxPasswordBaru.Size = new System.Drawing.Size(421, 24);
             this.textBoxPasswordBaru.TabIndex = 44;
+            this.textBoxPasswordBaru.Enter += new System.EventHandler(this.textBoxPasswordBaru_Enter);
+            this.textBoxPasswordBaru.Leave += new System.EventHandler(this.textBoxPasswordBaru_Leave);
             // 
             // label1
             // 
@@ -98,6 +102,8 @@
             this.textBoxPasswordLama.Name = "textBoxPasswordLama";
             this.textBoxPasswordLama.Size = new System.Drawing.Size(421, 24);
             this.textBoxPasswordLama.TabIndex = 42;
+            this.textBoxPasswordLama.Enter += new System.EventHandler(this.textBoxPasswordLama_Enter);
+            this.textBoxPasswordLama.Leave += new System.EventHandler(this.textBoxPasswordLama_Leave);
             // 
             // label8
             // 
