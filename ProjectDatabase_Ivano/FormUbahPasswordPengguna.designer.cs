@@ -163,7 +163,7 @@
             this.Controls.Add(this.buttonUbah);
             this.Controls.Add(this.label2);
             this.Name = "FormUbahPasswordPengguna";
-            this.Text = "Ubah Password";
+            this.Text = "Ubah Password Pengguna";
             this.Load += new System.EventHandler(this.FormUbahPassword_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -22,8 +22,9 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                int id = Position.GenerateKode();
                 
-                Position p = new Position(int.Parse(textBoxIdJabatan.Text), textBoxNamaJabatan.Text, textBoxKeterangan.Text);
+                Position p = new Position(id, textBoxNamaJabatan.Text, textBoxKeterangan.Text);
 
                 Position.TambahData(p);
 
@@ -37,9 +38,9 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKosongi_Click(object sender, EventArgs e)
         {
-            textBoxIdJabatan.Clear();
             textBoxNamaJabatan.Clear();
-            textBoxIdJabatan.Focus();
+            textBoxKeterangan.Clear();
+            textBoxNamaJabatan.Focus();
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)

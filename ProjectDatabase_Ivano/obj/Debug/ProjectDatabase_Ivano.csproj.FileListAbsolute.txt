@@ -79,3 +79,5 @@ D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Iva
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahEmployee.resources
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahPasswordPegawai.resources
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahPasswordPengguna.resources
+D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarInbox.resources
+D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahInbox.resources

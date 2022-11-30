@@ -87,8 +87,6 @@ namespace ProjectDatabase_Ivano
 
                 formUbahEmployee.textBoxEmail.Text = dataGridViewEmployee.CurrentRow.Cells["email"].Value.ToString();
 
-                formUbahEmployee.textBoxNomorTelepon.Text = dataGridViewEmployee.CurrentRow.Cells["no_telepon"].Value.ToString();
-
                 formUbahEmployee.ShowDialog();
             }
             else if (e.ColumnIndex == dataGridViewEmployee.Columns["buttonUbahPasswordGrid"].Index && e.RowIndex >= 0)
