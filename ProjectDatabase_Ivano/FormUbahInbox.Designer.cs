@@ -29,72 +29,132 @@ namespace ProjectDatabase_Ivano
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxIdPesan = new System.Windows.Forms.TextBox();
             this.textBoxPesan = new System.Windows.Forms.TextBox();
-            this.dateTimePickerTanggal_Kirim = new System.Windows.Forms.DateTimePicker();
-            this.textBoxStatus = new System.Windows.Forms.TextBox();
-            this.dateTimePickertgl_Perubahan = new System.Windows.Forms.DateTimePicker();
+            this.labelInbox = new System.Windows.Forms.Label();
+            this.buttonKeluar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxPosition = new System.Windows.Forms.ComboBox();
+            this.buttonKirim = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBoxIdPesan
-            // 
-            this.textBoxIdPesan.Location = new System.Drawing.Point(74, 35);
-            this.textBoxIdPesan.Name = "textBoxIdPesan";
-            this.textBoxIdPesan.Size = new System.Drawing.Size(100, 22);
-            this.textBoxIdPesan.TabIndex = 0;
             // 
             // textBoxPesan
             // 
-            this.textBoxPesan.Location = new System.Drawing.Point(52, 91);
+            this.textBoxPesan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesan.Location = new System.Drawing.Point(236, 104);
+            this.textBoxPesan.Multiline = true;
             this.textBoxPesan.Name = "textBoxPesan";
-            this.textBoxPesan.Size = new System.Drawing.Size(100, 22);
-            this.textBoxPesan.TabIndex = 1;
+            this.textBoxPesan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxPesan.Size = new System.Drawing.Size(426, 93);
+            this.textBoxPesan.TabIndex = 8;
             // 
-            // dateTimePickerTanggal_Kirim
+            // labelInbox
             // 
-            this.dateTimePickerTanggal_Kirim.Location = new System.Drawing.Point(-27, 186);
-            this.dateTimePickerTanggal_Kirim.Name = "dateTimePickerTanggal_Kirim";
-            this.dateTimePickerTanggal_Kirim.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePickerTanggal_Kirim.TabIndex = 2;
+            this.labelInbox.BackColor = System.Drawing.Color.Navy;
+            this.labelInbox.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInbox.ForeColor = System.Drawing.Color.Transparent;
+            this.labelInbox.Location = new System.Drawing.Point(18, 11);
+            this.labelInbox.Name = "labelInbox";
+            this.labelInbox.Size = new System.Drawing.Size(716, 39);
+            this.labelInbox.TabIndex = 43;
+            this.labelInbox.Text = "UBAH INBOX";
+            this.labelInbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxStatus
+            // buttonKeluar
             // 
-            this.textBoxStatus.Location = new System.Drawing.Point(350, 214);
-            this.textBoxStatus.Name = "textBoxStatus";
-            this.textBoxStatus.Size = new System.Drawing.Size(100, 22);
-            this.textBoxStatus.TabIndex = 3;
+            this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
+            this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKeluar.ForeColor = System.Drawing.Color.White;
+            this.buttonKeluar.Location = new System.Drawing.Point(532, 315);
+            this.buttonKeluar.Name = "buttonKeluar";
+            this.buttonKeluar.Size = new System.Drawing.Size(202, 53);
+            this.buttonKeluar.TabIndex = 45;
+            this.buttonKeluar.Text = "&KELUAR";
+            this.buttonKeluar.UseVisualStyleBackColor = false;
             // 
-            // dateTimePickertgl_Perubahan
+            // label5
             // 
-            this.dateTimePickertgl_Perubahan.Location = new System.Drawing.Point(98, 295);
-            this.dateTimePickertgl_Perubahan.Name = "dateTimePickertgl_Perubahan";
-            this.dateTimePickertgl_Perubahan.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePickertgl_Perubahan.TabIndex = 4;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(134, 107);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 18);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Pesan : ";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.comboBoxPosition);
+            this.panel1.Controls.Add(this.textBoxPesan);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Location = new System.Drawing.Point(18, 66);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(716, 233);
+            this.panel1.TabIndex = 44;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(63, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 18);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Nama Pengguna :";
+            // 
+            // comboBoxPosition
+            // 
+            this.comboBoxPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxPosition.FormattingEnabled = true;
+            this.comboBoxPosition.Location = new System.Drawing.Point(236, 42);
+            this.comboBoxPosition.Name = "comboBoxPosition";
+            this.comboBoxPosition.Size = new System.Drawing.Size(426, 26);
+            this.comboBoxPosition.TabIndex = 17;
+            // 
+            // buttonKirim
+            // 
+            this.buttonKirim.BackColor = System.Drawing.Color.Navy;
+            this.buttonKirim.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKirim.ForeColor = System.Drawing.Color.White;
+            this.buttonKirim.Location = new System.Drawing.Point(18, 315);
+            this.buttonKirim.Name = "buttonKirim";
+            this.buttonKirim.Size = new System.Drawing.Size(202, 53);
+            this.buttonKirim.TabIndex = 46;
+            this.buttonKirim.Text = "&UBAH";
+            this.buttonKirim.UseVisualStyleBackColor = false;
             // 
             // FormUbahInbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dateTimePickertgl_Perubahan);
-            this.Controls.Add(this.textBoxStatus);
-            this.Controls.Add(this.dateTimePickerTanggal_Kirim);
-            this.Controls.Add(this.textBoxPesan);
-            this.Controls.Add(this.textBoxIdPesan);
+            this.ClientSize = new System.Drawing.Size(753, 379);
+            this.Controls.Add(this.labelInbox);
+            this.Controls.Add(this.buttonKeluar);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.buttonKirim);
             this.Name = "FormUbahInbox";
             this.Text = "Ubah Inbox";
             this.Load += new System.EventHandler(this.FormUbahInbox_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        public System.Windows.Forms.TextBox textBoxIdPesan;
-        public System.Windows.Forms.TextBox textBoxPesan;
-        public System.Windows.Forms.DateTimePicker dateTimePickerTanggal_Kirim;
-        public System.Windows.Forms.TextBox textBoxStatus;
-        public System.Windows.Forms.DateTimePicker dateTimePickertgl_Perubahan;
+        private System.Windows.Forms.TextBox textBoxPesan;
+        private System.Windows.Forms.Label labelInbox;
+        private System.Windows.Forms.Button buttonKeluar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxPosition;
+        private System.Windows.Forms.Button buttonKirim;
     }
 }
