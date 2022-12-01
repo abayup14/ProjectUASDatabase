@@ -13,7 +13,6 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormTambahEmployee : Form
     {
-        List<Employee> listEmployee = new List<Employee>();
         public FormTambahEmployee()
         {
             InitializeComponent();
