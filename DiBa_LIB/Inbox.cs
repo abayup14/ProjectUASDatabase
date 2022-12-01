@@ -28,20 +28,7 @@ namespace DiBa_LIB
             this.Status = status;
             this.Tanggal_perubahan = tanggal_perubahan;
         }
-        public Inbox(int id)
-        {
-            Id = id;
-        }
         #endregion
-
-        public Inbox(int id, string pesan, DateTime tanggal_kirim, string status, DateTime tanggal_perubahan)
-        {
-            this.id = id;
-            this.pesan = pesan;
-            this.tanggal_kirim = tanggal_kirim;
-            this.status = status;
-            this.tanggal_perubahan = tanggal_perubahan;
-        }
 
         #region Properties
         public Pengguna Pengguna { get => pengguna; set => pengguna = value; }
@@ -84,14 +71,14 @@ namespace DiBa_LIB
         public static void TambahData(Inbox i)
         {
             string sql = "insert into inbox (id_pesan, pesan, tanggal_kirim, status, tgl_perubahan) values ("+i.Id+", " +
-                "'"+i.Pesan+"', '"+i.Tanggal_kirim+"', '"+i.Status+"', '"+i.Tanggal_perubahan+"')";
+                "'"+i.Pesan+"', '"+i.Tanggal_kirim.ToString("yyyy-MM-dd HH:mm:ss")+"', '"+i.Status+"', '"+i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss")+"')";
             Koneksi.JalankanPerintahDML(sql);
         }
 
         public static void UbahData(Inbox i)
         {
             string sql = "update inbox set id_pesan = "+i.Id+", pesan = '"+i.Pesan+"', tanggal_kirim = '"+
-                i.Tanggal_kirim+"', status = '"+i.Status+"', tgl_perubahan = '"+i.Tanggal_perubahan+"'";
+                i.Tanggal_kirim.ToString("yyyy-MM-dd HH:mm:ss")+"', status = '"+i.Status+"', tgl_perubahan = '"+i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss")+"'";
             Koneksi.JalankanPerintahDML(sql);
         }
 
