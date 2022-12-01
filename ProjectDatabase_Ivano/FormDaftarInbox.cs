@@ -66,11 +66,7 @@ namespace ProjectDatabase_Ivano
             {
                 FormUbahInbox frmUbahInbox = new FormUbahInbox();
                 frmUbahInbox.Owner = this;
-                frmUbahInbox.textBoxIdPesan.Text = dataGridViewInbox.CurrentRow.Cells["id_pesan"].Value.ToString();
                 frmUbahInbox.textBoxPesan.Text = dataGridViewInbox.CurrentRow.Cells["pesan"].Value.ToString();
-                frmUbahInbox.dateTimePickerTanggal_Kirim.Text = dataGridViewInbox.CurrentRow.Cells["tanggal_kirim"].Value.ToString();
-                frmUbahInbox.textBoxStatus.Text = dataGridViewInbox.CurrentRow.Cells["status"].Value.ToString();
-                frmUbahInbox.dateTimePickertgl_Perubahan.Text = dataGridViewInbox.CurrentRow.Cells["tgl_perubahan"].Value.ToString();
                 frmUbahInbox.ShowDialog();
             }
             else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)

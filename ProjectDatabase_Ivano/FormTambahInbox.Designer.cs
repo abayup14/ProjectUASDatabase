@@ -33,9 +33,9 @@
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonKirim = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxPosition = new System.Windows.Forms.ComboBox();
+            this.comboBoxPengguna = new System.Windows.Forms.ComboBox();
+            this.buttonKirim = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,13 +88,33 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.comboBoxPosition);
+            this.panel1.Controls.Add(this.comboBoxPengguna);
             this.panel1.Controls.Add(this.textBoxPesan);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Location = new System.Drawing.Point(17, 64);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(716, 233);
             this.panel1.TabIndex = 39;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(63, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 18);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Nama Pengguna :";
+            // 
+            // comboBoxPengguna
+            // 
+            this.comboBoxPengguna.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPengguna.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxPengguna.FormattingEnabled = true;
+            this.comboBoxPengguna.Location = new System.Drawing.Point(236, 42);
+            this.comboBoxPengguna.Name = "comboBoxPengguna";
+            this.comboBoxPengguna.Size = new System.Drawing.Size(426, 26);
+            this.comboBoxPengguna.TabIndex = 17;
             // 
             // buttonKirim
             // 
@@ -107,26 +127,6 @@
             this.buttonKirim.TabIndex = 42;
             this.buttonKirim.Text = "&KIRIM";
             this.buttonKirim.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(63, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 18);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Nama Pengguna :";
-            // 
-            // comboBoxPosition
-            // 
-            this.comboBoxPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxPosition.FormattingEnabled = true;
-            this.comboBoxPosition.Location = new System.Drawing.Point(236, 42);
-            this.comboBoxPosition.Name = "comboBoxPosition";
-            this.comboBoxPosition.Size = new System.Drawing.Size(426, 26);
-            this.comboBoxPosition.TabIndex = 17;
             // 
             // FormTambahInbox
             // 
@@ -154,6 +154,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonKirim;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxPosition;
+        private System.Windows.Forms.ComboBox comboBoxPengguna;
     }
 }
