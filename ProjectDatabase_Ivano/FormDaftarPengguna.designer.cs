@@ -34,7 +34,6 @@
             this.comboBoxKriteria = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonKeluar = new System.Windows.Forms.Button();
-            this.buttonTambah = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPengguna)).BeginInit();
             this.panel1.SuspendLayout();
@@ -113,19 +112,6 @@
             this.buttonKeluar.UseVisualStyleBackColor = false;
             this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
-            // buttonTambah
-            // 
-            this.buttonTambah.BackColor = System.Drawing.Color.Navy;
-            this.buttonTambah.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(12, 503);
-            this.buttonTambah.Name = "buttonTambah";
-            this.buttonTambah.Size = new System.Drawing.Size(202, 53);
-            this.buttonTambah.TabIndex = 30;
-            this.buttonTambah.Text = "&TAMBAH";
-            this.buttonTambah.UseVisualStyleBackColor = false;
-            this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
-            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Navy;
@@ -147,7 +133,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonKeluar);
-            this.Controls.Add(this.buttonTambah);
             this.Name = "FormDaftarPengguna";
             this.Text = "Daftar Pengguna";
             this.Load += new System.EventHandler(this.FormDaftarPengguna_Load);
@@ -164,7 +149,6 @@
         private System.Windows.Forms.ComboBox comboBoxKriteria;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonKeluar;
-        private System.Windows.Forms.Button buttonTambah;
         public System.Windows.Forms.DataGridView dataGridViewPengguna;
         private System.Windows.Forms.Label label1;
     }

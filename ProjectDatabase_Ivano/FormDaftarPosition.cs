@@ -14,6 +14,7 @@ namespace ProjectDatabase_Ivano
     public partial class FormDaftarPosition : Form
     {
         public List<Position> listPosition = new List<Position>();
+
         public FormDaftarPosition()
         {
             InitializeComponent();
@@ -119,18 +120,26 @@ namespace ProjectDatabase_Ivano
                 string keteranganHapus = dataGridViewJabatan.CurrentRow.Cells["Keterangan"].Value.ToString();
 
                 //konfirmasi
-                DialogResult konfirmasi = MessageBox.Show(this, "Anda yakin ingin menghapus " + idHapus + "-" + namaHapus + "?", "HAPUS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult konfirmasi = MessageBox.Show(this, 
+                                                          "Data yang akan dihapus adalah : " +
+                                                          "\nId Position : " + idHapus + 
+                                                          "\nNama Poition : " + namaHapus + 
+                                                          "\nKeterangan : " + keteranganHapus + 
+                                                          "\n\nAnda yakin ingin menghapus data di atas?", "HAPUS", 
+                                                          MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (konfirmasi == DialogResult.Yes)
                 {
                     //bentuk objek dihapus
-                    Position jabatanHapus = new Position(int.Parse(idHapus), namaHapus, keteranganHapus);
+                    Position jabatanHapus = new Position(int.Parse(idHapus));
 
                     //panggil method hapus data
                     Position.HapusData(jabatanHapus);
 
                     //informasi bahwa berhasil menghapus
                     MessageBox.Show("Penghapusan data berhasil");
+
+                    FormDaftarPosition_Load(buttonKeluar, e);
                 }
             }
         }

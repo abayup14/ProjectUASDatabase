@@ -73,15 +73,6 @@ namespace ProjectDatabase_Ivano
             }
         }
 
-        private void buttonTambah_Click(object sender, EventArgs e)
-        {
-            FormTambahPenggguna formTambahPenggguna = new FormTambahPenggguna();
-
-            formTambahPenggguna.Owner = this;
-
-            formTambahPenggguna.Show();
-        }
-
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             Close();
@@ -151,7 +142,7 @@ namespace ProjectDatabase_Ivano
 
                 if (hasil == DialogResult.Yes)
                 {
-                    Pengguna p = new Pengguna(nik, namaDepan, namaKeluarga, alamat, email, noTelepon, password, pin, tglBuat, tglPerubahan);
+                    Pengguna p = new Pengguna(nik);
 
                     Pengguna.HapusData(p);
 

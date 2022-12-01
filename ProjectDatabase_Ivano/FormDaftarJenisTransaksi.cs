@@ -90,7 +90,7 @@ namespace ProjectDatabase_Ivano
 
                 if (result == DialogResult.Yes)
                 {
-                    JenisTransaksi j = new JenisTransaksi(id, kode, nama);
+                    JenisTransaksi j = new JenisTransaksi(id);
                     JenisTransaksi.HapusData(j);
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
                     FormDaftarJenisTransaksi_Load(buttonKeluar, e);

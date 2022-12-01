@@ -48,5 +48,31 @@ namespace ProjectDatabase_Ivano
 
             comboBoxPosition.DisplayMember = "Nama";
         }
+
+        private void buttonKosongi_Click(object sender, EventArgs e)
+        {
+            textBoxNIK.Clear();
+
+            textBoxNamaDepan.Clear();
+
+            textBoxNamaKeluarga.Clear();
+
+            textBoxEmail.Clear();
+
+            textBoxPassword.Clear();
+
+            comboBoxPosition.SelectedIndex = 0;
+
+            textBoxNIK.Focus();
+        }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            FormDaftarEmployee formDaftarEmployee = (FormDaftarEmployee)this.Owner;
+
+            formDaftarEmployee.FormDaftarEmployee_Load(buttonKeluar, e);
+
+            Close();
+        }
     }
 }

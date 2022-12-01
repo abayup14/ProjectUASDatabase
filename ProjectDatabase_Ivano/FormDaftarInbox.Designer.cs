@@ -46,9 +46,9 @@ namespace ProjectDatabase_Ivano
             this.label1.BackColor = System.Drawing.Color.Navy;
             this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(-1, 9);
+            this.label1.Location = new System.Drawing.Point(12, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(803, 39);
+            this.label1.Size = new System.Drawing.Size(829, 39);
             this.label1.TabIndex = 40;
             this.label1.Text = "DAFTAR INBOX";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -59,15 +59,15 @@ namespace ProjectDatabase_Ivano
             this.panel1.Controls.Add(this.textBoxNilaiKriteria);
             this.panel1.Controls.Add(this.comboBoxKriteria);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(1, 50);
+            this.panel1.Location = new System.Drawing.Point(12, 50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(797, 59);
+            this.panel1.Size = new System.Drawing.Size(829, 59);
             this.panel1.TabIndex = 41;
             // 
             // textBoxNilaiKriteria
             // 
             this.textBoxNilaiKriteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNilaiKriteria.Location = new System.Drawing.Point(445, 20);
+            this.textBoxNilaiKriteria.Location = new System.Drawing.Point(477, 20);
             this.textBoxNilaiKriteria.Name = "textBoxNilaiKriteria";
             this.textBoxNilaiKriteria.Size = new System.Drawing.Size(335, 24);
             this.textBoxNilaiKriteria.TabIndex = 2;
@@ -87,7 +87,7 @@ namespace ProjectDatabase_Ivano
             "Nomor Telepon",
             "Tanggal Buat",
             "Tanggal Perubahan"});
-            this.comboBoxKriteria.Location = new System.Drawing.Point(171, 18);
+            this.comboBoxKriteria.Location = new System.Drawing.Point(193, 20);
             this.comboBoxKriteria.Name = "comboBoxKriteria";
             this.comboBoxKriteria.Size = new System.Drawing.Size(268, 26);
             this.comboBoxKriteria.TabIndex = 1;
@@ -97,7 +97,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 20);
+            this.label2.Location = new System.Drawing.Point(21, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 18);
             this.label2.TabIndex = 0;
@@ -108,7 +108,7 @@ namespace ProjectDatabase_Ivano
             this.buttonTambah.BackColor = System.Drawing.Color.Navy;
             this.buttonTambah.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(12, 387);
+            this.buttonTambah.Location = new System.Drawing.Point(12, 398);
             this.buttonTambah.Name = "buttonTambah";
             this.buttonTambah.Size = new System.Drawing.Size(202, 53);
             this.buttonTambah.TabIndex = 43;
@@ -121,7 +121,7 @@ namespace ProjectDatabase_Ivano
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(586, 385);
+            this.buttonKeluar.Location = new System.Drawing.Point(640, 398);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(202, 53);
             this.buttonKeluar.TabIndex = 44;
@@ -132,11 +132,11 @@ namespace ProjectDatabase_Ivano
             // dataGridViewInbox
             // 
             this.dataGridViewInbox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInbox.Location = new System.Drawing.Point(5, 115);
+            this.dataGridViewInbox.Location = new System.Drawing.Point(12, 126);
             this.dataGridViewInbox.Name = "dataGridViewInbox";
             this.dataGridViewInbox.RowHeadersWidth = 51;
             this.dataGridViewInbox.RowTemplate.Height = 24;
-            this.dataGridViewInbox.Size = new System.Drawing.Size(783, 266);
+            this.dataGridViewInbox.Size = new System.Drawing.Size(829, 266);
             this.dataGridViewInbox.TabIndex = 45;
             this.dataGridViewInbox.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInbox_CellContentClick);
             // 
@@ -144,7 +144,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(854, 461);
             this.Controls.Add(this.dataGridViewInbox);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonTambah);

@@ -48,7 +48,7 @@ namespace ProjectDatabase_Ivano
             this.panel2.BackColor = System.Drawing.Color.Navy;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(12, 11);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(680, 82);
             this.panel2.TabIndex = 49;
@@ -74,7 +74,7 @@ namespace ProjectDatabase_Ivano
             this.panel1.Controls.Add(this.textBoxKodeJenisTransaksi);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(12, 108);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(680, 151);
             this.panel1.TabIndex = 48;
@@ -82,7 +82,7 @@ namespace ProjectDatabase_Ivano
             // textBoxNamaJenisTransaksi
             // 
             this.textBoxNamaJenisTransaksi.Location = new System.Drawing.Point(174, 85);
-            this.textBoxNamaJenisTransaksi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNamaJenisTransaksi.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNamaJenisTransaksi.Name = "textBoxNamaJenisTransaksi";
             this.textBoxNamaJenisTransaksi.Size = new System.Drawing.Size(480, 22);
             this.textBoxNamaJenisTransaksi.TabIndex = 5;
@@ -101,7 +101,7 @@ namespace ProjectDatabase_Ivano
             // textBoxKodeJenisTransaksi
             // 
             this.textBoxKodeJenisTransaksi.Location = new System.Drawing.Point(174, 41);
-            this.textBoxKodeJenisTransaksi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxKodeJenisTransaksi.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxKodeJenisTransaksi.Name = "textBoxKodeJenisTransaksi";
             this.textBoxKodeJenisTransaksi.Size = new System.Drawing.Size(132, 22);
             this.textBoxKodeJenisTransaksi.TabIndex = 3;
@@ -163,7 +163,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 354);
+            this.ClientSize = new System.Drawing.Size(713, 348);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonKosongi);

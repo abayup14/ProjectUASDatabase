@@ -38,6 +38,10 @@ namespace DiBa_LIB
             Tgl_buat = tgl_buat;
             Tgl_perubahan = tgl_perubahan;
         }
+        public Pengguna(string nik)
+        {
+            Nik = nik;
+        }
         #endregion
 
         #region PROPERTIES
@@ -116,10 +120,8 @@ namespace DiBa_LIB
         }
         public static Pengguna CekLogin(string emailAtauNoTelepon, string password)
         {
-            string sql = "";
-
-            sql = "SELECT * from pengguna where (email = '" + emailAtauNoTelepon + "' OR no_telepon = '" + emailAtauNoTelepon +
-                  "') AND password = SHA2('" + password + "', 512)";
+            string sql = "SELECT * from pengguna where (email = '" + emailAtauNoTelepon + "' OR no_telepon = '" + emailAtauNoTelepon +
+                         "') AND password = SHA2('" + password + "', 512)";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -133,21 +135,6 @@ namespace DiBa_LIB
             }
 
             return null;
-        }
-        public static bool CekEmailAtauNoTelepon(string emailAtauNoTelepon)
-        {
-            string sql = "SELECT * from pengguna where email = '" + emailAtauNoTelepon + "' OR no_telepon = '" + emailAtauNoTelepon + "'";
-
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
-
-            if (hasil.Read() == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
         #endregion
     }

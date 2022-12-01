@@ -82,7 +82,7 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.textBoxPesan);
             this.Controls.Add(this.textBoxIdPesan);
             this.Name = "FormUbahInbox";
-            this.Text = "FormUbahInbox";
+            this.Text = "Ubah Inbox";
             this.Load += new System.EventHandler(this.FormUbahInbox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -16,10 +16,6 @@ namespace DiBa_LIB
         #endregion
 
         #region CONSTRUCTORS
-        public Position(int positionID)
-        {
-            PositionID = positionID;
-        }
         public Position(string nama)
         {
             Nama = nama;
@@ -29,6 +25,10 @@ namespace DiBa_LIB
             PositionID = positionID;
             Nama = nama;
             Keterangan = keterangan;
+        }
+        public Position(int id)
+        {
+            PositionID = id;
         }
         #endregion
 

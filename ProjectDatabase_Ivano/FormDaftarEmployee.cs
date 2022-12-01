@@ -13,9 +13,7 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormDaftarEmployee : Form
     {
-        List<Employee> listEmployee;
-
-        List<Position> listPosition;
+        public List<Employee> listEmployee = new List<Employee>();
 
         public FormDaftarEmployee()
         {
@@ -73,8 +71,6 @@ namespace ProjectDatabase_Ivano
         {
             if (e.ColumnIndex == dataGridViewEmployee.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
             {
-                listPosition = Position.BacaData("", "");
-
                 FormUbahEmployee formUbahEmployee = new FormUbahEmployee();
 
                 formUbahEmployee.Owner = this;
@@ -101,8 +97,25 @@ namespace ProjectDatabase_Ivano
             {
                 int id = int.Parse(dataGridViewEmployee.CurrentRow.Cells["id"].Value.ToString());
 
-                DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin menghapus data di atas ?", "Konfirmasi", MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Question);
+                string nik = dataGridViewEmployee.CurrentRow.Cells["nik"].Value.ToString();
+
+                string namaDepan = dataGridViewEmployee.CurrentRow.Cells["nama_depan"].Value.ToString();
+
+                string namaKeluarga = dataGridViewEmployee.CurrentRow.Cells["nama_keluarga"].Value.ToString();
+
+                string email = dataGridViewEmployee.CurrentRow.Cells["email"].Value.ToString();
+
+                string position = dataGridViewEmployee.CurrentRow.Cells["position"].Value.ToString();
+
+                DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah : " +
+                                                     "\nId Pegawai : " + id +
+                                                     "\nNIK : " + nik +
+                                                     "\nNama Depan : " + namaDepan + 
+                                                     "\nNama Keluarga : " + namaKeluarga +
+                                                     "\nEmail : " + email + 
+                                                     "\nPosition : " + position + 
+                                                     "\n\nApakah anda yakin ingin menghapus data di atas ?", "Konfirmasi", 
+                                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (hasil == DialogResult.Yes)
                 {
@@ -114,6 +127,51 @@ namespace ProjectDatabase_Ivano
 
                     FormDaftarEmployee_Load(buttonKeluar, e);
                 }
+            }
+        }
+
+        private void textBoxNilaiKriteria_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBoxKriteria.Text == "Id Employee")
+            {
+                listEmployee = Employee.BacaData("e.id", textBoxNilaiKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "Nama Depan")
+            {
+                listEmployee = Employee.BacaData("e.nama_depan", textBoxNilaiKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "Nama Keluarga")
+            {
+                listEmployee = Employee.BacaData("e.nama_keluarga", textBoxNilaiKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "Nama Position")
+            {
+                listEmployee = Employee.BacaData("p.nama", textBoxNilaiKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "NIK")
+            {
+                listEmployee = Employee.BacaData("e.nik", textBoxNilaiKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "Email")
+            {
+                listEmployee = Employee.BacaData("e.email", textBoxNilaiKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "Tanggal Buat")
+            {
+                listEmployee = Employee.BacaData("e.tgl_buat", textBoxNilaiKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "Tanggal Perubahan")
+            {
+                listEmployee = Employee.BacaData("e.tgl_perubahan", textBoxNilaiKriteria.Text);
+            }
+
+            if (listEmployee.Count > 0)
+            {
+                dataGridViewEmployee.DataSource = listEmployee;
+            }
+            else
+            {
+                dataGridViewEmployee.DataSource = null;
             }
         }
     }
