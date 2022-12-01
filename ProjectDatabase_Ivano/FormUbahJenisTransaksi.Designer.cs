@@ -163,7 +163,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 348);
+            this.ClientSize = new System.Drawing.Size(705, 348);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonKosongi);
@@ -171,7 +171,7 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.buttonTambah);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormUbahJenisTransaksi";
-            this.Text = "FormUbahJenisTransaksi";
+            this.Text = "Ubah Jenis Transaksi";
             this.Load += new System.EventHandler(this.FormUbahJenisTransaksi_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
