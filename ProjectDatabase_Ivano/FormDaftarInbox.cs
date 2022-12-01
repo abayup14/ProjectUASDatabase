@@ -81,12 +81,11 @@ namespace ProjectDatabase_Ivano
                 string status = dataGridViewInbox.CurrentRow.Cells["status"].Value.ToString();
                 DateTime tgl_perubahan= DateTime.Parse(dataGridViewInbox.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
                 DialogResult hasil = MessageBox.Show("Apakah anda ingin menghapus " +
-<<<<<<< HEAD
                     "id_pesan = " + id_pesan + "\npesan = " + pesan + "\ntanggal_kirim" + tanggal_kirim +
-                    "\nstatus = " + staus + "\ntgl_perubahan" + tgl_perubahan, "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    "\nstatus = " + status + "\ntgl_perubahan" + tgl_perubahan, "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (hasil == DialogResult.Yes)
                 {
-                    Inbox i = new Inbox(id_pesan, pesan, tanggal_kirim, staus, tgl_perubahan);
+                    Inbox i = new Inbox(id_pesan, pesan, tanggal_kirim, status, tgl_perubahan);
                     Inbox.HapusData(i);
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
                     FormDaftarInbox_Load(buttonKeluar, e);
@@ -132,10 +131,6 @@ namespace ProjectDatabase_Ivano
             else
             {
                 dataGridViewInbox.DataSource = null;
-=======
-                    "\nid_pesan = " + id_pesan + "\npesan = " + pesan + "\ntanggal_kirim" + tanggal_kirim +
-                    "\nstatus = " + status + "\ntgl_perubahan" + tgl_perubahan, "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
->>>>>>> 47f0e2d7cee60d9e605e008ba59afc0f0af69bac
             }
         }
     }
