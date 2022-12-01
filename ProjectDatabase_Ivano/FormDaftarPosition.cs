@@ -14,6 +14,7 @@ namespace ProjectDatabase_Ivano
     public partial class FormDaftarPosition : Form
     {
         public List<Position> listPosition = new List<Position>();
+
         public FormDaftarPosition()
         {
             InitializeComponent();

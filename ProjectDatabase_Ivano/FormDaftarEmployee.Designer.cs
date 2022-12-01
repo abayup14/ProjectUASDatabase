@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBoxKriteria = new System.Windows.Forms.TextBox();
+            this.textBoxNilaiKriteria = new System.Windows.Forms.TextBox();
             this.comboBoxKriteria = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,33 +43,39 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
-            this.panel1.Controls.Add(this.textBoxKriteria);
+            this.panel1.Controls.Add(this.textBoxNilaiKriteria);
             this.panel1.Controls.Add(this.comboBoxKriteria);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(13, 58);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1213, 81);
             this.panel1.TabIndex = 35;
             // 
-            // textBoxKriteria
+            // textBoxNilaiKriteria
             // 
-            this.textBoxKriteria.Location = new System.Drawing.Point(586, 26);
-            this.textBoxKriteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBoxKriteria.Name = "textBoxKriteria";
-            this.textBoxKriteria.Size = new System.Drawing.Size(612, 22);
-            this.textBoxKriteria.TabIndex = 3;
+            this.textBoxNilaiKriteria.Location = new System.Drawing.Point(586, 26);
+            this.textBoxNilaiKriteria.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNilaiKriteria.Name = "textBoxNilaiKriteria";
+            this.textBoxNilaiKriteria.Size = new System.Drawing.Size(612, 22);
+            this.textBoxNilaiKriteria.TabIndex = 3;
+            this.textBoxNilaiKriteria.TextChanged += new System.EventHandler(this.textBoxNilaiKriteria_TextChanged);
             // 
             // comboBoxKriteria
             // 
             this.comboBoxKriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxKriteria.FormattingEnabled = true;
             this.comboBoxKriteria.Items.AddRange(new object[] {
-            "Id Jenis Transaksi",
-            "Kode Transaksi",
-            "Nama Transaksi"});
+            "Id Employee",
+            "Nama Depan",
+            "Nama Keluarga",
+            "Nama Position",
+            "NIK",
+            "Email",
+            "Tanggal Buat",
+            "Tanggal Perubahan"});
             this.comboBoxKriteria.Location = new System.Drawing.Point(175, 27);
-            this.comboBoxKriteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxKriteria.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxKriteria.Name = "comboBoxKriteria";
             this.comboBoxKriteria.Size = new System.Drawing.Size(387, 24);
             this.comboBoxKriteria.TabIndex = 2;
@@ -128,7 +134,7 @@
             // 
             this.dataGridViewEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEmployee.Location = new System.Drawing.Point(14, 147);
-            this.dataGridViewEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewEmployee.Name = "dataGridViewEmployee";
             this.dataGridViewEmployee.RowHeadersWidth = 51;
             this.dataGridViewEmployee.Size = new System.Drawing.Size(1213, 353);
@@ -159,7 +165,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBoxKriteria;
+        private System.Windows.Forms.TextBox textBoxNilaiKriteria;
         private System.Windows.Forms.ComboBox comboBoxKriteria;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

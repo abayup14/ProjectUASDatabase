@@ -38,8 +38,6 @@ namespace ProjectDatabase_Ivano
                 }
                 else
                 {
-                    //Pengguna p = Pengguna.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
-
                     Employee em = Employee.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
 
                     if (em != null)
