@@ -34,6 +34,15 @@ namespace DiBa_LIB
         }
         #endregion
 
+        public Inbox(int id, string pesan, DateTime tanggal_kirim, string status, DateTime tanggal_perubahan)
+        {
+            this.id = id;
+            this.pesan = pesan;
+            this.tanggal_kirim = tanggal_kirim;
+            this.status = status;
+            this.tanggal_perubahan = tanggal_perubahan;
+        }
+
         #region Properties
         public Pengguna Pengguna { get => pengguna; set => pengguna = value; }
         public int Id { get => id; set => id = value; }
