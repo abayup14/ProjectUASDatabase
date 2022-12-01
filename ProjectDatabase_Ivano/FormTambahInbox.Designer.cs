@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.labelInbox = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.textBoxPesan = new System.Windows.Forms.TextBox();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonKirim = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxPosition = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,27 +44,17 @@
             this.labelInbox.BackColor = System.Drawing.Color.Navy;
             this.labelInbox.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInbox.ForeColor = System.Drawing.Color.Transparent;
-            this.labelInbox.Location = new System.Drawing.Point(12, 9);
+            this.labelInbox.Location = new System.Drawing.Point(17, 9);
             this.labelInbox.Name = "labelInbox";
-            this.labelInbox.Size = new System.Drawing.Size(721, 39);
+            this.labelInbox.Size = new System.Drawing.Size(716, 39);
             this.labelInbox.TabIndex = 38;
             this.labelInbox.Text = "TAMBAH INBOX";
             this.labelInbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(46, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 18);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Id Pesan : ";
-            // 
             // textBoxPesan
             // 
             this.textBoxPesan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPesan.Location = new System.Drawing.Point(169, 107);
+            this.textBoxPesan.Location = new System.Drawing.Point(236, 104);
             this.textBoxPesan.Multiline = true;
             this.textBoxPesan.Name = "textBoxPesan";
             this.textBoxPesan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -77,7 +66,7 @@
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(531, 346);
+            this.buttonKeluar.Location = new System.Drawing.Point(531, 313);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(202, 53);
             this.buttonKeluar.TabIndex = 41;
@@ -89,58 +78,61 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(46, 133);
+            this.label5.Location = new System.Drawing.Point(134, 107);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 18);
             this.label5.TabIndex = 7;
             this.label5.Text = "Pesan : ";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(46, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 18);
-            this.label3.TabIndex = 0;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.comboBoxPosition);
             this.panel1.Controls.Add(this.textBoxPesan);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(17, 64);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(716, 253);
+            this.panel1.Size = new System.Drawing.Size(716, 233);
             this.panel1.TabIndex = 39;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(169, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(380, 22);
-            this.textBox1.TabIndex = 10;
             // 
             // buttonKirim
             // 
             this.buttonKirim.BackColor = System.Drawing.Color.Navy;
             this.buttonKirim.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKirim.ForeColor = System.Drawing.Color.White;
-            this.buttonKirim.Location = new System.Drawing.Point(18, 346);
+            this.buttonKirim.Location = new System.Drawing.Point(17, 313);
             this.buttonKirim.Name = "buttonKirim";
             this.buttonKirim.Size = new System.Drawing.Size(202, 53);
             this.buttonKirim.TabIndex = 42;
             this.buttonKirim.Text = "&KIRIM";
             this.buttonKirim.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(63, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 18);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Nama Pengguna :";
+            // 
+            // comboBoxPosition
+            // 
+            this.comboBoxPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxPosition.FormattingEnabled = true;
+            this.comboBoxPosition.Location = new System.Drawing.Point(236, 42);
+            this.comboBoxPosition.Name = "comboBoxPosition";
+            this.comboBoxPosition.Size = new System.Drawing.Size(426, 26);
+            this.comboBoxPosition.TabIndex = 17;
+            // 
             // FormTambahInbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 416);
+            this.ClientSize = new System.Drawing.Size(753, 379);
             this.Controls.Add(this.buttonKirim);
             this.Controls.Add(this.labelInbox);
             this.Controls.Add(this.buttonKeluar);
@@ -156,13 +148,12 @@
         #endregion
 
         private System.Windows.Forms.Label labelInbox;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxPesan;
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonKirim;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxPosition;
     }
 }

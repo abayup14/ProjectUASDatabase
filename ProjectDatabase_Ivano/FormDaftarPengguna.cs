@@ -73,15 +73,6 @@ namespace ProjectDatabase_Ivano
             }
         }
 
-        private void buttonTambah_Click(object sender, EventArgs e)
-        {
-            FormTambahPenggguna formTambahPenggguna = new FormTambahPenggguna();
-
-            formTambahPenggguna.Owner = this;
-
-            formTambahPenggguna.Show();
-        }
-
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             Close();

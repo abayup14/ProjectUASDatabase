@@ -75,7 +75,7 @@
             this.textBoxNomorTelepon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNomorTelepon.Location = new System.Drawing.Point(230, 318);
             this.textBoxNomorTelepon.Name = "textBoxNomorTelepon";
-            this.textBoxNomorTelepon.Size = new System.Drawing.Size(426, 24);
+            this.textBoxNomorTelepon.Size = new System.Drawing.Size(229, 24);
             this.textBoxNomorTelepon.TabIndex = 12;
             // 
             // label7
@@ -181,7 +181,7 @@
             this.textBoxNIK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNIK.Location = new System.Drawing.Point(230, 21);
             this.textBoxNIK.Name = "textBoxNIK";
-            this.textBoxNIK.Size = new System.Drawing.Size(426, 24);
+            this.textBoxNIK.Size = new System.Drawing.Size(229, 24);
             this.textBoxNIK.TabIndex = 2;
             // 
             // buttonUbah
