@@ -119,6 +119,7 @@ namespace ProjectDatabase_Ivano
             {
                 listInbox = Inbox.BacaData("tgl_perubahan", textBoxNilaiKriteria.Text);
             }
+
             if (listInbox.Count > 0)
             {
                 dataGridViewInbox.DataSource = listInbox;
