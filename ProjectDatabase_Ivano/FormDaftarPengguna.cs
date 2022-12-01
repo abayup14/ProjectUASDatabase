@@ -137,8 +137,8 @@ namespace ProjectDatabase_Ivano
                                                      "\nAlamat : " + alamat +
                                                      "\nEmail : " + email +
                                                      "\nNo Telepon : " + noTelepon +
-                                                     "\n\nApakah anda yakin ingin menghapus data di atas ?", "Konfirmasi", MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Question);
+                                                     "\n\nApakah anda yakin ingin menghapus data di atas ?", "Konfirmasi", 
+                                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (hasil == DialogResult.Yes)
                 {

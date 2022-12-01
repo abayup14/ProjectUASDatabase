@@ -82,11 +82,11 @@ namespace ProjectDatabase_Ivano
                 string nama = dataGridViewJenisTransaksi.CurrentRow.Cells["nama"].Value.ToString();
 
                 DialogResult result = MessageBox.Show("Data yang akan dihapus adalah: " +
-                    "\nId Jenis Transaksi: " + id +
-                    "\nKode Jenis Transaksi: " + kode +
-                    "\nNama Jenis Transaksi: " + nama +
-                    "\n\nApakah anda yakin ingin menghapus data di atas?", "Konfirmasi", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                                                      "\nId Jenis Transaksi: " + id +
+                                                      "\nKode Jenis Transaksi: " + kode +
+                                                      "\nNama Jenis Transaksi: " + nama +
+                                                      "\n\nApakah anda yakin ingin menghapus data di atas?", "Konfirmasi", 
+                                                      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -142,10 +142,10 @@ namespace ProjectDatabase_Ivano
                 string nama = dataGridViewJenisTransaksi.CurrentRow.Cells["nama"].Value.ToString();
 
                 DialogResult result = MessageBox.Show("Data yang akan dihapus adalah: " +
-                    "\nKode Jenis Transaksi: " + kode +
-                    "\nNama Jenis Transaksi: " + nama +
-                    "\n\nApakah anda yakin ingin menghapus data di atas?", "Konfirmasi", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                                                      "\nKode Jenis Transaksi: " + kode +
+                                                      "\nNama Jenis Transaksi: " + nama +
+                                                      "\n\nApakah anda yakin ingin menghapus data di atas?", "Konfirmasi", 
+                                                      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
