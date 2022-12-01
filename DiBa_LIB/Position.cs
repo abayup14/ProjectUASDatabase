@@ -26,6 +26,10 @@ namespace DiBa_LIB
             Nama = nama;
             Keterangan = keterangan;
         }
+        public Position(int id)
+        {
+            PositionID = id;
+        }
         #endregion
 
         #region PROPERTIES

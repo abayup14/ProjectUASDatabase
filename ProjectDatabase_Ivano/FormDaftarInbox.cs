@@ -77,11 +77,11 @@ namespace ProjectDatabase_Ivano
                 string id_pesan = dataGridViewInbox.CurrentRow.Cells["id_pesan"].Value.ToString();
                 string pesan= dataGridViewInbox.CurrentRow.Cells["pesan"].Value.ToString();
                 DateTime tanggal_kirim = DateTime.Parse(dataGridViewInbox.CurrentRow.Cells["tanggal_kirim"].Value.ToString());
-                string staus = dataGridViewInbox.CurrentRow.Cells["status"].Value.ToString();
+                string status = dataGridViewInbox.CurrentRow.Cells["status"].Value.ToString();
                 DateTime tgl_perubahan= DateTime.Parse(dataGridViewInbox.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
                 DialogResult hasil = MessageBox.Show("Apakah anda ingin menghapus " +
                     "\nid_pesan = " + id_pesan + "\npesan = " + pesan + "\ntanggal_kirim" + tanggal_kirim +
-                    "\nstatus = " + staus + "\ntgl_perubahan" + tgl_perubahan, "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    "\nstatus = " + status + "\ntgl_perubahan" + tgl_perubahan, "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             }
         }
     }

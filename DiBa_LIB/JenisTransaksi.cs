@@ -16,13 +16,10 @@ namespace DiBa_LIB
         #endregion
 
         #region CONSTRUCTORS
-        public JenisTransaksi()
+        public JenisTransaksi(int id)
         {
-            Id_jenis_transaksi = 0;
-            Kode = "";
-            Nama = "";
+            Id_jenis_transaksi = id;
         }
-
         public JenisTransaksi(int id_jenis_transaksi, string kode, string nama)
         {
             Id_jenis_transaksi = id_jenis_transaksi;

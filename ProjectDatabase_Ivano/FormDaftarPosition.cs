@@ -130,13 +130,15 @@ namespace ProjectDatabase_Ivano
                 if (konfirmasi == DialogResult.Yes)
                 {
                     //bentuk objek dihapus
-                    Position jabatanHapus = new Position(int.Parse(idHapus), namaHapus, keteranganHapus);
+                    Position jabatanHapus = new Position(int.Parse(idHapus));
 
                     //panggil method hapus data
                     Position.HapusData(jabatanHapus);
 
                     //informasi bahwa berhasil menghapus
                     MessageBox.Show("Penghapusan data berhasil");
+
+                    FormDaftarPosition_Load(buttonKeluar, e);
                 }
             }
         }

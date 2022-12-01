@@ -38,6 +38,10 @@ namespace DiBa_LIB
             Tgl_buat = tgl_buat;
             Tgl_perubahan = tgl_perubahan;
         }
+        public Pengguna(string nik)
+        {
+            Nik = nik;
+        }
         #endregion
 
         #region PROPERTIES

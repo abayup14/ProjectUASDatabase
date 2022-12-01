@@ -151,7 +151,7 @@ namespace ProjectDatabase_Ivano
 
                 if (hasil == DialogResult.Yes)
                 {
-                    Pengguna p = new Pengguna(nik, namaDepan, namaKeluarga, alamat, email, noTelepon, password, pin, tglBuat, tglPerubahan);
+                    Pengguna p = new Pengguna(nik);
 
                     Pengguna.HapusData(p);
 

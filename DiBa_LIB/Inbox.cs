@@ -28,6 +28,10 @@ namespace DiBa_LIB
             this.Status = status;
             this.Tanggal_perubahan = tanggal_perubahan;
         }
+        public Inbox(int id)
+        {
+            Id = id;
+        }
         #endregion
 
         #region Properties
