@@ -28,6 +28,10 @@ namespace DiBa_LIB
             this.Status = status;
             this.Tanggal_perubahan = tanggal_perubahan;
         }
+        public Inbox(int id)
+        {
+            Id = id;
+        }
         #endregion
 
         #region Properties
@@ -46,23 +50,20 @@ namespace DiBa_LIB
             if (kriteria == "")
             {
                 sql = "select i.id_pengguna, i.id_pesan, i.pesan, i.tanggal_kirim, i.status, i.tgl_perubahan from " +
-                    "inbox i inner join pengguna p on p.nik = i.id_pengguna";
+                    "inbox i inner join pengguna p on i.id_pengguna = p.nik";
             }
             else
             { 
                 sql = "select i.id_pengguna, i.id_pesan, i.pesan, i.tanggal_kirim, i.status, i.tgl_perubahan from " +
-                    "inbox i inner join pengguna p on p.nik = i.id_pengguna where "+kriteria+" LIKE '%"+nilaiKriteria+"%'";
+                    "inbox i inner join pengguna p on i.id_pengguna = p.nik where " + kriteria+" LIKE '%"+nilaiKriteria+"%'";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
             List<Inbox> listInbox = new List<Inbox>();
             while (hasil.Read() == true)
             {
-                Pengguna p = new Pengguna(hasil.GetValue(0).ToString(), hasil.GetValue(1).ToString(), hasil.GetValue(2).ToString(),
-                                          hasil.GetValue(3).ToString(), hasil.GetValue(4).ToString(), hasil.GetValue(5).ToString(),
-                                          hasil.GetValue(6).ToString(), hasil.GetValue(7).ToString(), DateTime.Parse(hasil.GetValue(8).ToString()),
-                                          DateTime.Parse(hasil.GetValue(9).ToString()));
-                Inbox i = new Inbox(p, int.Parse(hasil.GetString(10)), hasil.GetString(11), DateTime.Parse(hasil.GetString(12)),
-                    hasil.GetString(13), DateTime.Parse(hasil.GetString(14)));
+                Pengguna p = new Pengguna(hasil.GetValue(0).ToString());
+                Inbox i = new Inbox(p, int.Parse(hasil.GetString(1)), hasil.GetString(2), DateTime.Parse(hasil.GetString(3)),
+                    hasil.GetString(4), DateTime.Parse(hasil.GetString(5)));
                 listInbox.Add(i);
             }
             return listInbox;
@@ -70,23 +71,48 @@ namespace DiBa_LIB
 
         public static void TambahData(Inbox i)
         {
-            string sql = "insert into inbox (id_pesan, pesan, tanggal_kirim, status, tgl_perubahan) values ("+i.Id+", " +
-                "'"+i.Pesan+"', '"+i.Tanggal_kirim.ToString("yyyy-MM-dd HH:mm:ss")+"', '"+i.Status+"', '"+i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss")+"')";
+            string sql = "insert into inbox (id_pengguna, id_pesan, pesan, tanggal_kirim, status, tgl_perubahan) " +
+                         "values ('" + i.Pengguna.Nik + "', " + i.Id + ", '" + i.Pesan + "', '" + i.Tanggal_kirim.ToString("yyyy-MM-dd HH:mm:ss") + 
+                         "', '" + i.Status + "', '" + i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
             Koneksi.JalankanPerintahDML(sql);
         }
 
         public static void UbahData(Inbox i)
         {
-            string sql = "update inbox set id_pesan = "+i.Id+", pesan = '"+i.Pesan+"', tanggal_kirim = '"+
-                i.Tanggal_kirim.ToString("yyyy-MM-dd HH:mm:ss")+"', status = '"+i.Status+"', tgl_perubahan = '"+i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss")+"'";
+            string sql = "update inbox set id_pengguna = '" + i.Pengguna.Nik + "', pesan = '" + i.Pesan + "', tanggal_kirim = '" +
+                         i.Tanggal_kirim.ToString("yyyy-MM-dd HH:mm:ss") + "', status = '" + i.Status+ "', tgl_perubahan = '" + 
+                         i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' where id_pesan = " + i.Id;
             Koneksi.JalankanPerintahDML(sql);
         }
 
         public static void HapusData(Inbox i)
         {
-            string sql = "DELETE from inbox where id = " + i.Id;
+            string sql = "DELETE from inbox where id_pesan = " + i.Id;
 
             Koneksi.JalankanPerintahDML(sql);
+        }
+
+        public static int GenerateKode()
+        {
+            string sql = "select max(id_pesan) from inbox";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            int hasilKode = 0;
+
+            if (hasil.Read() == true)
+            {
+                if (hasil.GetValue(1).ToString() != "")
+                {
+                    hasilKode = int.Parse(hasil.GetValue(1).ToString()) + 1;
+                }
+                else
+                {
+                    hasilKode = 1;
+                }
+            }
+
+            return hasilKode;
         }
         #endregion
     }

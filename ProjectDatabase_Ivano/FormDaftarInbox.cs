@@ -85,7 +85,7 @@ namespace ProjectDatabase_Ivano
                     "\nstatus = " + status + "\ntgl_perubahan" + tgl_perubahan, "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (hasil == DialogResult.Yes)
                 {
-                    Inbox i = new Inbox(id_pesan, pesan, tanggal_kirim, status, tgl_perubahan);
+                    Inbox i = new Inbox(id_pesan);
                     Inbox.HapusData(i);
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
                     FormDaftarInbox_Load(buttonKeluar, e);
