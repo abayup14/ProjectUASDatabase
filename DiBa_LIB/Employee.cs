@@ -90,22 +90,23 @@ namespace DiBa_LIB
         {
             string sql = "INSERT into employee (id, nama_depan, nama_keluarga, position, nik, email, password, tgl_buat, tgl_perubahan) " +
                          "values ('" + em.Id + "', '" + em.Nama_depan + "', '" + em.Nama_keluarga + "', '" + em.Position.PositionID + "', '" + em.Nik +
-                         "', '" + em.Email + "', '" + em.Password + "', '" + em.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + em.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+                         "', '" + em.Email + "', SHA2('" + em.Password + "', 512), '" + em.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + em.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
             Koneksi.JalankanPerintahDML(sql);
         }
         public static void UbahData(Employee em)
         {
             string sql = "UPDATE employee set nama_depan = '" + em.Nama_depan + "', nama_keluarga = '" + em.Nama_keluarga + "', position = " +
-                         em.Position.PositionID + ", email = '" + em.Email + "', tgl_buat = '" + em.Tgl_buat + "', " +
-                         "tgl_perubahan = '" + em.Tgl_perubahan + "' where id = " + em.Id;
+                         em.Position.PositionID + ", email = '" + em.Email + "', tgl_buat = '" + em.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
+                         "tgl_perubahan = '" + em.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' where id = " + em.Id;
 
             Koneksi.JalankanPerintahDML(sql);
         }
         public static void UbahPassword(Employee em, string passwordLama, string passwordBaru)
         {
-            string sql = "UPDATE employee SET password = '" + passwordBaru + "', tgl_perubahan = '" + em.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") +
-                "' WHERE nik = '" + em.Nik + "' AND password = '" + passwordLama + "'";
+            string sql = "UPDATE employee SET password = SHA2('" + passwordBaru + "', 512), tgl_perubahan = '" + 
+                         em.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") +
+                         "' WHERE nik = '" + em.Nik + "' AND password = SHA2('" + passwordLama + "', 512)";
  
             Koneksi.JalankanPerintahDML(sql);
         }

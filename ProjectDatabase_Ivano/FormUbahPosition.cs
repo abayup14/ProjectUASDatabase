@@ -22,7 +22,11 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
-                Position p = new Position(int.Parse(textBoxIdJabatan.Text), textBoxNamaJabatan.Text, textBoxKeterangan.Text);
+                FormDaftarPosition formDaftarPosition = (FormDaftarPosition)this.Owner;
+
+                int id = int.Parse(formDaftarPosition.dataGridViewJabatan.CurrentRow.Cells["id"].Value.ToString());
+
+                Position p = new Position(id, textBoxNamaJabatan.Text, textBoxKeterangan.Text);
 
                 Position.UbahData(p);
 
@@ -36,14 +40,14 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKosongi_Click(object sender, EventArgs e)
         {
-            textBoxIdJabatan.Clear();
             textBoxNamaJabatan.Clear();
-            textBoxIdJabatan.Focus();
+            textBoxKeterangan.Clear();
+            textBoxNamaJabatan.Focus();
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
-            FormDaftarPosition formDaftarPosition = new FormDaftarPosition();
+            FormDaftarPosition formDaftarPosition = (FormDaftarPosition)this.Owner;
             formDaftarPosition.FormDaftarPosition_Load(buttonKeluar, e);
 
             this.Close();

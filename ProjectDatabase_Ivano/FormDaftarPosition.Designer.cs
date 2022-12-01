@@ -45,7 +45,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.dataGridViewJabatan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewJabatan.Location = new System.Drawing.Point(8, 171);
-            this.dataGridViewJabatan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewJabatan.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewJabatan.Name = "dataGridViewJabatan";
             this.dataGridViewJabatan.RowHeadersWidth = 51;
             this.dataGridViewJabatan.Size = new System.Drawing.Size(1051, 297);
@@ -59,7 +59,7 @@ namespace ProjectDatabase_Ivano
             this.panel1.Controls.Add(this.comboBoxKriteria);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(8, 74);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1051, 90);
             this.panel1.TabIndex = 13;
@@ -68,7 +68,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.textBoxKriteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKriteria.Location = new System.Drawing.Point(488, 30);
-            this.textBoxKriteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxKriteria.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxKriteria.Name = "textBoxKriteria";
             this.textBoxKriteria.Size = new System.Drawing.Size(523, 30);
             this.textBoxKriteria.TabIndex = 2;
@@ -80,10 +80,10 @@ namespace ProjectDatabase_Ivano
             this.comboBoxKriteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKriteria.FormattingEnabled = true;
             this.comboBoxKriteria.Items.AddRange(new object[] {
-            "Kode Kategori",
-            "Nama"});
+            "Nama Position",
+            "Keterangan"});
             this.comboBoxKriteria.Location = new System.Drawing.Point(245, 30);
-            this.comboBoxKriteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxKriteria.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxKriteria.Name = "comboBoxKriteria";
             this.comboBoxKriteria.Size = new System.Drawing.Size(220, 33);
             this.comboBoxKriteria.TabIndex = 1;
@@ -104,7 +104,7 @@ namespace ProjectDatabase_Ivano
             this.label1.BackColor = System.Drawing.Color.Navy;
             this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(8, 16);
+            this.label1.Location = new System.Drawing.Point(8, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1051, 52);
@@ -150,7 +150,7 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.dataGridViewJabatan);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDaftarPosition";
             this.Text = "Daftar Position";
             this.Load += new System.EventHandler(this.FormDaftarPosition_Load);

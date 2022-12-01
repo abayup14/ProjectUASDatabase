@@ -151,13 +151,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 338);
+            this.ClientSize = new System.Drawing.Size(809, 338);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonUbah);
             this.Controls.Add(this.label2);
             this.Name = "FormUbahPasswordPegawai";
-            this.Text = "FormUbahPasswordPegawai";
+            this.Text = "Ubah Password Pegawai";
             this.Load += new System.EventHandler(this.FormUbahPasswordPegawai_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

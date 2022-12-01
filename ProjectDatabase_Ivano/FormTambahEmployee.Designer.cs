@@ -40,8 +40,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBoxNomorTelepon = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -55,7 +53,7 @@
             this.buttonKosongi.BackColor = System.Drawing.Color.Navy;
             this.buttonKosongi.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKosongi.ForeColor = System.Drawing.Color.White;
-            this.buttonKosongi.Location = new System.Drawing.Point(269, 445);
+            this.buttonKosongi.Location = new System.Drawing.Point(269, 417);
             this.buttonKosongi.Name = "buttonKosongi";
             this.buttonKosongi.Size = new System.Drawing.Size(202, 53);
             this.buttonKosongi.TabIndex = 38;
@@ -67,7 +65,7 @@
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(526, 445);
+            this.buttonKeluar.Location = new System.Drawing.Point(526, 417);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(202, 53);
             this.buttonKeluar.TabIndex = 37;
@@ -79,7 +77,7 @@
             this.buttonSimpan.BackColor = System.Drawing.Color.Navy;
             this.buttonSimpan.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSimpan.ForeColor = System.Drawing.Color.White;
-            this.buttonSimpan.Location = new System.Drawing.Point(12, 445);
+            this.buttonSimpan.Location = new System.Drawing.Point(13, 417);
             this.buttonSimpan.Name = "buttonSimpan";
             this.buttonSimpan.Size = new System.Drawing.Size(202, 53);
             this.buttonSimpan.TabIndex = 36;
@@ -117,7 +115,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(78, 75);
+            this.label4.Location = new System.Drawing.Point(75, 75);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 18);
             this.label4.TabIndex = 3;
@@ -135,7 +133,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(46, 30);
+            this.label3.Location = new System.Drawing.Point(43, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 18);
             this.label3.TabIndex = 0;
@@ -156,7 +154,7 @@
             // textBoxPassword
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(230, 252);
+            this.textBoxPassword.Location = new System.Drawing.Point(230, 210);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(229, 24);
@@ -166,29 +164,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(100, 255);
+            this.label8.Location = new System.Drawing.Point(97, 213);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 18);
             this.label8.TabIndex = 13;
             this.label8.Text = "Password :";
-            // 
-            // textBoxNomorTelepon
-            // 
-            this.textBoxNomorTelepon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNomorTelepon.Location = new System.Drawing.Point(230, 207);
-            this.textBoxNomorTelepon.Name = "textBoxNomorTelepon";
-            this.textBoxNomorTelepon.Size = new System.Drawing.Size(229, 24);
-            this.textBoxNomorTelepon.TabIndex = 12;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(58, 210);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(135, 18);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Nomor Telepon :";
             // 
             // textBoxEmail
             // 
@@ -202,7 +182,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(133, 165);
+            this.label6.Location = new System.Drawing.Point(130, 165);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 18);
             this.label6.TabIndex = 9;
@@ -215,10 +195,8 @@
             this.panel1.Controls.Add(this.comboBoxPosition);
             this.panel1.Controls.Add(this.textBoxPassword);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.textBoxNomorTelepon);
             this.panel1.Controls.Add(this.textBoxNIK);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.textBoxEmail);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.textBoxNamaKeluarga);
@@ -227,14 +205,14 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(12, 64);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(716, 361);
+            this.panel1.Size = new System.Drawing.Size(716, 314);
             this.panel1.TabIndex = 35;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(116, 300);
+            this.label5.Location = new System.Drawing.Point(110, 258);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 18);
             this.label5.TabIndex = 16;
@@ -245,7 +223,7 @@
             this.comboBoxPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxPosition.FormattingEnabled = true;
-            this.comboBoxPosition.Location = new System.Drawing.Point(230, 297);
+            this.comboBoxPosition.Location = new System.Drawing.Point(230, 255);
             this.comboBoxPosition.Name = "comboBoxPosition";
             this.comboBoxPosition.Size = new System.Drawing.Size(426, 26);
             this.comboBoxPosition.TabIndex = 15;
@@ -254,7 +232,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 515);
+            this.ClientSize = new System.Drawing.Size(744, 492);
             this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonSimpan);
@@ -283,8 +261,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxNomorTelepon;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;

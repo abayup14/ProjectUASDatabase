@@ -100,8 +100,8 @@ namespace ProjectDatabase_Ivano
                 {
                     FormUbahPosition form = new FormUbahPosition();
                     form.Owner = this;
-                    form.textBoxIdJabatan.Text = p.PositionID.ToString();
-                    form.textBoxNamaJabatan.Text = p.Nama.ToString();
+                    form.textBoxNamaJabatan.Text = p.Nama;
+                    form.textBoxKeterangan.Text = p.Keterangan;
                     form.Show();
                 }
                 else
