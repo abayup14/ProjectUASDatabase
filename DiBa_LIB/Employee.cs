@@ -180,10 +180,6 @@ namespace DiBa_LIB
             }
             
         }*/
-        public override string ToString()
-        {
-            return Position.ToString();
-        }
         #endregion
     }
 }
