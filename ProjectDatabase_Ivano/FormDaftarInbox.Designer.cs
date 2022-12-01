@@ -91,7 +91,6 @@ namespace ProjectDatabase_Ivano
             this.comboBoxKriteria.Name = "comboBoxKriteria";
             this.comboBoxKriteria.Size = new System.Drawing.Size(268, 26);
             this.comboBoxKriteria.TabIndex = 1;
-            this.comboBoxKriteria.SelectedIndexChanged += new System.EventHandler(this.comboBoxKriteria_SelectedIndexChanged);
             // 
             // label2
             // 

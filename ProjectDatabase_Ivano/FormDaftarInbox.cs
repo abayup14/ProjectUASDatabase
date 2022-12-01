@@ -95,11 +95,6 @@ namespace ProjectDatabase_Ivano
 
         private void textBoxNilaiKriteria_TextChanged(object sender, EventArgs e)
         {
-            
-        }
-
-        private void comboBoxKriteria_SelectedIndexChanged(object sender, EventArgs e)
-        {
             if (comboBoxKriteria.Text == "id_pengguna")
             {
                 listInbox = Inbox.BacaData("id_pengguna", textBoxNilaiKriteria.Text);
