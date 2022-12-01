@@ -119,7 +119,13 @@ namespace ProjectDatabase_Ivano
                 string keteranganHapus = dataGridViewJabatan.CurrentRow.Cells["Keterangan"].Value.ToString();
 
                 //konfirmasi
-                DialogResult konfirmasi = MessageBox.Show(this, "Anda yakin ingin menghapus " + idHapus + "-" + namaHapus + "?", "HAPUS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult konfirmasi = MessageBox.Show(this, 
+                                                          "Data yang akan dihapus adalah : " +
+                                                          "\nId Position : " + idHapus + 
+                                                          "\nNama Poition : " + namaHapus + 
+                                                          "\nKeterangan : " + keteranganHapus + 
+                                                          "\n\nAnda yakin ingin menghapus data di atas?", "HAPUS", 
+                                                          MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (konfirmasi == DialogResult.Yes)
                 {
