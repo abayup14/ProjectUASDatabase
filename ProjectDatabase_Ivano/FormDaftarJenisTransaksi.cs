@@ -98,31 +98,6 @@ namespace ProjectDatabase_Ivano
             }
         }
 
-        private void comboBoxKriteria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxKriteria.Text == "Id Jenis Transaksi")
-            {
-                listJenisTransaksi = JenisTransaksi.ReadData("id_jenis_transaksi", textBoxKriteria.Text);
-            }
-            else if (comboBoxKriteria.Text == "Kode Jenis Transaksi")
-            {
-                listJenisTransaksi = JenisTransaksi.ReadData("kode", textBoxKriteria.Text);
-            }
-            else if (comboBoxKriteria.Text == "Nama Jenis Transaksi")
-            {
-                listJenisTransaksi = JenisTransaksi.ReadData("nama", textBoxKriteria.Text);
-            }
-
-            if (listJenisTransaksi.Count > 0)
-            {
-                dataGridViewJenisTransaksi.DataSource = listJenisTransaksi;
-            }
-            else
-            {
-                dataGridViewJenisTransaksi.DataSource = null;
-            }
-        }
-
         private void dataGridViewJenisTransaksi_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataGridViewJenisTransaksi.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
@@ -154,6 +129,31 @@ namespace ProjectDatabase_Ivano
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
                     FormDaftarJenisTransaksi_Load(buttonKeluar, e);
                 }
+            }
+        }
+
+        private void textBoxKriteria_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBoxKriteria.Text == "Id Jenis Transaksi")
+            {
+                listJenisTransaksi = JenisTransaksi.ReadData("id_jenis_transaksi", textBoxKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "Kode Jenis Transaksi")
+            {
+                listJenisTransaksi = JenisTransaksi.ReadData("kode", textBoxKriteria.Text);
+            }
+            else if (comboBoxKriteria.Text == "Nama Jenis Transaksi")
+            {
+                listJenisTransaksi = JenisTransaksi.ReadData("nama", textBoxKriteria.Text);
+            }
+
+            if (listJenisTransaksi.Count > 0)
+            {
+                dataGridViewJenisTransaksi.DataSource = listJenisTransaksi;
+            }
+            else
+            {
+                dataGridViewJenisTransaksi.DataSource = null;
             }
         }
     }

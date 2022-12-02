@@ -19,7 +19,7 @@ namespace ProjectDatabase_Ivano
             InitializeComponent();
         }
 
-        private void FormDaftarInbox_Load(object sender, EventArgs e)
+        public void FormDaftarInbox_Load(object sender, EventArgs e)
         {
             listInbox = Inbox.BacaData("", "");
             if (listInbox.Count > 0)
@@ -55,18 +55,9 @@ namespace ProjectDatabase_Ivano
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
-            FormDaftarInbox frmTambahInbox = new FormDaftarInbox();
+            FormTambahInbox frmTambahInbox = new FormTambahInbox();
             frmTambahInbox.Owner = this;
             frmTambahInbox.Show();
-
-            try
-            {
-
-            }
-            catch(Exception ex)
-            {
-
-            }
         }
 
         private void dataGridViewInbox_CellContentClick(object sender, DataGridViewCellEventArgs e)
