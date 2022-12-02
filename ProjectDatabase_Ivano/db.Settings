@@ -6,7 +6,7 @@
       <Value Profile="(Default)">localhost</Value>
     </Setting>
     <Setting Name="DbName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">diba_project</Value>
+      <Value Profile="(Default)">project_uas</Value>
     </Setting>
     <Setting Name="DbUsername" Type="System.String" Scope="User">
       <Value Profile="(Default)">root</Value>

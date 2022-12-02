@@ -27,11 +27,6 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKirim_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttonKirim_Click_1(object sender, EventArgs e)
-        {
             try
             {
                 Pengguna pengguna = (Pengguna)comboBoxPengguna.SelectedItem;
@@ -42,7 +37,7 @@ namespace ProjectDatabase_Ivano
                 Inbox.TambahData(i);
                 MessageBox.Show("Inbox telah berhasil dikirim.", "Informasi");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Inbox gagal dikirim. Pesan kesalahan : " + ex.Message, "Error");
             }
@@ -50,9 +45,9 @@ namespace ProjectDatabase_Ivano
 
         private void FormTambahInbox_Load(object sender, EventArgs e)
         {
-            List<Pengguna> listPosition = Pengguna.BacaData("", "");
+            List<Pengguna> listPengguna = Pengguna.BacaData("", "");
 
-            comboBoxPengguna.DataSource = listPosition;
+            comboBoxPengguna.DataSource = listPengguna;
 
             comboBoxPengguna.DisplayMember = "nama_depan";
         }
