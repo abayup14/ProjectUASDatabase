@@ -58,6 +58,15 @@ namespace ProjectDatabase_Ivano
             FormDaftarInbox frmTambahInbox = new FormDaftarInbox();
             frmTambahInbox.Owner = this;
             frmTambahInbox.Show();
+
+            try
+            {
+
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         private void dataGridViewInbox_CellContentClick(object sender, DataGridViewCellEventArgs e)
