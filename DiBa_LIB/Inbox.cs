@@ -71,9 +71,10 @@ namespace DiBa_LIB
 
         public static void TambahData(Inbox i)
         {
-            string sql = "insert into inbox (id_pengguna, id_pesan, pesan, tanggal_kirim, status, tgl_perubahan) " +
-                         "values ('" + i.Pengguna.Nik + "', " + i.Id + ", '" + i.Pesan + "', '" + i.Tanggal_kirim.ToString("yyyy-MM-dd HH:mm:ss") + 
+            string sql = "insert into inbox (id_pengguna, id_pesan, pesan, tanggal_kirim, status, tgl_peubahan) " +
+                         "values ('" + i.Pengguna.Nik + "', " + i.Id + ", '" + i.Pesan + "', '" + i.Tanggal_kirim.ToString("yyyy-MM-dd HH:mm:ss") +
                          "', '" + i.Status + "', '" + i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+
             Koneksi.JalankanPerintahDML(sql);
         }
 

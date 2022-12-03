@@ -32,10 +32,12 @@ namespace ProjectDatabase_Ivano
                 Pengguna pengguna = (Pengguna)comboBoxPengguna.SelectedItem;
 
                 int id = Inbox.GenerateKode();
+
                 Inbox i = new Inbox(pengguna, id, textBoxPesan.Text, DateTime.Now, "Belum Terbaca", DateTime.Now);
 
                 Inbox.TambahData(i);
-                MessageBox.Show("Inbox telah berhasil dikirim.", "Informasi");
+
+                MessageBox.Show("Inbox berhasil dikirim", "Informasi");
             }
             catch (Exception ex)
             {
@@ -49,7 +51,17 @@ namespace ProjectDatabase_Ivano
 
             comboBoxPengguna.DataSource = listPengguna;
 
-            comboBoxPengguna.DisplayMember = "nama_depan";
+            comboBoxPengguna.DisplayMember = "nik";
+        }
+
+        private void comboBoxPengguna_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxPengguna.SelectedIndex > -1)
+            {
+                Pengguna pengguna = (Pengguna)comboBoxPengguna.SelectedItem;
+
+                labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
+            }
         }
     }
 }

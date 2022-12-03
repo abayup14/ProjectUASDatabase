@@ -20,11 +20,11 @@ namespace ProjectDatabase_Ivano
 
         private void FormUbahInbox_Load(object sender, EventArgs e)
         {
-            List<Pengguna> listPosition = Pengguna.BacaData("", "");
+            List<Pengguna> listPengguna = Pengguna.BacaData("", "");
 
-            comboBoxPengguna.DataSource = listPosition;
+            comboBoxPengguna.DataSource = listPengguna;
 
-            comboBoxPengguna.DisplayMember = "nama_depan";
+            comboBoxPengguna.DisplayMember = "nik";
         }
 
         private void buttonKirim_Click(object sender, EventArgs e)
@@ -39,9 +39,10 @@ namespace ProjectDatabase_Ivano
                     Pengguna pengguna = (Pengguna)comboBoxPengguna.SelectedItem;
                     FormDaftarInbox formDaftarInbox = (FormDaftarInbox)this.Owner;
 
-                    int id = int.Parse(formDaftarInbox.dataGridViewInbox.CurrentRow.Cells["id_pesan"].Value.ToString());
+                    int id = int.Parse(formDaftarInbox.dataGridViewInbox.CurrentRow.Cells["id"].Value.ToString());
+                    string status = formDaftarInbox.dataGridViewInbox.CurrentRow.Cells["status"].Value.ToString();
 
-                    Inbox i = new Inbox(pengguna, id, textBoxPesan.Text, DateTime.Now, "Belum Terbaca", DateTime.Now);
+                    Inbox i = new Inbox(pengguna, id, textBoxPesan.Text, DateTime.Now, status, DateTime.Now);
                     Inbox.UbahData(i);
 
                     MessageBox.Show("Data inbox berhasil diubah.", "Informasi");
@@ -58,6 +59,16 @@ namespace ProjectDatabase_Ivano
             FormDaftarInbox formDaftarInbox = (FormDaftarInbox)this.Owner;
             formDaftarInbox.FormDaftarInbox_Load(buttonKeluar, e);
             this.Close();
+        }
+
+        private void comboBoxPengguna_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxPengguna.SelectedIndex > -1)
+            {
+                Pengguna pengguna = (Pengguna)comboBoxPengguna.SelectedItem;
+
+                labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
+            }
         }
     }
 }

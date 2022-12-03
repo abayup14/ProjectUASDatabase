@@ -71,14 +71,19 @@ namespace ProjectDatabase_Ivano
             }
             else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
-                int id_pesan = int.Parse(dataGridViewInbox.CurrentRow.Cells["id_pesan"].Value.ToString());
+                string nik = dataGridViewInbox.CurrentRow.Cells["pengguna"].Value.ToString();
+                int id_pesan = int.Parse(dataGridViewInbox.CurrentRow.Cells["id"].Value.ToString());
                 string pesan= dataGridViewInbox.CurrentRow.Cells["pesan"].Value.ToString();
                 DateTime tanggal_kirim = DateTime.Parse(dataGridViewInbox.CurrentRow.Cells["tanggal_kirim"].Value.ToString());
                 string status = dataGridViewInbox.CurrentRow.Cells["status"].Value.ToString();
-                DateTime tgl_perubahan= DateTime.Parse(dataGridViewInbox.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
-                DialogResult hasil = MessageBox.Show("Apakah anda ingin menghapus " +
-                    "id_pesan = " + id_pesan + "\npesan = " + pesan + "\ntanggal_kirim" + tanggal_kirim +
-                    "\nstatus = " + status + "\ntgl_perubahan" + tgl_perubahan, "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah " +
+                                                     "\nID Pengguna : " + nik + 
+                                                     "\nPesan : " + pesan + 
+                                                     "\nTanggal Kirim : " + tanggal_kirim +
+                                                     "\nStatus = " + status + 
+                                                     "\n\nApakah anda yakin ingin menghapus data di atas?", 
+                                                     "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (hasil == DialogResult.Yes)
                 {
                     Inbox i = new Inbox(id_pesan);
