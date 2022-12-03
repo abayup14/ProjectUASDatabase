@@ -38,13 +38,13 @@ namespace ProjectDatabase_Ivano
                 }
                 else
                 {
-                    Pengguna em = Pengguna.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
+                    Employee em = Employee.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
 
                     if (em != null)
                     {
                         FormUtama formUtama = (FormUtama)this.Owner;
 
-                        formUtama.pengguna = em;
+                        formUtama.employee = em;
 
                         MessageBox.Show("Anda berhasil login ke aplikasi. Selamat menggunakan DiBa!", "Informasi");
 

@@ -86,10 +86,16 @@ namespace DiBa_LIB
             Koneksi.JalankanPerintahDML(sql);
         }
 
+        public static void UbahStatusPesan(Inbox i)
+        {
+            string sql = "update inbox set status = 'Terbaca', tgl_perubahan = '" + i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
+                         "where id_pengguna = '" + i.Pengguna.Nik + "' and id_pesan = '" + i.Id + "'";
+            Koneksi.JalankanPerintahDML(sql);
+        }
+
         public static void HapusData(Inbox i)
         {
             string sql = "DELETE from inbox where id_pesan = " + i.Id;
-
             Koneksi.JalankanPerintahDML(sql);
         }
 

@@ -36,9 +36,9 @@ namespace ProjectDatabase_Ivano
 
                 if (formLogin.ShowDialog() == DialogResult.OK)
                 {
-                    labelKode.Text = pengguna.Nik;
+                    labelKode.Text = employee.Nik;
 
-                    labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
+                    labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
 
                     MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
                 }

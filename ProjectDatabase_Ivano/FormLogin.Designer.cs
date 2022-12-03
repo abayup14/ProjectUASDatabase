@@ -185,12 +185,12 @@
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonLogin;
-        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxEmailNomorTelepon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkLabelDaftarPengguna;
         private System.Windows.Forms.CheckBox checkBoxTunjukkan;
         private System.Windows.Forms.LinkLabel linkLabelLupaPassword;
+        public System.Windows.Forms.TextBox textBoxPassword;
+        public System.Windows.Forms.TextBox textBoxEmailNomorTelepon;
     }
 }
