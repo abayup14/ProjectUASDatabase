@@ -174,5 +174,10 @@ namespace ProjectDatabase_Ivano
                 dataGridViewEmployee.DataSource = null;
             }
         }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

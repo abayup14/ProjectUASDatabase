@@ -71,5 +71,14 @@ namespace ProjectDatabase_Ivano
                 labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
             }
         }
+
+        private void buttonKosongi_Click(object sender, EventArgs e)
+        {
+            comboBoxPengguna.SelectedIndex = -1;
+
+            labelNama.Text = "";
+
+            textBoxPesan.Clear();
+        }
     }
 }
