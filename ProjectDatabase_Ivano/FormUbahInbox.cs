@@ -20,11 +20,7 @@ namespace ProjectDatabase_Ivano
 
         private void FormUbahInbox_Load(object sender, EventArgs e)
         {
-            List<Pengguna> listPengguna = Pengguna.BacaData("", "");
 
-            comboBoxPengguna.DataSource = listPengguna;
-
-            comboBoxPengguna.DisplayMember = "nik";
         }
 
         private void buttonKirim_Click(object sender, EventArgs e)
@@ -40,9 +36,10 @@ namespace ProjectDatabase_Ivano
                     FormDaftarInbox formDaftarInbox = (FormDaftarInbox)this.Owner;
 
                     int id = int.Parse(formDaftarInbox.dataGridViewInbox.CurrentRow.Cells["id"].Value.ToString());
+                    DateTime tgl_kirim = DateTime.Parse(formDaftarInbox.dataGridViewInbox.CurrentRow.Cells["tanggal_kirim"].Value.ToString());
                     string status = formDaftarInbox.dataGridViewInbox.CurrentRow.Cells["status"].Value.ToString();
 
-                    Inbox i = new Inbox(pengguna, id, textBoxPesan.Text, DateTime.Now, status, DateTime.Now);
+                    Inbox i = new Inbox(pengguna, id, textBoxPesan.Text, tgl_kirim, status, DateTime.Now);
                     Inbox.UbahData(i);
 
                     MessageBox.Show("Data inbox berhasil diubah.", "Informasi");

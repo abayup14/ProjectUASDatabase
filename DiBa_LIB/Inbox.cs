@@ -71,7 +71,7 @@ namespace DiBa_LIB
 
         public static void TambahData(Inbox i)
         {
-            string sql = "insert into inbox (id_pengguna, id_pesan, pesan, tanggal_kirim, status, tgl_peubahan) " +
+            string sql = "insert into inbox (id_pengguna, id_pesan, pesan, tanggal_kirim, status, tgl_perubahan) " +
                          "values ('" + i.Pengguna.Nik + "', " + i.Id + ", '" + i.Pesan + "', '" + i.Tanggal_kirim.ToString("yyyy-MM-dd HH:mm:ss") +
                          "', '" + i.Status + "', '" + i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
@@ -103,9 +103,9 @@ namespace DiBa_LIB
 
             if (hasil.Read() == true)
             {
-                if (hasil.GetValue(1).ToString() != "")
+                if (hasil.GetValue(0).ToString() != "")
                 {
-                    hasilKode = int.Parse(hasil.GetValue(1).ToString()) + 1;
+                    hasilKode = int.Parse(hasil.GetValue(0).ToString()) + 1;
                 }
                 else
                 {

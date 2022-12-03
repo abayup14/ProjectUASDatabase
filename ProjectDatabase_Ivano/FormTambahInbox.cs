@@ -13,6 +13,8 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormTambahInbox : Form
     {
+        public List<Pengguna> listPengguna = new List<Pengguna>();
+
         public FormTambahInbox()
         {
             InitializeComponent();
@@ -29,15 +31,21 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
-                Pengguna pengguna = (Pengguna)comboBoxPengguna.SelectedItem;
+                DialogResult hasil = MessageBox.Show("Apakah data yang anda masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
 
-                int id = Inbox.GenerateKode();
+                if (hasil == DialogResult.Yes)
+                {
+                    Pengguna pengguna = (Pengguna)comboBoxPengguna.SelectedItem;
 
-                Inbox i = new Inbox(pengguna, id, textBoxPesan.Text, DateTime.Now, "Belum Terbaca", DateTime.Now);
+                    int id = Inbox.GenerateKode();
 
-                Inbox.TambahData(i);
+                    Inbox i = new Inbox(pengguna, id, textBoxPesan.Text, DateTime.Now, "Belum Terbaca", DateTime.Now);
 
-                MessageBox.Show("Inbox berhasil dikirim", "Informasi");
+                    Inbox.TambahData(i);
+
+                    MessageBox.Show("Inbox berhasil dikirim", "Informasi");
+                }
             }
             catch (Exception ex)
             {
@@ -47,7 +55,7 @@ namespace ProjectDatabase_Ivano
 
         private void FormTambahInbox_Load(object sender, EventArgs e)
         {
-            List<Pengguna> listPengguna = Pengguna.BacaData("", "");
+            listPengguna = Pengguna.BacaData("", "");
 
             comboBoxPengguna.DataSource = listPengguna;
 

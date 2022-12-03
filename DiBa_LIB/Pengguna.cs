@@ -136,6 +136,25 @@ namespace DiBa_LIB
 
             return null;
         }
+        public static string AmbilNamaLengkap(string nik)
+        {
+            string sql = "SELECT nama_depan, nama_keluarga from pengguna where nik = '" + nik + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            string hasilAmbil = "";
+
+            if (hasil.Read() == true)
+            {
+                hasilAmbil = hasil.GetString(0) + " " + hasil.GetString(1);
+
+                return hasilAmbil;
+            }
+            else
+            {
+                return null;
+            }
+        }
         public override string ToString()
         {
             return Nik;

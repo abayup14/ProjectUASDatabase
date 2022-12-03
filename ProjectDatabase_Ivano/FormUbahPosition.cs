@@ -30,7 +30,7 @@ namespace ProjectDatabase_Ivano
 
                 Position.UbahData(p);
 
-                MessageBox.Show("Data jabatan telah diubah.", "Info");
+                MessageBox.Show("Data position telah diubah.", "Info");
             }
             catch (Exception ex)
             {

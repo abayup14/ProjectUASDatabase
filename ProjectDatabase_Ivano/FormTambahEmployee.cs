@@ -22,16 +22,22 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
-                Position positionDipilih = (Position)comboBoxPosition.SelectedItem;
+                DialogResult hasil = MessageBox.Show("Apakah data yang anda masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
 
-                int id = Employee.GenerateKode();
+                if (hasil == DialogResult.Yes)
+                {
+                    Position positionDipilih = (Position)comboBoxPosition.SelectedItem;
 
-                Employee em = new Employee(id, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, positionDipilih, textBoxNIK.Text,
-                                          textBoxEmail.Text, textBoxPassword.Text, DateTime.Now, DateTime.Now);
+                    int id = Employee.GenerateKode();
 
-                Employee.TambahData(em);
+                    Employee em = new Employee(id, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, positionDipilih, textBoxNIK.Text,
+                                              textBoxEmail.Text, textBoxPassword.Text, DateTime.Now, DateTime.Now);
 
-                MessageBox.Show("Data employee berhasil ditambah.", "Informasi");
+                    Employee.TambahData(em);
+
+                    MessageBox.Show("Data employee berhasil ditambah.", "Informasi");
+                }
             }
             catch (Exception ex)
             {

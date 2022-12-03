@@ -14,6 +14,8 @@ namespace ProjectDatabase_Ivano
     public partial class FormDaftarInbox : Form
     {
         public List<Inbox> listInbox = new List<Inbox>();
+
+        public List<Pengguna> listPengguna = new List<Pengguna>();
         public FormDaftarInbox()
         {
             InitializeComponent();
@@ -66,12 +68,19 @@ namespace ProjectDatabase_Ivano
             {
                 FormUbahInbox frmUbahInbox = new FormUbahInbox();
                 frmUbahInbox.Owner = this;
+               
+                listPengguna = Pengguna.BacaData("", "");
+                frmUbahInbox.comboBoxPengguna.DataSource = listPengguna;
+                frmUbahInbox.comboBoxPengguna.DisplayMember = "Nik";
+
+                frmUbahInbox.comboBoxPengguna.Text = dataGridViewInbox.CurrentRow.Cells["pengguna"].Value.ToString();
                 frmUbahInbox.textBoxPesan.Text = dataGridViewInbox.CurrentRow.Cells["pesan"].Value.ToString();
                 frmUbahInbox.ShowDialog();
             }
             else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
                 string nik = dataGridViewInbox.CurrentRow.Cells["pengguna"].Value.ToString();
+                string nama = Pengguna.AmbilNamaLengkap(nik);
                 int id_pesan = int.Parse(dataGridViewInbox.CurrentRow.Cells["id"].Value.ToString());
                 string pesan= dataGridViewInbox.CurrentRow.Cells["pesan"].Value.ToString();
                 DateTime tanggal_kirim = DateTime.Parse(dataGridViewInbox.CurrentRow.Cells["tanggal_kirim"].Value.ToString());
@@ -79,9 +88,10 @@ namespace ProjectDatabase_Ivano
 
                 DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah " +
                                                      "\nID Pengguna : " + nik + 
+                                                     "\nNama : " + nama +
                                                      "\nPesan : " + pesan + 
-                                                     "\nTanggal Kirim : " + tanggal_kirim +
-                                                     "\nStatus = " + status + 
+                                                     "\nTanggal Kirim : " + tanggal_kirim.ToShortDateString() +
+                                                     "\nStatus : " + status + 
                                                      "\n\nApakah anda yakin ingin menghapus data di atas?", 
                                                      "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (hasil == DialogResult.Yes)
@@ -96,27 +106,27 @@ namespace ProjectDatabase_Ivano
 
         private void textBoxNilaiKriteria_TextChanged(object sender, EventArgs e)
         {
-            if (comboBoxKriteria.Text == "id_pengguna")
+            if (comboBoxKriteria.Text == "ID Pengguna")
             {
                 listInbox = Inbox.BacaData("id_pengguna", textBoxNilaiKriteria.Text);
             }
-            else if (comboBoxKriteria.Text == "id_pesan")
+            else if (comboBoxKriteria.Text == "ID Pesan")
             {
                 listInbox = Inbox.BacaData("id_pesan", textBoxNilaiKriteria.Text);
             }
-            else if (comboBoxKriteria.Text == "pesan")
+            else if (comboBoxKriteria.Text == "Pesan")
             {
                 listInbox = Inbox.BacaData("pesan", textBoxNilaiKriteria.Text);
             }
-            else if (comboBoxKriteria.Text == "tanggal_kirim")
+            else if (comboBoxKriteria.Text == "Tanggal Kirim")
             {
                 listInbox = Inbox.BacaData("tanggal_kirim", textBoxNilaiKriteria.Text);
             }
-            else if (comboBoxKriteria.Text == "status")
+            else if (comboBoxKriteria.Text == "Status")
             {
                 listInbox = Inbox.BacaData("status", textBoxNilaiKriteria.Text);
             }
-            else if (comboBoxKriteria.Text == "tgl_perubahan")
+            else if (comboBoxKriteria.Text == "Tanggal Perubahan")
             {
                 listInbox = Inbox.BacaData("tgl_perubahan", textBoxNilaiKriteria.Text);
             }

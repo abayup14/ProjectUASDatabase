@@ -22,17 +22,23 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
-                int id = Position.GenerateKode();
-                
-                Position p = new Position(id, textBoxNamaJabatan.Text, textBoxKeterangan.Text);
+                DialogResult result = MessageBox.Show("Apakah data yang ada masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
 
-                Position.TambahData(p);
+                if (result == DialogResult.Yes)
+                {
+                    int id = Position.GenerateKode();
 
-                MessageBox.Show("Data jabatan telah tersimpan.", "Info");
+                    Position p = new Position(id, textBoxNamaJabatan.Text, textBoxKeterangan.Text);
+
+                    Position.TambahData(p);
+
+                    MessageBox.Show("Data position telah tersimpan.", "Info");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Penyimpanan gagal. Pesan kesalahan: " + ex.Message, "Kesalahan");
+                MessageBox.Show("Data position gagal disimpan. Pesan kesalahan: " + ex.Message, "Kesalahan");
             }
         }
 
