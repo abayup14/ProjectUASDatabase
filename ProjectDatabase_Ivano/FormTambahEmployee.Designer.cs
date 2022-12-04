@@ -45,6 +45,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxPosition = new System.Windows.Forms.ComboBox();
+            this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -158,7 +159,6 @@
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(230, 210);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(229, 24);
             this.textBoxPassword.TabIndex = 14;
             // 
@@ -193,6 +193,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.checkBoxTunjukkan);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.comboBoxPosition);
             this.panel1.Controls.Add(this.textBoxPassword);
@@ -229,6 +230,18 @@
             this.comboBoxPosition.Name = "comboBoxPosition";
             this.comboBoxPosition.Size = new System.Drawing.Size(426, 26);
             this.comboBoxPosition.TabIndex = 15;
+            // 
+            // checkBoxTunjukkan
+            // 
+            this.checkBoxTunjukkan.AutoSize = true;
+            this.checkBoxTunjukkan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxTunjukkan.Location = new System.Drawing.Point(465, 212);
+            this.checkBoxTunjukkan.Name = "checkBoxTunjukkan";
+            this.checkBoxTunjukkan.Size = new System.Drawing.Size(107, 22);
+            this.checkBoxTunjukkan.TabIndex = 27;
+            this.checkBoxTunjukkan.Text = "Tunjukkan";
+            this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
+            this.checkBoxTunjukkan.CheckedChanged += new System.EventHandler(this.checkBoxTunjukkan_CheckedChanged);
             // 
             // FormTambahEmployee
             // 
@@ -268,5 +281,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxPosition;
+        private System.Windows.Forms.CheckBox checkBoxTunjukkan;
     }
 }

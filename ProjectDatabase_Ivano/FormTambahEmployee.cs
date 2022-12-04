@@ -52,6 +52,8 @@ namespace ProjectDatabase_Ivano
             comboBoxPosition.DataSource = listPosition;
 
             comboBoxPosition.DisplayMember = "Nama";
+
+            textBoxPassword.UseSystemPasswordChar = true;
         }
 
         private void buttonKosongi_Click(object sender, EventArgs e)
@@ -78,6 +80,18 @@ namespace ProjectDatabase_Ivano
             formDaftarEmployee.FormDaftarEmployee_Load(buttonKeluar, e);
 
             Close();
+        }
+
+        private void checkBoxTunjukkan_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxTunjukkan.Checked == true)
+            {
+                textBoxPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBoxPassword.UseSystemPasswordChar = true;
+            }
         }
     }
 }
