@@ -38,23 +38,30 @@ namespace ProjectDatabase_Ivano
                 }
                 else
                 {
-                    Employee em = Employee.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
-
-                    if (em != null)
+                    try
                     {
-                        FormUtama formUtama = (FormUtama)this.Owner;
+                        Employee em = Employee.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
 
-                        formUtama.employee = em;
+                        if (em != null)
+                        {
+                            FormUtama formUtama = (FormUtama)this.Owner;
 
-                        MessageBox.Show("Anda berhasil login ke aplikasi. Selamat menggunakan DiBa!", "Informasi");
+                            formUtama.employee = em;
 
-                        DialogResult = DialogResult.OK;
+                            MessageBox.Show("Anda berhasil login ke aplikasi. Selamat menggunakan DiBa!", "Informasi");
 
-                        Close();
+                            DialogResult = DialogResult.OK;
+
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show(this, "Username tidak ditemukan atau password salah.");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show(this, "Username tidak ditemukan atau password salah.");
+                        MessageBox.Show(ex.Message);
                     }
                 }
             }
