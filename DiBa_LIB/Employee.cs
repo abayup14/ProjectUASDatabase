@@ -25,15 +25,15 @@ namespace DiBa_LIB
         public Employee(int id, string nama_depan, string nama_keluarga, Position position, string nik, string email, string password, 
                         DateTime tgl_buat, DateTime tgl_perubahan)
         {
-            this.Id = id;
-            this.Nama_depan = nama_depan;
-            this.Nama_keluarga = nama_keluarga;
-            this.Nik = nik;
-            this.Email = email;
-            this.Password = password;
-            this.Tgl_buat = tgl_buat;
-            this.Tgl_perubahan = tgl_perubahan;
-            this.Position = position;
+            Id = id;
+            Nama_depan = nama_depan;
+            Nama_keluarga = nama_keluarga;
+            Nik = nik;
+            Email = email;
+            Password = password;
+            Tgl_buat = tgl_buat;
+            Tgl_perubahan = tgl_perubahan;
+            Position = position;
         }
         public Employee(int id)
         {

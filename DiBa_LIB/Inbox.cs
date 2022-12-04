@@ -21,12 +21,12 @@ namespace DiBa_LIB
         #region Constructors
         public Inbox(Pengguna pengguna, int id, string pesan, DateTime tanggal_kirim, string status, DateTime tanggal_perubahan)
         {
-            this.Pengguna = pengguna;
-            this.Id = id;
-            this.Pesan = pesan;
-            this.Tanggal_kirim = tanggal_kirim;
-            this.Status = status;
-            this.Tanggal_perubahan = tanggal_perubahan;
+            Pengguna = pengguna;
+            Id = id;
+            Pesan = pesan;
+            Tanggal_kirim = tanggal_kirim;
+            Status = status;
+            Tanggal_perubahan = tanggal_perubahan;
         }
         public Inbox(int id)
         {
