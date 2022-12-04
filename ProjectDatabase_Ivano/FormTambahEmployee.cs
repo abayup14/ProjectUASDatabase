@@ -47,13 +47,30 @@ namespace ProjectDatabase_Ivano
 
         private void FormTambahEmployee_Load(object sender, EventArgs e)
         {
+            ActiveControl = label1;
+
+            textBoxNIK.Text = "Wajib diisi";
+            textBoxNIK.Font = new Font(textBoxNIK.Font, FontStyle.Italic);
+            textBoxNIK.ForeColor = Color.Gray;
+
+            textBoxNamaDepan.Text = "Wajib diisi";
+            textBoxNamaDepan.Font = new Font(textBoxNamaDepan.Font, FontStyle.Italic);
+            textBoxNamaDepan.ForeColor = Color.Gray;
+
+            textBoxEmail.Text = "Wajib diisi";
+            textBoxEmail.Font = new Font(textBoxEmail.Font, FontStyle.Italic);
+            textBoxEmail.ForeColor = Color.Gray;
+
+            textBoxPassword.Text = "Wajib diisi";
+            textBoxPassword.Font = new Font(textBoxPassword.Font, FontStyle.Italic);
+            textBoxPassword.ForeColor = Color.Gray;
+            textBoxPassword.UseSystemPasswordChar = false;
+
             List<Position> listPosition = Position.BacaData("", "");
 
             comboBoxPosition.DataSource = listPosition;
 
             comboBoxPosition.DisplayMember = "Nama";
-
-            textBoxPassword.UseSystemPasswordChar = true;
         }
 
         private void buttonKosongi_Click(object sender, EventArgs e)
@@ -68,7 +85,7 @@ namespace ProjectDatabase_Ivano
 
             textBoxPassword.Clear();
 
-            comboBoxPosition.SelectedIndex = 0;
+            comboBoxPosition.SelectedIndex = -1;
 
             textBoxNIK.Focus();
         }
@@ -90,7 +107,96 @@ namespace ProjectDatabase_Ivano
             }
             else
             {
+                if (textBoxPassword.Text == "Wajib diisi")
+                {
+                    textBoxPassword.UseSystemPasswordChar = false;
+                }
+                else
+                {
+                    textBoxPassword.UseSystemPasswordChar = true;
+                }
+            }
+        }
+
+        private void textBoxNIK_Enter(object sender, EventArgs e)
+        {
+            if (textBoxNIK.Text == "Wajib diisi")
+            {
+                textBoxNIK.Text = "";
+                textBoxNIK.Font = new Font(textBoxNIK.Font, FontStyle.Regular);
+                textBoxNIK.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxNIK_Leave(object sender, EventArgs e)
+        {
+            if (textBoxNIK.Text == "")
+            {
+                textBoxNIK.Text = "Wajib diisi";
+                textBoxNIK.Font = new Font(textBoxNIK.Font, FontStyle.Italic);
+                textBoxNIK.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBoxNamaDepan_Enter(object sender, EventArgs e)
+        {
+            if (textBoxNamaDepan.Text == "Wajib diisi")
+            {
+                textBoxNamaDepan.Text = "";
+                textBoxNamaDepan.Font = new Font(textBoxNamaDepan.Font, FontStyle.Regular);
+                textBoxNamaDepan.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxNamaDepan_Leave(object sender, EventArgs e)
+        {
+            if (textBoxNamaDepan.Text == "")
+            {
+                textBoxNamaDepan.Text = "Wajib diisi";
+                textBoxNamaDepan.Font = new Font(textBoxNamaDepan.Font, FontStyle.Italic);
+                textBoxNamaDepan.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBoxEmail_Enter(object sender, EventArgs e)
+        {
+            if (textBoxEmail.Text == "Wajib diisi")
+            {
+                textBoxEmail.Text = "";
+                textBoxEmail.Font = new Font(textBoxEmail.Font, FontStyle.Regular);
+                textBoxEmail.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxEmail_Leave(object sender, EventArgs e)
+        {
+            if (textBoxEmail.Text == "")
+            {
+                textBoxEmail.Text = "Wajib diisi";
+                textBoxEmail.Font = new Font(textBoxEmail.Font, FontStyle.Italic);
+                textBoxEmail.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBoxPassword_Enter(object sender, EventArgs e)
+        {
+            if (textBoxPassword.Text == "Wajib diisi")
+            {
+                textBoxPassword.Text = "";
+                textBoxPassword.Font = new Font(textBoxPassword.Font, FontStyle.Regular);
+                textBoxPassword.ForeColor = Color.Black;
                 textBoxPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void textBoxPassword_Leave(object sender, EventArgs e)
+        {
+            if (textBoxPassword.Text == "")
+            {
+                textBoxPassword.Text = "Wajib diisi";
+                textBoxPassword.Font = new Font(textBoxPassword.Font, FontStyle.Italic);
+                textBoxPassword.ForeColor = Color.Gray;
+                textBoxPassword.UseSystemPasswordChar = false;
             }
         }
     }

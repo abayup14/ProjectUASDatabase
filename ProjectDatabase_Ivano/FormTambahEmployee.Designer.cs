@@ -113,6 +113,8 @@
             this.textBoxNamaDepan.Name = "textBoxNamaDepan";
             this.textBoxNamaDepan.Size = new System.Drawing.Size(426, 24);
             this.textBoxNamaDepan.TabIndex = 4;
+            this.textBoxNamaDepan.Enter += new System.EventHandler(this.textBoxNamaDepan_Enter);
+            this.textBoxNamaDepan.Leave += new System.EventHandler(this.textBoxNamaDepan_Leave);
             // 
             // label4
             // 
@@ -131,6 +133,8 @@
             this.textBoxNIK.Name = "textBoxNIK";
             this.textBoxNIK.Size = new System.Drawing.Size(229, 24);
             this.textBoxNIK.TabIndex = 2;
+            this.textBoxNIK.Enter += new System.EventHandler(this.textBoxNIK_Enter);
+            this.textBoxNIK.Leave += new System.EventHandler(this.textBoxNIK_Leave);
             // 
             // label3
             // 
@@ -161,6 +165,8 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(229, 24);
             this.textBoxPassword.TabIndex = 14;
+            this.textBoxPassword.Enter += new System.EventHandler(this.textBoxPassword_Enter);
+            this.textBoxPassword.Leave += new System.EventHandler(this.textBoxPassword_Leave);
             // 
             // label8
             // 
@@ -179,6 +185,8 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(426, 24);
             this.textBoxEmail.TabIndex = 10;
+            this.textBoxEmail.Enter += new System.EventHandler(this.textBoxEmail_Enter);
+            this.textBoxEmail.Leave += new System.EventHandler(this.textBoxEmail_Leave);
             // 
             // label6
             // 
