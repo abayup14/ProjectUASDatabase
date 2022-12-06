@@ -157,10 +157,29 @@ namespace DiBa_LIB
 
             return null;
         }
-        /*public static Employee AmbilDataByKode(int id)
+        public static string AmbilNamaLengkap(string id)
+        {
+            string sql = "SELECT nama_depan, nama_keluarga from employee where id = '" + id + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            string hasilAmbil = "";
+
+            if (hasil.Read() == true)
+            {
+                hasilAmbil = hasil.GetString(0) + " " + hasil.GetString(1);
+
+                return hasilAmbil;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static Employee AmbilDataByKode(int id)
         {
             string sql = "SELECT e.id, e.nama_depan, e.nama_keluarga, p.nama as nama_position, e.nik, e.email, e.password, e.tgl_buat, e.tgl_perubahan " +
-                         "FROM employee e INNER JOIN position p ON e.position = p.id " + 
+                         "FROM employee e INNER JOIN position p ON e.position = p.id " +
                          "where e.id = " + id;
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
@@ -178,8 +197,8 @@ namespace DiBa_LIB
             {
                 return null;
             }
-            
-        }*/
+
+        }
         #endregion
     }
 }

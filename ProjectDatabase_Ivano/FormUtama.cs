@@ -157,8 +157,15 @@ namespace ProjectDatabase_Ivano
         private void riwayatTransaksiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi(); 
-            formDaftarTransaksi.this = owner;
+            formDaftarTransaksi.MdiParent = this;
             formDaftarTransaksi.Show();
+        }
+
+        private void tabunganToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDaftarTabungan frmDaftarTabungan = new FormDaftarTabungan();
+            frmDaftarTabungan.MdiParent = this;
+            frmDaftarTabungan.Show();
         }
     }
 }

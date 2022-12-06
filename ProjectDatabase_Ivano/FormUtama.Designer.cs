@@ -46,6 +46,7 @@ namespace ProjectDatabase_Ivano
             this.labelNama = new System.Windows.Forms.Label();
             this.labelKode = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabunganToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +71,8 @@ namespace ProjectDatabase_Ivano
             this.jenisTransaksiToolStripMenuItem,
             this.PositionToolStripMenuItem,
             this.employeeToolStripMenuItem,
-            this.inboxToolStripMenuItem});
+            this.inboxToolStripMenuItem,
+            this.tabunganToolStripMenuItem});
             this.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem";
             this.MenuToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.MenuToolStripMenuItem.Text = "Master";
@@ -193,6 +195,13 @@ namespace ProjectDatabase_Ivano
             this.label1.TabIndex = 5;
             this.label1.Text = "Anda login sebagai :";
             // 
+            // tabunganToolStripMenuItem
+            // 
+            this.tabunganToolStripMenuItem.Name = "tabunganToolStripMenuItem";
+            this.tabunganToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.tabunganToolStripMenuItem.Text = "Tabungan";
+            this.tabunganToolStripMenuItem.Click += new System.EventHandler(this.tabunganToolStripMenuItem_Click);
+            // 
             // FormUtama
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -233,6 +242,7 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inboxToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tabunganToolStripMenuItem;
     }
 }
 

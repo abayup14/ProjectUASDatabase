@@ -167,7 +167,29 @@ namespace DiBa_LIB
             AddressBook adress = new AddressBook(p, t, keterangan);
             ListAdressBook.Add(adress);
         }
+        public static Pengguna AmbilDataByKode(string id)
+        {
+            string sql = "SELECT  p.nik, p.nama_depan, p.nama_keluarga, p.alamat, p.email, p.no_telepon " +
+                "p.password, p.pin, p.tgl_buat, p.tgl_perubahan " +
+                         "FROM pengguna " +
+                         "where p.nik = '" + id +"'";
 
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                Pengguna p = new Pengguna(hasil.GetString(0), hasil.GetString(1), hasil.GetString(2), 
+                    hasil.GetString(3), hasil.GetString(4), hasil.GetString(5), hasil.GetString(6), 
+                    hasil.GetString(7), DateTime.Parse(hasil.GetString(8)), DateTime.Parse(hasil.GetString(9)));
+
+                return p;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
         #endregion
     }
 }

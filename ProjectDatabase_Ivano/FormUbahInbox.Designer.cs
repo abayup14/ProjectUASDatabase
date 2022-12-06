@@ -187,6 +187,7 @@ namespace ProjectDatabase_Ivano
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormUbahInbox";
             this.Text = "Ubah Inbox";
+            this.Load += new System.EventHandler(this.FormUbahInbox_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

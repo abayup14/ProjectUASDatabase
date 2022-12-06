@@ -71,5 +71,10 @@ namespace ProjectDatabase_Ivano
 
             textBoxPesan.Clear();
         }
+
+        private void FormUbahInbox_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
