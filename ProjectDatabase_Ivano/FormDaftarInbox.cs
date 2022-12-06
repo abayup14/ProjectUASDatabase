@@ -50,7 +50,7 @@ namespace ProjectDatabase_Ivano
             }
         }
 
-        private void buttonKeluar_Click(object sender, EventArgs e)
+        private void ButtonKeluar_Click(object sender, EventArgs e)
         {
             this.Close();
         }

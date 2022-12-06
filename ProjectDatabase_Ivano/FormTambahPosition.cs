@@ -57,5 +57,10 @@ namespace ProjectDatabase_Ivano
 
             this.Close();
         }
+
+        private void FormTambahPosition_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
