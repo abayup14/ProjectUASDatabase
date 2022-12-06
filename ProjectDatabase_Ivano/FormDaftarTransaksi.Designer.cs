@@ -139,7 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1115, 557);
+            this.ClientSize = new System.Drawing.Size(1087, 557);
             this.Controls.Add(this.dataGridViewJabatan);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonKeluar);
