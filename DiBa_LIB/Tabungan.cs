@@ -32,7 +32,7 @@ namespace DiBa_LIB
         }
         public Tabungan(string rekening)
         {
-            Rekening = rekening;
+            this.Rekening = rekening;
         }
 
         public string Rekening { get => rekening; set => rekening = value; }
