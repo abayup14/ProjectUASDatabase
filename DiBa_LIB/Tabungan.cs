@@ -30,6 +30,10 @@ namespace DiBa_LIB
             this.Tgl_perubahan = tgl_perubahan;
             this.Verifikator = verifikator;
         }
+        public Tabungan(string rekening)
+        {
+            this.Rekening = rekening;
+        }
 
         public string Rekening { get => rekening; set => rekening = value; }
         public Pengguna Pengguna { get => pengguna; set => pengguna = value; }

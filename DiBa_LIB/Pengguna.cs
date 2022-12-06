@@ -21,11 +21,12 @@ namespace DiBa_LIB
         private string pin;
         private DateTime tgl_buat;
         private DateTime tgl_perubahan;
+        private List<AddressBook> listAdressBook;
         #endregion
 
         #region CONSTRUCTORS
         public Pengguna(string nik, string nama_depan, string nama_keluarga, string alamat, string email, string no_telepon, 
-                        string password, string pin, DateTime tgl_buat, DateTime tgl_perubahan)
+                        string password, string pin, DateTime tgl_buat, DateTime tgl_perubahan )
         {
             Nik = nik;
             Nama_depan = nama_depan;
@@ -37,6 +38,7 @@ namespace DiBa_LIB
             Pin = pin;
             Tgl_buat = tgl_buat;
             Tgl_perubahan = tgl_perubahan;
+            ListAdressBook = new List<AddressBook>();
         }
         public Pengguna(string nik)
         {
@@ -55,6 +57,7 @@ namespace DiBa_LIB
         public string Pin { get => pin; set => pin = value; }
         public DateTime Tgl_buat { get => tgl_buat; set => tgl_buat = value; }
         public DateTime Tgl_perubahan { get => tgl_perubahan; set => tgl_perubahan = value; }
+        public List<AddressBook> ListAdressBook { get => listAdressBook; private set => listAdressBook = value; }
         #endregion
 
         #region METHODS
@@ -158,6 +161,11 @@ namespace DiBa_LIB
         public override string ToString()
         {
             return Nik;
+        }
+        public void TambahAdressBook(Pengguna p, Tabungan t, string keterangan)
+        {
+            AddressBook adress = new AddressBook(p, t, keterangan);
+            ListAdressBook.Add(adress);
         }
 
         #endregion
