@@ -45,6 +45,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxPosition = new System.Windows.Forms.ComboBox();
+            this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,6 +113,8 @@
             this.textBoxNamaDepan.Name = "textBoxNamaDepan";
             this.textBoxNamaDepan.Size = new System.Drawing.Size(426, 24);
             this.textBoxNamaDepan.TabIndex = 4;
+            this.textBoxNamaDepan.Enter += new System.EventHandler(this.textBoxNamaDepan_Enter);
+            this.textBoxNamaDepan.Leave += new System.EventHandler(this.textBoxNamaDepan_Leave);
             // 
             // label4
             // 
@@ -130,6 +133,8 @@
             this.textBoxNIK.Name = "textBoxNIK";
             this.textBoxNIK.Size = new System.Drawing.Size(229, 24);
             this.textBoxNIK.TabIndex = 2;
+            this.textBoxNIK.Enter += new System.EventHandler(this.textBoxNIK_Enter);
+            this.textBoxNIK.Leave += new System.EventHandler(this.textBoxNIK_Leave);
             // 
             // label3
             // 
@@ -158,9 +163,10 @@
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(230, 210);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(229, 24);
             this.textBoxPassword.TabIndex = 14;
+            this.textBoxPassword.Enter += new System.EventHandler(this.textBoxPassword_Enter);
+            this.textBoxPassword.Leave += new System.EventHandler(this.textBoxPassword_Leave);
             // 
             // label8
             // 
@@ -179,6 +185,8 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(426, 24);
             this.textBoxEmail.TabIndex = 10;
+            this.textBoxEmail.Enter += new System.EventHandler(this.textBoxEmail_Enter);
+            this.textBoxEmail.Leave += new System.EventHandler(this.textBoxEmail_Leave);
             // 
             // label6
             // 
@@ -193,6 +201,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.checkBoxTunjukkan);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.comboBoxPosition);
             this.panel1.Controls.Add(this.textBoxPassword);
@@ -229,6 +238,18 @@
             this.comboBoxPosition.Name = "comboBoxPosition";
             this.comboBoxPosition.Size = new System.Drawing.Size(426, 26);
             this.comboBoxPosition.TabIndex = 15;
+            // 
+            // checkBoxTunjukkan
+            // 
+            this.checkBoxTunjukkan.AutoSize = true;
+            this.checkBoxTunjukkan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxTunjukkan.Location = new System.Drawing.Point(465, 212);
+            this.checkBoxTunjukkan.Name = "checkBoxTunjukkan";
+            this.checkBoxTunjukkan.Size = new System.Drawing.Size(107, 22);
+            this.checkBoxTunjukkan.TabIndex = 27;
+            this.checkBoxTunjukkan.Text = "Tunjukkan";
+            this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
+            this.checkBoxTunjukkan.CheckedChanged += new System.EventHandler(this.checkBoxTunjukkan_CheckedChanged);
             // 
             // FormTambahEmployee
             // 
@@ -268,5 +289,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxPosition;
+        private System.Windows.Forms.CheckBox checkBoxTunjukkan;
     }
 }

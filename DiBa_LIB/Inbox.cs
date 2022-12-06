@@ -21,12 +21,12 @@ namespace DiBa_LIB
         #region Constructors
         public Inbox(Pengguna pengguna, int id, string pesan, DateTime tanggal_kirim, string status, DateTime tanggal_perubahan)
         {
-            this.Pengguna = pengguna;
-            this.Id = id;
-            this.Pesan = pesan;
-            this.Tanggal_kirim = tanggal_kirim;
-            this.Status = status;
-            this.Tanggal_perubahan = tanggal_perubahan;
+            Pengguna = pengguna;
+            Id = id;
+            Pesan = pesan;
+            Tanggal_kirim = tanggal_kirim;
+            Status = status;
+            Tanggal_perubahan = tanggal_perubahan;
         }
         public Inbox(int id)
         {
@@ -86,10 +86,16 @@ namespace DiBa_LIB
             Koneksi.JalankanPerintahDML(sql);
         }
 
+        public static void UbahStatusPesan(Inbox i)
+        {
+            string sql = "update inbox set status = 'Terbaca', tgl_perubahan = '" + i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
+                         "where id_pengguna = '" + i.Pengguna.Nik + "' and id_pesan = '" + i.Id + "'";
+            Koneksi.JalankanPerintahDML(sql);
+        }
+
         public static void HapusData(Inbox i)
         {
             string sql = "DELETE from inbox where id_pesan = " + i.Id;
-
             Koneksi.JalankanPerintahDML(sql);
         }
 

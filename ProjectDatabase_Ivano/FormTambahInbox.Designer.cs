@@ -33,11 +33,12 @@
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelNama = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxPengguna = new System.Windows.Forms.ComboBox();
             this.buttonKirim = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelNama = new System.Windows.Forms.Label();
+            this.buttonKosongi = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,6 +104,26 @@
             this.panel1.Size = new System.Drawing.Size(716, 264);
             this.panel1.TabIndex = 39;
             // 
+            // labelNama
+            // 
+            this.labelNama.AutoSize = true;
+            this.labelNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNama.Location = new System.Drawing.Point(233, 99);
+            this.labelNama.Name = "labelNama";
+            this.labelNama.Size = new System.Drawing.Size(62, 18);
+            this.labelNama.TabIndex = 20;
+            this.labelNama.Text = "Nama :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(141, 99);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 18);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Nama :";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -139,31 +160,25 @@
             this.buttonKirim.UseVisualStyleBackColor = false;
             this.buttonKirim.Click += new System.EventHandler(this.buttonKirim_Click);
             // 
-            // label2
+            // buttonKosongi
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(141, 99);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 18);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Nama :";
-            // 
-            // labelNama
-            // 
-            this.labelNama.AutoSize = true;
-            this.labelNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNama.Location = new System.Drawing.Point(233, 99);
-            this.labelNama.Name = "labelNama";
-            this.labelNama.Size = new System.Drawing.Size(62, 18);
-            this.labelNama.TabIndex = 20;
-            this.labelNama.Text = "Nama :";
+            this.buttonKosongi.BackColor = System.Drawing.Color.Navy;
+            this.buttonKosongi.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKosongi.ForeColor = System.Drawing.Color.White;
+            this.buttonKosongi.Location = new System.Drawing.Point(274, 347);
+            this.buttonKosongi.Name = "buttonKosongi";
+            this.buttonKosongi.Size = new System.Drawing.Size(202, 53);
+            this.buttonKosongi.TabIndex = 43;
+            this.buttonKosongi.Text = "&KOSONGI";
+            this.buttonKosongi.UseVisualStyleBackColor = false;
+            this.buttonKosongi.Click += new System.EventHandler(this.buttonKosongi_Click);
             // 
             // FormTambahInbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(753, 411);
+            this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.buttonKirim);
             this.Controls.Add(this.labelInbox);
             this.Controls.Add(this.buttonKeluar);
@@ -190,5 +205,6 @@
         private System.Windows.Forms.ComboBox comboBoxPengguna;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelNama;
+        private System.Windows.Forms.Button buttonKosongi;
     }
 }

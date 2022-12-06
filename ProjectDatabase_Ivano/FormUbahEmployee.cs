@@ -71,7 +71,7 @@ namespace ProjectDatabase_Ivano
 
             textBoxEmail.Clear();
 
-            comboBoxPosition.SelectedIndex = 0;
+            comboBoxPosition.SelectedIndex = -1;
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)
