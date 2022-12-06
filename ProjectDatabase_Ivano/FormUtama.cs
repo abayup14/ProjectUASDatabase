@@ -153,5 +153,12 @@ namespace ProjectDatabase_Ivano
                 form.BringToFront();
             }
         }
+
+        private void riwayatTransaksiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi(); 
+            formDaftarTransaksi.this = owner;
+            formDaftarTransaksi.Show();
+        }
     }
 }
