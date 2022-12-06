@@ -225,6 +225,9 @@
     <EmbeddedResource Include="FormTambahJenisTransaksi.resx">
       <DependentUpon>FormTambahJenisTransaksi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahTransaksi.resx">
+      <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUbahEmployee.resx">
       <DependentUpon>FormUbahEmployee.cs</DependentUpon>
     </EmbeddedResource>

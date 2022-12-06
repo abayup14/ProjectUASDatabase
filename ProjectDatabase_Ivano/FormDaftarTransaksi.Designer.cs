@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewJabatan = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTransaksi = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxKriteria = new System.Windows.Forms.TextBox();
             this.comboBoxKriteria = new System.Windows.Forms.ComboBox();
@@ -36,19 +36,20 @@
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.buttonTambah = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJabatan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransaksi)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridViewJabatan
+            // dataGridViewTransaksi
             // 
-            this.dataGridViewJabatan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewJabatan.Location = new System.Drawing.Point(13, 171);
-            this.dataGridViewJabatan.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridViewJabatan.Name = "dataGridViewJabatan";
-            this.dataGridViewJabatan.RowHeadersWidth = 51;
-            this.dataGridViewJabatan.Size = new System.Drawing.Size(1051, 297);
-            this.dataGridViewJabatan.TabIndex = 36;
+            this.dataGridViewTransaksi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTransaksi.Location = new System.Drawing.Point(13, 171);
+            this.dataGridViewTransaksi.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewTransaksi.Name = "dataGridViewTransaksi";
+            this.dataGridViewTransaksi.RowHeadersWidth = 51;
+            this.dataGridViewTransaksi.Size = new System.Drawing.Size(1051, 297);
+            this.dataGridViewTransaksi.TabIndex = 36;
+            this.dataGridViewTransaksi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTransaksi_CellContentClick);
             // 
             // panel1
             // 
@@ -121,6 +122,7 @@
             this.buttonTambah.TabIndex = 37;
             this.buttonTambah.Text = "&TAMBAH";
             this.buttonTambah.UseVisualStyleBackColor = false;
+            this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
             // 
             // label1
             // 
@@ -139,8 +141,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1115, 557);
-            this.Controls.Add(this.dataGridViewJabatan);
+            this.ClientSize = new System.Drawing.Size(1087, 557);
+            this.Controls.Add(this.dataGridViewTransaksi);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonTambah);
@@ -148,7 +150,7 @@
             this.Name = "FormDaftarTransaksi";
             this.Text = "FormDaftarTransaksi";
             this.Load += new System.EventHandler(this.FormDaftarTransaksi_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJabatan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransaksi)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -157,7 +159,7 @@
 
         #endregion
 
-        public System.Windows.Forms.DataGridView dataGridViewJabatan;
+        public System.Windows.Forms.DataGridView dataGridViewTransaksi;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBoxKriteria;
         private System.Windows.Forms.ComboBox comboBoxKriteria;
