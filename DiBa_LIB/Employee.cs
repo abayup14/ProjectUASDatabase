@@ -66,7 +66,7 @@ namespace DiBa_LIB
             else
             {
                 sql = "SELECT e.id, e.nama_depan, e.nama_keluarga, p.nama as nama_position, e.nik, e.email, e.password, e.tgl_buat, e.tgl_perubahan " +
-                      "FROM employee e INNER JOIN position p ON e.position = p.id " +
+                      "FROM employee e INNER JOIN position p ON e.position = p.id " + 
                       "WHERE " + kriteria + " LIKE '%" + nilaiKriteria + "%'";
             }
 

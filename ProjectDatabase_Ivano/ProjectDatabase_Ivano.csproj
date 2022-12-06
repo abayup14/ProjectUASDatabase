@@ -55,6 +55,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>db.Settings</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarDeposito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarDeposito.Designer.cs">
+      <DependentUpon>FormDaftarDeposito.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDaftarEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,12 @@
     </Compile>
     <Compile Include="FormDaftarPengguna.designer.cs">
       <DependentUpon>FormDaftarPengguna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahDeposito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahDeposito.Designer.cs">
+      <DependentUpon>FormTambahDeposito.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahInbox.cs">
       <SubType>Form</SubType>
@@ -120,6 +132,12 @@
     </Compile>
     <Compile Include="FormTambahJenisTransaksi.Designer.cs">
       <DependentUpon>FormTambahJenisTransaksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUbahDeposito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUbahDeposito.Designer.cs">
+      <DependentUpon>FormUbahDeposito.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUbahEmployee.cs">
       <SubType>Form</SubType>
@@ -171,6 +189,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDaftarDeposito.resx">
+      <DependentUpon>FormDaftarDeposito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarEmployee.resx">
       <DependentUpon>FormDaftarEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahJenisTransaksi.resx">
       <DependentUpon>FormTambahJenisTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUbahDeposito.resx">
+      <DependentUpon>FormUbahDeposito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUbahEmployee.resx">
       <DependentUpon>FormUbahEmployee.cs</DependentUpon>
