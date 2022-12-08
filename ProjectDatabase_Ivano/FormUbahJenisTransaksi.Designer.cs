@@ -58,12 +58,12 @@ namespace ProjectDatabase_Ivano
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(128, 23);
+            this.label1.Location = new System.Drawing.Point(192, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(389, 36);
+            this.label1.Size = new System.Drawing.Size(290, 36);
             this.label1.TabIndex = 0;
-            this.label1.Text = "UBAH JENIS TRANSAKSI";
+            this.label1.Text = "UBAH TRANSAKSI";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel1
@@ -122,7 +122,7 @@ namespace ProjectDatabase_Ivano
             this.buttonKosongi.BackColor = System.Drawing.Color.Navy;
             this.buttonKosongi.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKosongi.ForeColor = System.Drawing.Color.White;
-            this.buttonKosongi.Location = new System.Drawing.Point(250, 281);
+            this.buttonKosongi.Location = new System.Drawing.Point(255, 417);
             this.buttonKosongi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKosongi.Name = "buttonKosongi";
             this.buttonKosongi.Size = new System.Drawing.Size(203, 53);
@@ -136,7 +136,7 @@ namespace ProjectDatabase_Ivano
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(488, 281);
+            this.buttonKeluar.Location = new System.Drawing.Point(474, 417);
             this.buttonKeluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(203, 53);
@@ -150,7 +150,7 @@ namespace ProjectDatabase_Ivano
             this.buttonTambah.BackColor = System.Drawing.Color.Navy;
             this.buttonTambah.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(12, 281);
+            this.buttonTambah.Location = new System.Drawing.Point(21, 417);
             this.buttonTambah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTambah.Name = "buttonTambah";
             this.buttonTambah.Size = new System.Drawing.Size(203, 53);
@@ -163,7 +163,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 348);
+            this.ClientSize = new System.Drawing.Size(705, 497);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonKosongi);
