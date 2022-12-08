@@ -163,6 +163,7 @@ namespace ProjectDatabase_Ivano
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormTambahPosition";
             this.Text = "Tambah Position";
+            this.Load += new System.EventHandler(this.FormTambahPosition_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
