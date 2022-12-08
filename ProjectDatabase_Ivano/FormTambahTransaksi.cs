@@ -34,10 +34,16 @@ namespace ProjectDatabase_Ivano
 
                 if (result == DialogResult.Yes)
                 {
+<<<<<<< Updated upstream
                     
                     Tabungan tabungan = new Tabungan(labelNoRekening.Text);
                     JenisTransaksi jt = new JenisTransaksi(int.Parse(comboBoxJenisTransaksi.Text));
                     Transaksi t = new Transaksi(tabungan,Transaksi.GenerateKode().ToString(), DateTime.Now, jt, tabungan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
+=======
+                    Tabungan tabungan = new Tabungan(labelNoRekening.Text);
+                    JenisTransaksi jt = new JenisTransaksi(int.Parse(comboBoxJenisTransaksi.Text));
+                    Transaksi t = new Transaksi(tabungan,transaksiId, DateTime.Now, jt, tabungan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
+>>>>>>> Stashed changes
 
                     Transaksi.TambahData(t);
 
