@@ -68,10 +68,6 @@ namespace ProjectDatabase_Ivano
             {
                 FormUbahDeposito formUbahDeposito = new FormUbahDeposito();
                 formUbahDeposito.Owner = this;
-                formUbahDeposito.textBoxJatuhTempo.Text = dataGridViewDeposito.CurrentRow.Cells["jatuh_tempo"].Value.ToString();
-                formUbahDeposito.textBoxNominal.Text = dataGridViewDeposito.CurrentRow.Cells["nominal"].Value.ToString();
-                formUbahDeposito.textBoxBunga.Text = dataGridViewDeposito.CurrentRow.Cells["bunga"].Value.ToString();
-                formUbahDeposito.textBoxStatus.Text = dataGridViewDeposito.CurrentRow.Cells["status"].Value.ToString();
                 formUbahDeposito.Show();
             }
             else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)

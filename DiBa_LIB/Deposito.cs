@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
@@ -113,6 +114,27 @@ namespace DiBa_LIB
             string sql = "UPDATE deposito set jatuh_tempo = '" + d.Jatuh_tempo + "', nominal = '" + d.Nominal + "', bunga = '" + d.Bunga +
                 "', status = '" + d.Status + "', tgl_buat = '" + d.Tgl_buat + "', tgl_perubahan = '" + d.Tgl_perubahan + "', verifikator_buka = '" + d.Verifikator_buka +
                 "', verifikator_cair = '" + d.Verifikator_cair + "' WHERE id_deposito = " + d.Id_deposito;
+
+            Koneksi.JalankanPerintahDML(sql);
+        }
+
+        public static void UbahStatus(Deposito d)
+        {
+            string sql = "UPDATE deposito set status = '" + "Tidak Aktif"+ "'" + "WHERE id_deposito = " + d.Id_deposito;
+
+            Koneksi.JalankanPerintahDML(sql);
+        }
+
+        public static void UbahNominal(Deposito d)
+        {
+            string sql = "UPDATE deposito set nominal = '" + d.Nominal * (95/100) + "'" + "WHERE id_deposito = " + d.Id_deposito;
+
+            Koneksi.JalankanPerintahDML(sql);
+        }
+
+        public static void TambahNominal(Deposito d)
+        {
+            string sql = "UPDATE deposito set nominal = '" + d.Nominal * (100+d.bunga/100) + "'" + "WHERE id_deposito = " + d.Id_deposito;
 
             Koneksi.JalankanPerintahDML(sql);
         }

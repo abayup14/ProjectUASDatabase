@@ -169,3 +169,5 @@ C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarTransaksi.resources
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahTransaksi.resources
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahTransaksi.resources
+D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarDeposito.resources
+D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahDeposito.resources

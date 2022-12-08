@@ -36,7 +36,6 @@ namespace ProjectDatabase_Ivano
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewTabungan = new System.Windows.Forms.DataGridView();
             this.buttonKeluar = new System.Windows.Forms.Button();
-            this.buttonTambah = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTabungan)).BeginInit();
             this.SuspendLayout();
@@ -127,19 +126,6 @@ namespace ProjectDatabase_Ivano
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
             // 
-            // buttonTambah
-            // 
-            this.buttonTambah.BackColor = System.Drawing.Color.Navy;
-            this.buttonTambah.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(11, 400);
-            this.buttonTambah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonTambah.Name = "buttonTambah";
-            this.buttonTambah.Size = new System.Drawing.Size(203, 53);
-            this.buttonTambah.TabIndex = 48;
-            this.buttonTambah.Text = "&TAMBAH";
-            this.buttonTambah.UseVisualStyleBackColor = false;
-            // 
             // FormDaftarTabungan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -149,7 +135,6 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewTabungan);
             this.Controls.Add(this.buttonKeluar);
-            this.Controls.Add(this.buttonTambah);
             this.Name = "FormDaftarTabungan";
             this.Text = "FormDaftarTabungan";
             this.Load += new System.EventHandler(this.FormDaftarTabungan_Load);
@@ -169,6 +154,5 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DataGridView dataGridViewTabungan;
         private System.Windows.Forms.Button buttonKeluar;
-        private System.Windows.Forms.Button buttonTambah;
     }
 }
