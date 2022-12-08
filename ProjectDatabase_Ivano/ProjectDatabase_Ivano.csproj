@@ -133,12 +133,6 @@
     <Compile Include="FormTambahJenisTransaksi.Designer.cs">
       <DependentUpon>FormTambahJenisTransaksi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTambahTabungan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormTambahTabungan.Designer.cs">
-      <DependentUpon>FormTambahTabungan.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormTambahTransaksi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,12 +181,6 @@
     <Compile Include="FormUbahPengguna.designer.cs">
       <DependentUpon>FormUbahPengguna.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUbahTabungan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormUbahTabungan.Designer.cs">
-      <DependentUpon>FormUbahTabungan.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormUbahTransaksi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,9 +209,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarPengguna.resx">
       <DependentUpon>FormDaftarPengguna.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormDaftarTabungan.resx">
-      <DependentUpon>FormDaftarTabungan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarTransaksi.resx">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
@@ -270,8 +255,8 @@
     <EmbeddedResource Include="FormUbahPengguna.resx">
       <DependentUpon>FormUbahPengguna.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUbahTabungan.resx">
-      <DependentUpon>FormUbahTabungan.cs</DependentUpon>
+    <EmbeddedResource Include="FormUbahTransaksi.resx">
+      <DependentUpon>FormUbahTransaksi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUtama.resx">
       <DependentUpon>FormUtama.cs</DependentUpon>

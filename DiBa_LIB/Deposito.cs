@@ -81,7 +81,7 @@ namespace DiBa_LIB
             List<Deposito> listDeposito = new List<Deposito>();
             while(hasil.Read() == true)
             {
-                Tabungan t = new Tabungan();
+                Tabungan t = new Tabungan(hasil.GetString(1));
 
                 Employee e = new Employee(int.Parse(hasil.GetString("id")));
                 Deposito d = new Deposito(hasil.GetString("id_deposito").ToString(), t, int.Parse(hasil.GetString("jatuh_tempo")), double.Parse(hasil.GetString("nominal")), 
@@ -117,22 +117,30 @@ namespace DiBa_LIB
             Koneksi.JalankanPerintahDML(sql);
         }
 
-        public static int GenerateKode()
+        public static string GenerateKode(string no_rekening)
         {
-            string sql = "SELECT max(id_deposito) FROM deposito";
-            int hasilKode = 0;
+            string sql = "SELECT RIGHT(no_rekening, 4), MAX(RIGHT(id_deposito, 4)) " +
+                         "FROM deposito " +
+                         "WHERE Date(tgl_buat) = Date(CURRENT_DATE) AND no_rekening = '" + no_rekening + "' " + 
+                         "ORDER BY tgl_buat DESC limit 1";
+            string hasilKode = "";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
             if(hasil.Read() == true)
             {
-                if(hasil.GetString("id_deposito") != "")
+                if(hasil.GetString("id_deposito") != "" && hasil.GetString("no_rekening") != "")
                 {
-                    hasilKode = int.Parse(hasil.GetString("id_deposito") + 1);
+                    int nextID = int.Parse(hasil.GetString(1)) + 1;
+                    hasilKode = DateTime.Now.Year + "/" + DateTime.Now.Month.ToString().PadLeft(2, '0') + "/" +
+                                DateTime.Now.Day.ToString().PadLeft(2, '0') + "/" + hasil.GetString(0) + "/" +
+                                nextID.ToString().PadLeft(4, '0');
                 }
                 else
                 {
-                    hasilKode = 1;
+                    hasilKode = DateTime.Now.Year + "/" + DateTime.Now.Month.ToString().PadLeft(2, '0') + "/" +
+                                DateTime.Now.Day.ToString().PadLeft(2, '0') + "/" + hasil.GetString(0) + "/" +
+                                "0001";
                 }
             }
             return hasilKode;
