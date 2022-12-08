@@ -55,6 +55,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>db.Settings</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarDeposito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarDeposito.Designer.cs">
+      <DependentUpon>FormDaftarDeposito.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDaftarEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,12 @@
     <Compile Include="FormDaftarTransaksi.Designer.cs">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTambahDeposito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahDeposito.Designer.cs">
+      <DependentUpon>FormTambahDeposito.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTambahInbox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,17 +145,17 @@
     <Compile Include="FormTambahJenisTransaksi.Designer.cs">
       <DependentUpon>FormTambahJenisTransaksi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTambahTabungan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormTambahTabungan.Designer.cs">
-      <DependentUpon>FormTambahTabungan.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormTambahTransaksi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormTambahTransaksi.Designer.cs">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUbahDeposito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUbahDeposito.Designer.cs">
+      <DependentUpon>FormUbahDeposito.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUbahEmployee.cs">
       <SubType>Form</SubType>
@@ -187,12 +199,6 @@
     <Compile Include="FormUbahPengguna.designer.cs">
       <DependentUpon>FormUbahPengguna.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUbahTabungan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormUbahTabungan.Designer.cs">
-      <DependentUpon>FormUbahTabungan.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormUbahTransaksi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDaftarDeposito.resx">
+      <DependentUpon>FormDaftarDeposito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarEmployee.resx">
       <DependentUpon>FormDaftarEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,9 +230,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarPengguna.resx">
       <DependentUpon>FormDaftarPengguna.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormDaftarTabungan.resx">
-      <DependentUpon>FormDaftarTabungan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarTransaksi.resx">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
@@ -249,6 +255,9 @@
     <EmbeddedResource Include="FormTambahTransaksi.resx">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUbahDeposito.resx">
+      <DependentUpon>FormUbahDeposito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUbahEmployee.resx">
       <DependentUpon>FormUbahEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,8 +279,8 @@
     <EmbeddedResource Include="FormUbahPengguna.resx">
       <DependentUpon>FormUbahPengguna.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUbahTabungan.resx">
-      <DependentUpon>FormUbahTabungan.cs</DependentUpon>
+    <EmbeddedResource Include="FormUbahTransaksi.resx">
+      <DependentUpon>FormUbahTransaksi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUtama.resx">
       <DependentUpon>FormUtama.cs</DependentUpon>

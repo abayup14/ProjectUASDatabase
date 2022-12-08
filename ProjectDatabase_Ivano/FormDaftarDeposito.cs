@@ -43,8 +43,8 @@ namespace ProjectDatabase_Ivano
                 {
                     DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
                     bcol.HeaderText = "Aksi";
-                    bcol.Text = "Ubah";
-                    bcol.Name = "buttonUbahGrid";
+                    bcol.Text = "Cairkan";
+                    bcol.Name = "buttonCairkanGrid";
                     bcol.UseColumnTextForButtonValue = true;
                     dataGridViewDeposito.Columns.Add(bcol);
 
@@ -54,6 +54,13 @@ namespace ProjectDatabase_Ivano
                     bcol2.Name = "buttonHapusGrid";
                     bcol2.UseColumnTextForButtonValue = true;
                     dataGridViewDeposito.Columns.Add(bcol2);
+
+                    DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
+                    bcol3.HeaderText = "Aksi";
+                    bcol3.Text = "Aktifkan";
+                    bcol3.Name = "buttonAktifGrid";
+                    bcol3.UseColumnTextForButtonValue = true;
+                    dataGridViewDeposito.Columns.Add(bcol3);
                 }
             }
             else
@@ -64,10 +71,13 @@ namespace ProjectDatabase_Ivano
 
         private void dataGridViewDeposito_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == dataGridViewDeposito.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonCairkanGrid"].Index && e.RowIndex >= 0)
             {
+                listDeposito = Deposito.BacaData("", "");
                 FormUbahDeposito formUbahDeposito = new FormUbahDeposito();
                 formUbahDeposito.Owner = this;
+                formUbahDeposito.comboBoxNoRek.DataSource = listDeposito;
+                formUbahDeposito.comboBoxNoRek.DisplayMember = "no_rekening";
                 formUbahDeposito.textBoxJatuhTempo.Text = dataGridViewDeposito.CurrentRow.Cells["jatuh_tempo"].Value.ToString();
                 formUbahDeposito.textBoxNominal.Text = dataGridViewDeposito.CurrentRow.Cells["nominal"].Value.ToString();
                 formUbahDeposito.textBoxBunga.Text = dataGridViewDeposito.CurrentRow.Cells["bunga"].Value.ToString();
