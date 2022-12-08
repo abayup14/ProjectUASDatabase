@@ -31,10 +31,11 @@ namespace ProjectDatabase_Ivano
 
                     Pengguna p = new Pengguna(textBoxNIK.Text, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, textBoxAlamat.Text,
                                               textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, pin, DateTime.Now, DateTime.Now);
-
                     Pengguna.TambahData(p);
+                    MessageBox.Show("Selamat, anda sudah terdaftar.\nSilahkan masuk dengan email " +
+                        "atau nomor telepon dan password anda.", "Informasi");
 
-                    MessageBox.Show("Selamat, anda sudah terdaftar.\nSilahkan masuk dengan email atau nomor telepon dan password anda.", "Informasi");
+                    //Tabungan t = new Tabungan(Tabungan.)
 
                     Close();
                 }

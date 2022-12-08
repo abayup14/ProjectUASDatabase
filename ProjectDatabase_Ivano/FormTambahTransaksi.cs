@@ -20,10 +20,6 @@ namespace ProjectDatabase_Ivano
         List<Transaksi> listTransaksi = new List<Transaksi>();
         List<JenisTransaksi> listJenisTransaksi = new List<JenisTransaksi>();
         List<Tabungan> listTabungan = new List<Tabungan>();
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
@@ -34,16 +30,10 @@ namespace ProjectDatabase_Ivano
 
                 if (result == DialogResult.Yes)
                 {
-<<<<<<< Updated upstream
                     
                     Tabungan tabungan = new Tabungan(labelNoRekening.Text);
                     JenisTransaksi jt = new JenisTransaksi(int.Parse(comboBoxJenisTransaksi.Text));
                     Transaksi t = new Transaksi(tabungan,Transaksi.GenerateKode().ToString(), DateTime.Now, jt, tabungan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
-=======
-                    Tabungan tabungan = new Tabungan(labelNoRekening.Text);
-                    JenisTransaksi jt = new JenisTransaksi(int.Parse(comboBoxJenisTransaksi.Text));
-                    Transaksi t = new Transaksi(tabungan,transaksiId, DateTime.Now, jt, tabungan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
->>>>>>> Stashed changes
 
                     Transaksi.TambahData(t);
 
@@ -66,6 +56,13 @@ namespace ProjectDatabase_Ivano
             comboBoxRekeningTujuan.DataSource = listTabungan;
             comboBoxRekeningTujuan.DisplayMember = "no_rekening";
             comboBoxRekeningTujuan.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void buttonKosongi_Click(object sender, EventArgs e)
+        {
+            labelNoRekening.Text = "";
+
+            textBoxNominal.Clear();
         }
     }
 }
