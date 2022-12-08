@@ -103,5 +103,10 @@ namespace ProjectDatabase_Ivano
                 FormDaftarTabungan_Load(buttonKeluar, e);
             }
         }
+
+        private void buttonTambah_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
