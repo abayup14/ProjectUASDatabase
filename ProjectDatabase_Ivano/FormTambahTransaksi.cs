@@ -34,9 +34,12 @@ namespace ProjectDatabase_Ivano
 
                 if (result == DialogResult.Yes)
                 {
-                    //Transaksi t = new Transaksi(labelNoRekening.Text, t.TransaksiId, DateTime.Now, comboBoxJenisTransaksi.Text, comboBoxRekeningTujuan.Text, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
+                    
+                    Tabungan tabungan = new Tabungan(labelNoRekening.Text);
+                    JenisTransaksi jt = new JenisTransaksi(int.Parse(comboBoxJenisTransaksi.Text));
+                    Transaksi t = new Transaksi(tabungan,Transaksi.GenerateKode().ToString(), DateTime.Now, jt, tabungan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
 
-                    //Transaksi.TambahData(t);
+                    Transaksi.TambahData(t);
 
 
                     MessageBox.Show("Data position telah tersimpan.", "Info");
