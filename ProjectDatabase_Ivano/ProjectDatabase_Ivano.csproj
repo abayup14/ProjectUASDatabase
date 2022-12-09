@@ -225,6 +225,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDaftarAddressBook.resx">
+      <DependentUpon>FormDaftarAddressBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarDeposito.resx">
       <DependentUpon>FormDaftarDeposito.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,8 +246,14 @@
     <EmbeddedResource Include="FormDaftarPengguna.resx">
       <DependentUpon>FormDaftarPengguna.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarTabungan.resx">
+      <DependentUpon>FormDaftarTabungan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarTransaksi.resx">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahDeposito.resx">
+      <DependentUpon>FormTambahDeposito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahInbox.resx">
       <DependentUpon>FormTambahInbox.cs</DependentUpon>

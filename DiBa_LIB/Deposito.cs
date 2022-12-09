@@ -65,16 +65,18 @@ namespace DiBa_LIB
 
             if(kriteria == "")
             {
-                sql = "SELECT d.id_deposito, t.no_rekening, d.jatuh_tempo, d.nominal, d.bunga, " +
-                    "d.status, d.tgl_buat, d.tgl_perubahan, e.verifikator_buka, e.verifikator_cair " +
-                    " FROM deposito d INNER JOIN employee e ON d.verifikator_buka = e.id INNER JOIN tabungan t ON d.no_rekening = t.no_rekening";
+                sql = "SELECT d.id_deposito, t.no_rekening, d.jatuh_tempo, d.nominal, d.bunga, d.status, d.tgl_buat, d.tgl_perubahan, d.verifikator_buka, d.verifikator_cair " +
+                    "FROM deposito d INNER JOIN employee e ON d.verifikator_buka = e.id " +
+                    "INNER JOIN employee e ON d.verifikator_cair = e.id " +
+                    "INNER JOIN tabungan t ON d.no_rekening = t.no_rekening";
             }
             else
             {
-                sql = "SELECT d.id_deposito, t.no_rekening, d.jatuh_tempo, d.nominal, d.bunga, " +
-                    "d.status, d.tgl_buat, d.tgl_perubahan, e.verifikator_buka, e.verifikator_cair " +
-                    " FROM deposito d INNER JOIN employee e ON d.verifikator_buka = e.id INNER JOIN tabungan t ON d.no_rekening = t.no_rekening" +
-                    " WHERE " + kriteria + " LIKE '%" + nilaiKriteria + "%'";
+                sql = "SELECT d.id_deposito, t.no_rekening, d.jatuh_tempo, d.nominal, d.bunga, d.status, d.tgl_buat, d.tgl_perubahan, d.verifikator_buka, d.verifikator_cair " +
+                    "FROM deposito d INNER JOIN employee e ON d.verifikator_buka = e.id " +
+                    "INNER JOIN employee e ON d.verifikator_cair = e.id " +
+                    "INNER JOIN tabungan t ON d.no_rekening = t.no_rekening " +
+                    "WHERE " + kriteria + " LIKE '%" + nilaiKriteria + "%'";
             }
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
@@ -84,9 +86,12 @@ namespace DiBa_LIB
             {
                 Tabungan t = new Tabungan(hasil.GetString(1));
 
-                Employee e = new Employee(int.Parse(hasil.GetString("id")));
+                Employee verifikatorBuka = new Employee(int.Parse(hasil.GetString(8)));
+
+                Employee verifikatorCair = new Employee(int.Parse(hasil.GetString(9)));
+
                 Deposito d = new Deposito(hasil.GetString("id_deposito").ToString(), t, int.Parse(hasil.GetString("jatuh_tempo")), double.Parse(hasil.GetString("nominal")), 
-                    double.Parse(hasil.GetString("bunga")), hasil.GetString("status").ToString(), DateTime.Parse(hasil.GetString("tgl_buat")), DateTime.Parse(hasil.GetString("tgl_perubahan")), e, e);
+                    double.Parse(hasil.GetString("bunga")), hasil.GetString("status").ToString(), DateTime.Parse(hasil.GetString("tgl_buat")), DateTime.Parse(hasil.GetString("tgl_perubahan")), verifikatorBuka, verifikatorCair);
 
                 listDeposito.Add(d);
             }

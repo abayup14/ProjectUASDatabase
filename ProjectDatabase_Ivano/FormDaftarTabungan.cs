@@ -13,7 +13,8 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormDaftarTabungan : Form
     {
-        List<Tabungan> listTabungan = new List<Tabungan>();
+        public List<Tabungan> listTabungan = new List<Tabungan>();
+
         public FormDaftarTabungan()
         {
             InitializeComponent();
@@ -21,6 +22,8 @@ namespace ProjectDatabase_Ivano
 
         private void FormDaftarTabungan_Load(object sender, EventArgs e)
         {
+            listTabungan = Tabungan.BacaData("", "");
+
             if (listTabungan.Count > 0)
             {
                 dataGridViewTabungan.DataSource = listTabungan;
@@ -102,11 +105,6 @@ namespace ProjectDatabase_Ivano
                 MessageBox.Show("Data Berhasil Dirubah.", "Informasi");
                 FormDaftarTabungan_Load(buttonKeluar, e);
             }
-        }
-
-        private void buttonTambah_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

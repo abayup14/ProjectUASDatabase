@@ -43,14 +43,18 @@ namespace DiBa_LIB
             string sql = "";
             if (kriteria == "")
             {
-                sql = "select ta.no_rekening,t.transaksi_id, t.tgl_transaksi, jt.id_jenis_transaksi, t.no_rekening, jt.nominal, t.keterangan transaksi " +
-                      "from t inner join tabungan ta on t.rekening_sumber = ta.no_rekening left join jenisTransaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi";
+                sql = "select t.rekening_sumber, t.id_transaksi, t.tgl_transaksi, t.id_jenis_transaksi, t.rekening_tujuan, t.nominal, t.keterangan " +
+                      "from transaksi t inner join tabungan ta on t.rekening_sumber = ta.no_rekening " +
+                      "inner join tabungan ta on t.rekening_tujuan = ta.no_rekening " +
+                      "left join jenis_transaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi";
 
             }
             else
             {
-                sql = "select ta.no_rekening,t.transaksi_id, t.tgl_transaksi, jt.id_jenis_transaksi, t.no_rekening, jt.nominal, t.keterangan transaksi " +
-                      "from t inner join tabungan ta on t.rekening_sumber = ta.no_rekening left join jenisTransaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi " +
+                sql = "select t.rekening_sumber, t.id_transaksi, t.tgl_transaksi, t.id_jenis_transaksi, t.rekening_tujuan, t.nominal, t.keterangan " +
+                      "from transaksi t inner join tabungan ta on t.rekening_sumber = ta.no_rekening " +
+                      "inner join tabungan ta on t.rekening_tujuan = ta.no_rekening " +
+                      "left join jenis_transaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi " +
                       "where " +kriteria + " like '%" + nilaiKriteria+"%'";
                 
             }
@@ -66,7 +70,7 @@ namespace DiBa_LIB
 
                 Tabungan taTujuan = new Tabungan(hasil.GetString(4));
 
-                Transaksi t = new Transaksi(taSumber, hasil.GetString(1), hasil.GetDateTime(2), jt, taTujuan, int.Parse(hasil.GetString(5)), hasil.GetString(6));
+                Transaksi t = new Transaksi(taSumber, hasil.GetString(1), hasil.GetDateTime(2), jt, taTujuan, double.Parse(hasil.GetString(5)), hasil.GetString(6));
 
                 listTransaksi.Add(t);
             }

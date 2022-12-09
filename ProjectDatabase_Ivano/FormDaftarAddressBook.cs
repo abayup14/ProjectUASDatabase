@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiBa_LIB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,17 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormDaftarAddressBook : Form
     {
+
         public FormDaftarAddressBook()
         {
             InitializeComponent();
+        }
+
+        private void buttonTambah_Click(object sender, EventArgs e)
+        {
+            FormTambahAddressBook formTambahAddressBook = new FormTambahAddressBook();
+            formTambahAddressBook.Owner = this;
+            formTambahAddressBook.Show();
         }
     }
 }

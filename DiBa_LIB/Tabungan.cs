@@ -50,31 +50,34 @@ namespace DiBa_LIB
 
             if (kriteria == "")
             {
-                sql = "select t.no_rekening, t.id_pengguna, t.saldo, t.status, t.keterangan, t.tgl_buat, " +
-                    "t.tgl_perubahan, t.verifikator from tabungan t inner join pengguna p on t.id_pengguna = p.nik " +
-                    "inner join employee e on t.verifikator = e.id";
+                sql = "select t.no_rekening, t.id_pengguna, t.saldo, t.status, t.keterangan, t.tgl_buat, t.tgl_perubahan, t.verifikator " +
+                    "from tabungan t inner join pengguna p on t.id_pengguna = p.nik inner join employee e on t.verifikator = e.id";
             }
             else
             {
-                sql = "select t.no_rekening, t.id_pengguna, t.saldo, t.status, t.keterangan, t.tgl_buat, " +
-                    "t.tgl_perubahan, t.verifikator from tabungan t inner join pengguna p on t.id_pengguna = p.nik " +
-                    "inner join employee e on t.verifikator = e.id where '"+kriteria+"' LIKE '%"+nilaiKriteria+"'%";
+                sql = "select t.no_rekening, t.id_pengguna, t.saldo, t.status, t.keterangan, t.tgl_buat, t.tgl_perubahan, t.verifikator " +
+                    "from tabungan t inner join pengguna p on t.id_pengguna = p.nik " +
+                    "inner join employee e on t.verifikator = e.id " +
+                    "where '"+kriteria+"' LIKE '%"+nilaiKriteria+"'%";
             }
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
-            List<Tabungan> listOfTabunugan = new List<Tabungan>();
+            List<Tabungan> listOfTabungan = new List<Tabungan>();
 
             while (hasil.Read() == true)
             {
-                Employee em = new Employee(int.Parse(hasil.GetString(0)));
-                Pengguna p = new Pengguna(hasil.GetString(0));
-                Tabungan t = new Tabungan(hasil.GetString(0), p, double.Parse(hasil.GetString(2)), hasil.GetString(3),
-                    hasil.GetString(4), DateTime.Parse(hasil.GetString(5)), DateTime.Parse(hasil.GetString(6)), em);
-                listOfTabunugan.Add(t);
+                Pengguna p = new Pengguna(hasil.GetValue(1).ToString());
+
+                Employee e = new Employee(int.Parse(hasil.GetValue(7).ToString()));
+
+                Tabungan t = new Tabungan(hasil.GetValue(0).ToString(), p, double.Parse(hasil.GetValue(2).ToString()), hasil.GetValue(3).ToString(),
+                    hasil.GetValue(4).ToString(), DateTime.Parse(hasil.GetValue(5).ToString()), DateTime.Parse(hasil.GetValue(6).ToString()), e);
+
+                listOfTabungan.Add(t);
             }
 
-            return listOfTabunugan;
+            return listOfTabungan;
         }
         public static void UbahData(Tabungan t)
         {

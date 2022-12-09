@@ -156,16 +156,69 @@ namespace ProjectDatabase_Ivano
 
         private void riwayatTransaksiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi(); 
-            formDaftarTransaksi.MdiParent = this;
-            formDaftarTransaksi.Show();
+            Form form = Application.OpenForms["FormDaftarTransaksi"];
+            if (form == null)
+            {
+                FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi();
+
+                formDaftarTransaksi.MdiParent = this;
+
+                formDaftarTransaksi.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
         }
 
         private void tabunganToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormDaftarTabungan frmDaftarTabungan = new FormDaftarTabungan();
-            frmDaftarTabungan.MdiParent = this;
-            frmDaftarTabungan.Show();
+            Form form = Application.OpenForms["FormDaftarTabungan"];
+            if (form == null)
+            {
+                FormDaftarTabungan frmDaftarTabungan = new FormDaftarTabungan();
+                frmDaftarTabungan.MdiParent = this;
+                frmDaftarTabungan.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void depositoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarDeposito"];
+            if (form == null)
+            {
+                FormDaftarDeposito formDaftarDeposito = new FormDaftarDeposito();
+                formDaftarDeposito.MdiParent = this;
+                formDaftarDeposito.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void addressBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarAddressBook"];
+            if (form == null)
+            {
+                FormDaftarAddressBook formDaftarAddressBook = new FormDaftarAddressBook();
+                formDaftarAddressBook.MdiParent = this;
+                formDaftarAddressBook.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
         }
     }
 }

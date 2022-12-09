@@ -136,7 +136,7 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.dataGridViewTabungan);
             this.Controls.Add(this.buttonKeluar);
             this.Name = "FormDaftarTabungan";
-            this.Text = "FormDaftarTabungan";
+            this.Text = "Daftar Tabungan";
             this.Load += new System.EventHandler(this.FormDaftarTabungan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
