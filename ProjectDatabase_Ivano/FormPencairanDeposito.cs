@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace ProjectDatabase_Ivano
 {
-    public partial class FormUbahDeposito : Form
+    public partial class FormPencairanDeposito : Form
     {
         Deposito deposito;
-        public FormUbahDeposito()
+        public FormPencairanDeposito()
         {
             InitializeComponent();
         }

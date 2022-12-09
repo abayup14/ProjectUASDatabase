@@ -55,6 +55,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>db.Settings</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarAddressBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarAddressBook.Designer.cs">
+      <DependentUpon>FormDaftarAddressBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDaftarDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,12 @@
     </Compile>
     <Compile Include="FormDaftarTransaksi.Designer.cs">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahAddressBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahAddressBook.Designer.cs">
+      <DependentUpon>FormTambahAddressBook.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahDeposito.cs">
       <SubType>Form</SubType>
@@ -151,11 +163,11 @@
     <Compile Include="FormTambahTransaksi.Designer.cs">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUbahDeposito.cs">
+    <Compile Include="FormPencairanDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUbahDeposito.Designer.cs">
-      <DependentUpon>FormUbahDeposito.cs</DependentUpon>
+    <Compile Include="FormPencairanDeposito.Designer.cs">
+      <DependentUpon>FormPencairanDeposito.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUbahEmployee.cs">
       <SubType>Form</SubType>
@@ -255,8 +267,8 @@
     <EmbeddedResource Include="FormTambahTransaksi.resx">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUbahDeposito.resx">
-      <DependentUpon>FormUbahDeposito.cs</DependentUpon>
+    <EmbeddedResource Include="FormPencairanDeposito.resx">
+      <DependentUpon>FormPencairanDeposito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUbahEmployee.resx">
       <DependentUpon>FormUbahEmployee.cs</DependentUpon>

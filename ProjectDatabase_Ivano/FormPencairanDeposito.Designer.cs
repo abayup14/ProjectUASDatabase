@@ -1,7 +1,7 @@
 ﻿
 namespace ProjectDatabase_Ivano
 {
-    partial class FormUbahDeposito
+    partial class FormPencairanDeposito
     {
         /// <summary>
         /// Required designer variable.
@@ -33,9 +33,9 @@ namespace ProjectDatabase_Ivano
             this.buttonUbah = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,6 +90,13 @@ namespace ProjectDatabase_Ivano
             this.panel1.Size = new System.Drawing.Size(716, 105);
             this.panel1.TabIndex = 44;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(251, 38);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(382, 22);
+            this.textBox1.TabIndex = 18;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -113,14 +120,7 @@ namespace ProjectDatabase_Ivano
             this.label2.Text = "PENCAIRAN DEPOSITO";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(251, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(382, 22);
-            this.textBox1.TabIndex = 18;
-            // 
-            // FormUbahDeposito
+            // FormPencairanDeposito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -130,9 +130,9 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "FormUbahDeposito";
-            this.Text = "FormUbahDeposito";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "FormPencairanDeposito";
+            this.Text = "Pencairan Deposito";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

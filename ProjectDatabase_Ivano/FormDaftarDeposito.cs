@@ -43,7 +43,7 @@ namespace ProjectDatabase_Ivano
                 {
                     DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
                     bcol.HeaderText = "Aksi";
-                    bcol.Text = "Ubah";
+                    bcol.Text = "Cairkan";
                     bcol.Name = "buttonUbahGrid";
                     bcol.UseColumnTextForButtonValue = true;
                     dataGridViewDeposito.Columns.Add(bcol);
@@ -66,7 +66,7 @@ namespace ProjectDatabase_Ivano
         {
             if(e.ColumnIndex == dataGridViewDeposito.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
             {
-                FormUbahDeposito formUbahDeposito = new FormUbahDeposito();
+                FormPencairanDeposito formUbahDeposito = new FormPencairanDeposito();
                 formUbahDeposito.Owner = this;
                 formUbahDeposito.Show();
             }
