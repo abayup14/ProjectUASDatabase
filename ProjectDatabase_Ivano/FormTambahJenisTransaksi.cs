@@ -24,6 +24,7 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                Koneksi k = new Koneksi();
                 DialogResult result = MessageBox.Show("Apakah data yang ada masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
 
@@ -31,7 +32,7 @@ namespace ProjectDatabase_Ivano
                 {
                     int id_jenis_transaksi = JenisTransaksi.GenerateKode();
                     JenisTransaksi j = new JenisTransaksi(id_jenis_transaksi, textBoxKodeJenisTransaksi.Text, textBoxNamaJenisTransaksi.Text);
-                    JenisTransaksi.TambahData(j);
+                    JenisTransaksi.TambahData(j, k);
 
                     MessageBox.Show("Data jenis transaksi berhasil ditambahkan.", "Informasi");
                 }

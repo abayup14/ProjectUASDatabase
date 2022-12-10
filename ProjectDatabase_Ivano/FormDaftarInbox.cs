@@ -16,6 +16,8 @@ namespace ProjectDatabase_Ivano
         public List<Inbox> listInbox = new List<Inbox>();
 
         public List<Pengguna> listPengguna = new List<Pengguna>();
+
+        Koneksi k;
         public FormDaftarInbox()
         {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace ProjectDatabase_Ivano
 
         public void FormDaftarInbox_Load(object sender, EventArgs e)
         {
+            k = new Koneksi();
             listInbox = Inbox.BacaData("", "");
             if (listInbox.Count > 0)
             {
@@ -97,7 +100,7 @@ namespace ProjectDatabase_Ivano
                 if (hasil == DialogResult.Yes)
                 {
                     Inbox i = new Inbox(id_pesan);
-                    Inbox.HapusData(i);
+                    Inbox.HapusData(i, k);
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
                     FormDaftarInbox_Load(buttonKeluar, e);
                 }

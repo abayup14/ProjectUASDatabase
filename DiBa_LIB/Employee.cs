@@ -86,35 +86,35 @@ namespace DiBa_LIB
 
             return listEmployee;
         }
-        public static void TambahData(Employee em)
+        public static void TambahData(Employee em, Koneksi k)
         {
             string sql = "INSERT into employee (id, nama_depan, nama_keluarga, position, nik, email, password, tgl_buat, tgl_perubahan) " +
                          "values ('" + em.Id + "', '" + em.Nama_depan + "', '" + em.Nama_keluarga + "', '" + em.Position.PositionID + "', '" + em.Nik +
                          "', '" + em.Email + "', SHA2('" + em.Password + "', 512), '" + em.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + em.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void UbahData(Employee em)
+        public static void UbahData(Employee em, Koneksi k)
         {
             string sql = "UPDATE employee set nama_depan = '" + em.Nama_depan + "', nama_keluarga = '" + em.Nama_keluarga + "', position = " +
                          em.Position.PositionID + ", email = '" + em.Email + "', tgl_buat = '" + em.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
                          "tgl_perubahan = '" + em.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' where id = " + em.Id;
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void UbahPassword(Employee em, string passwordLama, string passwordBaru)
+        public static void UbahPassword(Employee em, string passwordLama, string passwordBaru, Koneksi k)
         {
             string sql = "UPDATE employee SET password = SHA2('" + passwordBaru + "', 512), tgl_perubahan = '" + 
                          em.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") +
                          "' WHERE nik = '" + em.Nik + "' AND password = SHA2('" + passwordLama + "', 512)";
  
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void HapusData(Employee em)
+        public static void HapusData(Employee em, Koneksi k)
         {
             string sql = "DELETE from employee where id = " + em.id;
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
         public static int GenerateKode()
         {
@@ -197,7 +197,11 @@ namespace DiBa_LIB
             {
                 return null;
             }
+        }
 
+        public override string ToString()
+        {
+            return Id.ToString();
         }
         #endregion
     }

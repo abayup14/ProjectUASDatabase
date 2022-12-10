@@ -15,6 +15,8 @@ namespace ProjectDatabase_Ivano
     {
         public List<Pengguna> listPengguna = new List<Pengguna>();
 
+        Koneksi k;
+
         public FormDaftarPengguna()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace ProjectDatabase_Ivano
 
         public void FormDaftarPengguna_Load(object sender, EventArgs e)
         {
+            k = new Koneksi();
             listPengguna = Pengguna.BacaData("", "");
 
             if (listPengguna.Count > 0)
@@ -144,7 +147,7 @@ namespace ProjectDatabase_Ivano
                 {
                     Pengguna p = new Pengguna(nik);
 
-                    Pengguna.HapusData(p);
+                    Pengguna.HapusData(p, k);
 
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
 

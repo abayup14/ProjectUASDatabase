@@ -15,6 +15,7 @@ namespace ProjectDatabase_Ivano
     {
         public List<Position> listPosition = new List<Position>();
 
+        Koneksi k;
         public FormDaftarPosition()
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace ProjectDatabase_Ivano
 
         public void FormDaftarPosition_Load(object sender, EventArgs e)
         {
+            k = new Koneksi();
             listPosition = Position.BacaData("", "");
 
             if (listPosition.Count > 0)
@@ -134,7 +136,7 @@ namespace ProjectDatabase_Ivano
                     Position jabatanHapus = new Position(int.Parse(idHapus));
 
                     //panggil method hapus data
-                    Position.HapusData(jabatanHapus);
+                    Position.HapusData(jabatanHapus, k);
 
                     //informasi bahwa berhasil menghapus
                     MessageBox.Show("Penghapusan data berhasil");

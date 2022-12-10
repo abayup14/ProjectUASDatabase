@@ -13,6 +13,8 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormDaftarDeposito : Form
     {
+        Koneksi k;
+
         public List<Deposito> listDeposito = new List<Deposito>();
 
         public FormDaftarDeposito()
@@ -29,6 +31,8 @@ namespace ProjectDatabase_Ivano
 
         private void FormDaftarDeposito_Load(object sender, EventArgs e)
         {
+            k = new Koneksi();
+
             listDeposito = Deposito.BacaData("", "");
 
             if(listDeposito.Count > 0)
@@ -59,6 +63,8 @@ namespace ProjectDatabase_Ivano
 
         private void dataGridViewDeposito_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+
             if(e.ColumnIndex == dataGridViewDeposito.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
             {
                 FormPencairanDeposito formUbahDeposito = new FormPencairanDeposito();
@@ -85,7 +91,7 @@ namespace ProjectDatabase_Ivano
                 if(hasil == DialogResult.Yes)
                 {
                     Deposito d = new Deposito(id_deposito);
-                    Deposito.HapusData(d);
+                    Deposito.HapusData(d, k);
 
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
                     FormDaftarDeposito_Load(buttonKeluar, e);

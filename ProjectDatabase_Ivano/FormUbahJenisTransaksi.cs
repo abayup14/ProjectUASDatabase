@@ -27,6 +27,7 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                Koneksi k = new Koneksi();
                 DialogResult result = MessageBox.Show("Apakah anda yakin ingin mengubah data?", "Konfirmasi",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -37,7 +38,7 @@ namespace ProjectDatabase_Ivano
                     int id = int.Parse(formDaftarJenisTransaksi.dataGridViewJenisTransaksi.CurrentRow.Cells["id_jenis_transaksi"].Value.ToString());
 
                     JenisTransaksi j = new JenisTransaksi(id, textBoxKodeJenisTransaksi.Text, textBoxNamaJenisTransaksi.Text);
-                    JenisTransaksi.UbahData(j);
+                    JenisTransaksi.UbahData(j, k);
 
                     MessageBox.Show("Data jenis transaksi berhasil di ubah.", "Informasi");
                 }

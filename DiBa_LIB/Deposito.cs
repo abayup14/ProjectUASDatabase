@@ -67,14 +67,14 @@ namespace DiBa_LIB
             {
                 sql = "SELECT d.id_deposito, t.no_rekening, d.jatuh_tempo, d.nominal, d.bunga, d.status, d.tgl_buat, d.tgl_perubahan, d.verifikator_buka, d.verifikator_cair " +
                     "FROM deposito d INNER JOIN employee e ON d.verifikator_buka = e.id " +
-                    "INNER JOIN employee e ON d.verifikator_cair = e.id " +
+                    "INNER JOIN employee em ON d.verifikator_cair = em.id " +
                     "INNER JOIN tabungan t ON d.no_rekening = t.no_rekening";
             }
             else
             {
                 sql = "SELECT d.id_deposito, t.no_rekening, d.jatuh_tempo, d.nominal, d.bunga, d.status, d.tgl_buat, d.tgl_perubahan, d.verifikator_buka, d.verifikator_cair " +
                     "FROM deposito d INNER JOIN employee e ON d.verifikator_buka = e.id " +
-                    "INNER JOIN employee e ON d.verifikator_cair = e.id " +
+                    "INNER JOIN employee em ON d.verifikator_cair = em.id " +
                     "INNER JOIN tabungan t ON d.no_rekening = t.no_rekening " +
                     "WHERE " + kriteria + " LIKE '%" + nilaiKriteria + "%'";
             }
@@ -98,50 +98,50 @@ namespace DiBa_LIB
             return listDeposito;
         }
 
-        public static void HapusData(Deposito d)
+        public static void HapusData(Deposito d, Koneksi k)
         {
             string sql = "DELETE FROM deposito where id_deposito = " + d.Id_deposito;
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void TambahData(Deposito d)
+        public static void TambahData(Deposito d, Koneksi k)
         {
             string sql = "INSERT INTO deposito (id_deposito, no_rekening, jatuh_tempo, nominal, bunga, status, tg;_buat, tgl_perubahan, verifikator_buat, verifikator_cair) " +
                 "VALUES ('" + d.Id_deposito + "', '" + d.No_rekening + "', '" + d.Jatuh_tempo + "', '" + d.Nominal + "', '" + d.Bunga + "', '" + d.Status + "', '" + d.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") +
                 "', '" + d.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + d.Verifikator_buka + "', '" + d.Verifikator_cair + ")'";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void UbahData(Deposito d)
+        public static void UbahData(Deposito d, Koneksi k)
         {
             string sql = "UPDATE deposito set jatuh_tempo = '" + d.Jatuh_tempo + "', nominal = '" + d.Nominal + "', bunga = '" + d.Bunga +
                 "', status = '" + d.Status + "', tgl_buat = '" + d.Tgl_buat + "', tgl_perubahan = '" + d.Tgl_perubahan + "', verifikator_buka = '" + d.Verifikator_buka +
                 "', verifikator_cair = '" + d.Verifikator_cair + "' WHERE id_deposito = " + d.Id_deposito;
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void UbahStatus(Deposito d)
+        public static void UbahStatus(Deposito d, Koneksi k)
         {
             string sql = "UPDATE deposito set status = '" + "Tidak Aktif"+ "'" + "WHERE id_deposito = " + d.Id_deposito;
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void UbahNominal(Deposito d)
+        public static void UbahNominal(Deposito d, Koneksi k)
         {
             string sql = "UPDATE deposito set nominal = '" + d.Nominal * (95/100) + "'" + "WHERE id_deposito = " + d.Id_deposito;
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void TambahNominal(Deposito d)
+        public static void TambahNominal(Deposito d, Koneksi k)
         {
             string sql = "UPDATE deposito set nominal = '" + d.Nominal * (100+d.bunga/100) + "'" + "WHERE id_deposito = " + d.Id_deposito;
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
         public static string GenerateKode(string no_rekening)

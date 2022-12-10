@@ -14,6 +14,8 @@ namespace ProjectDatabase_Ivano
     public partial class FormPencairanDeposito : Form
     {
         Deposito deposito;
+
+        Koneksi k;
         public FormPencairanDeposito()
         {
             InitializeComponent();
@@ -36,14 +38,14 @@ namespace ProjectDatabase_Ivano
                 DateTime tanggal = deposito.Tgl_buat.AddMonths(deposito.Jatuh_tempo);
                 if (tanggal > DateTime.Now)
                 {
-                    Deposito.UbahStatus(d);
+                    Deposito.UbahStatus(d, k);
                     MessageBox.Show("Pencairan deposito kurang dari tanggal jatuh tempo sehingga anda dikenai denda sebanyak 5% dan tidak mendapatkan bunga.");
-                    Deposito.UbahNominal(d);
+                    Deposito.UbahNominal(d, k);
                 }
                 else
                 {
-                    Deposito.UbahStatus(d);
-                    Deposito.TambahNominal(d);
+                    Deposito.UbahStatus(d, k);
+                    Deposito.TambahNominal(d, k);
                     MessageBox.Show("Pencairan berhasil");
                 }
 

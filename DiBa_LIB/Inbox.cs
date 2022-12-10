@@ -69,34 +69,34 @@ namespace DiBa_LIB
             return listInbox;
         }
 
-        public static void TambahData(Inbox i)
+        public static void TambahData(Inbox i, Koneksi k)
         {
             string sql = "insert into inbox (id_pengguna, id_pesan, pesan, tanggal_kirim, status, tgl_perubahan) " +
                          "values ('" + i.Pengguna.Nik + "', " + i.Id + ", '" + i.Pesan + "', '" + i.Tanggal_kirim.ToString("yyyy-MM-dd HH:mm:ss") +
                          "', '" + i.Status + "', '" + i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void UbahData(Inbox i)
+        public static void UbahData(Inbox i, Koneksi k)
         {
             string sql = "update inbox set id_pengguna = '" + i.Pengguna.Nik + "', pesan = '" + i.Pesan + "', tanggal_kirim = '" +
                          i.Tanggal_kirim.ToString("yyyy-MM-dd HH:mm:ss") + "', status = '" + i.Status+ "', tgl_perubahan = '" + 
                          i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' where id_pesan = " + i.Id;
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void UbahStatusPesan(Inbox i)
+        public static void UbahStatusPesan(Inbox i, Koneksi k)
         {
             string sql = "update inbox set status = 'Terbaca', tgl_perubahan = '" + i.Tanggal_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
                          "where id_pengguna = '" + i.Pengguna.Nik + "' and id_pesan = '" + i.Id + "'";
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void HapusData(Inbox i)
+        public static void HapusData(Inbox i, Koneksi k)
         {
             string sql = "DELETE from inbox where id_pesan = " + i.Id;
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
         public static int GenerateKode()

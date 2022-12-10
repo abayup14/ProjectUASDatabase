@@ -31,6 +31,7 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                Koneksi k = new Koneksi();
                 if (textBoxKonfirmasiPasswordBaru.Text != textBoxPasswordBaru.Text)
                 {
                     MessageBox.Show("Password baru anda tidak sesuai dengan konfirmasi password baru. Coba lagi.");
@@ -64,7 +65,7 @@ namespace ProjectDatabase_Ivano
 
                         Pengguna p = new Pengguna(nik, namaDepan, namaKeluarga, alamat, email, noTelepon, password, pin, tglBuat, DateTime.Now);
 
-                        Pengguna.UbahPassword(p, textBoxPasswordLama.Text, textBoxKonfirmasiPasswordBaru.Text);
+                        Pengguna.UbahPassword(p, textBoxPasswordLama.Text, textBoxKonfirmasiPasswordBaru.Text, k);
 
                         MessageBox.Show("Password anda berhasil diubah.", "Informasi");
                     }

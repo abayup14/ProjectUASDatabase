@@ -31,6 +31,7 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                Koneksi k = new Koneksi();
                 DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin mengubah data anda?", "Konfirmasi", MessageBoxButtons.YesNo,
                                                          MessageBoxIcon.Question);
 
@@ -50,7 +51,7 @@ namespace ProjectDatabase_Ivano
                     Employee em = new Employee(id, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, positionDipilih, textBoxNIK.Text,
                                                textBoxEmail.Text, password, tglBuat, DateTime.Now);
 
-                    Employee.UbahData(em);
+                    Employee.UbahData(em, k);
 
                     MessageBox.Show("Data pegawai berhasil diubah", "Informasi");
                 }

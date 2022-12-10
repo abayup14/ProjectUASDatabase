@@ -15,6 +15,8 @@ namespace ProjectDatabase_Ivano
     {
         public List<Tabungan> listTabungan = new List<Tabungan>();
 
+        Koneksi k;
+
         public FormDaftarTabungan()
         {
             InitializeComponent();
@@ -22,12 +24,13 @@ namespace ProjectDatabase_Ivano
 
         private void FormDaftarTabungan_Load(object sender, EventArgs e)
         {
+            k = new Koneksi();
             listTabungan = Tabungan.BacaData("", "");
 
             if (listTabungan.Count > 0)
             {
                 dataGridViewTabungan.DataSource = listTabungan;
-                if (dataGridViewTabungan.ColumnCount == 6)
+                if (dataGridViewTabungan.ColumnCount == 8)
                 {
                     DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
                     bcol1.HeaderText = "Aksi";
@@ -80,7 +83,7 @@ namespace ProjectDatabase_Ivano
                 if (hasil == DialogResult.Yes)
                 {
                     Tabungan t = new Tabungan(no_rekening);
-                    Tabungan.HapusData(t);
+                    Tabungan.HapusData(t, k);
                     MessageBox.Show("Data Berhasil Dihapus.", "Informasi");
                     FormDaftarTabungan_Load(buttonKeluar, e);
 
@@ -88,6 +91,7 @@ namespace ProjectDatabase_Ivano
             }
             else if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonUbahStatusGrid"].Index && e.RowIndex >= 0)
             {
+                FormUtama formUtama = (FormUtama)this.MdiParent;
                 string nik = dataGridViewTabungan.CurrentRow.Cells["id_pengguna"].Value.ToString();
                 Pengguna id_pengguna = Pengguna.AmbilDataByKode(nik);
                 string no_rekening = dataGridViewTabungan.CurrentRow.Cells["no_rekening"].Value.ToString();
@@ -97,11 +101,11 @@ namespace ProjectDatabase_Ivano
                 DateTime tgl_buat = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["tgl_buat"].Value.ToString());
                 DateTime tgl_perubahan = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
                 int id = int.Parse(dataGridViewTabungan.CurrentRow.Cells["verifikator"].Value.ToString());
-                Employee verifikator = Employee.AmbilDataByKode(id);
+                Employee verifikator = formUtama.employee;
 
                 Tabungan t = new Tabungan(no_rekening, id_pengguna, saldo, status, keterangan, tgl_buat, 
                     tgl_perubahan, verifikator);
-                Tabungan.UbahData(t);
+                Tabungan.UbahData(t, verifikator, k);
                 MessageBox.Show("Data Berhasil Dirubah.", "Informasi");
                 FormDaftarTabungan_Load(buttonKeluar, e);
             }
