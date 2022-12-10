@@ -90,8 +90,16 @@ namespace DiBa_LIB
 
                 Employee verifikatorCair = new Employee(int.Parse(hasil.GetString(9)));
 
-                Deposito d = new Deposito(hasil.GetString("id_deposito").ToString(), t, int.Parse(hasil.GetString("jatuh_tempo")), double.Parse(hasil.GetString("nominal")), 
-                    double.Parse(hasil.GetString("bunga")), hasil.GetString("status").ToString(), DateTime.Parse(hasil.GetString("tgl_buat")), DateTime.Parse(hasil.GetString("tgl_perubahan")), verifikatorBuka, verifikatorCair);
+                Deposito d = new Deposito(hasil.GetString("id_deposito").ToString(), 
+                                          t, 
+                                          int.Parse(hasil.GetString("jatuh_tempo")), 
+                                          double.Parse(hasil.GetString("nominal")), 
+                                          double.Parse(hasil.GetString("bunga")), 
+                                          hasil.GetString("status").ToString(), 
+                                          DateTime.Parse(hasil.GetString("tgl_buat")), 
+                                          DateTime.Parse(hasil.GetString("tgl_perubahan")), 
+                                          verifikatorBuka, 
+                                          verifikatorCair);
 
                 listDeposito.Add(d);
             }

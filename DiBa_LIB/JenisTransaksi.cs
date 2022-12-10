@@ -53,7 +53,9 @@ namespace DiBa_LIB
             List<JenisTransaksi> listHasil = new List<JenisTransaksi>();
             while (result.Read() == true)
             {
-                JenisTransaksi tmp = new JenisTransaksi(int.Parse(result.GetValue(0).ToString()), result.GetValue(1).ToString(), result.GetValue(2).ToString());
+                JenisTransaksi tmp = new JenisTransaksi(int.Parse(result.GetValue(0).ToString()), 
+                                                        result.GetValue(1).ToString(), 
+                                                        result.GetValue(2).ToString());
 
                 listHasil.Add(tmp);
             }

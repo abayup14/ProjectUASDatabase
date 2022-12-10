@@ -89,8 +89,15 @@ namespace DiBa_LIB
             {
                 Position p = new Position(hasil.GetValue(3).ToString());
 
-                Employee em = new Employee(int.Parse(hasil.GetValue(0).ToString()), hasil.GetValue(1).ToString(), hasil.GetString(2), p, hasil.GetString(4),
-                                          hasil.GetString(5), hasil.GetString(6), DateTime.Parse(hasil.GetString(7)), DateTime.Parse(hasil.GetString(8)));
+                Employee em = new Employee(int.Parse(hasil.GetValue(0).ToString()), 
+                                           hasil.GetValue(1).ToString(), 
+                                           hasil.GetString(2), 
+                                           p, 
+                                           hasil.GetString(4),
+                                           hasil.GetString(5), 
+                                           hasil.GetString(6), 
+                                           DateTime.Parse(hasil.GetString(7)), 
+                                           DateTime.Parse(hasil.GetString(8)));
 
                 listEmployee.Add(em);
             }

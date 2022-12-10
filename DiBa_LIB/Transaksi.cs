@@ -70,7 +70,13 @@ namespace DiBa_LIB
 
                 Tabungan taTujuan = new Tabungan(hasil.GetString(4));
 
-                Transaksi t = new Transaksi(taSumber, hasil.GetString(1), hasil.GetDateTime(2), jt, taTujuan, double.Parse(hasil.GetString(5)), hasil.GetString(6));
+                Transaksi t = new Transaksi(taSumber, 
+                                            hasil.GetString(1), 
+                                            hasil.GetDateTime(2), 
+                                            jt, 
+                                            taTujuan, 
+                                            double.Parse(hasil.GetString(5)), 
+                                            hasil.GetString(6));
 
                 listTransaksi.Add(t);
             }

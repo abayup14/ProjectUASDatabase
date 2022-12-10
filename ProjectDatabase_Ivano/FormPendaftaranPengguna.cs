@@ -39,7 +39,7 @@ namespace ProjectDatabase_Ivano
 
                     Tabungan t = new Tabungan(Tabungan.GenerateNomorRekening(), p, 0, "Unverified", "", DateTime.Now, DateTime.Now, verifikator);
 
-                    Pengguna.TambahData(p, k, t);
+                    Pengguna.TambahData(p, k);
 
                     MessageBox.Show("Selamat, anda sudah terdaftar.\nSilahkan masuk dengan email atau nomor telepon dan password anda.", "Informasi");
 

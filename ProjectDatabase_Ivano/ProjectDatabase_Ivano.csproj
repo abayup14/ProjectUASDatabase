@@ -110,6 +110,12 @@
     <Compile Include="FormDaftarTransaksi.Designer.cs">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPilihPengguna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPilihPengguna.Designer.cs">
+      <DependentUpon>FormPilihPengguna.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTambahAddressBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarTransaksi.resx">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPilihPengguna.resx">
+      <DependentUpon>FormPilihPengguna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahDeposito.resx">
       <DependentUpon>FormTambahDeposito.cs</DependentUpon>

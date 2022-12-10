@@ -88,7 +88,7 @@ namespace DiBa_LIB
         }
         public static void UbahData(Tabungan t, Employee e, Koneksi k)
         {
-            string sql = "UPDATE tabungan set status = 'Aktif', verifikator = " + e.Id + ", tgl_perubahan = '" + t.tgl_perubahan + "' " +
+            string sql = "UPDATE tabungan set status = 'Aktif', verifikator = " + e.Id + ", tgl_perubahan = '" + t.Tgl_perubahan + "' " +
                          "WHERE no_rekening = '" + t.Rekening + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
@@ -101,10 +101,9 @@ namespace DiBa_LIB
         }
         public static void TambahData(Tabungan t, Koneksi k)
         {
-            string sql = "INSERT into tabungan (no_rekening, id_pengguna, saldo, status, keterangan, tgl_buat, tgl_perubahan, verifikator) " +
+            string sql = "INSERT into tabungan (no_rekening, id_pengguna, saldo, status, keterangan, tgl_buat, tgl_perubahan) " +
                          "VALUES ('" + t.Rekening + "', '" + t.Pengguna.Nik + "', " + t.Saldo + ", '" + t.Status + "', '" + t.Keterangan +
-                         "', '" + t.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") +
-                         "', " + t.Verifikator.Id + ")";
+                         "', '" + t.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
@@ -121,11 +120,19 @@ namespace DiBa_LIB
                 if (hasil.GetValue(0).ToString() != "")
                 {
                     int hasilKode = int.Parse(hasil.GetValue(0).ToString()) + 1;
-                    hasilGenerate = hasilKode.ToString();
+
+                    if (hasilKode == 10)
+                    {
+                        hasilGenerate = hasilKode.ToString();
+                    }
+                    else if (hasilKode < 10)
+                    {
+                        hasilGenerate = hasilKode.ToString().PadLeft(10 - hasilKode.ToString().Length, '0');
+                    }
                 }
                 else
                 {
-                    hasilGenerate = "0000000001";
+                    hasilGenerate = 1.ToString().PadLeft(10, '0');
                 }
             }
 

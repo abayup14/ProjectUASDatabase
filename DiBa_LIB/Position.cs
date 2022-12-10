@@ -83,7 +83,9 @@ namespace DiBa_LIB
             if (hasil.Read() == true)
             {
                 //masukan hasil pengambilan data ke object kategori
-                Position p = new Position(int.Parse(hasil.GetValue(0).ToString()), hasil.GetValue(1).ToString(), hasil.GetValue(2).ToString());
+                Position p = new Position(int.Parse(hasil.GetValue(0).ToString()), 
+                                          hasil.GetValue(1).ToString(), 
+                                          hasil.GetValue(2).ToString());
                 return p;
             }
             else

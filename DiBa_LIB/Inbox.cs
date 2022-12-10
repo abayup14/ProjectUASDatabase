@@ -62,8 +62,12 @@ namespace DiBa_LIB
             while (hasil.Read() == true)
             {
                 Pengguna p = new Pengguna(hasil.GetValue(0).ToString());
-                Inbox i = new Inbox(p, int.Parse(hasil.GetString(1)), hasil.GetString(2), DateTime.Parse(hasil.GetString(3)),
-                    hasil.GetString(4), DateTime.Parse(hasil.GetString(5)));
+                Inbox i = new Inbox(p, 
+                                    int.Parse(hasil.GetString(1)), 
+                                    hasil.GetString(2), 
+                                    DateTime.Parse(hasil.GetString(3)),
+                                    hasil.GetString(4), 
+                                    DateTime.Parse(hasil.GetString(5)));
                 listInbox.Add(i);
             }
             return listInbox;

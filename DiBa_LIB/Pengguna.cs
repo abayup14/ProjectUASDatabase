@@ -62,7 +62,7 @@ namespace DiBa_LIB
         #endregion
 
         #region METHODS
-        public static void TambahData(Pengguna p, Koneksi k, Tabungan t)
+        public static void TambahData(Pengguna p, Koneksi k)
         {
 
             string sql = "INSERT into pengguna(nik, nama_depan, nama_keluarga, alamat, email, no_telepon, password, pin, tgl_buat, tgl_perubahan) " +
@@ -70,7 +70,7 @@ namespace DiBa_LIB
 
             Koneksi.JalankanPerintahDML(sql, k);
 
-            Tabungan.TambahData(t, k);
+            //Tabungan.TambahData(t, k);
         }
         public static void UbahData(Pengguna p, Koneksi k)
         {
@@ -109,9 +109,15 @@ namespace DiBa_LIB
 
             while (hasil.Read() == true)
             {
-                Pengguna p = new Pengguna(hasil.GetValue(0).ToString(), hasil.GetValue(1).ToString(), hasil.GetValue(2).ToString(),
-                                          hasil.GetValue(3).ToString(), hasil.GetValue(4).ToString(), hasil.GetValue(5).ToString(),
-                                          hasil.GetValue(6).ToString(), hasil.GetValue(7).ToString(), DateTime.Parse(hasil.GetValue(8).ToString()),
+                Pengguna p = new Pengguna(hasil.GetValue(0).ToString(), 
+                                          hasil.GetValue(1).ToString(), 
+                                          hasil.GetValue(2).ToString(),
+                                          hasil.GetValue(3).ToString(), 
+                                          hasil.GetValue(4).ToString(), 
+                                          hasil.GetValue(5).ToString(),
+                                          hasil.GetValue(6).ToString(), 
+                                          hasil.GetValue(7).ToString(), 
+                                          DateTime.Parse(hasil.GetValue(8).ToString()),
                                           DateTime.Parse(hasil.GetValue(9).ToString()));
 
                 listPengguna.Add(p);
