@@ -64,27 +64,13 @@ namespace DiBa_LIB
         #region METHODS
         public static void TambahData(Pengguna p, Koneksi k, Tabungan t)
         {
-            using (TransactionScope trans = new TransactionScope())
-            {
-                try
-                {
-                    string sql = "INSERT into pengguna(nik, nama_depan, nama_keluarga, alamat, email, no_telepon, password, pin, tgl_buat, tgl_perubahan) " +
+
+            string sql = "INSERT into pengguna(nik, nama_depan, nama_keluarga, alamat, email, no_telepon, password, pin, tgl_buat, tgl_perubahan) " +
                                  "values ('" + p.Nik + "', '" + p.Nama_depan + "', '" + p.Nama_keluarga + "', '" + p.Alamat + "', '" + p.Email + "', '" + p.No_telepon + "', SHA2('" + p.Password + "', 512), SHA2('" + p.Pin + "', 512), '" + p.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + p.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
-                    Koneksi.JalankanPerintahDML(sql, k);
+            Koneksi.JalankanPerintahDML(sql, k);
 
-                    Tabungan.TambahData(t, k);
-
-                    trans.Complete();
-                }
-                catch (Exception ex)
-                {
-                    trans.Dispose();
-
-                    throw new Exception(ex.Message);
-                }
-            }
-            
+            Tabungan.TambahData(t, k);
         }
         public static void UbahData(Pengguna p, Koneksi k)
         {
