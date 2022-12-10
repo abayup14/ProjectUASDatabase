@@ -14,8 +14,6 @@ namespace ProjectDatabase_Ivano
     public partial class FormPencairanDeposito : Form
     {
         Deposito deposito;
-
-        Koneksi k;
         public FormPencairanDeposito()
         {
             InitializeComponent();
@@ -33,6 +31,7 @@ namespace ProjectDatabase_Ivano
 
             if (hasil == DialogResult.Yes)
             {
+                Koneksi k = new Koneksi();
                 Deposito d = new Deposito(deposito.Id_deposito);
 
                 DateTime tanggal = deposito.Tgl_buat.AddMonths(deposito.Jatuh_tempo);

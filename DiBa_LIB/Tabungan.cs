@@ -104,7 +104,7 @@ namespace DiBa_LIB
             string sql = "INSERT into tabungan (no_rekening, id_pengguna, saldo, status, keterangan, tgl_buat, tgl_perubahan, verifikator) " +
                          "VALUES ('" + t.Rekening + "', '" + t.Pengguna.Nik + "', " + t.Saldo + ", '" + t.Status + "', '" + t.Keterangan +
                          "', '" + t.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") +
-                         "', " + t.Verifikator.Id;
+                         "', " + t.Verifikator.Id + ")";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }

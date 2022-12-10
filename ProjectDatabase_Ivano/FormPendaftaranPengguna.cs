@@ -35,7 +35,9 @@ namespace ProjectDatabase_Ivano
                     Pengguna p = new Pengguna(textBoxNIK.Text, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, textBoxAlamat.Text,
                                               textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, pin, DateTime.Now, DateTime.Now);
 
-                    Tabungan t = new Tabungan(Tabungan.GenerateNomorRekening(), p, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
+                    Employee verifikator = new Employee();
+
+                    Tabungan t = new Tabungan(Tabungan.GenerateNomorRekening(), p, 0, "Unverified", "", DateTime.Now, DateTime.Now, verifikator);
 
                     Pengguna.TambahData(p, k, t);
 
