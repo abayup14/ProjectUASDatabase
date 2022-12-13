@@ -53,26 +53,26 @@ namespace DiBa_LIB
 
             return listOfAdressBook;
         }
-        public static void UbahData(AddressBook ab)
+        public static void UbahData(AddressBook ab, Koneksi k)
         {
             string sql = "update address_book set id_pengguna = '" + ab.Pengguna.Nik + "', " +
                 "no_rekening = '" + ab.No_rekening.Rekening + "', " +
                 "keterangan = '" + ab.Keterangan + "'";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void HapusData(AddressBook ab)
+        public static void HapusData(AddressBook ab, Koneksi k)
         {
             string sql = "DELETE from address_book where id = " + ab.Pengguna.Nik;
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void TambahData(AddressBook ab)
+        public static void TambahData(AddressBook ab, Koneksi k)
         {
             string sql = "insert into address_book(id_pengguna, no_rekening, keterangan) values ('"+ab.Pengguna.Nik
                 +"', '"+ab.No_rekening.Rekening+"', '"+ab.Keterangan+"')";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
     }
 }

@@ -53,7 +53,9 @@ namespace DiBa_LIB
             List<JenisTransaksi> listHasil = new List<JenisTransaksi>();
             while (result.Read() == true)
             {
-                JenisTransaksi tmp = new JenisTransaksi(int.Parse(result.GetValue(0).ToString()), result.GetValue(1).ToString(), result.GetValue(2).ToString());
+                JenisTransaksi tmp = new JenisTransaksi(int.Parse(result.GetValue(0).ToString()), 
+                                                        result.GetValue(1).ToString(), 
+                                                        result.GetValue(2).ToString());
 
                 listHasil.Add(tmp);
             }
@@ -61,25 +63,23 @@ namespace DiBa_LIB
             return listHasil;
         }
 
-        public static void TambahData(JenisTransaksi j)
+        public static void TambahData(JenisTransaksi j, Koneksi k)
         {
             string sql = "INSERT INTO jenis_transaksi (Id_jenis_transaksi, Kode, Nama) VALUES (" + j.Id_jenis_transaksi + ", '" + j.Kode + "', '" + j.Nama + "')";
             
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void UbahData(JenisTransaksi j)
+        public static void UbahData(JenisTransaksi j, Koneksi k)
         {
             string sql = "UPDATE jenis_transaksi SET nama = '" + j.Nama.Replace("'", "\\'") + "', kode = '" + j.Kode + "' WHERE id_jenis_transaksi = " + j.Id_jenis_transaksi;
-
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void HapusData(JenisTransaksi j)
+        public static void HapusData(JenisTransaksi j, Koneksi k)
         {
             string sql = "DELETE FROM jenis_transaksi WHERE id_jenis_transaksi = " + j.Id_jenis_transaksi;
-
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
         public static JenisTransaksi AmbilDataByKode(int id_jenis_transaksi)

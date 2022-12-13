@@ -57,9 +57,8 @@ namespace DiBa_LIB
             }
             KoneksiDB.Open();
         }
-        public static int JalankanPerintahDML(string sql)
+        public static int JalankanPerintahDML(string sql, Koneksi k)
         {
-            Koneksi k = new Koneksi();
             MySqlCommand c = new MySqlCommand(sql, k.KoneksiDB);
             int hasil = c.ExecuteNonQuery();
             return hasil;

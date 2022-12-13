@@ -23,6 +23,7 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                Koneksi k = new Koneksi();
                 DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin mengubah data anda?", "Konfirmasi", MessageBoxButtons.YesNo,
                                                          MessageBoxIcon.Question);
                 
@@ -40,7 +41,7 @@ namespace ProjectDatabase_Ivano
                     Pengguna p = new Pengguna(textBoxNIK.Text, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, textBoxAlamat.Text, textBoxEmail.Text,
                                               textBoxNomorTelepon.Text, password, pin, tglBuat, DateTime.Now);
 
-                    Pengguna.UbahData(p);
+                    Pengguna.UbahData(p, k);
 
                     MessageBox.Show("Data pengguna berhasil diubah", "Informasi");
                 }

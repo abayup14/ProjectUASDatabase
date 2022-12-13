@@ -22,13 +22,14 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                Koneksi k = new Koneksi();
                 FormDaftarPosition formDaftarPosition = (FormDaftarPosition)this.Owner;
 
                 int id = int.Parse(formDaftarPosition.dataGridViewJabatan.CurrentRow.Cells["id"].Value.ToString());
 
                 Position p = new Position(id, textBoxNamaJabatan.Text, textBoxKeterangan.Text);
 
-                Position.UbahData(p);
+                Position.UbahData(p, k);
 
                 MessageBox.Show("Data position telah diubah.", "Info");
             }

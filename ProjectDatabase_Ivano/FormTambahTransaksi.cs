@@ -25,6 +25,8 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                Koneksi k = new Koneksi();
+
                 DialogResult result = MessageBox.Show("Apakah data yang ada masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
 
@@ -35,7 +37,7 @@ namespace ProjectDatabase_Ivano
                     JenisTransaksi jt = new JenisTransaksi(int.Parse(comboBoxJenisTransaksi.Text));
                     Transaksi t = new Transaksi(tabungan,Transaksi.GenerateKode().ToString(), DateTime.Now, jt, tabungan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
 
-                    Transaksi.TambahData(t);
+                    Transaksi.TambahData(t, k);
 
 
                     MessageBox.Show("Data position telah tersimpan.", "Info");

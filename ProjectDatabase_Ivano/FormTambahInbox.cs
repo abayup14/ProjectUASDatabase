@@ -31,6 +31,7 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                Koneksi k = new Koneksi();
                 DialogResult hasil = MessageBox.Show("Apakah data yang anda masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
                                                      MessageBoxIcon.Question);
 
@@ -42,7 +43,7 @@ namespace ProjectDatabase_Ivano
 
                     Inbox i = new Inbox(pengguna, id, textBoxPesan.Text, DateTime.Now, "Belum Terbaca", DateTime.Now);
 
-                    Inbox.TambahData(i);
+                    Inbox.TambahData(i, k);
 
                     MessageBox.Show("Inbox berhasil dikirim", "Informasi");
                 }

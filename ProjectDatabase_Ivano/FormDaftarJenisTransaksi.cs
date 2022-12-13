@@ -14,6 +14,8 @@ namespace ProjectDatabase_Ivano
     public partial class FormDaftarJenisTransaksi : Form
     {
         public List<JenisTransaksi> listJenisTransaksi = new List<JenisTransaksi>();
+
+        Koneksi k;
         public FormDaftarJenisTransaksi()
         {
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace ProjectDatabase_Ivano
 
         public void FormDaftarJenisTransaksi_Load(object sender, EventArgs e)
         {
+            k = new Koneksi();
             listJenisTransaksi = JenisTransaksi.ReadData("", "");
 
             if (listJenisTransaksi.Count > 0)
@@ -91,7 +94,7 @@ namespace ProjectDatabase_Ivano
                 if (result == DialogResult.Yes)
                 {
                     JenisTransaksi j = new JenisTransaksi(id);
-                    JenisTransaksi.HapusData(j);
+                    JenisTransaksi.HapusData(j, k);
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
                     FormDaftarJenisTransaksi_Load(buttonKeluar, e);
                 }
@@ -125,7 +128,7 @@ namespace ProjectDatabase_Ivano
                 if (result == DialogResult.Yes)
                 {
                     JenisTransaksi j = new JenisTransaksi(id, kode, nama);
-                    JenisTransaksi.HapusData(j);
+                    JenisTransaksi.HapusData(j, k);
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
                     FormDaftarJenisTransaksi_Load(buttonKeluar, e);
                 }

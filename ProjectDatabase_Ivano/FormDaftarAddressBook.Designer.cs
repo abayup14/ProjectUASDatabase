@@ -1,7 +1,6 @@
-﻿
-namespace ProjectDatabase_Ivano
+﻿namespace ProjectDatabase_Ivano
 {
-    partial class FormDaftarTabungan
+    partial class FormDaftarAddressBook
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +28,28 @@ namespace ProjectDatabase_Ivano
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewInbox = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxNilaiKriteria = new System.Windows.Forms.TextBox();
             this.comboBoxKriteria = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewTabungan = new System.Windows.Forms.DataGridView();
             this.buttonKeluar = new System.Windows.Forms.Button();
+            this.buttonTambah = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInbox)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTabungan)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dataGridViewInbox
+            // 
+            this.dataGridViewInbox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInbox.Location = new System.Drawing.Point(3, 123);
+            this.dataGridViewInbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewInbox.Name = "dataGridViewInbox";
+            this.dataGridViewInbox.RowHeadersWidth = 51;
+            this.dataGridViewInbox.RowTemplate.Height = 24;
+            this.dataGridViewInbox.Size = new System.Drawing.Size(829, 266);
+            this.dataGridViewInbox.TabIndex = 50;
             // 
             // panel1
             // 
@@ -46,7 +57,7 @@ namespace ProjectDatabase_Ivano
             this.panel1.Controls.Add(this.textBoxNilaiKriteria);
             this.panel1.Controls.Add(this.comboBoxKriteria);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(11, 52);
+            this.panel1.Location = new System.Drawing.Point(3, 47);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(829, 59);
@@ -94,31 +105,19 @@ namespace ProjectDatabase_Ivano
             this.label1.BackColor = System.Drawing.Color.Navy;
             this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(11, 9);
+            this.label1.Location = new System.Drawing.Point(3, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(829, 39);
             this.label1.TabIndex = 46;
-            this.label1.Text = "DAFTAR TABUNGAN";
+            this.label1.Text = "DAFTAR ADDRESS BOOK";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dataGridViewTabungan
-            // 
-            this.dataGridViewTabungan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTabungan.Location = new System.Drawing.Point(11, 115);
-            this.dataGridViewTabungan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridViewTabungan.Name = "dataGridViewTabungan";
-            this.dataGridViewTabungan.RowHeadersWidth = 51;
-            this.dataGridViewTabungan.RowTemplate.Height = 24;
-            this.dataGridViewTabungan.Size = new System.Drawing.Size(829, 279);
-            this.dataGridViewTabungan.TabIndex = 50;
-            this.dataGridViewTabungan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTabungan_CellContentClick);
             // 
             // buttonKeluar
             // 
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(639, 400);
+            this.buttonKeluar.Location = new System.Drawing.Point(631, 395);
             this.buttonKeluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(203, 53);
@@ -126,33 +125,48 @@ namespace ProjectDatabase_Ivano
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
             // 
-            // FormDaftarTabungan
+            // buttonTambah
+            // 
+            this.buttonTambah.BackColor = System.Drawing.Color.Navy;
+            this.buttonTambah.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTambah.ForeColor = System.Drawing.Color.White;
+            this.buttonTambah.Location = new System.Drawing.Point(3, 395);
+            this.buttonTambah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonTambah.Name = "buttonTambah";
+            this.buttonTambah.Size = new System.Drawing.Size(203, 53);
+            this.buttonTambah.TabIndex = 48;
+            this.buttonTambah.Text = "&TAMBAH";
+            this.buttonTambah.UseVisualStyleBackColor = false;
+            this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
+            // 
+            // FormDaftarAddressBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 462);
+            this.ClientSize = new System.Drawing.Size(842, 454);
+            this.Controls.Add(this.dataGridViewInbox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridViewTabungan);
             this.Controls.Add(this.buttonKeluar);
-            this.Name = "FormDaftarTabungan";
-            this.Text = "Daftar Tabungan";
-            this.Load += new System.EventHandler(this.FormDaftarTabungan_Load);
+            this.Controls.Add(this.buttonTambah);
+            this.Name = "FormDaftarAddressBook";
+            this.Text = "FormDaftarAddressBook";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInbox)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTabungan)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        public System.Windows.Forms.DataGridView dataGridViewInbox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBoxNilaiKriteria;
         private System.Windows.Forms.ComboBox comboBoxKriteria;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.DataGridView dataGridViewTabungan;
         private System.Windows.Forms.Button buttonKeluar;
+        private System.Windows.Forms.Button buttonTambah;
     }
 }

@@ -15,6 +15,8 @@ namespace ProjectDatabase_Ivano
     {
         public List<Employee> listEmployee = new List<Employee>();
 
+        Koneksi k;
+
         public FormDaftarEmployee()
         {
             InitializeComponent();
@@ -31,6 +33,8 @@ namespace ProjectDatabase_Ivano
 
         public void FormDaftarEmployee_Load(object sender, EventArgs e)
         {
+            k = new Koneksi();
+
             listEmployee = Employee.BacaData("", "");
 
             if (listEmployee.Count > 0)
@@ -121,7 +125,7 @@ namespace ProjectDatabase_Ivano
                 {
                     Employee em = new Employee(id);
 
-                    Employee.HapusData(em);
+                    Employee.HapusData(em, k);
                    
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
 
