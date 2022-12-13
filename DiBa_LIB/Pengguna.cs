@@ -69,8 +69,6 @@ namespace DiBa_LIB
                                  "values ('" + p.Nik + "', '" + p.Nama_depan + "', '" + p.Nama_keluarga + "', '" + p.Alamat + "', '" + p.Email + "', '" + p.No_telepon + "', SHA2('" + p.Password + "', 512), SHA2('" + p.Pin + "', 512), '" + p.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + p.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
             Koneksi.JalankanPerintahDML(sql, k);
-
-            //Tabungan.TambahData(t, k);
         }
         public static void UbahData(Pengguna p, Koneksi k)
         {

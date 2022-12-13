@@ -30,26 +30,48 @@ namespace ProjectDatabase_Ivano
             {
                 Koneksi koneksi = new Koneksi();
 
-                FormLogin formLogin = new FormLogin();
+                //FormLogin formLogin = new FormLogin();
 
-                formLogin.Owner = this;
+                //formLogin.Owner = this;
 
-                if (formLogin.ShowDialog() == DialogResult.OK)
+                FormLogin formLogin = (FormLogin)this.Owner;
+
+                FormLoginPegawai formLoginPegawai = (FormLoginPegawai)this.Owner;
+
+                FormPilihMasuk formPilihMasuk = new FormPilihMasuk();
+
+                formPilihMasuk.Owner = this;
+
+                formPilihMasuk.Show();
+
+                if (pengguna != null)
                 {
-                    if (pengguna != null)
-                    {
-                        labelKode.Text = pengguna.Nik;
+                    labelKode.Text = pengguna.Nik;
 
-                        labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
-                    }
+                    labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
 
                     MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
                 }
-                else
+                else if (employee != null)
                 {
-                    MessageBox.Show("Maaf, anda tidak dapat masuk ke dalam aplikasi.", "Kesalahan");
-                    Application.Exit();
+                    labelKode.Text = employee.Id.ToString();
+
+                    labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
+
+                    MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
                 }
+                //else
+                //{
+                //    MessageBox.Show("Maaf, anda tidak dapat masuk ke dalam aplikasi.", "Kesalahan");
+                //    Application.Exit();
+                //}
+                //MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
+
+                //if (formLogin.ShowDialog() == DialogResult.OK || formLoginPegawai.ShowDialog() == DialogResult.OK)
+                //{
+                    
+                //}
+                
             }
             catch (Exception ex)
             {
