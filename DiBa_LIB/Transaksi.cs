@@ -43,14 +43,18 @@ namespace DiBa_LIB
             string sql = "";
             if (kriteria == "")
             {
-                sql = "select ta.no_rekening,t.transaksi_id, t.tgl_transaksi, jt.id_jenis_transaksi, t.no_rekening, jt.nominal, t.keterangan transaksi " +
-                      "from t inner join tabungan ta on t.rekening_sumber = ta.no_rekening left join jenisTransaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi";
+                sql = "select t.rekening_sumber, t.id_transaksi, t.tgl_transaksi, t.id_jenis_transaksi, t.rekening_tujuan, t.nominal, t.keterangan " +
+                      "from transaksi t inner join tabungan ta on t.rekening_sumber = ta.no_rekening " +
+                      "inner join tabungan tb on t.rekening_tujuan = tb.no_rekening " +
+                      "left join jenis_transaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi";
 
             }
             else
             {
-                sql = "select ta.no_rekening,t.transaksi_id, t.tgl_transaksi, jt.id_jenis_transaksi, t.no_rekening, jt.nominal, t.keterangan transaksi " +
-                      "from t inner join tabungan ta on t.rekening_sumber = ta.no_rekening left join jenisTransaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi " +
+                sql = "select t.rekening_sumber, t.id_transaksi, t.tgl_transaksi, t.id_jenis_transaksi, t.rekening_tujuan, t.nominal, t.keterangan " +
+                      "from transaksi t inner join tabungan ta on t.rekening_sumber = ta.no_rekening " +
+                      "inner join tabungan tb on t.rekening_tujuan = tb.no_rekening " +
+                      "left join jenis_transaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi " +
                       "where " +kriteria + " like '%" + nilaiKriteria+"%'";
                 
             }
@@ -66,34 +70,39 @@ namespace DiBa_LIB
 
                 Tabungan taTujuan = new Tabungan(hasil.GetString(4));
 
-                Transaksi t = new Transaksi(taSumber, hasil.GetString(1), hasil.GetDateTime(2), jt, taTujuan, int.Parse(hasil.GetString(5)), hasil.GetString(6));
+                Transaksi t = new Transaksi(taSumber, 
+                                            hasil.GetString(1), 
+                                            hasil.GetDateTime(2), 
+                                            jt, 
+                                            taTujuan, 
+                                            double.Parse(hasil.GetString(5)), 
+                                            hasil.GetString(6));
 
                 listTransaksi.Add(t);
             }
 
             return listTransaksi;
         }
-        public static void TambahData(Transaksi t)
+        public static void TambahData(Transaksi t, Koneksi k)
         {
             string sql = "insert into transaksi (rekening_sumber, transaksi_id, tgl_transaksi, id_jenis_transaksi, rekening_tujuan, nominal, keterangan) " +
                          "values ('" + t.Rekening_sumber.Rekening + "', '" + t.TransaksiId + "', '" + t.Tgl_transaksi.ToString("yyyy-MM-dd HH:mm:ss") + "', '" +
                          t.Id_jenis_transaksi.Id_jenis_transaksi + "', '" + t.Rekening_tujuan.Rekening + "', '" + t.Nominal + "', '" + t.Keterangan + "')";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void UbahData(Transaksi t)
+        public static void UbahData(Transaksi t, Koneksi k)
         {
             string sql = "update transaksi set rekening_sumber = '" + t.Rekening_sumber.Rekening + "', id_jenis_transaksi = '" + t.Id_jenis_transaksi.Id_jenis_transaksi +
                          "', rekening_tujuan = '" + t.Rekening_tujuan.Rekening + "', nominal = '" + t.Nominal + "', keterangan = '" + t.Keterangan + "' " +
                          "where transaksi_id = '" + t.TransaksiId + "'";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void HapusData(Transaksi t)
+        public static void HapusData(Transaksi t, Koneksi k)
         {
             string sql = "delete from transaksi where transaksi_id = '" + t.TransaksiId + "'";
-
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
         public static int GenerateKode()

@@ -65,12 +65,12 @@ namespace DiBa_LIB
             return listPosition;
         }
 
-        public static void TambahData(Position p)
+        public static void TambahData(Position p, Koneksi k)
         {
             string sql = "insert into position (id, nama, keterangan) values (" + 
                          p.PositionID + ", '" + p.Nama.Replace("'", "\\'") + "', '" + p.Keterangan + "')";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
         public static Position AmbilDataByCode(int kode)
@@ -83,7 +83,9 @@ namespace DiBa_LIB
             if (hasil.Read() == true)
             {
                 //masukan hasil pengambilan data ke object kategori
-                Position p = new Position(int.Parse(hasil.GetValue(0).ToString()), hasil.GetValue(1).ToString(), hasil.GetValue(2).ToString());
+                Position p = new Position(int.Parse(hasil.GetValue(0).ToString()), 
+                                          hasil.GetValue(1).ToString(), 
+                                          hasil.GetValue(2).ToString());
                 return p;
             }
             else
@@ -92,18 +94,18 @@ namespace DiBa_LIB
             }
         }
 
-        public static void UbahData(Position p)
+        public static void UbahData(Position p, Koneksi k)
         {
             string sql = "update position set Nama='" + p.Nama.Replace("'", "\\'") + ", Keterangan = '" + p.Keterangan + "' where id='" + p.PositionID + "'";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void HapusData(Position p)
+        public static void HapusData(Position p, Koneksi k)
         {
             string perintah = "delete from position where id='" + p.PositionID + "'";
 
-            Koneksi.JalankanPerintahDML(perintah);
+            Koneksi.JalankanPerintahDML(perintah, k);
         }
 
         public static int GenerateKode()

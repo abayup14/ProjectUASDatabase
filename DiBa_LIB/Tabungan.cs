@@ -50,53 +50,93 @@ namespace DiBa_LIB
 
             if (kriteria == "")
             {
-                sql = "select t.no_rekening, t.id_pengguna, t.saldo, t.status, t.keterangan, t.tgl_buat, " +
-                    "t.tgl_perubahan, t.verifikator from tabungan t inner join pengguna p on t.id_pengguna = p.nik " +
-                    "inner join employee e on t.verifikator = e.id";
+                sql = "SELECT t.no_rekening, t.id_pengguna, t.saldo, t.status, t.keterangan, t.tgl_buat, t.tgl_perubahan, t.verifikator " +
+                      "FROM tabungan t INNER JOIN pengguna p on t.id_pengguna = p.nik " +
+                      "INNER JOIN employee e on t.verifikator = e.id";
             }
             else
             {
-                sql = "select t.no_rekening, t.id_pengguna, t.saldo, t.status, t.keterangan, t.tgl_buat, " +
-                    "t.tgl_perubahan, t.verifikator from tabungan t inner join pengguna p on t.id_pengguna = p.nik " +
-                    "inner join employee e on t.verifikator = e.id where '"+kriteria+"' LIKE '%"+nilaiKriteria+"'%";
+                sql = "SELECT t.no_rekening, t.id_pengguna, t.saldo, t.status, t.keterangan, t.tgl_buat, t.tgl_perubahan, t.verifikator " +
+                      "FROM tabungan t INNER JOIN pengguna p on t.id_pengguna = p.nik " +
+                      "INNER JOIN employee e on t.verifikator = e.id " +
+                      "WHERE " + kriteria + " LIKE '%" + nilaiKriteria + "%'";
             }
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            MySqlDataReader hasil =  Koneksi.JalankanPerintahQuery(sql);
 
-            List<Tabungan> listOfTabunugan = new List<Tabungan>();
+            List<Tabungan> listTabungan = new List<Tabungan>();
 
             while (hasil.Read() == true)
             {
-                Employee em = new Employee(int.Parse(hasil.GetString(0)));
-                Pengguna p = new Pengguna(hasil.GetString(0));
-                Tabungan t = new Tabungan(hasil.GetString(0), p, double.Parse(hasil.GetString(2)), hasil.GetString(3),
-                    hasil.GetString(4), DateTime.Parse(hasil.GetString(5)), DateTime.Parse(hasil.GetString(6)), em);
-                listOfTabunugan.Add(t);
+                Pengguna p = new Pengguna(hasil.GetValue(1).ToString());
+
+                Employee e = new Employee(int.Parse(hasil.GetValue(7).ToString()));
+
+                Tabungan t = new Tabungan(hasil.GetValue(0).ToString(),
+                                          p,
+                                          double.Parse(hasil.GetValue(2).ToString()),
+                                          hasil.GetValue(3).ToString(),
+                                          hasil.GetValue(4).ToString(),
+                                          DateTime.Parse(hasil.GetString(5)),
+                                          DateTime.Parse(hasil.GetString(6)),
+                                          e);
+
+                listTabungan.Add(t);
             }
 
-            return listOfTabunugan;
+            return listTabungan;
         }
-        public static void UbahData(Tabungan t)
+        public static void UbahData(Tabungan t, Employee e, Koneksi k)
         {
-            string sql = "update tabungan set no_rekening = '"+t.Rekening+"', id_pengguna = '"+t.Pengguna.Nik+"', " +
-                "saldo = '"+t.Saldo+"', status = '"+t.Status+"', keterangan = '"+t.Keterangan+"', tgl_buat = '"+t.Tgl_buat+"', " +
-                "tgl_perubahan = '"+t.Tgl_perubahan+"', verifikator = '"+t.Verifikator.Id+"'";
+            string sql = "UPDATE tabungan set status = 'Aktif', verifikator = " + e.Id + ", tgl_perubahan = '" + t.Tgl_perubahan + "' " +
+                         "WHERE no_rekening = '" + t.Rekening + "'";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void HapusData(Tabungan t)
+        public static void HapusData(Tabungan t, Koneksi k)
         {
             string sql = "DELETE from tabungan where id = " + t.Rekening;
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void TambahData(Tabungan t)
+        public static void TambahData(Tabungan t, Koneksi k)
         {
-            string sql = "insert into tabungan(no_rekening, id_pengguna, saldo, status, keterangan, tgl_buat, tgl_perubahan, " +
-                "verifikator) values ('"+t.Rekening+"', '"+t.Pengguna.Nik+"', '"+t.Saldo+"', '"+t.Status+"', " +
-                "'"+t.Keterangan+"', '"+t.Tgl_buat+"', '"+t.Tgl_perubahan+"', '"+t.Verifikator.Id+"')";
+            string sql = "INSERT into tabungan (no_rekening, id_pengguna, saldo, status, keterangan, tgl_buat, tgl_perubahan) " +
+                         "VALUES ('" + t.Rekening + "', '" + t.Pengguna.Nik + "', " + t.Saldo + ", '" + t.Status + "', '" + t.Keterangan +
+                         "', '" + t.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
+        }
+        public static string GenerateNomorRekening()
+        {
+            string sql = "SELECT max(no_rekening) FROM tabungan";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            string hasilGenerate = "";
+
+            if (hasil.Read() == true)
+            {
+                if (hasil.GetValue(0).ToString() != "")
+                {
+                    int hasilKode = int.Parse(hasil.GetValue(0).ToString()) + 1;
+
+                    if (hasilKode == 10)
+                    {
+                        hasilGenerate = hasilKode.ToString();
+                    }
+                    else if (hasilKode < 10)
+                    {
+                        hasilGenerate = hasilKode.ToString().PadLeft(10 - hasilKode.ToString().Length, '0');
+                    }
+                }
+                else
+                {
+                    hasilGenerate = 1.ToString().PadLeft(10, '0');
+                }
+            }
+
+            return hasilGenerate;
         }
     }
 }

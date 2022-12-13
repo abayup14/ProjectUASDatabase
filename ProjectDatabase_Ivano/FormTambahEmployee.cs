@@ -22,6 +22,7 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                Koneksi k = new Koneksi();
                 DialogResult hasil = MessageBox.Show("Apakah data yang anda masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
                                                      MessageBoxIcon.Question);
 
@@ -34,7 +35,7 @@ namespace ProjectDatabase_Ivano
                     Employee em = new Employee(id, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, positionDipilih, textBoxNIK.Text,
                                               textBoxEmail.Text, textBoxPassword.Text, DateTime.Now, DateTime.Now);
 
-                    Employee.TambahData(em);
+                    Employee.TambahData(em, k);
 
                     MessageBox.Show("Data employee berhasil ditambah.", "Informasi");
                 }

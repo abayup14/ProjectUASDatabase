@@ -30,26 +30,48 @@ namespace ProjectDatabase_Ivano
             {
                 Koneksi koneksi = new Koneksi();
 
-                FormLogin formLogin = new FormLogin();
+                //FormLogin formLogin = new FormLogin();
 
-                formLogin.Owner = this;
+                //formLogin.Owner = this;
 
-                if (formLogin.ShowDialog() == DialogResult.OK)
+                FormLogin formLogin = (FormLogin)this.Owner;
+
+                FormLoginPegawai formLoginPegawai = (FormLoginPegawai)this.Owner;
+
+                FormPilihMasuk formPilihMasuk = new FormPilihMasuk();
+
+                formPilihMasuk.Owner = this;
+
+                formPilihMasuk.Show();
+
+                if (pengguna != null)
                 {
-                    if (pengguna != null)
-                    {
-                        labelKode.Text = pengguna.Nik;
+                    labelKode.Text = pengguna.Nik;
 
-                        labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
-                    }
+                    labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
 
                     MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
                 }
-                else
+                else if (employee != null)
                 {
-                    MessageBox.Show("Maaf, anda tidak dapat masuk ke dalam aplikasi.", "Kesalahan");
-                    Application.Exit();
+                    labelKode.Text = employee.Id.ToString();
+
+                    labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
+
+                    MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
                 }
+                //else
+                //{
+                //    MessageBox.Show("Maaf, anda tidak dapat masuk ke dalam aplikasi.", "Kesalahan");
+                //    Application.Exit();
+                //}
+                //MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
+
+                //if (formLogin.ShowDialog() == DialogResult.OK || formLoginPegawai.ShowDialog() == DialogResult.OK)
+                //{
+                    
+                //}
+                
             }
             catch (Exception ex)
             {
@@ -156,16 +178,69 @@ namespace ProjectDatabase_Ivano
 
         private void riwayatTransaksiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi(); 
-            formDaftarTransaksi.MdiParent = this;
-            formDaftarTransaksi.Show();
+            Form form = Application.OpenForms["FormDaftarTransaksi"];
+            if (form == null)
+            {
+                FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi();
+
+                formDaftarTransaksi.MdiParent = this;
+
+                formDaftarTransaksi.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
         }
 
         private void tabunganToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormDaftarTabungan frmDaftarTabungan = new FormDaftarTabungan();
-            frmDaftarTabungan.MdiParent = this;
-            frmDaftarTabungan.Show();
+            Form form = Application.OpenForms["FormDaftarTabungan"];
+            if (form == null)
+            {
+                FormDaftarTabungan frmDaftarTabungan = new FormDaftarTabungan();
+                frmDaftarTabungan.MdiParent = this;
+                frmDaftarTabungan.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void depositoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarDeposito"];
+            if (form == null)
+            {
+                FormDaftarDeposito formDaftarDeposito = new FormDaftarDeposito();
+                formDaftarDeposito.MdiParent = this;
+                formDaftarDeposito.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void addressBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarAddressBook"];
+            if (form == null)
+            {
+                FormDaftarAddressBook formDaftarAddressBook = new FormDaftarAddressBook();
+                formDaftarAddressBook.MdiParent = this;
+                formDaftarAddressBook.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
         }
 
         private void depositoToolStripMenuItem_Click(object sender, EventArgs e)

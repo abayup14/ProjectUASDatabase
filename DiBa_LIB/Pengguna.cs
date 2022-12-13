@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace DiBa_LIB
 {
@@ -61,36 +62,31 @@ namespace DiBa_LIB
         #endregion
 
         #region METHODS
-        public static void TambahData(Pengguna p)
+        public static void TambahData(Pengguna p, Koneksi k)
         {
+
             string sql = "INSERT into pengguna(nik, nama_depan, nama_keluarga, alamat, email, no_telepon, password, pin, tgl_buat, tgl_perubahan) " +
-                         "values ('" + p.Nik + "', '" + p.Nama_depan + "', '" + p.Nama_keluarga + "', '" + p.Alamat + "', '" + p.Email + "', '" + p.No_telepon +
-                         "', SHA2('" + p.Password + "', 512), SHA2('" + p.Pin + "', 512), '" + p.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + 
-                         "', '" + p.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+                                 "values ('" + p.Nik + "', '" + p.Nama_depan + "', '" + p.Nama_keluarga + "', '" + p.Alamat + "', '" + p.Email + "', '" + p.No_telepon + "', SHA2('" + p.Password + "', 512), SHA2('" + p.Pin + "', 512), '" + p.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + p.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void UbahData(Pengguna p)
+        public static void UbahData(Pengguna p, Koneksi k)
         {
-            string sql = "UPDATE pengguna set nama_depan = '" + p.Nama_depan + "', nama_keluarga = '" + p.Nama_keluarga + "', alamat = '" + p.Alamat +
-                         "', email = '" + p.Email + "', no_telepon = '" + p.No_telepon + "', tgl_perubahan = '" + 
-                         p.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' where nik = '" + p.Nik + "'";
-
-            Koneksi.JalankanPerintahDML(sql);
+            string sql = "UPDATE pengguna set nama_depan = '" + p.Nama_depan + "', nama_keluarga = '" + p.Nama_keluarga + "', alamat = '" + p.Alamat + "', email = '" + p.Email + "', no_telepon = '" + p.No_telepon + "', tgl_perubahan = '" + p.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' where nik = '" + p.Nik + "'";
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void UbahPassword(Pengguna p, string passwordLama, string passwordBaru)
+        public static void UbahPassword(Pengguna p, string passwordLama, string passwordBaru, Koneksi k)
         {
             string sql = "UPDATE pengguna set password = SHA2('" + passwordBaru + "', 512), tgl_perubahan = '" + 
                          p.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' where nik = '" + p.Nik + 
                          "' AND password = SHA2('" + passwordLama + "', 512)";
 
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void HapusData(Pengguna p)
+        public static void HapusData(Pengguna p, Koneksi k)
         {
             string sql = "DELETE from pengguna where nik = '" + p.Nik + "'";
-
-            Koneksi.JalankanPerintahDML(sql);
+            Koneksi.JalankanPerintahDML(sql, k);
         }
         public static List<Pengguna> BacaData(string kriteria, string nilaiKriteria)
         {
@@ -111,9 +107,15 @@ namespace DiBa_LIB
 
             while (hasil.Read() == true)
             {
-                Pengguna p = new Pengguna(hasil.GetValue(0).ToString(), hasil.GetValue(1).ToString(), hasil.GetValue(2).ToString(),
-                                          hasil.GetValue(3).ToString(), hasil.GetValue(4).ToString(), hasil.GetValue(5).ToString(),
-                                          hasil.GetValue(6).ToString(), hasil.GetValue(7).ToString(), DateTime.Parse(hasil.GetValue(8).ToString()),
+                Pengguna p = new Pengguna(hasil.GetValue(0).ToString(), 
+                                          hasil.GetValue(1).ToString(), 
+                                          hasil.GetValue(2).ToString(),
+                                          hasil.GetValue(3).ToString(), 
+                                          hasil.GetValue(4).ToString(), 
+                                          hasil.GetValue(5).ToString(),
+                                          hasil.GetValue(6).ToString(), 
+                                          hasil.GetValue(7).ToString(), 
+                                          DateTime.Parse(hasil.GetValue(8).ToString()),
                                           DateTime.Parse(hasil.GetValue(9).ToString()));
 
                 listPengguna.Add(p);

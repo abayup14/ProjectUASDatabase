@@ -22,6 +22,7 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                Koneksi k = new Koneksi();
                 DialogResult result = MessageBox.Show("Apakah data yang ada masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
 
@@ -31,7 +32,7 @@ namespace ProjectDatabase_Ivano
 
                     Position p = new Position(id, textBoxNamaJabatan.Text, textBoxKeterangan.Text);
 
-                    Position.TambahData(p);
+                    Position.TambahData(p, k);
 
                     MessageBox.Show("Data position telah tersimpan.", "Info");
                 }
