@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiBa_LIB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,15 @@ namespace ProjectDatabase_Ivano
         public FormTambahDeposito()
         {
             InitializeComponent();
+        }
+
+        private void buttonSimpan_Click(object sender, EventArgs e)
+        {
+            FormUtama formUtama = (FormUtama)this.Owner;
+            string no_rekening = Tabungan.AmbilDataNoRekening(formUtama.pengguna.Nik);
+            string kode = Deposito.GenerateKode(no_rekening);
+            double nominal = double.Parse(textBoxNominal.Text);
+            
         }
     }
 }

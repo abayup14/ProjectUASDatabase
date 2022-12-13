@@ -30,8 +30,6 @@ namespace ProjectDatabase_Ivano
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxNomorDeposito = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonKeluar = new System.Windows.Forms.Button();
@@ -54,24 +52,6 @@ namespace ProjectDatabase_Ivano
             this.label2.TabIndex = 39;
             this.label2.Text = "TAMBAH DEPOSITO";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBoxNomorDeposito
-            // 
-            this.textBoxNomorDeposito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNomorDeposito.Location = new System.Drawing.Point(230, 27);
-            this.textBoxNomorDeposito.Name = "textBoxNomorDeposito";
-            this.textBoxNomorDeposito.Size = new System.Drawing.Size(229, 24);
-            this.textBoxNomorDeposito.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(43, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 18);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Nomor Deposito :";
             // 
             // label1
             // 
@@ -116,6 +96,7 @@ namespace ProjectDatabase_Ivano
             this.buttonSimpan.TabIndex = 41;
             this.buttonSimpan.Text = "&SIMPAN";
             this.buttonSimpan.UseVisualStyleBackColor = false;
+            this.buttonSimpan.Click += new System.EventHandler(this.buttonSimpan_Click);
             // 
             // buttonKosongi
             // 
@@ -141,8 +122,6 @@ namespace ProjectDatabase_Ivano
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
             this.panel1.Controls.Add(this.comboBoxJatuhTempo);
-            this.panel1.Controls.Add(this.textBoxNomorDeposito);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBoxNominal);
             this.panel1.Controls.Add(this.label4);
@@ -188,8 +167,6 @@ namespace ProjectDatabase_Ivano
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxNomorDeposito;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonKeluar;

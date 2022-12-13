@@ -171,10 +171,10 @@ namespace DiBa_LIB
         }
         public static Pengguna AmbilDataByKode(string id)
         {
-            string sql = "SELECT  p.nik, p.nama_depan, p.nama_keluarga, p.alamat, p.email, p.no_telepon " +
-                "p.password, p.pin, p.tgl_buat, p.tgl_perubahan " +
+            string sql = "SELECT nik, nama_depan, nama_keluarga, alamat, email, no_telepon, " +
+                "password, pin, tgl_buat, tgl_perubahan " +
                          "FROM pengguna " +
-                         "where p.nik = '" + id +"'";
+                         "where nik = '" + id +"'";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
