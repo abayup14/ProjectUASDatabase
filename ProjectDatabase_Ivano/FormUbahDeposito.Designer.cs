@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace ProjectDatabase_Ivano
 {
     partial class FormUbahDeposito
@@ -233,6 +235,11 @@ namespace ProjectDatabase_Ivano
 
         }
 
+        internal void Show()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private System.Windows.Forms.Button buttonKosongi;
@@ -250,5 +257,7 @@ namespace ProjectDatabase_Ivano
         public System.Windows.Forms.TextBox textBoxJatuhTempo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
+
+        public FormDaftarDeposito Owner { get; internal set; }
     }
 }
