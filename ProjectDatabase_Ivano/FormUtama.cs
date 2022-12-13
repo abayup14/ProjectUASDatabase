@@ -246,5 +246,12 @@ namespace ProjectDatabase_Ivano
                 form.BringToFront();
             }
         }
+
+        private void depositoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDaftarDeposito formDaftarDeposito = new FormDaftarDeposito();
+            formDaftarDeposito.MdiParent = this;
+            formDaftarDeposito.Show();
+        }
     }
 }

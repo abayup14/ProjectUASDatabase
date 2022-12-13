@@ -13,13 +13,16 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormDaftarDeposito : Form
     {
-        Koneksi k;
-
         public List<Deposito> listDeposito = new List<Deposito>();
 
         public FormDaftarDeposito()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void buttonTambah_Click(object sender, EventArgs e)
@@ -31,8 +34,6 @@ namespace ProjectDatabase_Ivano
 
         private void FormDaftarDeposito_Load(object sender, EventArgs e)
         {
-            k = new Koneksi();
-
             listDeposito = Deposito.BacaData("", "");
 
             if(listDeposito.Count > 0)
@@ -43,7 +44,7 @@ namespace ProjectDatabase_Ivano
                     DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
                     bcol.HeaderText = "Aksi";
                     bcol.Text = "Cairkan";
-                    bcol.Name = "buttonUbahGrid";
+                    bcol.Name = "buttonCairkanGrid";
                     bcol.UseColumnTextForButtonValue = true;
                     dataGridViewDeposito.Columns.Add(bcol);
 
@@ -53,6 +54,13 @@ namespace ProjectDatabase_Ivano
                     bcol2.Name = "buttonHapusGrid";
                     bcol2.UseColumnTextForButtonValue = true;
                     dataGridViewDeposito.Columns.Add(bcol2);
+
+                    DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
+                    bcol3.HeaderText = "Aksi";
+                    bcol3.Text = "Aktifkan";
+                    bcol3.Name = "buttonAktifGrid";
+                    bcol3.UseColumnTextForButtonValue = true;
+                    dataGridViewDeposito.Columns.Add(bcol3);
                 }
             }
             else
@@ -63,12 +71,17 @@ namespace ProjectDatabase_Ivano
 
         private void dataGridViewDeposito_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-
-            if(e.ColumnIndex == dataGridViewDeposito.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonCairkanGrid"].Index && e.RowIndex >= 0)
             {
-                FormPencairanDeposito formUbahDeposito = new FormPencairanDeposito();
+                listDeposito = Deposito.BacaData("", "");
+                FormUbahDeposito formUbahDeposito = new FormUbahDeposito();
                 formUbahDeposito.Owner = this;
+                formUbahDeposito.comboBoxNoRek.DataSource = listDeposito;
+                formUbahDeposito.comboBoxNoRek.DisplayMember = "no_rekening";
+                formUbahDeposito.textBoxJatuhTempo.Text = dataGridViewDeposito.CurrentRow.Cells["jatuh_tempo"].Value.ToString();
+                formUbahDeposito.textBoxNominal.Text = dataGridViewDeposito.CurrentRow.Cells["nominal"].Value.ToString();
+                formUbahDeposito.textBoxBunga.Text = dataGridViewDeposito.CurrentRow.Cells["bunga"].Value.ToString();
+                formUbahDeposito.textBoxStatus.Text = dataGridViewDeposito.CurrentRow.Cells["status"].Value.ToString();
                 formUbahDeposito.Show();
             }
             else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
@@ -91,7 +104,7 @@ namespace ProjectDatabase_Ivano
                 if(hasil == DialogResult.Yes)
                 {
                     Deposito d = new Deposito(id_deposito);
-                    Deposito.HapusData(d, k);
+                    Deposito.HapusData(d);
 
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
                     FormDaftarDeposito_Load(buttonKeluar, e);

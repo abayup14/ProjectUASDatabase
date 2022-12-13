@@ -48,7 +48,6 @@ namespace ProjectDatabase_Ivano
             this.labelKode = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.depositoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addressBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,8 +74,7 @@ namespace ProjectDatabase_Ivano
             this.employeeToolStripMenuItem,
             this.inboxToolStripMenuItem,
             this.tabunganToolStripMenuItem,
-            this.depositoToolStripMenuItem,
-            this.addressBookToolStripMenuItem});
+            this.depositoToolStripMenuItem});
             this.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem";
             this.MenuToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.MenuToolStripMenuItem.Text = "Master";
@@ -213,13 +211,6 @@ namespace ProjectDatabase_Ivano
             this.depositoToolStripMenuItem.Text = "Deposito";
             this.depositoToolStripMenuItem.Click += new System.EventHandler(this.depositoToolStripMenuItem_Click);
             // 
-            // addressBookToolStripMenuItem
-            // 
-            this.addressBookToolStripMenuItem.Name = "addressBookToolStripMenuItem";
-            this.addressBookToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.addressBookToolStripMenuItem.Text = "Address Book";
-            this.addressBookToolStripMenuItem.Click += new System.EventHandler(this.addressBookToolStripMenuItem_Click);
-            // 
             // FormUtama
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -262,7 +253,6 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.ToolStripMenuItem inboxToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tabunganToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem depositoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addressBookToolStripMenuItem;
     }
 }
 

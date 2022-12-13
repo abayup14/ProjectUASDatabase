@@ -39,7 +39,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,12 +54,6 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>db.Settings</DependentUpon>
-    </Compile>
-    <Compile Include="FormDaftarAddressBook.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDaftarAddressBook.Designer.cs">
-      <DependentUpon>FormDaftarAddressBook.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDaftarDeposito.cs">
       <SubType>Form</SubType>
@@ -110,24 +103,6 @@
     <Compile Include="FormDaftarTransaksi.Designer.cs">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLoginPegawai.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLoginPegawai.Designer.cs">
-      <DependentUpon>FormLoginPegawai.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPilihMasuk.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPilihMasuk.designer.cs">
-      <DependentUpon>FormPilihMasuk.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormTambahAddressBook.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormTambahAddressBook.Designer.cs">
-      <DependentUpon>FormTambahAddressBook.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormTambahDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,11 +151,11 @@
     <Compile Include="FormTambahTransaksi.Designer.cs">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPencairanDeposito.cs">
+    <Compile Include="FormUbahDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPencairanDeposito.Designer.cs">
-      <DependentUpon>FormPencairanDeposito.cs</DependentUpon>
+    <Compile Include="FormUbahDeposito.Designer.cs">
+      <DependentUpon>FormUbahDeposito.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUbahEmployee.cs">
       <SubType>Form</SubType>
@@ -238,9 +213,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormDaftarAddressBook.resx">
-      <DependentUpon>FormDaftarAddressBook.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarDeposito.resx">
       <DependentUpon>FormDaftarDeposito.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,23 +231,8 @@
     <EmbeddedResource Include="FormDaftarPengguna.resx">
       <DependentUpon>FormDaftarPengguna.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDaftarTabungan.resx">
-      <DependentUpon>FormDaftarTabungan.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarTransaksi.resx">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLoginPegawai.resx">
-      <DependentUpon>FormLoginPegawai.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPilihMasuk.resx">
-      <DependentUpon>FormPilihMasuk.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormTambahAddressBook.resx">
-      <DependentUpon>FormTambahAddressBook.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormTambahDeposito.resx">
-      <DependentUpon>FormTambahDeposito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahInbox.resx">
       <DependentUpon>FormTambahInbox.cs</DependentUpon>
@@ -298,8 +255,8 @@
     <EmbeddedResource Include="FormTambahTransaksi.resx">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPencairanDeposito.resx">
-      <DependentUpon>FormPencairanDeposito.cs</DependentUpon>
+    <EmbeddedResource Include="FormUbahDeposito.resx">
+      <DependentUpon>FormUbahDeposito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUbahEmployee.resx">
       <DependentUpon>FormUbahEmployee.cs</DependentUpon>
