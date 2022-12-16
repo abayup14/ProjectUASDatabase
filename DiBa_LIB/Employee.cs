@@ -25,13 +25,6 @@ namespace DiBa_LIB
         public Employee()
         {
             Id = 0;
-            Nama_depan = "";
-            Nama_keluarga = "";
-            Nik = "";
-            Email = "";
-            Password = "";
-            Tgl_buat = DateTime.Now;
-            Tgl_perubahan = DateTime.Now;
         }
         public Employee(int id, string nama_depan, string nama_keluarga, Position position, string nik, string email, string password, 
                         DateTime tgl_buat, DateTime tgl_perubahan)

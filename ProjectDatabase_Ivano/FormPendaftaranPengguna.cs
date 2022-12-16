@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DiBa_LIB;
 
 namespace ProjectDatabase_Ivano
 {
@@ -22,6 +23,7 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                Koneksi k = new Koneksi();
                 DialogResult hasil = MessageBox.Show("Apakah data yang anda masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
                                                      MessageBoxIcon.Question);
 
@@ -31,12 +33,12 @@ namespace ProjectDatabase_Ivano
 
                     Pengguna p = new Pengguna(textBoxNIK.Text, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, textBoxAlamat.Text,
                                               textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, pin, DateTime.Now, DateTime.Now);
-                    Pengguna.TambahData(p);
+                    Pengguna.TambahData(p, k);
                     MessageBox.Show("Selamat, anda sudah terdaftar.\nSilahkan masuk dengan email " +
                         "atau nomor telepon dan password anda.", "Informasi");
-
-                    //Tabungan t = new Tabungan(Tabungan.)
-
+                    Employee em = new Employee(Employee.GenerateKode());
+                    Tabungan t = new Tabungan(Tabungan.GenerateNomorRekening(), p, 0, "Unverifie", "", DateTime.Now, DateTime.Now, em);
+                    Tabungan.TambahData(t, k);
                     Close();
                 }
             }

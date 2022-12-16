@@ -92,19 +92,19 @@ namespace ProjectDatabase_Ivano
             else if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonUbahStatusGrid"].Index && e.RowIndex >= 0)
             {
                 FormUtama formUtama = (FormUtama)this.MdiParent;
-                string nik = dataGridViewTabungan.CurrentRow.Cells["id_pengguna"].Value.ToString();
+                string nik = dataGridViewTabungan.CurrentRow.Cells["pengguna"].Value.ToString();
                 Pengguna id_pengguna = Pengguna.AmbilDataByKode(nik);
-                string no_rekening = dataGridViewTabungan.CurrentRow.Cells["no_rekening"].Value.ToString();
+                string no_rekening = dataGridViewTabungan.CurrentRow.Cells["rekening"].Value.ToString();
                 double saldo = double.Parse(dataGridViewTabungan.CurrentRow.Cells["saldo"].Value.ToString());
                 string status = dataGridViewTabungan.CurrentRow.Cells["status"].Value.ToString();
                 string keterangan = dataGridViewTabungan.CurrentRow.Cells["keterangan"].Value.ToString();
                 DateTime tgl_buat = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["tgl_buat"].Value.ToString());
-                DateTime tgl_perubahan = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
+                //DateTime tgl_perubahan = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
                 int id = int.Parse(dataGridViewTabungan.CurrentRow.Cells["verifikator"].Value.ToString());
                 Employee verifikator = formUtama.employee;
 
                 Tabungan t = new Tabungan(no_rekening, id_pengguna, saldo, status, keterangan, tgl_buat, 
-                    tgl_perubahan, verifikator);
+                    DateTime.Now, verifikator);
                 Tabungan.UbahData(t, verifikator, k);
                 MessageBox.Show("Data Berhasil Dirubah.", "Informasi");
                 FormDaftarTabungan_Load(buttonKeluar, e);
