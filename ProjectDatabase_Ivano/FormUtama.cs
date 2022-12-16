@@ -45,11 +45,11 @@ namespace ProjectDatabase_Ivano
                 //formPilihMasuk.Show();
                 if (formLogin.ShowDialog() == DialogResult.OK)
                 {
-                    if (employee != null)
+                    if (pengguna != null)
                     {
-                        labelKode.Text = employee.Id.ToString();
+                        labelKode.Text = pengguna.Nik;
 
-                        labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
+                        labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
 
                         MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
                     }
