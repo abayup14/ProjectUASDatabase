@@ -74,15 +74,13 @@ namespace ProjectDatabase_Ivano
             if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonCairkanGrid"].Index && e.RowIndex >= 0)
             {
                 listDeposito = Deposito.BacaData("", "");
-                FormUbahDeposito formUbahDeposito = new FormUbahDeposito();
-                formUbahDeposito.Owner = this;
-                formUbahDeposito.comboBoxNoRek.DataSource = listDeposito;
-                formUbahDeposito.comboBoxNoRek.DisplayMember = "no_rekening";
-                formUbahDeposito.textBoxJatuhTempo.Text = dataGridViewDeposito.CurrentRow.Cells["jatuh_tempo"].Value.ToString();
-                formUbahDeposito.textBoxNominal.Text = dataGridViewDeposito.CurrentRow.Cells["nominal"].Value.ToString();
-                formUbahDeposito.textBoxBunga.Text = dataGridViewDeposito.CurrentRow.Cells["bunga"].Value.ToString();
-                formUbahDeposito.textBoxStatus.Text = dataGridViewDeposito.CurrentRow.Cells["status"].Value.ToString();
-                formUbahDeposito.Show();
+                FormPencairanDeposito formPencairanDeposito = new FormPencairanDeposito();
+                formPencairanDeposito.Owner = this;
+                //formUbahDeposito.textBoxJatuhTempo.Text = dataGridViewDeposito.CurrentRow.Cells["jatuh_tempo"].Value.ToString();
+                //formUbahDeposito.textBoxNominal.Text = dataGridViewDeposito.CurrentRow.Cells["nominal"].Value.ToString();
+                //formUbahDeposito.textBoxBunga.Text = dataGridViewDeposito.CurrentRow.Cells["bunga"].Value.ToString();
+                //formUbahDeposito.textBoxStatus.Text = dataGridViewDeposito.CurrentRow.Cells["status"].Value.ToString();
+                formPencairanDeposito.Show();
             }
             else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
@@ -103,8 +101,9 @@ namespace ProjectDatabase_Ivano
 
                 if(hasil == DialogResult.Yes)
                 {
+                    Koneksi k = new Koneksi();
                     Deposito d = new Deposito(id_deposito);
-                    Deposito.HapusData(d);
+                    Deposito.HapusData(d, k);
 
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
                     FormDaftarDeposito_Load(buttonKeluar, e);

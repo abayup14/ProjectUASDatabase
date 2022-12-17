@@ -26,7 +26,7 @@ namespace ProjectDatabase_Ivano
 
         private void buttonUbah_Click(object sender, EventArgs e)
         {
-            DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin mengubah data anda?", "Konfirmasi", MessageBoxButtons.YesNo,
+            DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin mencairkan deposito anda?", "Konfirmasi", MessageBoxButtons.YesNo,
                                                          MessageBoxIcon.Question);
 
             if (hasil == DialogResult.Yes)

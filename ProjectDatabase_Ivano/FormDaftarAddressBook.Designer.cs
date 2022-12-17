@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewInbox = new System.Windows.Forms.DataGridView();
+            this.dataGridViewAddressBook = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxNilaiKriteria = new System.Windows.Forms.TextBox();
             this.comboBoxKriteria = new System.Windows.Forms.ComboBox();
@@ -36,20 +36,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.buttonTambah = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInbox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAddressBook)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridViewInbox
+            // dataGridViewAddressBook
             // 
-            this.dataGridViewInbox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInbox.Location = new System.Drawing.Point(3, 123);
-            this.dataGridViewInbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridViewInbox.Name = "dataGridViewInbox";
-            this.dataGridViewInbox.RowHeadersWidth = 51;
-            this.dataGridViewInbox.RowTemplate.Height = 24;
-            this.dataGridViewInbox.Size = new System.Drawing.Size(829, 266);
-            this.dataGridViewInbox.TabIndex = 50;
+            this.dataGridViewAddressBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAddressBook.Location = new System.Drawing.Point(3, 123);
+            this.dataGridViewAddressBook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewAddressBook.Name = "dataGridViewAddressBook";
+            this.dataGridViewAddressBook.RowHeadersWidth = 51;
+            this.dataGridViewAddressBook.RowTemplate.Height = 24;
+            this.dataGridViewAddressBook.Size = new System.Drawing.Size(829, 266);
+            this.dataGridViewAddressBook.TabIndex = 50;
+            this.dataGridViewAddressBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAddressBook_CellContentClick);
             // 
             // panel1
             // 
@@ -124,6 +125,7 @@
             this.buttonKeluar.TabIndex = 49;
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // buttonTambah
             // 
@@ -144,14 +146,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 454);
-            this.Controls.Add(this.dataGridViewInbox);
+            this.Controls.Add(this.dataGridViewAddressBook);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonTambah);
             this.Name = "FormDaftarAddressBook";
-            this.Text = "FormDaftarAddressBook";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInbox)).EndInit();
+            this.Text = "Daftar Address Book";
+            this.Load += new System.EventHandler(this.FormDaftarAddressBook_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAddressBook)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -160,7 +163,7 @@
 
         #endregion
 
-        public System.Windows.Forms.DataGridView dataGridViewInbox;
+        public System.Windows.Forms.DataGridView dataGridViewAddressBook;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBoxNilaiKriteria;
         private System.Windows.Forms.ComboBox comboBoxKriteria;
