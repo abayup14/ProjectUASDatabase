@@ -123,6 +123,10 @@ namespace DiBa_LIB
 
             return hasilKode;
         }
+        public override string ToString()
+        {
+            return Id_jenis_transaksi.ToString();
+        }
         #endregion
     }
 }

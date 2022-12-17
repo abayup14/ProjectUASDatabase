@@ -77,8 +77,8 @@ namespace DiBa_LIB
                                           double.Parse(hasil.GetValue(2).ToString()),
                                           hasil.GetValue(3).ToString(),
                                           hasil.GetValue(4).ToString(),
-                                          hasil.GetDateTime(5),
-                                          DateTime.Parse(hasil.GetString(6)),
+                                          DateTime.Parse(hasil.GetValue(5).ToString()),
+                                          DateTime.Parse(hasil.GetValue(6).ToString()),
                                           e);
 
                 listTabungan.Add(t);
@@ -120,15 +120,15 @@ namespace DiBa_LIB
             {
                 if (hasil.GetValue(0).ToString() != "")
                 {
-                    int hasilKode = int.Parse(hasil.GetValue(0).ToString()) + 1;
+                    string hasilKode = (int.Parse(hasil.GetValue(0).ToString()) + 1).ToString();
 
-                    if (hasilKode == 10)
+                    if (hasilKode.Length == 10)
                     {
-                        hasilGenerate = hasilKode.ToString();
+                        hasilGenerate = hasilKode;
                     }
-                    else if (hasilKode < 10)
+                    else if (hasilKode.Length < 10)
                     {
-                        hasilGenerate = hasilKode.ToString().PadLeft(10 - hasilKode.ToString().Length, '0');
+                        hasilGenerate = hasilKode.PadLeft(10 - hasilKode.Length, '0');
                     }
                 }
                 else
@@ -153,6 +153,21 @@ namespace DiBa_LIB
             }
 
             return hasilKode;
+        }
+        public static string AmbilDataKode(string no_rekening)
+        {
+            string sql = "SELECT id_pengguna from tabungan where no_rekening = '" + no_rekening + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            string id = "";
+
+            if (hasil.Read() == true)
+            {
+                id = hasil.GetValue(0).ToString();
+            }
+
+            return id;
         }
         public override string ToString()
         {

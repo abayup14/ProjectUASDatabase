@@ -15,6 +15,10 @@ namespace ProjectDatabase_Ivano
     {
         public List<Deposito> listDeposito = new List<Deposito>();
 
+        FormUtama formUtama;
+
+        public Pengguna pengguna;
+
         public FormDaftarDeposito()
         {
             InitializeComponent();
@@ -34,6 +38,10 @@ namespace ProjectDatabase_Ivano
 
         private void FormDaftarDeposito_Load(object sender, EventArgs e)
         {
+            formUtama = (FormUtama)this.MdiParent;
+
+            pengguna = formUtama.pengguna;
+
             listDeposito = Deposito.BacaData("", "");
 
             if(listDeposito.Count > 0)

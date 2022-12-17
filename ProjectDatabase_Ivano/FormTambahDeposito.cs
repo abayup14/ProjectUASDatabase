@@ -16,6 +16,8 @@ namespace ProjectDatabase_Ivano
         List<int> bulanJatuhTempo = new List<int>() { 1, 3, 6, 12, 24, 36 };
         List<double> bungaJatuhTempo = new List<double>() { 0.03, 0.05, 0.06, 0.08, 0.08, 0.08 };
 
+        FormDaftarDeposito formDaftarDeposito;
+
         public FormTambahDeposito()
         {
             InitializeComponent();
@@ -27,8 +29,8 @@ namespace ProjectDatabase_Ivano
             {
                 Koneksi k = new Koneksi();
                 int indexJatuhTempoDipilih = comboBoxJatuhTempo.SelectedIndex;
-                FormUtama formUtama = (FormUtama)this.Owner;
-                string no_rekening = Tabungan.AmbilDataNoRekening(formUtama.pengguna.Nik);
+                string nik = formDaftarDeposito.pengguna.Nik;
+                string no_rekening = Tabungan.AmbilDataNoRekening(nik);
                 string kode = Deposito.GenerateKode(no_rekening);
                 Tabungan t = new Tabungan(no_rekening);
                 int jatuhTempo = bulanJatuhTempo[indexJatuhTempoDipilih];
@@ -50,6 +52,11 @@ namespace ProjectDatabase_Ivano
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void FormTambahDeposito_Load(object sender, EventArgs e)
+        {
+            formDaftarDeposito = (FormDaftarDeposito)this.Owner;
         }
     }
 }

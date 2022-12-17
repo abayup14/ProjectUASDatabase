@@ -17,9 +17,19 @@ namespace ProjectDatabase_Ivano
         {
             InitializeComponent();
         }
+
         List<Transaksi> listTransaksi = new List<Transaksi>();
+
+        FormUtama formUtama;
+
+        public Pengguna pengguna;
+
         private void FormDaftarTransaksi_Load(object sender, EventArgs e)
         {
+            formUtama = (FormUtama)this.MdiParent;
+
+            pengguna = formUtama.pengguna;
+
             listTransaksi = Transaksi.BacaData("", "");
             if (listTransaksi.Count > 0)
             {
@@ -51,8 +61,6 @@ namespace ProjectDatabase_Ivano
         {
             if(e.ColumnIndex == dataGridViewTransaksi.Columns["buttonUbahGrid"].Index && e.RowIndex == 0)
             {
-                
-                
                 FormUbahTransaksi formUbahTransaksi = new FormUbahTransaksi();
                 formUbahTransaksi.Owner = this;
                 formUbahTransaksi.Show();

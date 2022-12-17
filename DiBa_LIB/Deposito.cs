@@ -154,9 +154,9 @@ namespace DiBa_LIB
 
         public static string GenerateKode(string no_rekening)
         {
-            string sql = "SELECT RIGHT(no_rekening, 4), MAX(RIGHT(id_deposito, 4)) " +
-                         "FROM deposito " +
-                         "WHERE Date(tgl_buat) = Date(CURRENT_DATE) AND no_rekening = '" + no_rekening + "' " + 
+            string sql = "SELECT RIGHT(t.no_rekening), MAX(RIGHT(id_deposito, 4)) " +
+                         "FROM tabungan t INNER JOIN deposito d on t.no_rekening = d.no_rekening " +
+                         "WHERE Date(tgl_buat) = Date(CURRENT_DATE) " + 
                          "ORDER BY tgl_buat DESC limit 1";
             string hasilKode = "";
 

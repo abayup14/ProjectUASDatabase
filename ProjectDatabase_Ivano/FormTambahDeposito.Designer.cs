@@ -159,6 +159,7 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.panel1);
             this.Name = "FormTambahDeposito";
             this.Text = "FormTambahDeposito";
+            this.Load += new System.EventHandler(this.FormTambahDeposito_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

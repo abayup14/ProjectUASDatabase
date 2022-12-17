@@ -20,6 +20,7 @@ namespace ProjectDatabase_Ivano
         List<Transaksi> listTransaksi = new List<Transaksi>();
         List<JenisTransaksi> listJenisTransaksi = new List<JenisTransaksi>();
         List<Tabungan> listTabungan = new List<Tabungan>();
+        FormDaftarTransaksi formDaftarTransaksi;
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
@@ -30,10 +31,10 @@ namespace ProjectDatabase_Ivano
 
             if (result == DialogResult.Yes)
             {
-
-                Tabungan tabungan = new Tabungan(labelNoRekening.Text);
+                Tabungan rekening_sumber = new Tabungan(labelNoRekening.Text);
                 JenisTransaksi jt = new JenisTransaksi(comboBoxJenisTransaksi.SelectedIndex + 1);
-                Transaksi t = new Transaksi(tabungan, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, tabungan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
+                Tabungan rekening_tujuan = (Tabungan)comboBoxRekeningTujuan.SelectedItem;
+                Transaksi t = new Transaksi(rekening_sumber, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, rekening_tujuan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
 
                 Transaksi.TambahData(t, k);
 
@@ -53,6 +54,9 @@ namespace ProjectDatabase_Ivano
 
         private void FormTambahTransaksi_Load(object sender, EventArgs e)
         {
+            formDaftarTransaksi = (FormDaftarTransaksi)this.Owner;
+            labelNoRekening.Text = Tabungan.AmbilDataNoRekening(formDaftarTransaksi.pengguna.Nik);
+
             listJenisTransaksi = JenisTransaksi.ReadData("", "");
             listTabungan = Tabungan.BacaData("", ""); 
 
@@ -70,11 +74,6 @@ namespace ProjectDatabase_Ivano
             labelNoRekening.Text = "";
 
             textBoxNominal.Clear();
-        }
-
-        private void textBoxKeterangan_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

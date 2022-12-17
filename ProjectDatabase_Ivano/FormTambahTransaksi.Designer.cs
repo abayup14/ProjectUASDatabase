@@ -108,7 +108,6 @@
             this.textBoxKeterangan.Name = "textBoxKeterangan";
             this.textBoxKeterangan.Size = new System.Drawing.Size(259, 22);
             this.textBoxKeterangan.TabIndex = 28;
-            this.textBoxKeterangan.TextChanged += new System.EventHandler(this.textBoxKeterangan_TextChanged);
             // 
             // comboBoxRekeningTujuan
             // 

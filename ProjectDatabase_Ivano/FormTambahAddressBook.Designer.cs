@@ -52,7 +52,7 @@
             this.labelInbox.Name = "labelInbox";
             this.labelInbox.Size = new System.Drawing.Size(716, 39);
             this.labelInbox.TabIndex = 44;
-            this.labelInbox.Text = "TAMBAH ADDRESSBOOK";
+            this.labelInbox.Text = "TAMBAH ADDRESS BOOK";
             this.labelInbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxPesan
@@ -83,7 +83,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(122, 147);
+            this.label5.Location = new System.Drawing.Point(95, 147);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(108, 18);
             this.label5.TabIndex = 7;

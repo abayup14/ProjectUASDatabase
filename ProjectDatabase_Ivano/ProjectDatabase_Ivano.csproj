@@ -255,6 +255,9 @@
     <EmbeddedResource Include="FormTambahAddressBook.resx">
       <DependentUpon>FormTambahAddressBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahDeposito.resx">
+      <DependentUpon>FormTambahDeposito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTambahInbox.resx">
       <DependentUpon>FormTambahInbox.cs</DependentUpon>
     </EmbeddedResource>
