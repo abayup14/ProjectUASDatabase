@@ -115,9 +115,9 @@ namespace DiBa_LIB
 
         public static void TambahData(Deposito d, Koneksi k)
         {
-            string sql = "INSERT INTO deposito (id_deposito, no_rekening, jatuh_tempo, nominal, bunga, status, tg;_buat, tgl_perubahan, verifikator_buat, verifikator_cair) " +
+            string sql = "INSERT INTO deposito (id_deposito, no_rekening, jatuh_tempo, nominal, bunga, status, tgl_buat, tgl_perubahan, verifikator_buka, verifikator_cair) " +
                 "VALUES ('" + d.Id_deposito + "', '" + d.No_rekening + "', '" + d.Jatuh_tempo + "', '" + d.Nominal + "', '" + d.Bunga + "', '" + d.Status + "', '" + d.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") +
-                "', '" + d.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + d.Verifikator_buka + "', '" + d.Verifikator_cair + ")'";
+                "', '" + d.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + d.Verifikator_buka + "', '" + d.Verifikator_cair + "')";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
@@ -133,7 +133,7 @@ namespace DiBa_LIB
 
         public static void UbahStatus(Deposito d, Koneksi k)
         {
-            string sql = "UPDATE deposito set status = '" + "Tidak Aktif"+ "'" + "WHERE id_deposito = " + d.Id_deposito;
+            string sql = "UPDATE deposito set status = 'Aktif' WHERE id_deposito = '" + d.Id_deposito + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
@@ -154,27 +154,27 @@ namespace DiBa_LIB
 
         public static string GenerateKode(string no_rekening)
         {
-            string sql = "SELECT RIGHT(t.no_rekening), MAX(RIGHT(id_deposito, 4)) " +
+            string sql = "SELECT RIGHT(t.no_rekening, 4), MAX(RIGHT(d.id_deposito, 4)) " +
                          "FROM tabungan t INNER JOIN deposito d on t.no_rekening = d.no_rekening " +
-                         "WHERE Date(tgl_buat) = Date(CURRENT_DATE) " + 
-                         "ORDER BY tgl_buat DESC limit 1";
+                         "WHERE Date(d.tgl_buat) = Date(CURRENT_DATE) AND t.no_rekening = '" + no_rekening + "' " + 
+                         "ORDER BY d.tgl_buat DESC limit 1";
             string hasilKode = "";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
             if(hasil.Read() == true)
             {
-                if(hasil.GetString("id_deposito") != "" && hasil.GetString("no_rekening") != "")
+                if(hasil.GetValue(1).ToString() != "")
                 {
-                    int nextID = int.Parse(hasil.GetString(1)) + 1;
+                    int nextID = int.Parse(hasil.GetValue(1).ToString()) + 1;
                     hasilKode = DateTime.Now.Year + "/" + DateTime.Now.Month.ToString().PadLeft(2, '0') + "/" +
-                                DateTime.Now.Day.ToString().PadLeft(2, '0') + "/" + hasil.GetString(0) + "/" +
+                                DateTime.Now.Day.ToString().PadLeft(2, '0') + "/" + hasil.GetValue(0).ToString() + "/" +
                                 nextID.ToString().PadLeft(4, '0');
                 }
                 else
                 {
                     hasilKode = DateTime.Now.Year + "/" + DateTime.Now.Month.ToString().PadLeft(2, '0') + "/" +
-                                DateTime.Now.Day.ToString().PadLeft(2, '0') + "/" + hasil.GetString(0) + "/" +
+                                DateTime.Now.Day.ToString().PadLeft(2, '0') + "/" + hasil.GetValue(0).ToString() + "/" +
                                 "0001";
                 }
             }

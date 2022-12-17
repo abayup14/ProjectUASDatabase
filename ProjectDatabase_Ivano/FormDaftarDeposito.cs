@@ -79,6 +79,8 @@ namespace ProjectDatabase_Ivano
 
         private void dataGridViewDeposito_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            Koneksi k = new Koneksi();
+
             if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonCairkanGrid"].Index && e.RowIndex >= 0)
             {
                 listDeposito = Deposito.BacaData("", "");
@@ -109,13 +111,22 @@ namespace ProjectDatabase_Ivano
 
                 if(hasil == DialogResult.Yes)
                 {
-                    Koneksi k = new Koneksi();
                     Deposito d = new Deposito(id_deposito);
                     Deposito.HapusData(d, k);
 
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
                     FormDaftarDeposito_Load(buttonKeluar, e);
                 }
+            }
+            else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonAktifGrid"].Index && e.RowIndex >= 0)
+            {
+                string id_deposito = dataGridViewDeposito.CurrentRow.Cells["id_deposito"].Value.ToString();
+
+                Deposito d = new Deposito(id_deposito);
+
+                Deposito.UbahStatus(d, k);
+
+                MessageBox.Show("Deposito berhasil diaktifkan");
             }
         }
 
