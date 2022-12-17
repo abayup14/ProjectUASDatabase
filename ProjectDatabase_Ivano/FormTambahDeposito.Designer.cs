@@ -82,7 +82,7 @@ namespace ProjectDatabase_Ivano
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
             this.buttonKeluar.Location = new System.Drawing.Point(394, 222);
-            this.buttonKeluar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKeluar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(152, 43);
             this.buttonKeluar.TabIndex = 42;
@@ -96,7 +96,7 @@ namespace ProjectDatabase_Ivano
             this.buttonSimpan.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSimpan.ForeColor = System.Drawing.Color.White;
             this.buttonSimpan.Location = new System.Drawing.Point(10, 222);
-            this.buttonSimpan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSimpan.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSimpan.Name = "buttonSimpan";
             this.buttonSimpan.Size = new System.Drawing.Size(152, 43);
             this.buttonSimpan.TabIndex = 41;
@@ -110,7 +110,7 @@ namespace ProjectDatabase_Ivano
             this.buttonKosongi.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKosongi.ForeColor = System.Drawing.Color.White;
             this.buttonKosongi.Location = new System.Drawing.Point(202, 222);
-            this.buttonKosongi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKosongi.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKosongi.Name = "buttonKosongi";
             this.buttonKosongi.Size = new System.Drawing.Size(152, 43);
             this.buttonKosongi.TabIndex = 43;
@@ -121,7 +121,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.textBoxNominal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNominal.Location = new System.Drawing.Point(172, 58);
-            this.textBoxNominal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNominal.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNominal.Name = "textBoxNominal";
             this.textBoxNominal.Size = new System.Drawing.Size(320, 21);
             this.textBoxNominal.TabIndex = 4;
@@ -134,7 +134,7 @@ namespace ProjectDatabase_Ivano
             this.panel1.Controls.Add(this.textBoxNominal);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(9, 54);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(537, 142);
             this.panel1.TabIndex = 40;
@@ -152,7 +152,7 @@ namespace ProjectDatabase_Ivano
             "2 tahun",
             "3 tahun"});
             this.comboBoxJatuhTempo.Location = new System.Drawing.Point(172, 95);
-            this.comboBoxJatuhTempo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxJatuhTempo.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxJatuhTempo.Name = "comboBoxJatuhTempo";
             this.comboBoxJatuhTempo.Size = new System.Drawing.Size(320, 23);
             this.comboBoxJatuhTempo.TabIndex = 15;
@@ -167,9 +167,9 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.buttonSimpan);
             this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormTambahDeposito";
-            this.Text = "FormTambahDeposito";
+            this.Text = "Tambah Deposito";
             this.Load += new System.EventHandler(this.FormTambahDeposito_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
