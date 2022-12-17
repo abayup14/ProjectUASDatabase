@@ -88,7 +88,8 @@ namespace DiBa_LIB
         }
         public static void UbahData(Tabungan t, Employee e, Koneksi k)
         {
-            string sql = "UPDATE tabungan set status = 'Aktif', verifikator = " + e.Id + ", tgl_perubahan = '" + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
+            string sql = "UPDATE tabungan set status = 'Aktif', verifikator = " + e.Id + ", tgl_perubahan = '" 
+                + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
                          "WHERE no_rekening = '" + t.Rekening + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
