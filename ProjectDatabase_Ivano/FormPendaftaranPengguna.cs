@@ -37,7 +37,7 @@ namespace ProjectDatabase_Ivano
                     MessageBox.Show("Selamat, anda sudah terdaftar.\nSilahkan masuk dengan email " +
                         "atau nomor telepon dan password anda.", "Informasi");
                     Employee em = new Employee(Employee.GenerateKode());
-                    Tabungan t = new Tabungan(Tabungan.GenerateNomorRekening(), p, 0, "Unverifie", "", DateTime.Now, DateTime.Now, em);
+                    Tabungan t = new Tabungan(Tabungan.GenerateNomorRekening(), p, 0, "Unverified", "", DateTime.Now, DateTime.Now, em);
                     Tabungan.TambahData(t, k);
                     Close();
                 }

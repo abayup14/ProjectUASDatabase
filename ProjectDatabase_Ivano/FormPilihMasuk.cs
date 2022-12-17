@@ -25,6 +25,8 @@ namespace ProjectDatabase_Ivano
             formLogin.Owner = this;
 
             formLogin.ShowDialog();
+
+            this.Close();
         }
 
         private void buttonPegawai_Click(object sender, EventArgs e)
@@ -34,6 +36,8 @@ namespace ProjectDatabase_Ivano
             formLoginPegawai.Owner = this;
 
             formLoginPegawai.ShowDialog();
+
+            this.Close();
         }
     }
 }

@@ -23,34 +23,39 @@ namespace ProjectDatabase_Ivano
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
-            try
+            Koneksi k = new Koneksi();
+
+            DialogResult result = MessageBox.Show("Apakah data yang ada masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                Koneksi k = new Koneksi();
 
-                DialogResult result = MessageBox.Show("Apakah data yang ada masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                Tabungan tabungan = new Tabungan(labelNoRekening.Text);
+                JenisTransaksi jt = new JenisTransaksi(comboBoxJenisTransaksi.SelectedIndex + 1);
+                Transaksi t = new Transaksi(tabungan, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, tabungan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
 
-                if (result == DialogResult.Yes)
-                {
-                    
-                    Tabungan tabungan = new Tabungan(labelNoRekening.Text);
-                    JenisTransaksi jt = new JenisTransaksi(int.Parse(comboBoxJenisTransaksi.Text));
-                    Transaksi t = new Transaksi(tabungan,Transaksi.GenerateKode().ToString(), DateTime.Now, jt, tabungan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
-
-                    Transaksi.TambahData(t, k);
+                Transaksi.TambahData(t, k);
 
 
-                    MessageBox.Show("Data position telah tersimpan.", "Info");
-                }
+                MessageBox.Show("Data position telah tersimpan.", "Info");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Data position gagal disimpan. Pesan kesalahan: " + ex.Message, "Kesalahan");
-            }
+            //    try
+            //{
+                
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Data position gagal disimpan. Pesan kesalahan: " + ex.Message, "Kesalahan");
+            //}
         }
 
         private void FormTambahTransaksi_Load(object sender, EventArgs e)
         {
+            listJenisTransaksi = JenisTransaksi.ReadData("", "");
+            listTabungan = Tabungan.BacaData("", ""); 
+
             comboBoxJenisTransaksi.DataSource = listJenisTransaksi;
             comboBoxJenisTransaksi.DisplayMember = "nama";
             comboBoxJenisTransaksi.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -65,6 +70,11 @@ namespace ProjectDatabase_Ivano
             labelNoRekening.Text = "";
 
             textBoxNominal.Clear();
+        }
+
+        private void textBoxKeterangan_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
