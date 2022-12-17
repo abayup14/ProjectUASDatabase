@@ -58,5 +58,13 @@ namespace ProjectDatabase_Ivano
         {
             formDaftarDeposito = (FormDaftarDeposito)this.Owner;
         }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            FormDaftarDeposito formDaftarDeposito = new FormDaftarDeposito();
+            formDaftarDeposito.FormDaftarDeposito_Load(buttonKeluar, e);
+
+            this.Close();
+        }
     }
 }
