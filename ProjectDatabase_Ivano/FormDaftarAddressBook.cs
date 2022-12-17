@@ -14,6 +14,11 @@ namespace ProjectDatabase_Ivano
     public partial class FormDaftarAddressBook : Form
     {
         List<AddressBook> listAddressBook = new List<AddressBook>();
+
+        FormUtama formUtama;
+
+        public Pengguna pengguna;
+
         public FormDaftarAddressBook()
         {
             InitializeComponent();
@@ -31,8 +36,11 @@ namespace ProjectDatabase_Ivano
             Close(); 
         }
 
-        private void FormDaftarAddressBook_Load(object sender, EventArgs e)
+        public void FormDaftarAddressBook_Load(object sender, EventArgs e)
         {
+            formUtama = (FormUtama)this.MdiParent;
+
+            pengguna = formUtama.pengguna;
           
             listAddressBook = AddressBook.BacaData("", "");
             if (listAddressBook.Count > 0)

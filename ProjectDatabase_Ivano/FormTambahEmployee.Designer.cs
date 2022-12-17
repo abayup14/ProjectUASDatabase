@@ -43,9 +43,9 @@
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxPosition = new System.Windows.Forms.ComboBox();
-            this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +54,7 @@
             this.buttonKosongi.BackColor = System.Drawing.Color.Navy;
             this.buttonKosongi.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKosongi.ForeColor = System.Drawing.Color.White;
-            this.buttonKosongi.Location = new System.Drawing.Point(269, 417);
+            this.buttonKosongi.Location = new System.Drawing.Point(269, 403);
             this.buttonKosongi.Name = "buttonKosongi";
             this.buttonKosongi.Size = new System.Drawing.Size(202, 53);
             this.buttonKosongi.TabIndex = 38;
@@ -67,7 +67,7 @@
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(526, 417);
+            this.buttonKeluar.Location = new System.Drawing.Point(526, 403);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(202, 53);
             this.buttonKeluar.TabIndex = 37;
@@ -80,7 +80,7 @@
             this.buttonSimpan.BackColor = System.Drawing.Color.Navy;
             this.buttonSimpan.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSimpan.ForeColor = System.Drawing.Color.White;
-            this.buttonSimpan.Location = new System.Drawing.Point(13, 417);
+            this.buttonSimpan.Location = new System.Drawing.Point(12, 403);
             this.buttonSimpan.Name = "buttonSimpan";
             this.buttonSimpan.Size = new System.Drawing.Size(202, 53);
             this.buttonSimpan.TabIndex = 36;
@@ -219,6 +219,18 @@
             this.panel1.Size = new System.Drawing.Size(716, 314);
             this.panel1.TabIndex = 35;
             // 
+            // checkBoxTunjukkan
+            // 
+            this.checkBoxTunjukkan.AutoSize = true;
+            this.checkBoxTunjukkan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxTunjukkan.Location = new System.Drawing.Point(465, 212);
+            this.checkBoxTunjukkan.Name = "checkBoxTunjukkan";
+            this.checkBoxTunjukkan.Size = new System.Drawing.Size(107, 22);
+            this.checkBoxTunjukkan.TabIndex = 27;
+            this.checkBoxTunjukkan.Text = "Tunjukkan";
+            this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
+            this.checkBoxTunjukkan.CheckedChanged += new System.EventHandler(this.checkBoxTunjukkan_CheckedChanged);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -239,23 +251,11 @@
             this.comboBoxPosition.Size = new System.Drawing.Size(426, 26);
             this.comboBoxPosition.TabIndex = 15;
             // 
-            // checkBoxTunjukkan
-            // 
-            this.checkBoxTunjukkan.AutoSize = true;
-            this.checkBoxTunjukkan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxTunjukkan.Location = new System.Drawing.Point(465, 212);
-            this.checkBoxTunjukkan.Name = "checkBoxTunjukkan";
-            this.checkBoxTunjukkan.Size = new System.Drawing.Size(107, 22);
-            this.checkBoxTunjukkan.TabIndex = 27;
-            this.checkBoxTunjukkan.Text = "Tunjukkan";
-            this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
-            this.checkBoxTunjukkan.CheckedChanged += new System.EventHandler(this.checkBoxTunjukkan_CheckedChanged);
-            // 
             // FormTambahEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 492);
+            this.ClientSize = new System.Drawing.Size(744, 473);
             this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonSimpan);

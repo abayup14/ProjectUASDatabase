@@ -96,7 +96,7 @@
             // 
             this.labelNoRekening.AutoSize = true;
             this.labelNoRekening.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.labelNoRekening.Location = new System.Drawing.Point(288, 40);
+            this.labelNoRekening.Location = new System.Drawing.Point(288, 38);
             this.labelNoRekening.Name = "labelNoRekening";
             this.labelNoRekening.Size = new System.Drawing.Size(78, 18);
             this.labelNoRekening.TabIndex = 29;
@@ -229,7 +229,7 @@
             this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.buttonTambah);
             this.Name = "FormTambahTransaksi";
-            this.Text = "FormTambahTransaksi";
+            this.Text = "Tambah Transaksi";
             this.Load += new System.EventHandler(this.FormTambahTransaksi_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

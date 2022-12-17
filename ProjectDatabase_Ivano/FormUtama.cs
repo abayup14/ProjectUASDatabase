@@ -86,6 +86,7 @@ namespace ProjectDatabase_Ivano
         private void penggunaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Application.OpenForms["FormDaftarPengguna"];
+
             if (form == null)
             {
                 FormDaftarPengguna formDaftarPengguna = new FormDaftarPengguna();
@@ -97,6 +98,7 @@ namespace ProjectDatabase_Ivano
             else
             {
                 form.Show();
+
                 form.BringToFront();
             }
         }
@@ -104,6 +106,7 @@ namespace ProjectDatabase_Ivano
         private void jenisTransaksiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Application.OpenForms["FormDaftarJenisTransaksi"];
+
             if (form == null)
             {
                 FormDaftarJenisTransaksi formDaftarJenisTransaksi = new FormDaftarJenisTransaksi();
@@ -115,6 +118,7 @@ namespace ProjectDatabase_Ivano
             else
             {
                 form.Show();
+
                 form.BringToFront();
             }
         }
@@ -122,6 +126,7 @@ namespace ProjectDatabase_Ivano
         private void PositionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Application.OpenForms["FormDaftarJabatan"];
+
             if (form == null)
             {
                 FormDaftarPosition formDaftarJabatan = new FormDaftarPosition();
@@ -133,6 +138,7 @@ namespace ProjectDatabase_Ivano
             else
             {
                 form.Show();
+
                 form.BringToFront();
             }
         }
@@ -145,6 +151,7 @@ namespace ProjectDatabase_Ivano
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Application.OpenForms["FormDaftarEmployee"];
+
             if (form == null)
             {
                 FormDaftarEmployee formDaftarEmployee = new FormDaftarEmployee();
@@ -183,6 +190,7 @@ namespace ProjectDatabase_Ivano
         private void riwayatTransaksiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Application.OpenForms["FormDaftarTransaksi"];
+
             if (form == null)
             {
                 FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi();
@@ -202,15 +210,19 @@ namespace ProjectDatabase_Ivano
         private void tabunganToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Application.OpenForms["FormDaftarTabungan"];
+
             if (form == null)
             {
                 FormDaftarTabungan frmDaftarTabungan = new FormDaftarTabungan();
+
                 frmDaftarTabungan.MdiParent = this;
+
                 frmDaftarTabungan.Show();
             }
             else
             {
                 form.Show();
+
                 form.BringToFront();
             }
         }
@@ -218,15 +230,19 @@ namespace ProjectDatabase_Ivano
         private void depositoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Application.OpenForms["FormDaftarDeposito"];
+
             if (form == null)
             {
                 FormDaftarDeposito formDaftarDeposito = new FormDaftarDeposito();
+
                 formDaftarDeposito.MdiParent = this;
+
                 formDaftarDeposito.Show();
             }
             else
             {
                 form.Show();
+
                 form.BringToFront();
             }
         }
@@ -234,15 +250,19 @@ namespace ProjectDatabase_Ivano
         private void addressBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Application.OpenForms["FormDaftarAddressBook"];
+
             if (form == null)
             {
                 FormDaftarAddressBook formDaftarAddressBook = new FormDaftarAddressBook();
+
                 formDaftarAddressBook.MdiParent = this;
+
                 formDaftarAddressBook.Show();
             }
             else
             {
                 form.Show();
+
                 form.BringToFront();
             }
         }

@@ -148,7 +148,7 @@
             this.Controls.Add(this.buttonTambah);
             this.Controls.Add(this.label1);
             this.Name = "FormDaftarTransaksi";
-            this.Text = "FormDaftarTransaksi";
+            this.Text = "Daftar Transaksi";
             this.Load += new System.EventHandler(this.FormDaftarTransaksi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransaksi)).EndInit();
             this.panel1.ResumeLayout(false);
