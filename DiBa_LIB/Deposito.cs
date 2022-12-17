@@ -133,7 +133,7 @@ namespace DiBa_LIB
 
         public static void UbahStatus(Deposito d, Koneksi k)
         {
-            string sql = "UPDATE deposito set status = '" + "Tidak Aktif"+ "'" + "WHERE id_deposito = " + d.Id_deposito;
+            string sql = "UPDATE deposito set status = 'Aktif' WHERE id_deposito = '" + d.Id_deposito + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
