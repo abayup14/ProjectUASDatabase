@@ -33,23 +33,7 @@ namespace ProjectDatabase_Ivano
             listTransaksi = Transaksi.BacaData("", "");
             if (listTransaksi.Count > 0)
             {
-                dataGridViewTransaksi.DataSource =listTransaksi;
-                if (dataGridViewTransaksi.ColumnCount == 6)
-                {
-                    DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
-                    bcol1.HeaderText = "Aksi";
-                    bcol1.Text = "Ubah Data";
-                    bcol1.Name = "buttonUbahGrid";
-                    bcol1.UseColumnTextForButtonValue = true;
-                    dataGridViewTransaksi.Columns.Add(bcol1);
-
-                    DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                    bcol2.HeaderText = "Aksi";
-                    bcol2.Text = "Hapus Data";
-                    bcol2.Name = "buttonHapusGrid";
-                    bcol2.UseColumnTextForButtonValue = true;
-                    dataGridViewTransaksi.Columns.Add(bcol2);
-                }
+                dataGridViewTransaksi.DataSource = listTransaksi;
             }
             else
             {
@@ -59,18 +43,7 @@ namespace ProjectDatabase_Ivano
 
         private void dataGridViewTransaksi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == dataGridViewTransaksi.Columns["buttonUbahGrid"].Index && e.RowIndex == 0)
-            {
-                FormUbahTransaksi formUbahTransaksi = new FormUbahTransaksi();
-                formUbahTransaksi.Owner = this;
-                formUbahTransaksi.Show();
 
-                //fo
-            }
-            else
-            {
-
-            }
         }
 
         private void buttonTambah_Click(object sender, EventArgs e)
