@@ -46,7 +46,7 @@ namespace DiBa_LIB
             while (hasil.Read() == true)
             {
                 Pengguna p = new Pengguna(hasil.GetString(0));
-                Tabungan t = new Tabungan(hasil.GetString(0));
+                Tabungan t = new Tabungan(hasil.GetValue(1).ToString());
                 AddressBook ab = new AddressBook(p, t, hasil.GetString(2));
                 listOfAdressBook.Add(ab);
             }

@@ -77,7 +77,7 @@ namespace DiBa_LIB
                                           double.Parse(hasil.GetValue(2).ToString()),
                                           hasil.GetValue(3).ToString(),
                                           hasil.GetValue(4).ToString(),
-                                          DateTime.Parse(hasil.GetString(5)),
+                                          hasil.GetDateTime(5),
                                           DateTime.Parse(hasil.GetString(6)),
                                           e);
 
@@ -88,7 +88,7 @@ namespace DiBa_LIB
         }
         public static void UbahData(Tabungan t, Employee e, Koneksi k)
         {
-            string sql = "UPDATE tabungan set status = 'Aktif', verifikator = " + e.Id + ", tgl_perubahan = '" + t.Tgl_perubahan + "' " +
+            string sql = "UPDATE tabungan set status = 'Aktif', verifikator = " + e.Id + ", tgl_perubahan = '" + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
                          "WHERE no_rekening = '" + t.Rekening + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
@@ -137,6 +137,25 @@ namespace DiBa_LIB
             }
 
             return hasilGenerate;
+        }
+        public static string AmbilDataNoRekening(string nik)
+        {
+            string sql = "SELECT t.no_rekening FROM tabungan t INNER JOIN pengguna p on t.id_pengguna = p.nik";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            string hasilKode = "";
+
+            if (hasil.Read() == true)
+            {
+                hasilKode = hasil.GetValue(0).ToString();
+            }
+
+            return hasilKode;
+        }
+        public override string ToString()
+        {
+            return Rekening;
         }
     }
 }
