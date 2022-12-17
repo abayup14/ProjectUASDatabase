@@ -38,7 +38,7 @@ namespace ProjectDatabase_Ivano
             if (listAddressBook.Count > 0)
             {
                 dataGridViewAddressBook.DataSource = listAddressBook;
-                if (dataGridViewAddressBook.ColumnCount == 10)
+                if (dataGridViewAddressBook.ColumnCount == 3)
                 {
 
                     DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
@@ -62,7 +62,7 @@ namespace ProjectDatabase_Ivano
 
             if (e.ColumnIndex == dataGridViewAddressBook.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
-                string id_pengguna = dataGridViewAddressBook.CurrentRow.Cells["id_pengguna"].Value.ToString();
+                string id_pengguna = dataGridViewAddressBook.CurrentRow.Cells["pengguna"].Value.ToString();
                 string no_rekening = dataGridViewAddressBook.CurrentRow.Cells["no_rekening"].Value.ToString();
                 string keterangan = dataGridViewAddressBook.CurrentRow.Cells["keterangan"].Value.ToString();
                 

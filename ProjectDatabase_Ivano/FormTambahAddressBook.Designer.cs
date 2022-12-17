@@ -33,13 +33,13 @@
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxIdPengguna = new System.Windows.Forms.TextBox();
+            this.textBoxNoRekening = new System.Windows.Forms.TextBox();
             this.labelNama = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonKosongi = new System.Windows.Forms.Button();
             this.buttonKirim = new System.Windows.Forms.Button();
-            this.textBoxNoRekening = new System.Windows.Forms.TextBox();
-            this.textBoxIdPengguna = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             this.labelInbox.Name = "labelInbox";
             this.labelInbox.Size = new System.Drawing.Size(716, 39);
             this.labelInbox.TabIndex = 44;
-            this.labelInbox.Text = "TAMBAH INBOX";
+            this.labelInbox.Text = "TAMBAH ADDRESSBOOK";
             this.labelInbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxPesan
@@ -104,6 +104,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(716, 264);
             this.panel1.TabIndex = 45;
+            // 
+            // textBoxIdPengguna
+            // 
+            this.textBoxIdPengguna.Location = new System.Drawing.Point(236, 45);
+            this.textBoxIdPengguna.Name = "textBoxIdPengguna";
+            this.textBoxIdPengguna.Size = new System.Drawing.Size(425, 22);
+            this.textBoxIdPengguna.TabIndex = 22;
+            // 
+            // textBoxNoRekening
+            // 
+            this.textBoxNoRekening.Location = new System.Drawing.Point(236, 99);
+            this.textBoxNoRekening.Name = "textBoxNoRekening";
+            this.textBoxNoRekening.Size = new System.Drawing.Size(425, 22);
+            this.textBoxNoRekening.TabIndex = 21;
             // 
             // labelNama
             // 
@@ -160,20 +174,6 @@
             this.buttonKirim.Text = "&TAMBAH";
             this.buttonKirim.UseVisualStyleBackColor = false;
             this.buttonKirim.Click += new System.EventHandler(this.buttonKirim_Click);
-            // 
-            // textBoxNoRekening
-            // 
-            this.textBoxNoRekening.Location = new System.Drawing.Point(236, 99);
-            this.textBoxNoRekening.Name = "textBoxNoRekening";
-            this.textBoxNoRekening.Size = new System.Drawing.Size(425, 22);
-            this.textBoxNoRekening.TabIndex = 21;
-            // 
-            // textBoxIdPengguna
-            // 
-            this.textBoxIdPengguna.Location = new System.Drawing.Point(236, 45);
-            this.textBoxIdPengguna.Name = "textBoxIdPengguna";
-            this.textBoxIdPengguna.Size = new System.Drawing.Size(425, 22);
-            this.textBoxIdPengguna.TabIndex = 22;
             // 
             // FormTambahAddressBook
             // 

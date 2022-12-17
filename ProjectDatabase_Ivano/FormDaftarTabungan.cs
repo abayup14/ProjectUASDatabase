@@ -58,9 +58,9 @@ namespace ProjectDatabase_Ivano
 
             if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
-                string nik = dataGridViewTabungan.CurrentRow.Cells["id_pengguna"].Value.ToString();
+                string nik = dataGridViewTabungan.CurrentRow.Cells["pengguna"].Value.ToString();
                 string id_pengguna = Pengguna.AmbilNamaLengkap(nik);
-                string no_rekening = dataGridViewTabungan.CurrentRow.Cells["no_rekening"].Value.ToString();
+                string no_rekening = dataGridViewTabungan.CurrentRow.Cells["rekening"].Value.ToString();
                 double saldo = double.Parse(dataGridViewTabungan.CurrentRow.Cells["saldo"].Value.ToString());
                 string status = dataGridViewTabungan.CurrentRow.Cells["status"].Value.ToString();
                 string keterangan = dataGridViewTabungan.CurrentRow.Cells["keterangan"].Value.ToString();

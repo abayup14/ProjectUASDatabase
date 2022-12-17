@@ -85,7 +85,7 @@ namespace DiBa_LIB
         }
         public static void TambahData(Transaksi t, Koneksi k)
         {
-            string sql = "insert into transaksi (rekening_sumber, transaksi_id, tgl_transaksi, id_jenis_transaksi, rekening_tujuan, nominal, keterangan) " +
+            string sql = "insert into transaksi (rekening_sumber, id_transaksi, tgl_transaksi, id_jenis_transaksi, rekening_tujuan, nominal, keterangan) " +
                          "values ('" + t.Rekening_sumber.Rekening + "', '" + t.TransaksiId + "', '" + t.Tgl_transaksi.ToString("yyyy-MM-dd HH:mm:ss") + "', '" +
                          t.Id_jenis_transaksi.Id_jenis_transaksi + "', '" + t.Rekening_tujuan.Rekening + "', '" + t.Nominal + "', '" + t.Keterangan + "')";
 
