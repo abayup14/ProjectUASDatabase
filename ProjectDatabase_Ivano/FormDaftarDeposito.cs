@@ -36,7 +36,7 @@ namespace ProjectDatabase_Ivano
             formTambahDeposito.Show();
         }
 
-        private void FormDaftarDeposito_Load(object sender, EventArgs e)
+        public void FormDaftarDeposito_Load(object sender, EventArgs e)
         {
             formUtama = (FormUtama)this.MdiParent;
 
