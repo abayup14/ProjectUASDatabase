@@ -24,32 +24,29 @@ namespace ProjectDatabase_Ivano
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
-            Koneksi k = new Koneksi();
-
-            DialogResult result = MessageBox.Show("Apakah data yang ada masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            try
             {
-                Tabungan rekening_sumber = new Tabungan(labelNoRekening.Text);
-                JenisTransaksi jt = new JenisTransaksi(comboBoxJenisTransaksi.SelectedIndex + 1);
-                Tabungan rekening_tujuan = (Tabungan)comboBoxRekeningTujuan.SelectedItem;
-                Transaksi t = new Transaksi(rekening_sumber, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, rekening_tujuan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
+                Koneksi k = new Koneksi();
 
-                Transaksi.TambahData(t, k);
+                DialogResult result = MessageBox.Show("Apakah data yang ada masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
 
+                if (result == DialogResult.Yes)
+                {
+                    Tabungan rekening_sumber = new Tabungan(labelNoRekening.Text);
+                    JenisTransaksi jt = new JenisTransaksi(comboBoxJenisTransaksi.SelectedIndex + 1);
+                    Tabungan rekening_tujuan = (Tabungan)comboBoxRekeningTujuan.SelectedItem;
+                    Transaksi t = new Transaksi(rekening_sumber, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, rekening_tujuan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
 
-                MessageBox.Show("Data position telah tersimpan.", "Info");
+                    Transaksi.TambahData(t, k);
+
+                    MessageBox.Show("Data transaksi telah tersimpan.", "Info");
+                }
             }
-            //    try
-            //{
-                
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Data position gagal disimpan. Pesan kesalahan: " + ex.Message, "Kesalahan");
-            //}
+            catch (Exception ex)
+            {
+                MessageBox.Show("Data transaksi gagal disimpan. Pesan kesalahan: " + ex.Message, "Kesalahan");
+            }
         }
 
         private void FormTambahTransaksi_Load(object sender, EventArgs e)
