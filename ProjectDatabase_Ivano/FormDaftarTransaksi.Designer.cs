@@ -98,12 +98,13 @@
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
             this.buttonKeluar.Location = new System.Drawing.Point(644, 397);
-            this.buttonKeluar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKeluar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(152, 43);
             this.buttonKeluar.TabIndex = 38;
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // buttonTambah
             // 
@@ -111,7 +112,7 @@
             this.buttonTambah.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTambah.ForeColor = System.Drawing.Color.White;
             this.buttonTambah.Location = new System.Drawing.Point(10, 397);
-            this.buttonTambah.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTambah.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTambah.Name = "buttonTambah";
             this.buttonTambah.Size = new System.Drawing.Size(152, 43);
             this.buttonTambah.TabIndex = 37;
@@ -141,7 +142,7 @@
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonTambah);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDaftarTransaksi";
             this.Text = "Daftar Transaksi";
             this.Load += new System.EventHandler(this.FormDaftarTransaksi_Load);

@@ -24,15 +24,12 @@ namespace ProjectDatabase_Ivano
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonTambah_Click(object sender, EventArgs e)
         {
             FormTambahDeposito formTambahDeposito = new FormTambahDeposito();
+
             formTambahDeposito.Owner = this;
+
             formTambahDeposito.Show();
         }
 

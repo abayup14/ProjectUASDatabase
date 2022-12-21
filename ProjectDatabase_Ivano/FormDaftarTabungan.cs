@@ -110,5 +110,10 @@ namespace ProjectDatabase_Ivano
                 FormDaftarTabungan_Load(buttonKeluar, e);
             }
         }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

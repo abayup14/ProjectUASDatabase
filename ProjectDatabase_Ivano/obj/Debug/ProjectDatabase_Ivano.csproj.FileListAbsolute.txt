@@ -167,7 +167,6 @@ C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.pdb
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarTransaksi.resources
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahTransaksi.resources
-D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahTransaksi.resources
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarDeposito.resources
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarAddressBook.resources
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormPencairanDeposito.resources
@@ -225,7 +224,6 @@ D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahPosition.resources
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahPasswordPengguna.resources
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahPengguna.resources
-D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahTransaksi.resources
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUtama.resources
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.Properties.Resources.resources
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.csproj.GenerateResource.cache

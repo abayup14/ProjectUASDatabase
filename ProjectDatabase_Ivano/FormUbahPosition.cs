@@ -23,6 +23,7 @@ namespace ProjectDatabase_Ivano
             try
             {
                 Koneksi k = new Koneksi();
+
                 FormDaftarPosition formDaftarPosition = (FormDaftarPosition)this.Owner;
 
                 int id = int.Parse(formDaftarPosition.dataGridViewJabatan.CurrentRow.Cells["id"].Value.ToString());
@@ -49,6 +50,7 @@ namespace ProjectDatabase_Ivano
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             FormDaftarPosition formDaftarPosition = (FormDaftarPosition)this.Owner;
+
             formDaftarPosition.FormDaftarPosition_Load(buttonKeluar, e);
 
             this.Close();

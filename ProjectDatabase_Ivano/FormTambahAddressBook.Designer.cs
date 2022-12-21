@@ -60,7 +60,7 @@
             // 
             this.textBoxPesan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPesan.Location = new System.Drawing.Point(177, 117);
-            this.textBoxPesan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPesan.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPesan.Multiline = true;
             this.textBoxPesan.Name = "textBoxPesan";
             this.textBoxPesan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -73,12 +73,13 @@
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
             this.buttonKeluar.Location = new System.Drawing.Point(394, 291);
-            this.buttonKeluar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKeluar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(152, 43);
             this.buttonKeluar.TabIndex = 46;
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click_1);
             // 
             // label5
             // 
@@ -102,7 +103,7 @@
             this.panel1.Controls.Add(this.textBoxPesan);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Location = new System.Drawing.Point(9, 61);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(537, 214);
             this.panel1.TabIndex = 45;
@@ -110,7 +111,7 @@
             // textBoxIdPengguna
             // 
             this.textBoxIdPengguna.Location = new System.Drawing.Point(177, 37);
-            this.textBoxIdPengguna.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxIdPengguna.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxIdPengguna.Name = "textBoxIdPengguna";
             this.textBoxIdPengguna.Size = new System.Drawing.Size(320, 20);
             this.textBoxIdPengguna.TabIndex = 22;
@@ -118,7 +119,7 @@
             // textBoxNoRekening
             // 
             this.textBoxNoRekening.Location = new System.Drawing.Point(177, 80);
-            this.textBoxNoRekening.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNoRekening.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNoRekening.Name = "textBoxNoRekening";
             this.textBoxNoRekening.Size = new System.Drawing.Size(320, 20);
             this.textBoxNoRekening.TabIndex = 21;
@@ -161,7 +162,7 @@
             this.buttonKosongi.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKosongi.ForeColor = System.Drawing.Color.White;
             this.buttonKosongi.Location = new System.Drawing.Point(202, 291);
-            this.buttonKosongi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKosongi.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKosongi.Name = "buttonKosongi";
             this.buttonKosongi.Size = new System.Drawing.Size(152, 43);
             this.buttonKosongi.TabIndex = 48;
@@ -175,7 +176,7 @@
             this.buttonKirim.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKirim.ForeColor = System.Drawing.Color.White;
             this.buttonKirim.Location = new System.Drawing.Point(12, 291);
-            this.buttonKirim.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKirim.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKirim.Name = "buttonKirim";
             this.buttonKirim.Size = new System.Drawing.Size(152, 43);
             this.buttonKirim.TabIndex = 47;
@@ -193,7 +194,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.buttonKirim);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormTambahAddressBook";
             this.Text = "Tambah Address Book";
             this.Load += new System.EventHandler(this.FormTambahAddressBook_Load);

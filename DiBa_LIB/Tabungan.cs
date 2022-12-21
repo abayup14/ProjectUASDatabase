@@ -154,21 +154,6 @@ namespace DiBa_LIB
 
             return hasilKode;
         }
-        public static string AmbilDataKode(string no_rekening)
-        {
-            string sql = "SELECT id_pengguna from tabungan where no_rekening = '" + no_rekening + "'";
-
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
-
-            string id = "";
-
-            if (hasil.Read() == true)
-            {
-                id = hasil.GetValue(0).ToString();
-            }
-
-            return id;
-        }
         public override string ToString()
         {
             return Rekening;

@@ -38,6 +38,7 @@ namespace ProjectDatabase_Ivano
             this.inboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabunganToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.depositoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addressBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,6 @@ namespace ProjectDatabase_Ivano
             this.labelNama = new System.Windows.Forms.Label();
             this.labelKode = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.addressBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,51 +84,58 @@ namespace ProjectDatabase_Ivano
             // penggunaToolStripMenuItem
             // 
             this.penggunaToolStripMenuItem.Name = "penggunaToolStripMenuItem";
-            this.penggunaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.penggunaToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.penggunaToolStripMenuItem.Text = "Pengguna";
             this.penggunaToolStripMenuItem.Click += new System.EventHandler(this.penggunaToolStripMenuItem_Click);
             // 
             // jenisTransaksiToolStripMenuItem
             // 
             this.jenisTransaksiToolStripMenuItem.Name = "jenisTransaksiToolStripMenuItem";
-            this.jenisTransaksiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jenisTransaksiToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.jenisTransaksiToolStripMenuItem.Text = "Jenis Transaksi";
             this.jenisTransaksiToolStripMenuItem.Click += new System.EventHandler(this.jenisTransaksiToolStripMenuItem_Click);
             // 
             // PositionToolStripMenuItem
             // 
             this.PositionToolStripMenuItem.Name = "PositionToolStripMenuItem";
-            this.PositionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.PositionToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.PositionToolStripMenuItem.Text = "Position";
             this.PositionToolStripMenuItem.Click += new System.EventHandler(this.PositionToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.employeeToolStripMenuItem.Text = "Employee";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
             // inboxToolStripMenuItem
             // 
             this.inboxToolStripMenuItem.Name = "inboxToolStripMenuItem";
-            this.inboxToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.inboxToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.inboxToolStripMenuItem.Text = "Inbox";
             this.inboxToolStripMenuItem.Click += new System.EventHandler(this.inboxToolStripMenuItem_Click);
             // 
             // tabunganToolStripMenuItem
             // 
             this.tabunganToolStripMenuItem.Name = "tabunganToolStripMenuItem";
-            this.tabunganToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.tabunganToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.tabunganToolStripMenuItem.Text = "Tabungan";
             this.tabunganToolStripMenuItem.Click += new System.EventHandler(this.tabunganToolStripMenuItem_Click);
             // 
             // depositoToolStripMenuItem
             // 
             this.depositoToolStripMenuItem.Name = "depositoToolStripMenuItem";
-            this.depositoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.depositoToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.depositoToolStripMenuItem.Text = "Deposito";
             this.depositoToolStripMenuItem.Click += new System.EventHandler(this.depositoToolStripMenuItem_Click);
+            // 
+            // addressBookToolStripMenuItem
+            // 
+            this.addressBookToolStripMenuItem.Name = "addressBookToolStripMenuItem";
+            this.addressBookToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.addressBookToolStripMenuItem.Text = "Address Book";
+            this.addressBookToolStripMenuItem.Click += new System.EventHandler(this.addressBookToolStripMenuItem_Click);
             // 
             // transaksiToolStripMenuItem
             // 
@@ -163,7 +170,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.riwayatTransaksiToolStripMenuItem.Name = "riwayatTransaksiToolStripMenuItem";
             this.riwayatTransaksiToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
-            this.riwayatTransaksiToolStripMenuItem.Text = "Riwayat Transaksi";
+            this.riwayatTransaksiToolStripMenuItem.Text = "Transaksi";
             this.riwayatTransaksiToolStripMenuItem.Click += new System.EventHandler(this.riwayatTransaksiToolStripMenuItem_Click);
             // 
             // keluarSistemToolStripMenuItem
@@ -212,13 +219,6 @@ namespace ProjectDatabase_Ivano
             this.label1.Size = new System.Drawing.Size(145, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Anda login sebagai :";
-            // 
-            // addressBookToolStripMenuItem
-            // 
-            this.addressBookToolStripMenuItem.Name = "addressBookToolStripMenuItem";
-            this.addressBookToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.addressBookToolStripMenuItem.Text = "Address Book";
-            this.addressBookToolStripMenuItem.Click += new System.EventHandler(this.addressBookToolStripMenuItem_Click);
             // 
             // FormUtama
             // 

@@ -58,7 +58,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 98);
+            this.label1.Location = new System.Drawing.Point(48, 86);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 15);
@@ -69,7 +69,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(80, 61);
+            this.label4.Location = new System.Drawing.Point(76, 40);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 15);
@@ -120,7 +120,7 @@ namespace ProjectDatabase_Ivano
             // textBoxNominal
             // 
             this.textBoxNominal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNominal.Location = new System.Drawing.Point(172, 58);
+            this.textBoxNominal.Location = new System.Drawing.Point(168, 37);
             this.textBoxNominal.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNominal.Name = "textBoxNominal";
             this.textBoxNominal.Size = new System.Drawing.Size(320, 21);
@@ -151,7 +151,7 @@ namespace ProjectDatabase_Ivano
             "1 tahun",
             "2 tahun",
             "3 tahun"});
-            this.comboBoxJatuhTempo.Location = new System.Drawing.Point(172, 95);
+            this.comboBoxJatuhTempo.Location = new System.Drawing.Point(168, 83);
             this.comboBoxJatuhTempo.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxJatuhTempo.Name = "comboBoxJatuhTempo";
             this.comboBoxJatuhTempo.Size = new System.Drawing.Size(320, 23);
