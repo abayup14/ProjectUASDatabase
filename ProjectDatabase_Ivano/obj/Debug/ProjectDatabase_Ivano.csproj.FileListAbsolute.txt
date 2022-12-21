@@ -231,3 +231,4 @@ D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.csproj.CopyComplete
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.exe
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.pdb
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarTabungan.resources
