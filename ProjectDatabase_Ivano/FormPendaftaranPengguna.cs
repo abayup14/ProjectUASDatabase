@@ -32,13 +32,20 @@ namespace ProjectDatabase_Ivano
 
                     Pengguna p = new Pengguna(textBoxNIK.Text, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, textBoxAlamat.Text,
                                               textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, pin, DateTime.Now, DateTime.Now);
+                    
                     Pengguna.TambahData(p, k);
-                    MessageBox.Show("Selamat, anda sudah terdaftar.\nSilahkan masuk dengan email " +
-                        "atau nomor telepon dan password anda.", "Informasi");
+
+                    MessageBox.Show("Selamat, anda sudah terdaftar." +
+                                    "\nSilahkan masuk dengan email atau nomor telepon dan password anda.", "Informasi");
+
                     Employee em = new Employee();
+
                     string no_rekening = Tabungan.GenerateNomorRekening();
+
                     Tabungan t = new Tabungan(no_rekening, p, 0, "Unverified", "", DateTime.Now, DateTime.Now, em);
+
                     Tabungan.TambahData(t, k);
+
                     Close();
                 }
             }
