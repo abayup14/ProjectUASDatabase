@@ -266,5 +266,38 @@ namespace ProjectDatabase_Ivano
                 form.BringToFront();
             }
         }
+
+        private void poinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarPoin"];
+            if (form == null)
+            {
+                FormDaftarPoin frmDaftarPoin = new FormDaftarPoin();
+                frmDaftarPoin.MdiParent = this;
+                frmDaftarPoin.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+            
+        }
+
+        private void hadiahToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarHadiah"];
+            if (form == null)
+            {
+                FormDaftarHadiah frmDaftarHadiah = new FormDaftarHadiah();
+                frmDaftarHadiah.MdiParent = this;
+                frmDaftarHadiah.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
     }
 }

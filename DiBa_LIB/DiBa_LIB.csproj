@@ -51,10 +51,12 @@
     <Compile Include="AddressBook.cs" />
     <Compile Include="Deposito.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="Hadiah.cs" />
     <Compile Include="Inbox.cs" />
     <Compile Include="JenisTransaksi.cs" />
     <Compile Include="Koneksi.cs" />
     <Compile Include="Pengguna.cs" />
+    <Compile Include="Poin.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tabungan.cs" />
