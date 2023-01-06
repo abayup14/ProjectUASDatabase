@@ -108,6 +108,8 @@ namespace DiBa_LIB
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
+
+        
         public static string GenerateNomorRekening()
         {
             string sql = "SELECT max(no_rekening) FROM tabungan";

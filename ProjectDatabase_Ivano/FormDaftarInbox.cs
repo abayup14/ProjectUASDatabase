@@ -143,5 +143,10 @@ namespace ProjectDatabase_Ivano
                 dataGridViewInbox.DataSource = null;
             }
         }
+
+        private void comboBoxKriteria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
