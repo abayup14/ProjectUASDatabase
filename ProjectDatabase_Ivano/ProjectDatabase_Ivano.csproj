@@ -73,11 +73,23 @@
     <Compile Include="FormDaftarEmployee.Designer.cs">
       <DependentUpon>FormDaftarEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarHadiah.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarHadiah.Designer.cs">
+      <DependentUpon>FormDaftarHadiah.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDaftarInbox.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDaftarInbox.Designer.cs">
       <DependentUpon>FormDaftarInbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDaftarPoin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarPoin.Designer.cs">
+      <DependentUpon>FormDaftarPoin.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDaftarPosition.cs">
       <SubType>Form</SubType>
@@ -126,6 +138,12 @@
     </Compile>
     <Compile Include="FormTambahDeposito.Designer.cs">
       <DependentUpon>FormTambahDeposito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahHadiah.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahHadiah.Designer.cs">
+      <DependentUpon>FormTambahHadiah.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahInbox.cs">
       <SubType>Form</SubType>
@@ -228,8 +246,14 @@
     <EmbeddedResource Include="FormDaftarEmployee.resx">
       <DependentUpon>FormDaftarEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarHadiah.resx">
+      <DependentUpon>FormDaftarHadiah.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarInbox.resx">
       <DependentUpon>FormDaftarInbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarPoin.resx">
+      <DependentUpon>FormDaftarPoin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarPosition.resx">
       <DependentUpon>FormDaftarPosition.cs</DependentUpon>
