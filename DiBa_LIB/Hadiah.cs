@@ -62,5 +62,27 @@ namespace DiBa_LIB
         {
             string sql = "delete from hadiah where id = "+h.Id+"";
         }
+        public static int GenerateKode()
+        {
+            string sql = "SELECT max(id) from employee";
+
+            int hasilKode = 0;
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                if (hasil.GetValue(0).ToString() != "")
+                {
+                    hasilKode = int.Parse(hasil.GetValue(0).ToString()) + 1;
+                }
+                else
+                {
+                    hasilKode = 1;
+                }
+            }
+
+            return hasilKode;
+        }
     }
 }

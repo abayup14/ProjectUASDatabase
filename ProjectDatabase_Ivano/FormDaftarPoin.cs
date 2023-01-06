@@ -28,7 +28,7 @@ namespace ProjectDatabase_Ivano
             if (listPoin.Count > 0)
             {
                 dataGridViewInbox.DataSource = listPoin;
-                if (dataGridViewInbox.ColumnCount == 6)
+                if (dataGridViewInbox.ColumnCount == 2)
                 {
                     DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
                     bcol1.HeaderText = "Aksi";

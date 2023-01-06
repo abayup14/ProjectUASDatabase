@@ -56,6 +56,7 @@
     <Compile Include="JenisTransaksi.cs" />
     <Compile Include="Koneksi.cs" />
     <Compile Include="Pengguna.cs" />
+    <Compile Include="Pengguna_has_Hadiah.cs" />
     <Compile Include="Poin.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -53,6 +53,7 @@ namespace ProjectDatabase_Ivano
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(772, 208);
             this.panel1.TabIndex = 22;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label4
             // 
@@ -64,6 +65,7 @@ namespace ProjectDatabase_Ivano
             this.label4.Size = new System.Drawing.Size(131, 25);
             this.label4.TabIndex = 10;
             this.label4.Text = "Keterangan:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBoxKeterangan
             // 
@@ -74,6 +76,7 @@ namespace ProjectDatabase_Ivano
             this.textBoxKeterangan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxKeterangan.Size = new System.Drawing.Size(523, 93);
             this.textBoxKeterangan.TabIndex = 9;
+            this.textBoxKeterangan.TextChanged += new System.EventHandler(this.textBoxKeterangan_TextChanged);
             // 
             // textBoxNamaJabatan
             // 
@@ -83,6 +86,7 @@ namespace ProjectDatabase_Ivano
             this.textBoxNamaJabatan.Name = "textBoxNamaJabatan";
             this.textBoxNamaJabatan.Size = new System.Drawing.Size(523, 30);
             this.textBoxNamaJabatan.TabIndex = 4;
+            this.textBoxNamaJabatan.TextChanged += new System.EventHandler(this.textBoxNamaJabatan_TextChanged);
             // 
             // label3
             // 
@@ -94,6 +98,7 @@ namespace ProjectDatabase_Ivano
             this.label3.Size = new System.Drawing.Size(158, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "Nama Position:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -107,6 +112,7 @@ namespace ProjectDatabase_Ivano
             this.label1.TabIndex = 21;
             this.label1.Text = "TAMBAH POSITION";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // buttonKosongi
             // 

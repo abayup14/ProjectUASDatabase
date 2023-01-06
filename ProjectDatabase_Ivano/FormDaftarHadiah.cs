@@ -14,7 +14,10 @@ namespace ProjectDatabase_Ivano
     public partial class FormDaftarHadiah : Form
     {
         List<Hadiah> listHadiah = new List<Hadiah>();
+        FormUtama formUtama;
         Koneksi k;
+        Hadiah h;
+        public Pengguna p;
         public FormDaftarHadiah()
         {
             InitializeComponent();
@@ -22,7 +25,9 @@ namespace ProjectDatabase_Ivano
 
         private void FormDaftarHadiah_Load(object sender, EventArgs e)
         {
+            formUtama = (FormUtama)this.MdiParent;
             k = new Koneksi();
+            p = formUtama.pengguna;
             listHadiah = Hadiah.BacaData("", "");
             if (listHadiah.Count > 0)
             {
@@ -42,6 +47,13 @@ namespace ProjectDatabase_Ivano
                     bcol2.Name = "buttonHapusGrid";
                     bcol2.UseColumnTextForButtonValue = true;
                     dataGridViewInbox.Columns.Add(bcol2);
+
+                    DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
+                    bcol3.HeaderText = "Aksi";
+                    bcol3.Text = "Beli";
+                    bcol3.Name = "buttonBeliGrid";
+                    bcol3.UseColumnTextForButtonValue = true;
+                    dataGridViewInbox.Columns.Add(bcol3);
                 }
             }
             else
@@ -90,9 +102,19 @@ namespace ProjectDatabase_Ivano
 
         private void dataGridViewInbox_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridViewInbox.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
-            { 
-                
+            if (e.ColumnIndex == dataGridViewInbox.Columns["buttonBeliGrid"].Index && e.RowIndex >= 0)
+            {
+                DialogResult result = MessageBox.Show("Apakah barang yang dipilih sudah tepat ?", "Konfirmasi",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    if (Poin.CekPoin(p, k) >= int.Parse(dataGridViewInbox.CurrentRow.Cells["harga_hadiah"].Value.ToString()))
+                    {
+                        Pengguna_has_Hadiah phh = new Pengguna_has_Hadiah(p, h);
+                        Pengguna_has_Hadiah.TambahData(phh, k);
+                        MessageBox.Show("Pembelian Berhasil", "Informasi");
+                    }
+                }
             }
         }
     }
