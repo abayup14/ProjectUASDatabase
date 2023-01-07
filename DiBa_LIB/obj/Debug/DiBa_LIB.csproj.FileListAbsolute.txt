@@ -88,3 +88,21 @@ C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\Di
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.csproj.CopyComplete
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.dll
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.pdb
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\DiBa_LIB.dll
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\DiBa_LIB.pdb
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\MySql.Data.dll
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\Google.Protobuf.dll
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\ZstdNet.dll
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\BouncyCastle.Crypto.dll
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\System.Memory.dll
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\System.Buffers.dll
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\K4os.Compression.LZ4.dll
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\K4os.Hash.xxHash.dll
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\System.Numerics.Vectors.dll
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\bin\Debug\MySql.Data.xml
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.csproj.AssemblyReference.cache
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.csproj.CoreCompileInputs.cache
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.csproj.CopyComplete
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.dll
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\DiBa_LIB\obj\Debug\DiBa_LIB.pdb

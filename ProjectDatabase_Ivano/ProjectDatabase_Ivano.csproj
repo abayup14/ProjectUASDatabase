@@ -115,6 +115,18 @@
     <Compile Include="FormDaftarPengguna.designer.cs">
       <DependentUpon>FormDaftarPengguna.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarPromo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarPromo.Designer.cs">
+      <DependentUpon>FormDaftarPromo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDaftarRiwayatPromo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarRiwayatPromo.Designer.cs">
+      <DependentUpon>FormDaftarRiwayatPromo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDaftarTabungan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +205,12 @@
     <Compile Include="FormTambahJenisTransaksi.Designer.cs">
       <DependentUpon>FormTambahJenisTransaksi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTambahPromo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahPromo.Designer.cs">
+      <DependentUpon>FormTambahPromo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTambahTransaksi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +271,12 @@
     <Compile Include="FormUbahPengguna.designer.cs">
       <DependentUpon>FormUbahPengguna.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUbahPromo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUbahPromo.Designer.cs">
+      <DependentUpon>FormUbahPromo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUtama.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +315,12 @@
     <EmbeddedResource Include="FormDaftarPengguna.resx">
       <DependentUpon>FormDaftarPengguna.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarPromo.resx">
+      <DependentUpon>FormDaftarPromo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarRiwayatPromo.resx">
+      <DependentUpon>FormDaftarRiwayatPromo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarTabungan.resx">
       <DependentUpon>FormDaftarTabungan.cs</DependentUpon>
     </EmbeddedResource>
@@ -327,6 +357,9 @@
     <EmbeddedResource Include="FormTambahJenisTransaksi.resx">
       <DependentUpon>FormTambahJenisTransaksi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahPromo.resx">
+      <DependentUpon>FormTambahPromo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTambahTransaksi.resx">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUbahPengguna.resx">
       <DependentUpon>FormUbahPengguna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUbahPromo.resx">
+      <DependentUpon>FormUbahPromo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUtama.resx">
       <DependentUpon>FormUtama.cs</DependentUpon>

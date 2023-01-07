@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +21,8 @@ namespace ProjectDatabase_Ivano
         List<Transaksi> listTransaksi = new List<Transaksi>();
         List<JenisTransaksi> listJenisTransaksi = new List<JenisTransaksi>();
         List<Tabungan> listTabungan = new List<Tabungan>();
+        List<Promo> listPromo = new List<Promo>();
+        List<JenisTagihan> listJenisTagihan = new List<JenisTagihan>();
         FormDaftarTransaksi formDaftarTransaksi;
 
         private void buttonTambah_Click(object sender, EventArgs e)
@@ -36,7 +39,14 @@ namespace ProjectDatabase_Ivano
                     Tabungan rekening_sumber = new Tabungan(labelNoRekening.Text);
                     JenisTransaksi jt = new JenisTransaksi(comboBoxJenisTransaksi.SelectedIndex + 1);
                     Tabungan rekening_tujuan = (Tabungan)comboBoxRekeningTujuan.SelectedItem;
-                    Transaksi t = new Transaksi(rekening_sumber, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, rekening_tujuan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text);
+                    Promo p = (Promo)comboBoxPromo.SelectedItem;
+                    JenisTagihan j = (JenisTagihan)comboBoxJenisTagihan.SelectedItem;
+                    Transaksi t = new Transaksi(rekening_sumber, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, rekening_tujuan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text, p, j);
+
+                    if(comboBoxPromo.Text != "")
+                    {
+                        RiwayatPromo rp = new RiwayatPromo(p, rekening_sumber.Pengguna);
+                    }
 
                     Transaksi.TambahData(t, k);
 
@@ -64,6 +74,14 @@ namespace ProjectDatabase_Ivano
             comboBoxRekeningTujuan.DataSource = listTabungan;
             comboBoxRekeningTujuan.DisplayMember = "no_rekening";
             comboBoxRekeningTujuan.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            comboBoxPromo.DataSource = listPromo;
+            comboBoxPromo.DisplayMember = "namaPromo";
+            comboBoxPromo.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            comboBoxJenisTagihan.DataSource = listJenisTagihan;
+            comboBoxJenisTagihan.DisplayMember = "nama";
+            comboBoxJenisTagihan.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void buttonKosongi_Click(object sender, EventArgs e)
