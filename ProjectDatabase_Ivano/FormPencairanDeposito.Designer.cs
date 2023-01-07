@@ -44,7 +44,7 @@ namespace ProjectDatabase_Ivano
             this.buttonKosongi.BackColor = System.Drawing.Color.Navy;
             this.buttonKosongi.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKosongi.ForeColor = System.Drawing.Color.White;
-            this.buttonKosongi.Location = new System.Drawing.Point(289, 191);
+            this.buttonKosongi.Location = new System.Drawing.Point(276, 191);
             this.buttonKosongi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKosongi.Name = "buttonKosongi";
             this.buttonKosongi.Size = new System.Drawing.Size(203, 53);
@@ -57,7 +57,7 @@ namespace ProjectDatabase_Ivano
             this.buttonUbah.BackColor = System.Drawing.Color.Navy;
             this.buttonUbah.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUbah.ForeColor = System.Drawing.Color.White;
-            this.buttonUbah.Location = new System.Drawing.Point(21, 191);
+            this.buttonUbah.Location = new System.Drawing.Point(20, 191);
             this.buttonUbah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUbah.Name = "buttonUbah";
             this.buttonUbah.Size = new System.Drawing.Size(203, 53);
@@ -71,7 +71,7 @@ namespace ProjectDatabase_Ivano
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(534, 191);
+            this.buttonKeluar.Location = new System.Drawing.Point(532, 191);
             this.buttonKeluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(203, 53);
@@ -124,7 +124,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 263);
+            this.ClientSize = new System.Drawing.Size(749, 255);
             this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.buttonUbah);
             this.Controls.Add(this.buttonKeluar);

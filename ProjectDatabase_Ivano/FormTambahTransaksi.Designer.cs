@@ -44,6 +44,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonKosongi = new System.Windows.Forms.Button();
             this.buttonTambah = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,8 +69,8 @@
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(367, 319);
-            this.buttonKeluar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKeluar.Location = new System.Drawing.Point(367, 373);
+            this.buttonKeluar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(152, 43);
             this.buttonKeluar.TabIndex = 46;
@@ -77,6 +81,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.labelNoRekening);
             this.panel1.Controls.Add(this.textBoxKeterangan);
             this.panel1.Controls.Add(this.comboBoxRekeningTujuan);
@@ -89,9 +97,9 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(9, 50);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(510, 245);
+            this.panel1.Size = new System.Drawing.Size(510, 308);
             this.panel1.TabIndex = 45;
             // 
             // labelNoRekening
@@ -108,7 +116,7 @@
             // textBoxKeterangan
             // 
             this.textBoxKeterangan.Location = new System.Drawing.Point(218, 192);
-            this.textBoxKeterangan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKeterangan.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKeterangan.Name = "textBoxKeterangan";
             this.textBoxKeterangan.Size = new System.Drawing.Size(195, 20);
             this.textBoxKeterangan.TabIndex = 28;
@@ -117,7 +125,7 @@
             // 
             this.comboBoxRekeningTujuan.FormattingEnabled = true;
             this.comboBoxRekeningTujuan.Location = new System.Drawing.Point(218, 109);
-            this.comboBoxRekeningTujuan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxRekeningTujuan.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxRekeningTujuan.Name = "comboBoxRekeningTujuan";
             this.comboBoxRekeningTujuan.Size = new System.Drawing.Size(195, 21);
             this.comboBoxRekeningTujuan.TabIndex = 27;
@@ -126,7 +134,7 @@
             // 
             this.comboBoxJenisTransaksi.FormattingEnabled = true;
             this.comboBoxJenisTransaksi.Location = new System.Drawing.Point(218, 150);
-            this.comboBoxJenisTransaksi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxJenisTransaksi.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxJenisTransaksi.Name = "comboBoxJenisTransaksi";
             this.comboBoxJenisTransaksi.Size = new System.Drawing.Size(195, 21);
             this.comboBoxJenisTransaksi.TabIndex = 26;
@@ -134,7 +142,7 @@
             // textBoxNominal
             // 
             this.textBoxNominal.Location = new System.Drawing.Point(218, 69);
-            this.textBoxNominal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNominal.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNominal.Name = "textBoxNominal";
             this.textBoxNominal.Size = new System.Drawing.Size(195, 20);
             this.textBoxNominal.TabIndex = 25;
@@ -143,7 +151,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(115, 193);
+            this.label5.Location = new System.Drawing.Point(119, 193);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 15);
@@ -186,7 +194,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(135, 72);
+            this.label2.Location = new System.Drawing.Point(139, 70);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 15);
@@ -209,8 +217,8 @@
             this.buttonKosongi.BackColor = System.Drawing.Color.Navy;
             this.buttonKosongi.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKosongi.ForeColor = System.Drawing.Color.White;
-            this.buttonKosongi.Location = new System.Drawing.Point(188, 319);
-            this.buttonKosongi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonKosongi.Location = new System.Drawing.Point(188, 373);
+            this.buttonKosongi.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKosongi.Name = "buttonKosongi";
             this.buttonKosongi.Size = new System.Drawing.Size(152, 43);
             this.buttonKosongi.TabIndex = 48;
@@ -223,8 +231,8 @@
             this.buttonTambah.BackColor = System.Drawing.Color.Navy;
             this.buttonTambah.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(9, 319);
-            this.buttonTambah.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTambah.Location = new System.Drawing.Point(9, 373);
+            this.buttonTambah.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTambah.Name = "buttonTambah";
             this.buttonTambah.Size = new System.Drawing.Size(152, 43);
             this.buttonTambah.TabIndex = 47;
@@ -232,17 +240,57 @@
             this.buttonTambah.UseVisualStyleBackColor = false;
             this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(218, 234);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(195, 21);
+            this.comboBox1.TabIndex = 33;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(218, 270);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(195, 21);
+            this.comboBox2.TabIndex = 32;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(103, 271);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 15);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Jenis Tagihan :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(151, 235);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 15);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Promo :";
+            // 
             // FormTambahTransaksi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 378);
+            this.ClientSize = new System.Drawing.Size(537, 427);
             this.Controls.Add(this.labelInbox);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.buttonTambah);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormTambahTransaksi";
             this.Text = "Tambah Transaksi";
             this.Load += new System.EventHandler(this.FormTambahTransaksi_Load);
@@ -270,5 +318,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxKeterangan;
         private System.Windows.Forms.Label labelNoRekening;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -17,6 +17,7 @@ namespace DiBa_LIB
         private Tabungan rekening_tujuan;
         private double nominal;
         private string keterangan;
+        private Promo id_promo;
 
         public Transaksi(Tabungan rekening_sumber, string transaksiId, DateTime tgl_transaksi, JenisTransaksi id_jenis_transaksi, Tabungan rekening_tujuan, double nominal, string keterangan)
         {

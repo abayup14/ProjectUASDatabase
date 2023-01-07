@@ -178,7 +178,6 @@ C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormPencairanDeposito.resources
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahAddressBook.resources
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahTransaksi.resources
-C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahTransaksi.resources
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahDeposito.resources
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\bin\Debug\ProjectDatabase_Ivano.exe.config
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\bin\Debug\ProjectDatabase_Ivano.exe
@@ -231,4 +230,12 @@ D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.csproj.CopyComplete
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.exe
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.pdb
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarPoin.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarTabungan.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahDeposito.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarHadiah.resources
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarHadiah.resources
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarPoin.resources
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarPromo.resources
 D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarTabungan.resources
+D:\UBAYA\Semester 3\Database\projek uas\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahPromo.resources
