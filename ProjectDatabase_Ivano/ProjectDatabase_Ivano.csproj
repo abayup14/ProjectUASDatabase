@@ -229,6 +229,12 @@
     <Compile Include="FormUbahEmployee.Designer.cs">
       <DependentUpon>FormUbahEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUbahHadiah.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUbahHadiah.Designer.cs">
+      <DependentUpon>FormUbahHadiah.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUbahInbox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -371,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUbahEmployee.resx">
       <DependentUpon>FormUbahEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUbahHadiah.resx">
+      <DependentUpon>FormUbahHadiah.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUbahInbox.resx">
       <DependentUpon>FormUbahInbox.cs</DependentUpon>

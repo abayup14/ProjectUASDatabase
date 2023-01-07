@@ -234,3 +234,13 @@ C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarTabungan.resources
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahDeposito.resources
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarHadiah.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarJenisTagihan.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarPromo.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDaftarRiwayatPromo.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahHadiah.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahJenisTagihan.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahPromo.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTopUp.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahHadiah.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahJenisTagihan.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahPromo.resources

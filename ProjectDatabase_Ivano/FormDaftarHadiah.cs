@@ -114,6 +114,38 @@ namespace ProjectDatabase_Ivano
                         Pengguna_has_Hadiah.TambahData(phh, k);
                         MessageBox.Show("Pembelian Berhasil", "Informasi");
                     }
+                    else
+                    {
+                        MessageBox.Show("Pembelian Gagal, cek kembali saldo anda", "Informasi");
+                    }
+                }
+            }
+            else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
+            {
+                FormUbahHadiah frmUbahHadiah = new FormUbahHadiah();
+                frmUbahHadiah.Owner = this;
+                //frmUbahHadiah.Show();
+                frmUbahHadiah.textBoxNamaHadiah.Text = dataGridViewInbox.CurrentRow.Cells["nama_hadiah"].Value.ToString();
+                frmUbahHadiah.textBoxHargaHadiah.Text = dataGridViewInbox.CurrentRow.Cells["harga_hadiah"].Value.ToString();
+                frmUbahHadiah.Show();
+            }
+            else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
+            {
+                int id = int.Parse(dataGridViewInbox.CurrentRow.Cells["id"].Value.ToString());
+                string nama_hadiah = dataGridViewInbox.CurrentRow.Cells["nama_hadiah"].Value.ToString();
+                int harga_hadiah = int.Parse(dataGridViewInbox.CurrentRow.Cells["harga_hadiah"].Value.ToString());
+
+                DialogResult hasil = MessageBox.Show("Data yang ingin dihapus : " +
+                                                                    "\nnama_hadiah : " + nama_hadiah +
+                                                                    "\nharga_hadiah : " + harga_hadiah +
+                                                                    "Apakah anda yakin menghapus data tersebut ?", "Konfirmasi",
+                                                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (hasil == DialogResult.Yes)
+                {
+                    h = new Hadiah(id);
+                    Hadiah.HapusData(h, k);
+                    MessageBox.Show("Data berhasil dihapus.", "Informasi");
+                    FormDaftarHadiah_Load(buttonKeluar, e);
                 }
             }
         }

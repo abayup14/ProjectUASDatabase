@@ -20,6 +20,11 @@ namespace DiBa_LIB
             Nama_hadiah = nama_hadiah;
             Harga_hadiah = harga_hadiah;
         }
+        public Hadiah(int id)
+        {
+            Id = id;
+            
+        }
 
         public int Id { get => id; set => id = value; }
         public string Nama_hadiah { get => nama_hadiah; set => nama_hadiah = value; }
@@ -30,7 +35,7 @@ namespace DiBa_LIB
             string sql = "";
             if (kriteria == "")
             {
-                sql = "select * from hadiah h inner join pengguna p on h.id = p.nik";
+                sql = "select h.id, h.nama, h.harga from hadiah h inner join pengguna p on h.id = p.nik";
             }
             else
             {
@@ -48,13 +53,13 @@ namespace DiBa_LIB
         }
         public static void TambahData(Hadiah h, Koneksi k)
         {
-            string sql = "insert into hadiah(id, nama_hadiah, harga_hadiah) values ('"+h.Id+"', '"+h.Nama_hadiah
+            string sql = "insert into hadiah(id, nama, harga) values ('"+h.Id+"', '"+h.Nama_hadiah
                 +"', '"+h.Harga_hadiah+"')";
             Koneksi.JalankanPerintahDML(sql, k);
         }
         public static void UbahData(Hadiah h, Koneksi k)
         {
-            string sql = "update hadiah set nama_hadiah = '"+h.Nama_hadiah+"', harga_hadiah = '"+h.Harga_hadiah
+            string sql = "update hadiah set nama = '"+h.Nama_hadiah+"', harga = '"+h.Harga_hadiah
                 +"' where id = '"+h.Id+"'";
             Koneksi.JalankanPerintahDML(sql, k);
         }

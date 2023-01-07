@@ -1,7 +1,7 @@
 ﻿
 namespace ProjectDatabase_Ivano
 {
-    partial class FormTambahHadiah
+    partial class FormUbahHadiah
     {
         /// <summary>
         /// Required designer variable.
@@ -52,12 +52,10 @@ namespace ProjectDatabase_Ivano
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(772, 208);
-            this.panel1.TabIndex = 38;
+            this.panel1.TabIndex = 43;
             // 
             // textBoxHargaHadiah
             // 
-            this.textBoxHargaHadiah.AutoCompleteCustomSource.AddRange(new string[] {
-            "harga_hadiah"});
             this.textBoxHargaHadiah.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxHargaHadiah.Location = new System.Drawing.Point(231, 76);
             this.textBoxHargaHadiah.Margin = new System.Windows.Forms.Padding(4);
@@ -78,8 +76,6 @@ namespace ProjectDatabase_Ivano
             // 
             // textBoxNamaHadiah
             // 
-            this.textBoxNamaHadiah.AutoCompleteCustomSource.AddRange(new string[] {
-            "nama_hadiah"});
             this.textBoxNamaHadiah.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNamaHadiah.Location = new System.Drawing.Point(231, 27);
             this.textBoxNamaHadiah.Margin = new System.Windows.Forms.Padding(4);
@@ -107,10 +103,9 @@ namespace ProjectDatabase_Ivano
             this.buttonKosongi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKosongi.Name = "buttonKosongi";
             this.buttonKosongi.Size = new System.Drawing.Size(203, 53);
-            this.buttonKosongi.TabIndex = 41;
+            this.buttonKosongi.TabIndex = 46;
             this.buttonKosongi.Text = "&KOSONGI";
             this.buttonKosongi.UseVisualStyleBackColor = false;
-            this.buttonKosongi.Click += new System.EventHandler(this.buttonKosongi_Click);
             // 
             // buttonKeluar
             // 
@@ -121,10 +116,9 @@ namespace ProjectDatabase_Ivano
             this.buttonKeluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(203, 53);
-            this.buttonKeluar.TabIndex = 40;
+            this.buttonKeluar.TabIndex = 45;
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
-            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // buttonSimpan
             // 
@@ -135,10 +129,9 @@ namespace ProjectDatabase_Ivano
             this.buttonSimpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSimpan.Name = "buttonSimpan";
             this.buttonSimpan.Size = new System.Drawing.Size(203, 53);
-            this.buttonSimpan.TabIndex = 39;
+            this.buttonSimpan.TabIndex = 44;
             this.buttonSimpan.Text = "&SIMPAN";
             this.buttonSimpan.UseVisualStyleBackColor = false;
-            this.buttonSimpan.Click += new System.EventHandler(this.buttonSimpan_Click);
             // 
             // label1
             // 
@@ -149,11 +142,11 @@ namespace ProjectDatabase_Ivano
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(772, 52);
-            this.label1.TabIndex = 37;
-            this.label1.Text = "TAMBAH HADIAH";
+            this.label1.TabIndex = 42;
+            this.label1.Text = "UBAH HADIAH";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FormTambahHadiah
+            // FormUbahHadiah
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,8 +156,8 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonSimpan);
             this.Controls.Add(this.label1);
-            this.Name = "FormTambahHadiah";
-            this.Text = "FormTambahHadiah";
+            this.Name = "FormUbahHadiah";
+            this.Text = "FormUbahHadiah";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -174,13 +167,13 @@ namespace ProjectDatabase_Ivano
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBoxHargaHadiah;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxNamaHadiah;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonKosongi;
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Button buttonSimpan;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox textBoxHargaHadiah;
+        public System.Windows.Forms.TextBox textBoxNamaHadiah;
     }
 }
