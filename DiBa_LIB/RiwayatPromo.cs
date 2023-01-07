@@ -41,7 +41,7 @@ namespace DiBa_LIB
             while (hasil.Read() == true)
             {
                 Promo p = new Promo(hasil.GetString(0));
-                Pengguna pe = new Pengguna(hasil.GetString(0));
+                Pengguna pe = new Pengguna(hasil.GetString(1));
                 RiwayatPromo rp = new RiwayatPromo(p, pe);
                 listOfRiwayat.Add(rp);
             }

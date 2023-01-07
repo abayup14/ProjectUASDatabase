@@ -299,5 +299,24 @@ namespace ProjectDatabase_Ivano
                 form.BringToFront();
             }
         }
+
+        private void jenisTagihanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarJenisTagihan"];
+            if (form == null)
+            {
+                FormDaftarJenisTagihan frmDaftarJenisTagihan = new FormDaftarJenisTagihan();
+
+                frmDaftarJenisTagihan.MdiParent = this;
+
+                frmDaftarJenisTagihan.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
     }
 }

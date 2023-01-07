@@ -101,40 +101,6 @@ namespace ProjectDatabase_Ivano
             }
         }
 
-        private void dataGridViewJenisTransaksi_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dataGridViewJenisTransaksi.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
-            {
-                FormUbahJenisTransaksi formUbahJenisTransaksi = new FormUbahJenisTransaksi();
-                formUbahJenisTransaksi.Owner = this;
-
-                formUbahJenisTransaksi.textBoxKodeJenisTransaksi.Text = dataGridViewJenisTransaksi.CurrentRow.Cells["kode"].Value.ToString();
-                formUbahJenisTransaksi.textBoxNamaJenisTransaksi.Text = dataGridViewJenisTransaksi.CurrentRow.Cells["nama"].Value.ToString();
-
-                formUbahJenisTransaksi.ShowDialog();
-            }
-            else if (e.ColumnIndex == dataGridViewJenisTransaksi.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
-            {
-                int id = int.Parse(dataGridViewJenisTransaksi.CurrentRow.Cells["id_jenis_transaksi"].Value.ToString());
-                string kode = dataGridViewJenisTransaksi.CurrentRow.Cells["kode"].Value.ToString();
-                string nama = dataGridViewJenisTransaksi.CurrentRow.Cells["nama"].Value.ToString();
-
-                DialogResult result = MessageBox.Show("Data yang akan dihapus adalah: " +
-                                                      "\nKode Jenis Transaksi: " + kode +
-                                                      "\nNama Jenis Transaksi: " + nama +
-                                                      "\n\nApakah anda yakin ingin menghapus data di atas?", "Konfirmasi", 
-                                                      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    JenisTransaksi j = new JenisTransaksi(id, kode, nama);
-                    JenisTransaksi.HapusData(j, k);
-                    MessageBox.Show("Data berhasil dihapus.", "Informasi");
-                    FormDaftarJenisTransaksi_Load(buttonKeluar, e);
-                }
-            }
-        }
-
         private void textBoxKriteria_TextChanged(object sender, EventArgs e)
         {
             if (comboBoxKriteria.Text == "Id Jenis Transaksi")
