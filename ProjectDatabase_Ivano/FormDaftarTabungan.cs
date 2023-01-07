@@ -22,7 +22,7 @@ namespace ProjectDatabase_Ivano
             InitializeComponent();
         }
 
-        private void FormDaftarTabungan_Load(object sender, EventArgs e)
+        public void FormDaftarTabungan_Load(object sender, EventArgs e)
         {
             k = new Koneksi();
             listTabungan = Tabungan.BacaData("", "");

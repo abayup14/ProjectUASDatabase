@@ -53,13 +53,16 @@
     <Compile Include="Employee.cs" />
     <Compile Include="Hadiah.cs" />
     <Compile Include="Inbox.cs" />
+    <Compile Include="JenisTagihan.cs" />
     <Compile Include="JenisTransaksi.cs" />
     <Compile Include="Koneksi.cs" />
     <Compile Include="Pengguna.cs" />
     <Compile Include="Pengguna_has_Hadiah.cs" />
     <Compile Include="Poin.cs" />
     <Compile Include="Position.cs" />
+    <Compile Include="Promo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RiwayatPromo.cs" />
     <Compile Include="Tabungan.cs" />
     <Compile Include="Transaksi.cs" />
   </ItemGroup>

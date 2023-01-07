@@ -108,6 +108,13 @@ namespace DiBa_LIB
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
+
+        public static void UbahSaldo(Tabungan t, double saldo, Koneksi k)
+        {
+            string sql = "UPDATE tabungan set saldo = saldo + " + saldo + " WHERE no_rekening = " + t.Rekening;
+
+            Koneksi.JalankanPerintahDML(sql, k);
+        }
         public static string GenerateNomorRekening()
         {
             string sql = "SELECT max(no_rekening) FROM tabungan";

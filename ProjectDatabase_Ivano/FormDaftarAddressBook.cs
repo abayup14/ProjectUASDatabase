@@ -61,8 +61,6 @@ namespace ProjectDatabase_Ivano
             {
                 dataGridViewAddressBook.DataSource = null;
             }
-
-
         }
 
         private void dataGridViewAddressBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
