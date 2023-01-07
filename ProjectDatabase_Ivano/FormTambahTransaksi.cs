@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -41,6 +42,11 @@ namespace ProjectDatabase_Ivano
                     Promo p = (Promo)comboBoxPromo.SelectedItem;
                     JenisTagihan j = (JenisTagihan)comboBoxJenisTagihan.SelectedItem;
                     Transaksi t = new Transaksi(rekening_sumber, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, rekening_tujuan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text, p, j);
+
+                    if(comboBoxPromo.Text != "")
+                    {
+                        RiwayatPromo rp = new RiwayatPromo(p, rekening_sumber.Pengguna);
+                    }
 
                     Transaksi.TambahData(t, k);
 

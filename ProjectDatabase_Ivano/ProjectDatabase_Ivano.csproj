@@ -121,6 +121,12 @@
     <Compile Include="FormDaftarPromo.Designer.cs">
       <DependentUpon>FormDaftarPromo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarRiwayatPromo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarRiwayatPromo.Designer.cs">
+      <DependentUpon>FormDaftarRiwayatPromo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDaftarTabungan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarPromo.resx">
       <DependentUpon>FormDaftarPromo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarRiwayatPromo.resx">
+      <DependentUpon>FormDaftarRiwayatPromo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarTabungan.resx">
       <DependentUpon>FormDaftarTabungan.cs</DependentUpon>

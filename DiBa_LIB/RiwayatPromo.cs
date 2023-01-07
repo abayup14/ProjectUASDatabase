@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace DiBa_LIB
 {
-    internal class RiwayatPromo
+    public class RiwayatPromo
     {
         private Promo id_promo;
         private Pengguna id_pengguna;
