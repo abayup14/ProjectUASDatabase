@@ -61,6 +61,7 @@ namespace DiBa_LIB
         public static void HapusData(Hadiah h, Koneksi k)
         {
             string sql = "delete from hadiah where id = "+h.Id+"";
+            Koneksi.JalankanPerintahDML(sql, k);
         }
     }
 }
