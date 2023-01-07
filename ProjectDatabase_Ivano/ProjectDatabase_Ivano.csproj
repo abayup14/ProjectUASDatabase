@@ -199,6 +199,12 @@
     <Compile Include="FormTambahTransaksi.Designer.cs">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTopUp.Designer.cs">
+      <DependentUpon>FormTopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUbahEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahTransaksi.resx">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTopUp.resx">
+      <DependentUpon>FormTopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUbahEmployee.resx">
       <DependentUpon>FormUbahEmployee.cs</DependentUpon>
