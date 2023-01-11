@@ -20,6 +20,10 @@ namespace DiBa_LIB
             Nama_hadiah = nama_hadiah;
             Harga_hadiah = harga_hadiah;
         }
+        public Hadiah(int id)
+        {
+            Id = id;
+        }
 
         public int Id { get => id; set => id = value; }
         public string Nama_hadiah { get => nama_hadiah; set => nama_hadiah = value; }
