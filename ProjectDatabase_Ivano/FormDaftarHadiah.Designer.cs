@@ -151,7 +151,7 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.dataGridViewHadiah);
             this.Controls.Add(this.buttonKeluar);
             this.Name = "FormDaftarHadiah";
-            this.Text = "FormDaftarHadiah";
+            this.Text = "Daftar Hadiah";
             this.Load += new System.EventHandler(this.FormDaftarHadiah_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

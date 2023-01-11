@@ -46,16 +46,18 @@
             this.panel1.Controls.Add(this.textBoxNilaiKriteria);
             this.panel1.Controls.Add(this.comboBoxKriteria);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(10, 49);
+            this.panel1.Location = new System.Drawing.Point(13, 60);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(910, 66);
+            this.panel1.Size = new System.Drawing.Size(1213, 81);
             this.panel1.TabIndex = 40;
             // 
             // textBoxNilaiKriteria
             // 
-            this.textBoxNilaiKriteria.Location = new System.Drawing.Point(440, 21);
+            this.textBoxNilaiKriteria.Location = new System.Drawing.Point(587, 26);
+            this.textBoxNilaiKriteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxNilaiKriteria.Name = "textBoxNilaiKriteria";
-            this.textBoxNilaiKriteria.Size = new System.Drawing.Size(460, 20);
+            this.textBoxNilaiKriteria.Size = new System.Drawing.Size(612, 22);
             this.textBoxNilaiKriteria.TabIndex = 3;
             // 
             // comboBoxKriteria
@@ -71,18 +73,20 @@
             "Email",
             "Tanggal Buat",
             "Tanggal Perubahan"});
-            this.comboBoxKriteria.Location = new System.Drawing.Point(131, 22);
+            this.comboBoxKriteria.Location = new System.Drawing.Point(175, 27);
+            this.comboBoxKriteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxKriteria.Name = "comboBoxKriteria";
-            this.comboBoxKriteria.Size = new System.Drawing.Size(291, 21);
+            this.comboBoxKriteria.Size = new System.Drawing.Size(387, 24);
             this.comboBoxKriteria.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 25);
+            this.label2.Location = new System.Drawing.Point(24, 31);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.Size = new System.Drawing.Size(131, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Cari Berdasarkan:";
             // 
@@ -91,10 +95,9 @@
             this.label1.BackColor = System.Drawing.Color.Navy;
             this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(10, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(13, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(910, 32);
+            this.label1.Size = new System.Drawing.Size(1213, 39);
             this.label1.TabIndex = 44;
             this.label1.Text = "DAFTAR RIWAYAT PROMO";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -104,10 +107,10 @@
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(769, 415);
-            this.buttonKeluar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.buttonKeluar.Location = new System.Drawing.Point(1025, 511);
+            this.buttonKeluar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonKeluar.Name = "buttonKeluar";
-            this.buttonKeluar.Size = new System.Drawing.Size(151, 43);
+            this.buttonKeluar.Size = new System.Drawing.Size(201, 53);
             this.buttonKeluar.TabIndex = 43;
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
@@ -117,10 +120,10 @@
             this.buttonTambah.BackColor = System.Drawing.Color.Navy;
             this.buttonTambah.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(9, 415);
-            this.buttonTambah.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.buttonTambah.Location = new System.Drawing.Point(12, 511);
+            this.buttonTambah.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonTambah.Name = "buttonTambah";
-            this.buttonTambah.Size = new System.Drawing.Size(151, 43);
+            this.buttonTambah.Size = new System.Drawing.Size(201, 53);
             this.buttonTambah.TabIndex = 42;
             this.buttonTambah.Text = "&TAMBAH";
             this.buttonTambah.UseVisualStyleBackColor = false;
@@ -128,24 +131,26 @@
             // dataGridViewRiwayatPromo
             // 
             this.dataGridViewRiwayatPromo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRiwayatPromo.Location = new System.Drawing.Point(10, 121);
+            this.dataGridViewRiwayatPromo.Location = new System.Drawing.Point(13, 149);
+            this.dataGridViewRiwayatPromo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewRiwayatPromo.Name = "dataGridViewRiwayatPromo";
             this.dataGridViewRiwayatPromo.RowHeadersWidth = 51;
-            this.dataGridViewRiwayatPromo.Size = new System.Drawing.Size(910, 287);
+            this.dataGridViewRiwayatPromo.Size = new System.Drawing.Size(1213, 353);
             this.dataGridViewRiwayatPromo.TabIndex = 41;
             // 
             // FormDaftarRiwayatPromo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 466);
+            this.ClientSize = new System.Drawing.Size(1239, 574);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonTambah);
             this.Controls.Add(this.dataGridViewRiwayatPromo);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormDaftarRiwayatPromo";
-            this.Text = "FormDaftarRiwayatPromo";
+            this.Text = "Daftar Riwayat Promo";
             this.Load += new System.EventHandler(this.FormDaftarRiwayatPromo_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

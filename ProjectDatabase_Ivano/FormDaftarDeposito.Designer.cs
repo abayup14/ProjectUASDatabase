@@ -48,7 +48,7 @@ namespace ProjectDatabase_Ivano
             this.panel1.Controls.Add(this.comboBoxKriteria);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(17, 50);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1035, 81);
             this.panel1.TabIndex = 40;
@@ -56,9 +56,9 @@ namespace ProjectDatabase_Ivano
             // textBoxNilaiKriteria
             // 
             this.textBoxNilaiKriteria.Location = new System.Drawing.Point(464, 27);
-            this.textBoxNilaiKriteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNilaiKriteria.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNilaiKriteria.Name = "textBoxNilaiKriteria";
-            this.textBoxNilaiKriteria.Size = new System.Drawing.Size(485, 22);
+            this.textBoxNilaiKriteria.Size = new System.Drawing.Size(546, 22);
             this.textBoxNilaiKriteria.TabIndex = 3;
             this.textBoxNilaiKriteria.TextChanged += new System.EventHandler(this.textBoxNilaiKriteria_TextChanged);
             // 
@@ -76,7 +76,7 @@ namespace ProjectDatabase_Ivano
             "Tanggal Buat",
             "Tanggal Perubahan"});
             this.comboBoxKriteria.Location = new System.Drawing.Point(175, 27);
-            this.comboBoxKriteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxKriteria.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxKriteria.Name = "comboBoxKriteria";
             this.comboBoxKriteria.Size = new System.Drawing.Size(280, 24);
             this.comboBoxKriteria.TabIndex = 2;
@@ -136,7 +136,7 @@ namespace ProjectDatabase_Ivano
             // 
             this.dataGridViewDeposito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDeposito.Location = new System.Drawing.Point(15, 139);
-            this.dataGridViewDeposito.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewDeposito.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewDeposito.Name = "dataGridViewDeposito";
             this.dataGridViewDeposito.RowHeadersWidth = 51;
             this.dataGridViewDeposito.Size = new System.Drawing.Size(1036, 353);
@@ -153,7 +153,7 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonTambah);
             this.Controls.Add(this.dataGridViewDeposito);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDaftarDeposito";
             this.Text = "Daftar Deposito";
             this.Load += new System.EventHandler(this.FormDaftarDeposito_Load);

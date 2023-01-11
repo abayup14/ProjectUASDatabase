@@ -133,7 +133,7 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.dataGridViewInbox);
             this.Controls.Add(this.buttonKeluar);
             this.Name = "FormDaftarPoin";
-            this.Text = "FormDaftarPoin";
+            this.Text = "Daftar Poin";
             this.Load += new System.EventHandler(this.FormDaftarPoin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
