@@ -163,6 +163,12 @@
     <Compile Include="FormProfilPengguna.Designer.cs">
       <DependentUpon>FormProfilPengguna.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTabunganPengguna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTabunganPengguna.Designer.cs">
+      <DependentUpon>FormTabunganPengguna.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTambahAddressBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +363,9 @@
     <EmbeddedResource Include="FormProfilPengguna.resx">
       <DependentUpon>FormProfilPengguna.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTabunganPengguna.resx">
+      <DependentUpon>FormTabunganPengguna.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTambahAddressBook.resx">
       <DependentUpon>FormTambahAddressBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,14 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="db.Settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>db.Designer.cs</LastGenOutput>
@@ -444,6 +448,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -452,6 +461,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\centang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\silang.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

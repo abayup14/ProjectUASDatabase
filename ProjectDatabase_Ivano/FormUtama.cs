@@ -333,25 +333,6 @@ namespace ProjectDatabase_Ivano
             }
         }
 
-        private void topUpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form form = Application.OpenForms["FormTopUp"];
-            if (form == null)
-            {
-                FormTopUp formTopUp = new FormTopUp();
-
-                formTopUp.MdiParent = this;
-
-                formTopUp.Show();
-            }
-            else
-            {
-                form.Show();
-
-                form.BringToFront();
-            }
-        }
-
         private void profilPenggunaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Application.OpenForms["FormProfilPengguna"];
@@ -362,6 +343,25 @@ namespace ProjectDatabase_Ivano
                 formProfilPengguna.MdiParent = this;
 
                 formProfilPengguna.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void tabunganPenggunaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormTabunganPengguna"];
+            if (form == null)
+            {
+                FormTabunganPengguna formTabunganPengguna = new FormTabunganPengguna();
+
+                formTabunganPengguna.MdiParent = this;
+
+                formTabunganPengguna.Show();
             }
             else
             {

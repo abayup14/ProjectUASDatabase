@@ -162,23 +162,28 @@ namespace DiBa_LIB
 
             return hasilKode;
         }
-        //public static Tabungan AmbilDataTabungan()
-        //{
-        //    string sql = "SELECT t.no_rekening from tabungan t inner join deposito d on t.no_rekening = d.no_rekening";
+        public static Tabungan AmbilDataTabungan(Pengguna p)
+        {
+            string sql = "SELECT * from tabungan t inner join pengguna p on t.id_pengguna = p.nik where p.nik = '" + p.Nik + "'";
 
-        //    MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
-        //    if (hasil.Read() == true)
-        //    {
-        //        Tabungan t = new Tabungan(hasil.GetValue(0).ToString());
+            if (hasil.Read() == true)
+            {
+                Pengguna pe = new Pengguna(hasil.GetValue(1).ToString());
+                Employee em = new Employee(int.Parse(hasil.GetValue(7).ToString()));
+                Tabungan t = new Tabungan(hasil.GetValue(0).ToString(), pe, double.Parse(hasil.GetValue(2).ToString()), 
+                                          hasil.GetValue(3).ToString(), hasil.GetValue(4).ToString(), 
+                                          DateTime.Parse(hasil.GetValue(5).ToString()), DateTime.Parse(hasil.GetValue(6).ToString()),
+                                          em);
 
-        //        return t;
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-        //}
+                return t;
+            }
+            else
+            {
+                return null;
+            }
+        }
         public override string ToString()
         {
             return Rekening;

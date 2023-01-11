@@ -13,7 +13,7 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormTopUp : Form
     {
-        FormUtama formUtama;
+        FormTabunganPengguna formTabunganPengguna;
 
         public Pengguna p;
 
@@ -45,9 +45,9 @@ namespace ProjectDatabase_Ivano
 
         private void FormTopUp_Load(object sender, EventArgs e)
         {
-            formUtama = (FormUtama)this.MdiParent;
+            formTabunganPengguna = (FormTabunganPengguna)this.Owner;
 
-            p = formUtama.pengguna;
+            p = formTabunganPengguna.p;
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)
