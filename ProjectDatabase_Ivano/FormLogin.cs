@@ -160,5 +160,10 @@ namespace ProjectDatabase_Ivano
                 Application.Exit();
             }
         }
+
+        private void linkLabelLupaPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }

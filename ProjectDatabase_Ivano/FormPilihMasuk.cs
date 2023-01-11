@@ -43,5 +43,19 @@ namespace ProjectDatabase_Ivano
             formLogin.ShowDialog();
             Close();
         }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            DialogResult hasil = MessageBox.Show("Apakah anda ingin keluar dari aplikasi?", 
+                                                 "Konfirmasi",
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Warning);
+
+            if (hasil == DialogResult.Yes)
+            {
+                MessageBox.Show("Sampai berjumpa lagi.", "Goodbye", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Exit();
+            }
+        }
     }
 }

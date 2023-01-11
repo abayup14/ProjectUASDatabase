@@ -242,6 +242,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormUbahPengguna";
             this.Text = "Ubah Pengguna";
+            this.Load += new System.EventHandler(this.FormUbahPengguna_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

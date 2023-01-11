@@ -81,6 +81,7 @@ namespace ProjectDatabase_Ivano
             catch (Exception ex)
             {
                 MessageBox.Show("Koneksi gagal. Pesan Kesalahan : " + ex.Message, "Kesalahan");
+                Application.Exit();
             }
         }
 

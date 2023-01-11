@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
+            this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,10 +80,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.buttonKeluar);
             this.panel1.Controls.Add(this.checkBoxTunjukkan);
             this.panel1.Location = new System.Drawing.Point(5, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(529, 136);
+            this.panel1.Size = new System.Drawing.Size(529, 200);
             this.panel1.TabIndex = 52;
             // 
             // checkBoxTunjukkan
@@ -96,11 +98,25 @@
             this.checkBoxTunjukkan.Text = "Tunjukkan";
             this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
             // 
+            // buttonKeluar
+            // 
+            this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
+            this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKeluar.ForeColor = System.Drawing.Color.White;
+            this.buttonKeluar.Location = new System.Drawing.Point(142, 131);
+            this.buttonKeluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonKeluar.Name = "buttonKeluar";
+            this.buttonKeluar.Size = new System.Drawing.Size(232, 53);
+            this.buttonKeluar.TabIndex = 50;
+            this.buttonKeluar.Text = "&KELUAR";
+            this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
+            // 
             // FormPilihMasuk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 142);
+            this.ClientSize = new System.Drawing.Size(536, 216);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonPengguna);
             this.Controls.Add(this.buttonPegawai);
@@ -122,5 +138,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox checkBoxTunjukkan;
+        private System.Windows.Forms.Button buttonKeluar;
     }
 }

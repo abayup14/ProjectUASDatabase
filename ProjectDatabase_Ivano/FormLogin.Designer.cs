@@ -31,7 +31,6 @@
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
-            this.linkLabelLupaPassword = new System.Windows.Forms.LinkLabel();
             this.linkLabelDaftarPengguna = new System.Windows.Forms.LinkLabel();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
@@ -46,7 +45,7 @@
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(494, 133);
+            this.buttonKeluar.Location = new System.Drawing.Point(494, 116);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(177, 53);
             this.buttonKeluar.TabIndex = 22;
@@ -58,7 +57,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
             this.panel1.Controls.Add(this.checkBoxTunjukkan);
-            this.panel1.Controls.Add(this.linkLabelLupaPassword);
             this.panel1.Controls.Add(this.linkLabelDaftarPengguna);
             this.panel1.Controls.Add(this.buttonKeluar);
             this.panel1.Controls.Add(this.buttonLogin);
@@ -68,7 +66,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(6, 7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(818, 258);
+            this.panel1.Size = new System.Drawing.Size(818, 238);
             this.panel1.TabIndex = 1;
             // 
             // checkBoxTunjukkan
@@ -83,27 +81,13 @@
             this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
             this.checkBoxTunjukkan.CheckedChanged += new System.EventHandler(this.checkBoxTunjukkan_CheckedChanged);
             // 
-            // linkLabelLupaPassword
-            // 
-            this.linkLabelLupaPassword.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.linkLabelLupaPassword.AutoSize = true;
-            this.linkLabelLupaPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelLupaPassword.LinkColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.linkLabelLupaPassword.Location = new System.Drawing.Point(203, 97);
-            this.linkLabelLupaPassword.Name = "linkLabelLupaPassword";
-            this.linkLabelLupaPassword.Size = new System.Drawing.Size(202, 18);
-            this.linkLabelLupaPassword.TabIndex = 24;
-            this.linkLabelLupaPassword.TabStop = true;
-            this.linkLabelLupaPassword.Text = "Lupa Password? Reset Disini";
-            this.linkLabelLupaPassword.VisitedLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
-            // 
             // linkLabelDaftarPengguna
             // 
             this.linkLabelDaftarPengguna.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.linkLabelDaftarPengguna.AutoSize = true;
             this.linkLabelDaftarPengguna.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelDaftarPengguna.LinkColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.linkLabelDaftarPengguna.Location = new System.Drawing.Point(201, 209);
+            this.linkLabelDaftarPengguna.Location = new System.Drawing.Point(201, 193);
             this.linkLabelDaftarPengguna.Name = "linkLabelDaftarPengguna";
             this.linkLabelDaftarPengguna.Size = new System.Drawing.Size(362, 25);
             this.linkLabelDaftarPengguna.TabIndex = 23;
@@ -117,7 +101,7 @@
             this.buttonLogin.BackColor = System.Drawing.Color.Navy;
             this.buttonLogin.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(206, 133);
+            this.buttonLogin.Location = new System.Drawing.Point(206, 116);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(177, 53);
             this.buttonLogin.TabIndex = 21;
@@ -169,11 +153,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 276);
+            this.ClientSize = new System.Drawing.Size(836, 254);
             this.Controls.Add(this.panel1);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login DiBa";
+            this.Text = "Login Pengguna DiBa";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -190,7 +174,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkLabelDaftarPengguna;
         private System.Windows.Forms.CheckBox checkBoxTunjukkan;
-        private System.Windows.Forms.LinkLabel linkLabelLupaPassword;
         public System.Windows.Forms.TextBox textBoxPassword;
         public System.Windows.Forms.TextBox textBoxEmailNomorTelepon;
     }

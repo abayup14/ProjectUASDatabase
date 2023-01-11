@@ -31,7 +31,6 @@
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
-            this.linkLabelLupaPassword = new System.Windows.Forms.LinkLabel();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,7 +44,7 @@
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(494, 133);
+            this.buttonKeluar.Location = new System.Drawing.Point(494, 116);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(177, 53);
             this.buttonKeluar.TabIndex = 22;
@@ -57,7 +56,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
             this.panel1.Controls.Add(this.checkBoxTunjukkan);
-            this.panel1.Controls.Add(this.linkLabelLupaPassword);
             this.panel1.Controls.Add(this.buttonKeluar);
             this.panel1.Controls.Add(this.buttonLogin);
             this.panel1.Controls.Add(this.textBoxPassword);
@@ -66,7 +64,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(9, 9);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(818, 208);
+            this.panel1.Size = new System.Drawing.Size(818, 190);
             this.panel1.TabIndex = 2;
             // 
             // checkBoxTunjukkan
@@ -81,26 +79,12 @@
             this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
             this.checkBoxTunjukkan.CheckedChanged += new System.EventHandler(this.checkBoxTunjukkan_CheckedChanged);
             // 
-            // linkLabelLupaPassword
-            // 
-            this.linkLabelLupaPassword.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.linkLabelLupaPassword.AutoSize = true;
-            this.linkLabelLupaPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelLupaPassword.LinkColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.linkLabelLupaPassword.Location = new System.Drawing.Point(203, 97);
-            this.linkLabelLupaPassword.Name = "linkLabelLupaPassword";
-            this.linkLabelLupaPassword.Size = new System.Drawing.Size(202, 18);
-            this.linkLabelLupaPassword.TabIndex = 24;
-            this.linkLabelLupaPassword.TabStop = true;
-            this.linkLabelLupaPassword.Text = "Lupa Password? Reset Disini";
-            this.linkLabelLupaPassword.VisitedLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
-            // 
             // buttonLogin
             // 
             this.buttonLogin.BackColor = System.Drawing.Color.Navy;
             this.buttonLogin.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(206, 133);
+            this.buttonLogin.Location = new System.Drawing.Point(206, 116);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(177, 53);
             this.buttonLogin.TabIndex = 21;
@@ -152,7 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 229);
+            this.ClientSize = new System.Drawing.Size(836, 209);
             this.Controls.Add(this.panel1);
             this.Name = "FormLoginPegawai";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -169,7 +153,6 @@
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox checkBoxTunjukkan;
-        private System.Windows.Forms.LinkLabel linkLabelLupaPassword;
         private System.Windows.Forms.Button buttonLogin;
         public System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label1;
