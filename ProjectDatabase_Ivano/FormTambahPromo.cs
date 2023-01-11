@@ -46,12 +46,12 @@ namespace ProjectDatabase_Ivano
 
                     Promo.TambahData(p, k);
 
-                    MessageBox.Show("Inbox berhasil dikirim", "Informasi");
+                    MessageBox.Show("Promo berhasil dotambah", "Informasi");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Inbox gagal dikirim. Pesan kesalahan : " + ex.Message, "Error");
+                MessageBox.Show("Promo gagal ditambah. Pesan kesalahan : " + ex.Message, "Error");
             }
         }
 

@@ -318,5 +318,24 @@ namespace ProjectDatabase_Ivano
                 form.BringToFront();
             }
         }
+
+        private void topUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormTopUp"];
+            if (form == null)
+            {
+                FormTopUp formTopUp = new FormTopUp();
+
+                formTopUp.MdiParent = this;
+
+                formTopUp.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
     }
 }
