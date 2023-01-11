@@ -33,7 +33,7 @@ namespace ProjectDatabase_Ivano
             this.buttonUbah = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNoDeposito = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -82,7 +82,7 @@ namespace ProjectDatabase_Ivano
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.textBoxNoDeposito);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(20, 65);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -90,12 +90,12 @@ namespace ProjectDatabase_Ivano
             this.panel1.Size = new System.Drawing.Size(716, 105);
             this.panel1.TabIndex = 44;
             // 
-            // textBox1
+            // textBoxNoDeposito
             // 
-            this.textBox1.Location = new System.Drawing.Point(251, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(382, 22);
-            this.textBox1.TabIndex = 18;
+            this.textBoxNoDeposito.Location = new System.Drawing.Point(251, 38);
+            this.textBoxNoDeposito.Name = "textBoxNoDeposito";
+            this.textBoxNoDeposito.Size = new System.Drawing.Size(382, 22);
+            this.textBoxNoDeposito.TabIndex = 18;
             // 
             // label3
             // 
@@ -147,6 +147,6 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNoDeposito;
     }
 }

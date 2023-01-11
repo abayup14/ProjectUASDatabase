@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using DiBa_LIB;
 
 namespace ProjectDatabase_Ivano
@@ -24,58 +25,56 @@ namespace ProjectDatabase_Ivano
 
         private void FormUtama_Load(object sender, EventArgs e)
         {
+            this.Visible = false;
             this.WindowState = FormWindowState.Maximized;
             this.IsMdiContainer = true;
+
             try
             {
                 Koneksi koneksi = new Koneksi();
 
-                FormLogin formLogin = new FormLogin();
+                FormPilihMasuk frmPilihMasuk = new FormPilihMasuk();
 
-                formLogin.Owner = this;
+                frmPilihMasuk.Owner = this;
+
+                frmPilihMasuk.ShowDialog();
 
                 //FormLogin formLogin = (FormLogin)this.Owner;
-
-                //FormLoginPegawai formLoginPegawai = (FormLoginPegawai)this.Owner;
-
-                //FormPilihMasuk formPilihMasuk = new FormPilihMasuk();
-
-                //formPilihMasuk.Owner = this;
-
-                //formPilihMasuk.Show();
-                if (formLogin.ShowDialog() == DialogResult.OK)
+                if (frmPilihMasuk.formLogin != null)
                 {
-                    if (pengguna != null)
+                    if (frmPilihMasuk.formLogin.DialogResult == DialogResult.OK)
                     {
-                        labelKode.Text = pengguna.Nik;
+                        if (pengguna != null)
+                        {
+                            labelKode.Text = pengguna.Nik;
+                            labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
 
-                        labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
+                            MessageBox.Show("Selamat datang di aplikasi DiBa, " + labelNama.Text + "." +
+                                            "\nSemoga harimu menyenangkan", "Selamat Datang!");
 
-                        MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Maaf, anda tidak dapat masuk ke dalam aplikasi.", "Kesalahan");
-                        Application.Exit();
+                            this.Visible = true;
+                        }
                     }
                 }
+                else
+                {
+                    if (frmPilihMasuk.formLoginPegawai != null)
+                    {
+                        if (frmPilihMasuk.formLoginPegawai.DialogResult == DialogResult.OK)
+                        {
+                            if (employee != null)
+                            {
+                                labelKode.Text = employee.Id.ToString();
+                                labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
 
-                //else if (employee != null)
-                //{
-                //    labelKode.Text = employee.Id.ToString();
+                                MessageBox.Show("Selamat datang di aplikasi DiBa, " + labelNama.Text + "." +
+                                                "\nSemoga harimu menyenangkan", "Selamat Datang!");
 
-                //    labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
-
-                //    MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
-                //}
-                
-                //MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
-
-                //if (formLogin.ShowDialog() == DialogResult.OK || formLoginPegawai.ShowDialog() == DialogResult.OK)
-                //{
-
-                //}
-
+                                this.Visible = true;
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -310,6 +309,25 @@ namespace ProjectDatabase_Ivano
                 frmDaftarJenisTagihan.MdiParent = this;
 
                 frmDaftarJenisTagihan.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void topUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormTopUp"];
+            if (form == null)
+            {
+                FormTopUp formTopUp = new FormTopUp();
+
+                formTopUp.MdiParent = this;
+
+                formTopUp.Show();
             }
             else
             {

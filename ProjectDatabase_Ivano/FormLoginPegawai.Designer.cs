@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
             this.linkLabelLupaPassword = new System.Windows.Forms.LinkLabel();
-            this.buttonKeluar = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,6 +39,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // buttonKeluar
+            // 
+            this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
+            this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKeluar.ForeColor = System.Drawing.Color.White;
+            this.buttonKeluar.Location = new System.Drawing.Point(494, 133);
+            this.buttonKeluar.Name = "buttonKeluar";
+            this.buttonKeluar.Size = new System.Drawing.Size(177, 53);
+            this.buttonKeluar.TabIndex = 22;
+            this.buttonKeluar.Text = "KELUAR";
+            this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // panel1
             // 
@@ -66,6 +79,7 @@
             this.checkBoxTunjukkan.TabIndex = 25;
             this.checkBoxTunjukkan.Text = "Tunjukkan";
             this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
+            this.checkBoxTunjukkan.CheckedChanged += new System.EventHandler(this.checkBoxTunjukkan_CheckedChanged);
             // 
             // linkLabelLupaPassword
             // 
@@ -80,18 +94,6 @@
             this.linkLabelLupaPassword.TabStop = true;
             this.linkLabelLupaPassword.Text = "Lupa Password? Reset Disini";
             this.linkLabelLupaPassword.VisitedLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
-            // 
-            // buttonKeluar
-            // 
-            this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
-            this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(494, 133);
-            this.buttonKeluar.Name = "buttonKeluar";
-            this.buttonKeluar.Size = new System.Drawing.Size(177, 53);
-            this.buttonKeluar.TabIndex = 22;
-            this.buttonKeluar.Text = "KELUAR";
-            this.buttonKeluar.UseVisualStyleBackColor = false;
             // 
             // buttonLogin
             // 
@@ -113,6 +115,8 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(465, 24);
             this.textBoxPassword.TabIndex = 6;
+            this.textBoxPassword.Enter += new System.EventHandler(this.textBoxPassword_Enter);
+            this.textBoxPassword.Leave += new System.EventHandler(this.textBoxPassword_Leave);
             // 
             // label1
             // 
@@ -131,6 +135,8 @@
             this.textBoxEmailNomorTelepon.Name = "textBoxEmailNomorTelepon";
             this.textBoxEmailNomorTelepon.Size = new System.Drawing.Size(465, 24);
             this.textBoxEmailNomorTelepon.TabIndex = 4;
+            this.textBoxEmailNomorTelepon.Enter += new System.EventHandler(this.textBoxEmailNomorTelepon_Enter);
+            this.textBoxEmailNomorTelepon.Leave += new System.EventHandler(this.textBoxEmailNomorTelepon_Leave);
             // 
             // label2
             // 
@@ -146,10 +152,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 230);
+            this.ClientSize = new System.Drawing.Size(836, 229);
             this.Controls.Add(this.panel1);
             this.Name = "FormLoginPegawai";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Pegawai";
+            this.Load += new System.EventHandler(this.FormLoginPegawai_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -158,10 +166,10 @@
 
         #endregion
 
+        private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox checkBoxTunjukkan;
         private System.Windows.Forms.LinkLabel linkLabelLupaPassword;
-        private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Button buttonLogin;
         public System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label1;

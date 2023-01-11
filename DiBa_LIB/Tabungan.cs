@@ -148,7 +148,8 @@ namespace DiBa_LIB
         }
         public static string AmbilDataNoRekening(string nik)
         {
-            string sql = "SELECT t.no_rekening FROM tabungan t INNER JOIN pengguna p on t.id_pengguna = p.nik";
+            string sql = "SELECT t.no_rekening FROM tabungan t INNER JOIN pengguna p on t.id_pengguna = p.nik " +
+                         "where p.nik = '" + nik + "'";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -161,6 +162,23 @@ namespace DiBa_LIB
 
             return hasilKode;
         }
+        //public static Tabungan AmbilDataTabungan()
+        //{
+        //    string sql = "SELECT t.no_rekening from tabungan t inner join deposito d on t.no_rekening = d.no_rekening";
+
+        //    MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+        //    if (hasil.Read() == true)
+        //    {
+        //        Tabungan t = new Tabungan(hasil.GetValue(0).ToString());
+
+        //        return t;
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
         public override string ToString()
         {
             return Rekening;

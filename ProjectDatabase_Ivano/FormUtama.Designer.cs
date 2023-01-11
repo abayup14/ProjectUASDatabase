@@ -41,17 +41,17 @@ namespace ProjectDatabase_Ivano
             this.addressBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.poinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hadiahToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jenisTagihanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.daftarNomorRekeningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.riwayatTransaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.keluarSistemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
             this.labelNama = new System.Windows.Forms.Label();
             this.labelKode = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.jenisTagihanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.riwayatTransaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +82,8 @@ namespace ProjectDatabase_Ivano
             this.addressBookToolStripMenuItem,
             this.poinToolStripMenuItem,
             this.hadiahToolStripMenuItem,
-            this.jenisTagihanToolStripMenuItem});
+            this.jenisTagihanToolStripMenuItem,
+            this.riwayatTransaksiToolStripMenuItem});
             this.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem";
             this.MenuToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.MenuToolStripMenuItem.Text = "Master";
@@ -157,13 +158,19 @@ namespace ProjectDatabase_Ivano
             this.hadiahToolStripMenuItem.Text = "Hadiah";
             this.hadiahToolStripMenuItem.Click += new System.EventHandler(this.hadiahToolStripMenuItem_Click);
             // 
+            // jenisTagihanToolStripMenuItem
+            // 
+            this.jenisTagihanToolStripMenuItem.Name = "jenisTagihanToolStripMenuItem";
+            this.jenisTagihanToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jenisTagihanToolStripMenuItem.Text = "Jenis Tagihan";
+            this.jenisTagihanToolStripMenuItem.Click += new System.EventHandler(this.jenisTagihanToolStripMenuItem_Click);
+            // 
             // transaksiToolStripMenuItem
             // 
             this.transaksiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.topUpToolStripMenuItem,
             this.transferToolStripMenuItem,
-            this.daftarNomorRekeningToolStripMenuItem,
-            this.riwayatTransaksiToolStripMenuItem});
+            this.daftarNomorRekeningToolStripMenuItem});
             this.transaksiToolStripMenuItem.Name = "transaksiToolStripMenuItem";
             this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.transaksiToolStripMenuItem.Text = "Transaksi";
@@ -173,6 +180,7 @@ namespace ProjectDatabase_Ivano
             this.topUpToolStripMenuItem.Name = "topUpToolStripMenuItem";
             this.topUpToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
             this.topUpToolStripMenuItem.Text = "Top Up";
+            this.topUpToolStripMenuItem.Click += new System.EventHandler(this.topUpToolStripMenuItem_Click);
             // 
             // transferToolStripMenuItem
             // 
@@ -185,13 +193,6 @@ namespace ProjectDatabase_Ivano
             this.daftarNomorRekeningToolStripMenuItem.Name = "daftarNomorRekeningToolStripMenuItem";
             this.daftarNomorRekeningToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
             this.daftarNomorRekeningToolStripMenuItem.Text = "Daftar Nomor Rekening";
-            // 
-            // riwayatTransaksiToolStripMenuItem
-            // 
-            this.riwayatTransaksiToolStripMenuItem.Name = "riwayatTransaksiToolStripMenuItem";
-            this.riwayatTransaksiToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
-            this.riwayatTransaksiToolStripMenuItem.Text = "Transaksi";
-            this.riwayatTransaksiToolStripMenuItem.Click += new System.EventHandler(this.riwayatTransaksiToolStripMenuItem_Click);
             // 
             // keluarSistemToolStripMenuItem
             // 
@@ -240,12 +241,12 @@ namespace ProjectDatabase_Ivano
             this.label1.TabIndex = 5;
             this.label1.Text = "Anda login sebagai :";
             // 
-            // jenisTagihanToolStripMenuItem
+            // riwayatTransaksiToolStripMenuItem
             // 
-            this.jenisTagihanToolStripMenuItem.Name = "jenisTagihanToolStripMenuItem";
-            this.jenisTagihanToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.jenisTagihanToolStripMenuItem.Text = "Jenis Tagihan";
-            this.jenisTagihanToolStripMenuItem.Click += new System.EventHandler(this.jenisTagihanToolStripMenuItem_Click);
+            this.riwayatTransaksiToolStripMenuItem.Name = "riwayatTransaksiToolStripMenuItem";
+            this.riwayatTransaksiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.riwayatTransaksiToolStripMenuItem.Text = "Transaksi";
+            this.riwayatTransaksiToolStripMenuItem.Click += new System.EventHandler(this.riwayatTransaksiToolStripMenuItem_Click);
             // 
             // FormUtama
             // 
@@ -259,7 +260,9 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormUtama";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Digital Bank!";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormUtama_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -279,7 +282,6 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.ToolStripMenuItem topUpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transferToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem daftarNomorRekeningToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem riwayatTransaksiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem keluarSistemToolStripMenuItem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelNama;
@@ -293,6 +295,7 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.ToolStripMenuItem poinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hadiahToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jenisTagihanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem riwayatTransaksiToolStripMenuItem;
     }
 }
 

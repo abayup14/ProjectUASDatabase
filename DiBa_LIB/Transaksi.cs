@@ -48,22 +48,22 @@ namespace DiBa_LIB
             string sql = "";
             if (kriteria == "")
             {
-                sql = "select t.rekening_sumber, t.id_transaksi, t.tgl_transaksi, t.id_jenis_transaksi, t.rekening_tujuan, t.nominal, t.keterangan, p.id, j.id" +
+                sql = "select t.rekening_sumber, t.id_transaksi, t.tgl_transaksi, t.id_jenis_transaksi, t.rekening_tujuan, t.nominal, t.keterangan, p.id, j.id " +
                       "from transaksi t inner join tabungan ta on t.rekening_sumber = ta.no_rekening " +
                       "inner join tabungan tb on t.rekening_tujuan = tb.no_rekening " +
-                      "left join jenis_transaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi" + 
-                      "inner join promo p on t.promo_id = p.id" + 
+                      "left join jenis_transaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi " + 
+                      "inner join promo p on t.promo_id = p.id " + 
                       "inner join jenis_tagihan j on t.jenis_tagihan_id = j.id";
 
             }
             else
             {
-                sql = "select t.rekening_sumber, t.id_transaksi, t.tgl_transaksi, t.id_jenis_transaksi, t.rekening_tujuan, t.nominal, t.keterangan, p.id, j.id" +
+                sql = "select t.rekening_sumber, t.id_transaksi, t.tgl_transaksi, t.id_jenis_transaksi, t.rekening_tujuan, t.nominal, t.keterangan, p.id, j.id " +
                       "from transaksi t inner join tabungan ta on t.rekening_sumber = ta.no_rekening " +
                       "inner join tabungan tb on t.rekening_tujuan = tb.no_rekening " +
                       "left join jenis_transaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi " +
-                      "inner join promo p on t.promo_id = p.id" +
-                      "inner join jenis_tagihan j on t.jenis_tagihan_id = j.id" +
+                      "inner join promo p on t.promo_id = p.id " +
+                      "inner join jenis_tagihan j on t.jenis_tagihan_id = j.id " +
                       "where " +kriteria + " like '%" + nilaiKriteria+"%'";
                 
             }
