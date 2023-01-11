@@ -21,8 +21,8 @@ namespace ProjectDatabase_Ivano
         List<Transaksi> listTransaksi = new List<Transaksi>();
         List<JenisTransaksi> listJenisTransaksi = new List<JenisTransaksi>();
         List<Tabungan> listTabungan = new List<Tabungan>();
-        List<Promo> listPromo = new List<Promo>();
-        List<JenisTagihan> listJenisTagihan = new List<JenisTagihan>();
+        public List<Promo> listPromo = new List<Promo>();
+        public List<JenisTagihan> listJenisTagihan = new List<JenisTagihan>();
         FormDaftarTransaksi formDaftarTransaksi;
 
         private void buttonTambah_Click(object sender, EventArgs e)

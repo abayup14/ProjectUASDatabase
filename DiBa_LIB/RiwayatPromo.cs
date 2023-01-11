@@ -14,8 +14,8 @@ namespace DiBa_LIB
 
         public RiwayatPromo(Promo id_promo, Pengguna id_pengguna)
         {
-            id_promo = Id_promo;
-            id_pengguna = Id_pengguna;
+            Id_promo = id_promo;
+            Id_pengguna = id_pengguna;
         }
 
         public Promo Id_promo { get => id_promo; set => id_promo = value; }
