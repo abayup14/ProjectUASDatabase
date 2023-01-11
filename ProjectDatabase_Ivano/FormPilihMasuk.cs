@@ -1,5 +1,4 @@
-﻿using DiBa_LIB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,31 +12,36 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormPilihMasuk : Form
     {
+        FormUtama formUtama;
+
+        public FormLogin formLogin;
+
+        public FormLoginPegawai formLoginPegawai;
+
         public FormPilihMasuk()
         {
             InitializeComponent();
         }
 
-        private void buttonPengguna_Click(object sender, EventArgs e)
-        {
-            FormLogin formLogin = new FormLogin();
-
-            formLogin.Owner = this;
-
-            formLogin.ShowDialog();
-
-            this.Close();
-        }
-
         private void buttonPegawai_Click(object sender, EventArgs e)
         {
-            FormLoginPegawai formLoginPegawai = new FormLoginPegawai();
-
-            formLoginPegawai.Owner = this;
-
+            formLoginPegawai = new FormLoginPegawai();
+            formLoginPegawai.Owner = formUtama;
             formLoginPegawai.ShowDialog();
+            Close();
+        }
 
-            this.Close();
+        private void FormPilihMasuk_Load(object sender, EventArgs e)
+        {
+            formUtama = (FormUtama)this.Owner;
+        }
+
+        private void buttonPengguna_Click(object sender, EventArgs e)
+        {
+            formLogin = new FormLogin();
+            formLogin.Owner = formUtama;
+            formLogin.ShowDialog();
+            Close();
         }
     }
 }

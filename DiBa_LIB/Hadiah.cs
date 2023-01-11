@@ -69,7 +69,7 @@ namespace DiBa_LIB
         }
         public static int GenerateKode()
         {
-            string sql = "SELECT max(id) from employee";
+            string sql = "SELECT max(id) from hadiah";
 
             int hasilKode = 0;
 

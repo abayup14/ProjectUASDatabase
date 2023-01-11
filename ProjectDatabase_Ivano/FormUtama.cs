@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using DiBa_LIB;
 
 namespace ProjectDatabase_Ivano
@@ -30,35 +31,63 @@ namespace ProjectDatabase_Ivano
             {
                 Koneksi koneksi = new Koneksi();
 
-                FormLogin formLogin = new FormLogin();
+                FormPilihMasuk frm = new FormPilihMasuk();
 
-                formLogin.Owner = this;
+                frm.Owner = this;
+
+                frm.ShowDialog();
 
                 //FormLogin formLogin = (FormLogin)this.Owner;
-
-                //FormLoginPegawai formLoginPegawai = (FormLoginPegawai)this.Owner;
-
-                //FormPilihMasuk formPilihMasuk = new FormPilihMasuk();
-
-                //formPilihMasuk.Owner = this;
-
-                //formPilihMasuk.Show();
-                if (formLogin.ShowDialog() == DialogResult.OK)
+                if (frm.formLogin != null)
                 {
-                    if (pengguna != null)
+                    if (frm.formLogin.DialogResult == DialogResult.OK)
                     {
-                        labelKode.Text = pengguna.Nik;
+                        if (pengguna != null)
+                        {
+                            labelKode.Text = pengguna.Nik;
+                            labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
 
-                        labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
-
-                        MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Maaf, anda tidak dapat masuk ke dalam aplikasi.", "Kesalahan");
-                        Application.Exit();
+                            MessageBox.Show("Anda berhasil");
+                        }
                     }
                 }
+                else
+                {
+                    if (frm.formLoginPegawai != null)
+                    {
+                        if (frm.formLoginPegawai.DialogResult == DialogResult.OK)
+                        {
+                            if (employee != null)
+                            {
+                                labelKode.Text = employee.Id.ToString();
+                                labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
+
+                                MessageBox.Show("Anda berhasil");
+                            }
+                        }
+                    }
+                }
+
+                //FormLogin formLogin = new FormLogin();
+
+                //formLogin.Owner = this;
+
+                //if (formLogin.ShowDialog() == DialogResult.OK)
+                //{
+                //    if (pengguna != null)
+                //    {
+                //        labelKode.Text = pengguna.Nik;
+
+                //        labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
+
+                //        MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Maaf, anda tidak dapat masuk ke dalam aplikasi.", "Kesalahan");
+                //        Application.Exit();
+                //    }
+                //}
 
                 //else if (employee != null)
                 //{
@@ -68,7 +97,7 @@ namespace ProjectDatabase_Ivano
 
                 //    MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
                 //}
-                
+
                 //MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
 
                 //if (formLogin.ShowDialog() == DialogResult.OK || formLoginPegawai.ShowDialog() == DialogResult.OK)

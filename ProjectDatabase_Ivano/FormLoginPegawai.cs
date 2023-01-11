@@ -38,6 +38,8 @@ namespace ProjectDatabase_Ivano
                 }
                 else
                 {
+                    //Pengguna p = Pengguna.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
+
                     Employee em = Employee.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
 
                     if (em != null)
@@ -48,7 +50,7 @@ namespace ProjectDatabase_Ivano
 
                         MessageBox.Show("Anda berhasil login ke aplikasi. Selamat menggunakan DiBa!", "Informasi");
 
-                        //DialogResult = DialogResult.OK;
+                        DialogResult = DialogResult.OK;
 
                         Close();
                     }
@@ -62,6 +64,19 @@ namespace ProjectDatabase_Ivano
             {
                 MessageBox.Show("Koneksi gagal. Pesan kesalahan : " + ex.Message, "Kesalahan");
             }
+        }
+
+        private void FormLoginPegawai_Load(object sender, EventArgs e)
+        {
+            ActiveControl = label1;
+
+            textBoxEmailNomorTelepon.Text = "Masukkan email atau nomor telepon anda";
+            textBoxEmailNomorTelepon.Font = new Font(textBoxEmailNomorTelepon.Font, FontStyle.Italic);
+            textBoxEmailNomorTelepon.ForeColor = Color.Gray;
+
+            textBoxPassword.Text = "Masukkan password anda";
+            textBoxPassword.Font = new Font(textBoxPassword.Font, FontStyle.Italic);
+            textBoxPassword.ForeColor = Color.Gray;
         }
     }
 }
