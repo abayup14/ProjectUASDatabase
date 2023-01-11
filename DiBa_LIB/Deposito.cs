@@ -180,6 +180,21 @@ namespace DiBa_LIB
             }
             return hasilKode;
         }
+        public static bool AmbilDataNoDeposito(string id_deposito)
+        {
+            string sql = "SELECT id_deposito from deposito where id_deposito = '" + id_deposito + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
     }
 }

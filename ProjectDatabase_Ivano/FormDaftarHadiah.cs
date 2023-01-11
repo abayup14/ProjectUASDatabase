@@ -108,7 +108,7 @@ namespace ProjectDatabase_Ivano
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    if (Poin.CekPoin(p, k) >= int.Parse(dataGridViewInbox.CurrentRow.Cells["harga_hadiah"].Value.ToString()))
+                    if (Poin.CekPoin(p) >= int.Parse(dataGridViewInbox.CurrentRow.Cells["harga_hadiah"].Value.ToString()))
                     {
                         Pengguna_has_Hadiah phh = new Pengguna_has_Hadiah(p, h);
                         Pengguna_has_Hadiah.TambahData(phh, k);
