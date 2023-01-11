@@ -45,7 +45,7 @@ namespace ProjectDatabase_Ivano
 
         private void FormTopUp_Load(object sender, EventArgs e)
         {
-            formUtama = (FormUtama)this.Owner;
+            formUtama = (FormUtama)this.MdiParent;
 
             p = formUtama.pengguna;
         }

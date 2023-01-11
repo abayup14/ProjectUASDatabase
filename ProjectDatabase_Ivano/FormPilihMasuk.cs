@@ -31,7 +31,7 @@ namespace ProjectDatabase_Ivano
             Close();
         }
 
-        private void FormPilihMasuk_Load(object sender, EventArgs e)
+        public void FormPilihMasuk_Load(object sender, EventArgs e)
         {
             formUtama = (FormUtama)this.Owner;
         }

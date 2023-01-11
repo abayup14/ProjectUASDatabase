@@ -25,86 +25,56 @@ namespace ProjectDatabase_Ivano
 
         private void FormUtama_Load(object sender, EventArgs e)
         {
+            this.Visible = false;
             this.WindowState = FormWindowState.Maximized;
             this.IsMdiContainer = true;
+
             try
             {
                 Koneksi koneksi = new Koneksi();
 
-                FormPilihMasuk frm = new FormPilihMasuk();
+                FormPilihMasuk frmPilihMasuk = new FormPilihMasuk();
 
-                frm.Owner = this;
+                frmPilihMasuk.Owner = this;
 
-                frm.ShowDialog();
+                frmPilihMasuk.ShowDialog();
 
                 //FormLogin formLogin = (FormLogin)this.Owner;
-                if (frm.formLogin != null)
+                if (frmPilihMasuk.formLogin != null)
                 {
-                    if (frm.formLogin.DialogResult == DialogResult.OK)
+                    if (frmPilihMasuk.formLogin.DialogResult == DialogResult.OK)
                     {
                         if (pengguna != null)
                         {
                             labelKode.Text = pengguna.Nik;
                             labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
 
-                            MessageBox.Show("Anda berhasil");
+                            MessageBox.Show("Selamat datang di aplikasi DiBa, " + labelNama.Text + "." +
+                                            "\nSemoga harimu menyenangkan", "Selamat Datang!");
+
+                            this.Visible = true;
                         }
                     }
                 }
                 else
                 {
-                    if (frm.formLoginPegawai != null)
+                    if (frmPilihMasuk.formLoginPegawai != null)
                     {
-                        if (frm.formLoginPegawai.DialogResult == DialogResult.OK)
+                        if (frmPilihMasuk.formLoginPegawai.DialogResult == DialogResult.OK)
                         {
                             if (employee != null)
                             {
                                 labelKode.Text = employee.Id.ToString();
                                 labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
 
-                                MessageBox.Show("Anda berhasil");
+                                MessageBox.Show("Selamat datang di aplikasi DiBa, " + labelNama.Text + "." +
+                                                "\nSemoga harimu menyenangkan", "Selamat Datang!");
+
+                                this.Visible = true;
                             }
                         }
                     }
                 }
-
-                //FormLogin formLogin = new FormLogin();
-
-                //formLogin.Owner = this;
-
-                //if (formLogin.ShowDialog() == DialogResult.OK)
-                //{
-                //    if (pengguna != null)
-                //    {
-                //        labelKode.Text = pengguna.Nik;
-
-                //        labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
-
-                //        MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Maaf, anda tidak dapat masuk ke dalam aplikasi.", "Kesalahan");
-                //        Application.Exit();
-                //    }
-                //}
-
-                //else if (employee != null)
-                //{
-                //    labelKode.Text = employee.Id.ToString();
-
-                //    labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
-
-                //    MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
-                //}
-
-                //MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
-
-                //if (formLogin.ShowDialog() == DialogResult.OK || formLoginPegawai.ShowDialog() == DialogResult.OK)
-                //{
-
-                //}
-
             }
             catch (Exception ex)
             {

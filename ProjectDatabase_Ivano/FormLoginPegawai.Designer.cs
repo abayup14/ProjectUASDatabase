@@ -51,6 +51,7 @@
             this.buttonKeluar.TabIndex = 22;
             this.buttonKeluar.Text = "KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // panel1
             // 
@@ -78,6 +79,7 @@
             this.checkBoxTunjukkan.TabIndex = 25;
             this.checkBoxTunjukkan.Text = "Tunjukkan";
             this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
+            this.checkBoxTunjukkan.CheckedChanged += new System.EventHandler(this.checkBoxTunjukkan_CheckedChanged);
             // 
             // linkLabelLupaPassword
             // 
@@ -113,6 +115,8 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(465, 24);
             this.textBoxPassword.TabIndex = 6;
+            this.textBoxPassword.Enter += new System.EventHandler(this.textBoxPassword_Enter);
+            this.textBoxPassword.Leave += new System.EventHandler(this.textBoxPassword_Leave);
             // 
             // label1
             // 
@@ -131,6 +135,8 @@
             this.textBoxEmailNomorTelepon.Name = "textBoxEmailNomorTelepon";
             this.textBoxEmailNomorTelepon.Size = new System.Drawing.Size(465, 24);
             this.textBoxEmailNomorTelepon.TabIndex = 4;
+            this.textBoxEmailNomorTelepon.Enter += new System.EventHandler(this.textBoxEmailNomorTelepon_Enter);
+            this.textBoxEmailNomorTelepon.Leave += new System.EventHandler(this.textBoxEmailNomorTelepon_Leave);
             // 
             // label2
             // 
@@ -149,6 +155,7 @@
             this.ClientSize = new System.Drawing.Size(836, 229);
             this.Controls.Add(this.panel1);
             this.Name = "FormLoginPegawai";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Pegawai";
             this.Load += new System.EventHandler(this.FormLoginPegawai_Load);
             this.panel1.ResumeLayout(false);
