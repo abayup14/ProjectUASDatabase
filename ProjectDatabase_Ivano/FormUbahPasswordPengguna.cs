@@ -13,6 +13,8 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormUbahPasswordPengguna : Form
     {
+        FormProfilPengguna formProfilPengguna;
+
         public FormUbahPasswordPengguna()
         {
             InitializeComponent();
@@ -20,9 +22,9 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
-            FormDaftarPengguna formDaftarPengguna = (FormDaftarPengguna)this.Owner;
+            //FormDaftarPengguna formDaftarPengguna = (FormDaftarPengguna)this.Owner;
 
-            formDaftarPengguna.FormDaftarPengguna_Load(buttonKeluar, e);
+            //formDaftarPengguna.FormDaftarPengguna_Load(buttonKeluar, e);
 
             Close();
         }
@@ -43,27 +45,27 @@ namespace ProjectDatabase_Ivano
 
                     if (hasil == DialogResult.Yes)
                     {
-                        FormDaftarPengguna formDaftarPengguna = (FormDaftarPengguna)this.Owner;
+                        //FormDaftarPengguna formDaftarPengguna = (FormDaftarPengguna)this.Owner;
 
-                        string nik = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["nik"].Value.ToString();
+                        string nik = formProfilPengguna.labelNIK.Text;
 
-                        string namaDepan = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["nama_depan"].Value.ToString();
+                        //string namaDepan = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["nama_depan"].Value.ToString();
 
-                        string namaKeluarga = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["nama_keluarga"].Value.ToString();
+                        //string namaKeluarga = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["nama_keluarga"].Value.ToString();
 
-                        string alamat = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["alamat"].Value.ToString();
+                        //string alamat = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["alamat"].Value.ToString();
 
-                        string email = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["email"].Value.ToString();
+                        //string email = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["email"].Value.ToString();
 
-                        string noTelepon = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["no_telepon"].Value.ToString();
+                        //string noTelepon = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["no_telepon"].Value.ToString();
 
-                        string password = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["password"].Value.ToString();
+                        //string password = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["password"].Value.ToString();
 
-                        string pin = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["pin"].Value.ToString();
+                        //string pin = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["pin"].Value.ToString();
 
-                        DateTime tglBuat = DateTime.Parse(formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["tgl_buat"].Value.ToString());
+                        //DateTime tglBuat = DateTime.Parse(formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["tgl_buat"].Value.ToString());
 
-                        Pengguna p = new Pengguna(nik, namaDepan, namaKeluarga, alamat, email, noTelepon, password, pin, tglBuat, DateTime.Now);
+                        Pengguna p = new Pengguna(nik);
 
                         Pengguna.UbahPassword(p, textBoxPasswordLama.Text, textBoxKonfirmasiPasswordBaru.Text, k);
 
@@ -80,6 +82,8 @@ namespace ProjectDatabase_Ivano
 
         private void FormUbahPassword_Load(object sender, EventArgs e)
         {
+            formProfilPengguna = (FormProfilPengguna)this.Owner;
+
             ActiveControl = label1;
 
             textBoxPasswordLama.Text = "Masukkan password lama anda";

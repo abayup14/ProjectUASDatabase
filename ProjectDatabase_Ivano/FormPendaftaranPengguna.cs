@@ -23,31 +23,40 @@ namespace ProjectDatabase_Ivano
             try
             {
                 Koneksi k = new Koneksi();
-                DialogResult hasil = MessageBox.Show("Apakah data yang anda masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
+
+                if (textBoxNamaDepan.Text == "Wajib diisi" || textBoxNIK.Text == "Wajib diisi")
+                {
+                    MessageBox.Show("Anda harus mengisi bagian yang bertuliskan \"wajib diisi\". Silahkan isi terlebih dahulu");
+                }
+                else
+                {
+                    DialogResult hasil = MessageBox.Show("Apakah data yang anda masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
                                                      MessageBoxIcon.Question);
 
-                if (hasil == DialogResult.Yes)
-                {
-                    string pin = "";
+                    if (hasil == DialogResult.Yes)
+                    {
+                        string pin = "";
 
-                    Pengguna p = new Pengguna(textBoxNIK.Text, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, textBoxAlamat.Text,
-                                              textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, pin, DateTime.Now, DateTime.Now);
-                    
-                    Pengguna.TambahData(p, k);
+                        Pengguna p = new Pengguna(textBoxNIK.Text, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, textBoxAlamat.Text,
+                                                  textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, pin, DateTime.Now, DateTime.Now);
 
-                    MessageBox.Show("Selamat, anda sudah terdaftar." +
-                                    "\nSilahkan masuk dengan email atau nomor telepon dan password anda.", "Informasi");
+                        Pengguna.TambahData(p, k);
 
-                    Employee em = new Employee();
+                        Employee em = new Employee();
 
-                    string no_rekening = Tabungan.GenerateNomorRekening();
+                        string no_rekening = Tabungan.GenerateNomorRekening();
 
-                    Tabungan t = new Tabungan(no_rekening, p, 0, "Unverified", "", DateTime.Now, DateTime.Now, em);
+                        Tabungan t = new Tabungan(no_rekening, p, 0, "Unverified", "", DateTime.Now, DateTime.Now, em);
 
-                    Tabungan.TambahData(t, k);
+                        Tabungan.TambahData(t, k);
 
-                    Close();
-                }
+                        MessageBox.Show("Selamat, anda sudah terdaftar di aplikasi ini. " +
+                                        "\nAnda juga sudah dibuatkan tabungan dengan nomor rekening " + no_rekening +
+                                        "\n\nSilahkan masuk dengan email atau nomor telepon dan password anda.", "Informasi");
+
+                        Close();
+                    }
+                } 
             }
             catch (Exception ex)
             {

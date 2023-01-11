@@ -64,7 +64,6 @@ namespace DiBa_LIB
         #region METHODS
         public static void TambahData(Pengguna p, Koneksi k)
         {
-
             string sql = "INSERT into pengguna(nik, nama_depan, nama_keluarga, alamat, email, no_telepon, password, pin, tgl_buat, tgl_perubahan) " +
                                  "values ('" + p.Nik + "', '" + p.Nama_depan + "', '" + p.Nama_keluarga + "', '" + p.Alamat + "', '" + p.Email + "', '" + p.No_telepon + "', SHA2('" + p.Password + "', 512), SHA2('" + p.Pin + "', 512), '" + p.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + p.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
@@ -169,12 +168,12 @@ namespace DiBa_LIB
             AddressBook adress = new AddressBook(p, t, keterangan);
             ListAdressBook.Add(adress);
         }
-        public static Pengguna AmbilDataByKode(string id)
+        public static Pengguna AmbilDataByKode(string nik)
         {
             string sql = "SELECT nik, nama_depan, nama_keluarga, alamat, email, no_telepon, " +
-                "password, pin, tgl_buat, tgl_perubahan " +
+                         "password, pin, tgl_buat, tgl_perubahan " +
                          "FROM pengguna " +
-                         "where nik = '" + id +"'";
+                         "where nik = '" + nik +"'";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 

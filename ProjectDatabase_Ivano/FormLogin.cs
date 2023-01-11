@@ -13,6 +13,8 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormLogin : Form
     {
+        FormUtama formUtama;
+
         public FormLogin()
         {
             InitializeComponent();
@@ -40,11 +42,9 @@ namespace ProjectDatabase_Ivano
                 {
                     Pengguna p = Pengguna.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
 
-                    //Employee em = Employee.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
-
                     if (p != null)
                     {
-                        FormUtama formUtama = (FormUtama)this.Owner;
+                        formUtama = (FormUtama)this.Owner;
 
                         formUtama.pengguna = p;
 
@@ -151,7 +151,14 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult hasil = MessageBox.Show("Jika anda menekan tombol keluar, maka aplikasi akan ditutup." +
+                                                 "\nApakah anda yakin ingin keluar?", "Konfirmasi", MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Warning);
+            if (hasil == DialogResult.Yes)
+            {
+                Close();
+                Application.Exit();
+            }
         }
     }
 }

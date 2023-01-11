@@ -75,10 +75,24 @@ namespace ProjectDatabase_Ivano
                         }
                     }
                 }
+
+                SetHakAkses();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Koneksi gagal. Pesan Kesalahan : " + ex.Message, "Kesalahan");
+            }
+        }
+
+        private void SetHakAkses()
+        {
+            if (pengguna != null)
+            {
+                MenuToolStripMenuItem.Visible = false;
+            }
+            else if (employee != null)
+            {
+                MenuToolStripMenuItem.Visible = true;
             }
         }
 
@@ -328,6 +342,25 @@ namespace ProjectDatabase_Ivano
                 formTopUp.MdiParent = this;
 
                 formTopUp.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void profilPenggunaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormProfilPengguna"];
+            if (form == null)
+            {
+                FormProfilPengguna formProfilPengguna = new FormProfilPengguna();
+
+                formProfilPengguna.MdiParent = this;
+
+                formProfilPengguna.Show();
             }
             else
             {

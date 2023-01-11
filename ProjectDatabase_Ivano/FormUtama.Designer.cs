@@ -52,6 +52,8 @@ namespace ProjectDatabase_Ivano
             this.labelKode = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.riwayatTransaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.penggunaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.profilPenggunaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +63,7 @@ namespace ProjectDatabase_Ivano
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuToolStripMenuItem,
+            this.penggunaToolStripMenuItem1,
             this.transaksiToolStripMenuItem,
             this.keluarSistemToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -248,6 +251,21 @@ namespace ProjectDatabase_Ivano
             this.riwayatTransaksiToolStripMenuItem.Text = "Transaksi";
             this.riwayatTransaksiToolStripMenuItem.Click += new System.EventHandler(this.riwayatTransaksiToolStripMenuItem_Click);
             // 
+            // penggunaToolStripMenuItem1
+            // 
+            this.penggunaToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.profilPenggunaToolStripMenuItem});
+            this.penggunaToolStripMenuItem1.Name = "penggunaToolStripMenuItem1";
+            this.penggunaToolStripMenuItem1.Size = new System.Drawing.Size(88, 24);
+            this.penggunaToolStripMenuItem1.Text = "Pengguna";
+            // 
+            // profilPenggunaToolStripMenuItem
+            // 
+            this.profilPenggunaToolStripMenuItem.Name = "profilPenggunaToolStripMenuItem";
+            this.profilPenggunaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.profilPenggunaToolStripMenuItem.Text = "Profil Pengguna";
+            this.profilPenggunaToolStripMenuItem.Click += new System.EventHandler(this.profilPenggunaToolStripMenuItem_Click);
+            // 
             // FormUtama
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -285,7 +303,6 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.ToolStripMenuItem keluarSistemToolStripMenuItem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelNama;
-        private System.Windows.Forms.Label labelKode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inboxToolStripMenuItem;
@@ -296,6 +313,9 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.ToolStripMenuItem hadiahToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jenisTagihanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem riwayatTransaksiToolStripMenuItem;
+        public System.Windows.Forms.Label labelKode;
+        private System.Windows.Forms.ToolStripMenuItem penggunaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem profilPenggunaToolStripMenuItem;
     }
 }
 

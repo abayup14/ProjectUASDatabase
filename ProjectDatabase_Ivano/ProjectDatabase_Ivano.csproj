@@ -157,6 +157,12 @@
     <Compile Include="FormPilihMasuk.designer.cs">
       <DependentUpon>FormPilihMasuk.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProfilPengguna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProfilPengguna.Designer.cs">
+      <DependentUpon>FormProfilPengguna.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTambahAddressBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPilihMasuk.resx">
       <DependentUpon>FormPilihMasuk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProfilPengguna.resx">
+      <DependentUpon>FormProfilPengguna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahAddressBook.resx">
       <DependentUpon>FormTambahAddressBook.cs</DependentUpon>
