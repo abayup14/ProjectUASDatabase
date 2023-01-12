@@ -5,13 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Configuration;
-using DiBa_LIB;
 
 namespace DiBa_LIB
 {
     public class Koneksi
     {
-
         #region DataMember
         private MySqlConnection koneksiDB;
         #endregion

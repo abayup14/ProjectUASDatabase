@@ -8,7 +8,6 @@ using MySql.Data.MySqlClient;
 
 namespace DiBa_LIB
 {
-
     public class AddressBook
     {
         private Pengguna pengguna;

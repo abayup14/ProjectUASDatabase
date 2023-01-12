@@ -7,7 +7,6 @@ using MySql.Data.MySqlClient;
 
 namespace DiBa_LIB
 {
-    
     public class Hadiah
     {
         private int id;

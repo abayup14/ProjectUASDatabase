@@ -27,7 +27,7 @@ namespace DiBa_LIB
 
         #region CONSTRUCTORS
         public Pengguna(string nik, string nama_depan, string nama_keluarga, string alamat, string email, string no_telepon, 
-                        string password, string pin, DateTime tgl_buat, DateTime tgl_perubahan )
+                        string password, string pin, DateTime tgl_buat, DateTime tgl_perubahan)
         {
             Nik = nik;
             Nama_depan = nama_depan;
@@ -177,10 +177,7 @@ namespace DiBa_LIB
         }
         public static Pengguna AmbilDataByKode(string nik)
         {
-            string sql = "SELECT nik, nama_depan, nama_keluarga, alamat, email, no_telepon, " +
-                         "password, pin, tgl_buat, tgl_perubahan " +
-                         "FROM pengguna " +
-                         "where nik = '" + nik +"'";
+            string sql = "SELECT * FROM pengguna where nik = '" + nik +"'";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 

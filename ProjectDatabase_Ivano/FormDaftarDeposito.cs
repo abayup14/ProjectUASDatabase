@@ -17,7 +17,9 @@ namespace ProjectDatabase_Ivano
 
         FormUtama formUtama;
 
-        public Pengguna pengguna;
+        //public Pengguna pengguna;
+
+        public Employee employee;
 
         public FormDaftarDeposito()
         {
@@ -37,7 +39,9 @@ namespace ProjectDatabase_Ivano
         {
             formUtama = (FormUtama)this.MdiParent;
 
-            pengguna = formUtama.pengguna;
+            //pengguna = formUtama.pengguna;
+
+            employee = formUtama.employee;
 
             listDeposito = Deposito.BacaData("", "");
 
@@ -121,7 +125,7 @@ namespace ProjectDatabase_Ivano
 
                 Deposito d = new Deposito(id_deposito);
 
-                Deposito.UbahStatus(d, k);
+                Deposito.UbahStatus(d, employee, k);
 
                 MessageBox.Show("Deposito berhasil diaktifkan");
             }

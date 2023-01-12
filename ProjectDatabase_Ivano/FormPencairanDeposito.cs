@@ -39,13 +39,13 @@ namespace ProjectDatabase_Ivano
                     DateTime tanggal = d.Tgl_buat.AddMonths(d.Jatuh_tempo);
                     if (tanggal > DateTime.Now)
                     {
-                        Deposito.UbahStatus(d, k);
+                        //Deposito.UbahStatus(d, k);
                         MessageBox.Show("Pencairan deposito kurang dari tanggal jatuh tempo sehingga anda dikenai denda sebanyak 5% dan tidak mendapatkan bunga.");
                         Deposito.UbahNominal(d, k);
                     }
                     else
                     {
-                        Deposito.UbahStatus(d, k);
+                        //Deposito.UbahStatus(d, k);
                         Deposito.TambahNominal(d, k);
                         MessageBox.Show("Pencairan berhasil");
                     }
