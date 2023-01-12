@@ -52,7 +52,10 @@ namespace ProjectDatabase_Ivano
 
                         MessageBox.Show("Selamat, anda sudah terdaftar di aplikasi ini. " +
                                         "\nAnda juga sudah dibuatkan tabungan dengan nomor rekening " + no_rekening +
-                                        "\n\nSilahkan masuk dengan email atau nomor telepon dan password anda.", "Informasi");
+                                        "\n Status tabungan anda adalah \"Unverified\". Silahkan hubungin pegawai terkait untuk mengaktifkan tabungan anda.", 
+                                        "Berhasil Membuat Akun");
+                        
+                        MessageBox.Show("Silahkan masuk dengan email atau nomor telepon dan password anda.", "Informasi");
 
                         Close();
                     }

@@ -82,6 +82,13 @@ namespace DiBa_LIB
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
+        public static void UbahPIN(Pengguna p, string PINBaru, Koneksi k)
+        {
+            string sql = "UPDATE pengguna set pin = SHA2('" + PINBaru + "', 512) " +
+                         "WHERE nik = '" + p.Nik + "' AND pin = '" + p.Pin + "'";
+
+            Koneksi.JalankanPerintahDML(sql, k);
+        }
         public static void HapusData(Pengguna p, Koneksi k)
         {
             string sql = "DELETE from pengguna where nik = '" + p.Nik + "'";
@@ -179,9 +186,16 @@ namespace DiBa_LIB
 
             if (hasil.Read() == true)
             {
-                Pengguna p = new Pengguna(hasil.GetString(0), hasil.GetString(1), hasil.GetString(2), 
-                    hasil.GetString(3), hasil.GetString(4), hasil.GetString(5), hasil.GetString(6), 
-                    hasil.GetString(7), DateTime.Parse(hasil.GetString(8)), DateTime.Parse(hasil.GetString(9)));
+                Pengguna p = new Pengguna(hasil.GetString(0), 
+                                          hasil.GetString(1), 
+                                          hasil.GetString(2), 
+                                          hasil.GetString(3), 
+                                          hasil.GetString(4), 
+                                          hasil.GetString(5), 
+                                          hasil.GetString(6), 
+                                          hasil.GetString(7), 
+                                          DateTime.Parse(hasil.GetString(8)), 
+                                          DateTime.Parse(hasil.GetString(9)));
 
                 return p;
             }
@@ -189,7 +203,22 @@ namespace DiBa_LIB
             {
                 return null;
             }
+        }
+        public static bool CekPIN(Pengguna p)
+        {
+            string sql = "SELECT SHA2('', 512), pin from pengguna where nik = '" + p.Nik + "'";
 
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                if (hasil.GetValue(0).ToString() != hasil.GetValue(1).ToString())
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
         #endregion
     }

@@ -145,6 +145,12 @@
     <Compile Include="FormLoginPegawai.Designer.cs">
       <DependentUpon>FormLoginPegawai.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMasukkanPIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMasukkanPIN.Designer.cs">
+      <DependentUpon>FormMasukkanPIN.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPencairanDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLoginPegawai.resx">
       <DependentUpon>FormLoginPegawai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMasukkanPIN.resx">
+      <DependentUpon>FormMasukkanPIN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPencairanDeposito.resx">
       <DependentUpon>FormPencairanDeposito.cs</DependentUpon>

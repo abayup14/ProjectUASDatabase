@@ -17,6 +17,8 @@ namespace ProjectDatabase_Ivano
 
         public Pengguna p;
 
+        public Tabungan t;
+
         public FormTabunganPengguna()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace ProjectDatabase_Ivano
 
             p = Pengguna.AmbilDataByKode(formUtama.pengguna.Nik);
 
-            Tabungan t = Tabungan.AmbilDataTabungan(p);
+            t = Tabungan.AmbilDataTabungan(p);
 
             labelRekening.Text = t.Rekening;
 
@@ -68,20 +70,54 @@ namespace ProjectDatabase_Ivano
 
         private void buttonTopUp_Click(object sender, EventArgs e)
         {
-            FormTopUp formTopUp = new FormTopUp();
+            if (t.Status == "Aktif")
+            {
+                if (Pengguna.CekPIN(p) == true)
+                {
+                    FormTopUp formTopUp = new FormTopUp();
 
-            formTopUp.Owner = this;
+                    formTopUp.Owner = this;
 
-            formTopUp.ShowDialog();
+                    formTopUp.ShowDialog();
+                }
+                else
+                {
+                    DialogResult hasil = MessageBox.Show("Tabungan anda sudah aktif, namun anda belum pernah membuat PIN." +
+                                                         "\nSilahkan membuat PIN dengan menekan tombol \"OK\"", "Informasi",
+                                                         MessageBoxButtons.OKCancel);
+
+                    if (hasil == DialogResult.OK)
+                    {
+                        FormMasukkanPIN formMasukkanPIN = new FormMasukkanPIN();
+
+                        formMasukkanPIN.Owner = this;
+
+                        formMasukkanPIN.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Maaf, status tabungan anda sedang tidak aktif." +
+                                "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan anda.", "Informasi");
+            }
         }
 
         private void buttonTransfer_Click(object sender, EventArgs e)
         {
-            FormTambahTransaksi formTambahTransaksi = new FormTambahTransaksi();
+            if (t.Status == "Aktif")
+            {
+                FormTambahTransaksi formTambahTransaksi = new FormTambahTransaksi();
 
-            formTambahTransaksi.Owner = this;
+                formTambahTransaksi.Owner = this;
 
-            formTambahTransaksi.ShowDialog();
+                formTambahTransaksi.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Maaf, status tabungan anda sedang tidak aktif." +
+                                "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan anda.", "Informasi");
+            }
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)
