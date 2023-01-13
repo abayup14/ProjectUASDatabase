@@ -17,7 +17,7 @@ namespace ProjectDatabase_Ivano
 
         FormUtama formUtama;
 
-        //public Pengguna pengguna;
+        public Pengguna pengguna;
 
         public Employee employee;
 
@@ -26,49 +26,83 @@ namespace ProjectDatabase_Ivano
             InitializeComponent();
         }
 
-
-
         public void FormDaftarDeposito_Load(object sender, EventArgs e)
         {
             formUtama = (FormUtama)this.MdiParent;
 
-            //pengguna = formUtama.pengguna;
+            pengguna = formUtama.pengguna;
 
             employee = formUtama.employee;
 
-            listDeposito = Deposito.BacaData("", "");
+            if (employee != null)
+            {
+                listDeposito = Deposito.BacaData("", "");
+                buttonTambah.Visible = false;
+            }    
+            else if (pengguna != null)
+            {
+                FormatDataGrid();
+
+                listDeposito = Deposito.BacaData("t.id_pengguna", pengguna.Nik);
+            }
 
             if(listDeposito.Count > 0)
             {
-                dataGridViewDeposito.DataSource = listDeposito;
-                if(dataGridViewDeposito.ColumnCount == 10)
+                //dataGridViewDeposito.DataSource = listDeposito;
+                foreach(Deposito deposito in listDeposito)
                 {
-                    DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
-                    bcol.HeaderText = "Aksi";
-                    bcol.Text = "Cairkan";
-                    bcol.Name = "buttonCairkanGrid";
-                    bcol.UseColumnTextForButtonValue = true;
-                    dataGridViewDeposito.Columns.Add(bcol);
+                    dataGridViewDeposito.Rows.Add(deposito.Id_deposito, deposito.Nominal.ToString(), deposito.Bunga.ToString(),
+                                                  deposito.Jatuh_tempo.ToString(), deposito.Status, deposito.Tgl_buat.ToShortDateString());
+                }    
+                if(dataGridViewDeposito.ColumnCount < 10)
+                {
+                    if (pengguna != null)
+                    {
+                        DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
+                        bcol1.HeaderText = "Aksi";
+                        bcol1.Text = "Cairkan";
+                        bcol1.Name = "buttonCairkanGrid";
+                        bcol1.UseColumnTextForButtonValue = true;
+                        dataGridViewDeposito.Columns.Add(bcol1);
+                    }
 
-                    DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                    bcol2.HeaderText = "Aksi";
-                    bcol2.Text = "Hapus";
-                    bcol2.Name = "buttonHapusGrid";
-                    bcol2.UseColumnTextForButtonValue = true;
-                    dataGridViewDeposito.Columns.Add(bcol2);
+                    if (employee != null)
+                    {
+                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                        bcol2.HeaderText = "Aksi";
+                        bcol2.Text = "Hapus";
+                        bcol2.Name = "buttonHapusGrid";
+                        bcol2.UseColumnTextForButtonValue = true;
+                        dataGridViewDeposito.Columns.Add(bcol2);
 
-                    DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
-                    bcol3.HeaderText = "Aksi";
-                    bcol3.Text = "Aktifkan";
-                    bcol3.Name = "buttonAktifGrid";
-                    bcol3.UseColumnTextForButtonValue = true;
-                    dataGridViewDeposito.Columns.Add(bcol3);
+                        DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
+                        bcol3.HeaderText = "Aksi";
+                        bcol3.Text = "Aktifkan";
+                        bcol3.Name = "buttonAktifGrid";
+                        bcol3.UseColumnTextForButtonValue = true;
+                        dataGridViewDeposito.Columns.Add(bcol3);
+                    }
                 }
             }
             else
             {
                 dataGridViewDeposito.DataSource = null;
             }
+        }
+
+        private void FormatDataGrid()
+        {
+            dataGridViewDeposito.Rows.Clear();
+            dataGridViewDeposito.Columns.Add("IDDeposito", "ID Deposito");
+            dataGridViewDeposito.Columns.Add("Nominal", "Nominal");
+            dataGridViewDeposito.Columns.Add("Bunga", "Bunga");
+            dataGridViewDeposito.Columns.Add("JatuhTempo", "Jatuh Tempo");
+            dataGridViewDeposito.Columns.Add("Status", "Status");
+            dataGridViewDeposito.Columns.Add("TanggalBuat", "Tanggal Pembuatan");
+
+            dataGridViewDeposito.Columns["IDDeposito"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+            dataGridViewDeposito.AllowUserToAddRows = false;
         }
 
         private void dataGridViewDeposito_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -170,8 +204,15 @@ namespace ProjectDatabase_Ivano
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)
-        {
+        { 
             Close();
+        }
+
+        private void buttonTambah_Click(object sender, EventArgs e)
+        {
+            FormTambahDeposito formTambahDeposito = new FormTambahDeposito();
+            formTambahDeposito.Owner = this;
+            formTambahDeposito.ShowDialog();
         }
     }
 }

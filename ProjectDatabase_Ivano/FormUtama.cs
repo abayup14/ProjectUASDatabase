@@ -355,14 +355,15 @@ namespace ProjectDatabase_Ivano
 
         private void tabunganPenggunaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Application.OpenForms["FormTabunganPengguna"];
+            Form form = Application.OpenForms["FormDaftarTabungan"];
+
             if (form == null)
             {
-                FormTabunganPengguna formTabunganPengguna = new FormTabunganPengguna();
+                FormDaftarTabungan frmDaftarTabungan = new FormDaftarTabungan();
 
-                formTabunganPengguna.MdiParent = this;
+                frmDaftarTabungan.MdiParent = this;
 
-                formTabunganPengguna.Show();
+                frmDaftarTabungan.Show();
             }
             else
             {
@@ -377,9 +378,14 @@ namespace ProjectDatabase_Ivano
             Form form = Application.OpenForms["FormDepositoPengguna"];
             if (form == null)
             {
-                FormDepositoPengguna formDepositoPengguna = new FormDepositoPengguna();
-                formDepositoPengguna.MdiParent = this;
-                formDepositoPengguna.Show();
+                //FormDepositoPengguna formDepositoPengguna = new FormDepositoPengguna();
+                //formDepositoPengguna.MdiParent = this;
+                //formDepositoPengguna.Show();
+                FormDaftarDeposito formDaftarDeposito = new FormDaftarDeposito();
+
+                formDaftarDeposito.MdiParent = this;
+
+                formDaftarDeposito.Show();
             }
             else
             {

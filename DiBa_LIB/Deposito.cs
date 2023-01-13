@@ -117,7 +117,7 @@ namespace DiBa_LIB
         public static void TambahData(Deposito d, Koneksi k)
         {
             string sql = "INSERT INTO deposito (id_deposito, no_rekening, jatuh_tempo, nominal, bunga, status, tgl_buat, tgl_perubahan, verifikator_buka, verifikator_cair) " +
-                "VALUES ('" + d.Id_deposito + "', '" + d.No_rekening + "', '" + d.Jatuh_tempo + "', '" + d.Nominal + "', '" + d.Bunga + "', '" + d.Status + "', '" + d.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") +
+                "VALUES ('" + d.Id_deposito + "', '" + d.No_rekening + "', '" + d.Jatuh_tempo + "', '" + d.Nominal + "', '" + d.Bunga.ToString().Replace(',', '.') + "', '" + d.Status + "', '" + d.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") +
                 "', '" + d.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + d.Verifikator_buka + "', '" + d.Verifikator_cair + "')";
 
             Koneksi.JalankanPerintahDML(sql, k);
@@ -197,12 +197,12 @@ namespace DiBa_LIB
                 return false;
             }
         }
-        public static Deposito AmbilDataDeposito(Pengguna p)
+        public static Deposito AmbilDataDeposito(string id_deposito)
         {
             string sql = "SELECT * from deposito d " +
                          "inner join tabungan t on d.no_rekening = t.no_rekening " +
                          "inner join pengguna p on t.id_pengguna = p.nik " +
-                         "where p.nik = '" + p.Nik + "'";
+                         "where d.id_deposito = '" + id_deposito + "'";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 

@@ -15,7 +15,13 @@ namespace ProjectDatabase_Ivano
     {
         public List<Tabungan> listTabungan = new List<Tabungan>();
 
+        FormUtama formUtama;
+
         Koneksi k;
+
+        public Employee employee;
+
+        public Pengguna pengguna;
 
         public FormDaftarTabungan()
         {
@@ -25,12 +31,34 @@ namespace ProjectDatabase_Ivano
         public void FormDaftarTabungan_Load(object sender, EventArgs e)
         {
             k = new Koneksi();
-            listTabungan = Tabungan.BacaData("", "");
+
+            formUtama = (FormUtama)this.MdiParent;
+
+            pengguna = formUtama.pengguna;
+
+            employee = formUtama.employee;
+
+            if (employee != null)
+            {
+                listTabungan = Tabungan.BacaData("", "");
+                buttonTambah.Visible = false;
+            }
+            else if (pengguna != null)
+            {
+                FormatDataGrid();
+
+                listTabungan = Tabungan.BacaData("p.nik", pengguna.Nik);
+            }
 
             if (listTabungan.Count > 0)
             {
-                dataGridViewTabungan.DataSource = listTabungan;
-                if (dataGridViewTabungan.ColumnCount == 8)
+                //dataGridViewTabungan.DataSource = listTabungan;
+                foreach (Tabungan tabungan in listTabungan)
+                {
+                    dataGridViewTabungan.Rows.Add(tabungan.Rekening, tabungan.Saldo.ToString(), tabungan.Status,
+                                                  tabungan.Keterangan, tabungan.Tgl_buat.ToShortDateString());
+                }
+                if (dataGridViewTabungan.ColumnCount < 8)
                 {
                     DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
                     bcol1.HeaderText = "Aksi";
@@ -51,6 +79,18 @@ namespace ProjectDatabase_Ivano
             {
                 dataGridViewTabungan.DataSource = null;
             }
+        }
+
+        private void FormatDataGrid()
+        {
+            dataGridViewTabungan.Rows.Clear();
+            dataGridViewTabungan.Columns.Add("NoRekening", "No. Rekening");
+            dataGridViewTabungan.Columns.Add("Saldo", "Saldo");
+            dataGridViewTabungan.Columns.Add("Status", "Status");
+            dataGridViewTabungan.Columns.Add("Keterangan", "Keterangan");
+            dataGridViewTabungan.Columns.Add("TanggalBuat", "Tanggal Pembuatan");
+
+            dataGridViewTabungan.Columns["NoRekening"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         private void dataGridViewTabungan_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -114,6 +154,11 @@ namespace ProjectDatabase_Ivano
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonTambah_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelJatuhTempo = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.labelStatus = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonCairkan = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
-            this.buttonTambah = new System.Windows.Forms.Button();
             this.labelTanggal = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.labelBunga = new System.Windows.Forms.Label();
@@ -43,8 +43,6 @@
             this.labelIDDeposito = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelInbox = new System.Windows.Forms.Label();
-            this.labelJatuhTempo = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,9 +53,7 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.labelStatus);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.buttonCairkan);
             this.panel1.Controls.Add(this.buttonKeluar);
-            this.panel1.Controls.Add(this.buttonTambah);
             this.panel1.Controls.Add(this.labelTanggal);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.labelBunga);
@@ -71,6 +67,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(893, 349);
             this.panel1.TabIndex = 48;
+            // 
+            // labelJatuhTempo
+            // 
+            this.labelJatuhTempo.AutoSize = true;
+            this.labelJatuhTempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelJatuhTempo.Location = new System.Drawing.Point(251, 167);
+            this.labelJatuhTempo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelJatuhTempo.Name = "labelJatuhTempo";
+            this.labelJatuhTempo.Size = new System.Drawing.Size(117, 20);
+            this.labelJatuhTempo.TabIndex = 52;
+            this.labelJatuhTempo.Text = "Jatuh Tempo";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(75, 167);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(129, 20);
+            this.label5.TabIndex = 51;
+            this.label5.Text = "Jatuh Tempo :";
             // 
             // labelStatus
             // 
@@ -94,20 +112,6 @@
             this.label1.TabIndex = 49;
             this.label1.Text = "STATUS";
             // 
-            // buttonCairkan
-            // 
-            this.buttonCairkan.BackColor = System.Drawing.Color.Navy;
-            this.buttonCairkan.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold);
-            this.buttonCairkan.ForeColor = System.Drawing.Color.White;
-            this.buttonCairkan.Location = new System.Drawing.Point(339, 272);
-            this.buttonCairkan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonCairkan.Name = "buttonCairkan";
-            this.buttonCairkan.Size = new System.Drawing.Size(220, 53);
-            this.buttonCairkan.TabIndex = 47;
-            this.buttonCairkan.Text = "&CAIRKAN";
-            this.buttonCairkan.UseVisualStyleBackColor = false;
-            this.buttonCairkan.Click += new System.EventHandler(this.buttonCairkan_Click);
-            // 
             // buttonKeluar
             // 
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
@@ -120,20 +124,6 @@
             this.buttonKeluar.TabIndex = 46;
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
-            // 
-            // buttonTambah
-            // 
-            this.buttonTambah.BackColor = System.Drawing.Color.Navy;
-            this.buttonTambah.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(22, 272);
-            this.buttonTambah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonTambah.Name = "buttonTambah";
-            this.buttonTambah.Size = new System.Drawing.Size(220, 53);
-            this.buttonTambah.TabIndex = 45;
-            this.buttonTambah.Text = "&TAMBAH";
-            this.buttonTambah.UseVisualStyleBackColor = false;
-            this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
             // 
             // labelTanggal
             // 
@@ -235,28 +225,6 @@
             this.labelInbox.Text = "DEPOSITO PENGGUNA";
             this.labelInbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelJatuhTempo
-            // 
-            this.labelJatuhTempo.AutoSize = true;
-            this.labelJatuhTempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelJatuhTempo.Location = new System.Drawing.Point(251, 167);
-            this.labelJatuhTempo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelJatuhTempo.Name = "labelJatuhTempo";
-            this.labelJatuhTempo.Size = new System.Drawing.Size(117, 20);
-            this.labelJatuhTempo.TabIndex = 52;
-            this.labelJatuhTempo.Text = "Jatuh Tempo";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(75, 167);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 20);
-            this.label5.TabIndex = 51;
-            this.label5.Text = "Jatuh Tempo :";
-            // 
             // FormDepositoPengguna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -278,11 +246,8 @@
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Label labelJatuhTempo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonCairkan;
         private System.Windows.Forms.Button buttonKeluar;
-        private System.Windows.Forms.Button buttonTambah;
         public System.Windows.Forms.Label labelTanggal;
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.Label labelBunga;
@@ -292,5 +257,6 @@
         public System.Windows.Forms.Label labelIDDeposito;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelInbox;
+        public System.Windows.Forms.Label labelStatus;
     }
 }

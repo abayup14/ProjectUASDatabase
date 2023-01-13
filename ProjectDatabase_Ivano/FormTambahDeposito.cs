@@ -17,9 +17,9 @@ namespace ProjectDatabase_Ivano
 
         List<double> bungaJatuhTempo = new List<double>() { 0.03, 0.05, 0.06, 0.08, 0.08, 0.08 };
 
-        //FormDaftarDeposito formDaftarDeposito;
+        FormDaftarDeposito formDaftarDeposito;
 
-        FormDepositoPengguna formDepositoPengguna;
+        //FormDepositoPengguna formDepositoPengguna;
 
         public FormTambahDeposito()
         {
@@ -34,7 +34,7 @@ namespace ProjectDatabase_Ivano
 
                 int indexJatuhTempoDipilih = comboBoxJatuhTempo.SelectedIndex;
 
-                string nik = formDepositoPengguna.pengguna.Nik;
+                string nik = formDaftarDeposito.pengguna.Nik;
 
                 string no_rekening = Tabungan.AmbilDataNoRekening(nik);
 
@@ -72,9 +72,9 @@ namespace ProjectDatabase_Ivano
 
         private void FormTambahDeposito_Load(object sender, EventArgs e)
         {
-            //formDaftarDeposito = (FormDaftarDeposito)this.Owner;
+            formDaftarDeposito = (FormDaftarDeposito)this.Owner;
 
-            formDepositoPengguna = (FormDepositoPengguna)this.Owner;
+            //formDepositoPengguna = (FormDepositoPengguna)this.Owner;
 
             //labelNoRekening.Text = Tabungan.AmbilDataNoRekening(formDaftarDeposito.pengguna.Nik);
         }
