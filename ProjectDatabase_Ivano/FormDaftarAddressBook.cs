@@ -19,6 +19,8 @@ namespace ProjectDatabase_Ivano
 
         public Pengguna pengguna;
 
+        public Employee employee;
+
         public FormDaftarAddressBook()
         {
             InitializeComponent();
@@ -41,14 +43,32 @@ namespace ProjectDatabase_Ivano
             formUtama = (FormUtama)this.MdiParent;
 
             pengguna = formUtama.pengguna;
-          
-            listAddressBook = AddressBook.BacaData("", "");
+
+            employee = formUtama.employee;
+
+            FormatDataGridAddressBook();
+
+            if (pengguna != null)
+            {
+                listAddressBook = AddressBook.BacaData("ab.id_pengguna", pengguna.Nik);
+            }
+            else if (employee != null)
+            {
+                buttonTambah.Visible = false;
+                listAddressBook = AddressBook.BacaData("", "");
+            }
+            
             if (listAddressBook.Count > 0)
             {
-                dataGridViewAddressBook.DataSource = listAddressBook;
+                //dataGridViewAddressBook.DataSource = listAddressBook;
+                foreach (AddressBook addressBook in listAddressBook)
+                {
+                    string nama = addressBook.Pengguna.Nama_depan + " " + addressBook.Pengguna.Nama_keluarga;
+                    dataGridViewAddressBook.Rows.Add(addressBook.No_rekening.Rekening, nama, addressBook.Keterangan);
+                }
+
                 if (dataGridViewAddressBook.ColumnCount == 3)
                 {
-
                     DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
                     bcol2.HeaderText = "Aksi";
                     bcol2.Text = "Hapus";
@@ -61,6 +81,19 @@ namespace ProjectDatabase_Ivano
             {
                 dataGridViewAddressBook.DataSource = null;
             }
+        }
+
+        private void FormatDataGridAddressBook()
+        {
+            dataGridViewAddressBook.Rows.Clear();
+            dataGridViewAddressBook.Columns.Clear();
+            dataGridViewAddressBook.Columns.Add("NoRekening", "No. Rekening");
+            dataGridViewAddressBook.Columns.Add("Nama", "Nama");
+            dataGridViewAddressBook.Columns.Add("Keterangan", "Keterangan");
+
+            dataGridViewAddressBook.Columns["NoRekening"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewAddressBook.Columns["Nama"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewAddressBook.Columns["Keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         private void dataGridViewAddressBook_CellContentClick(object sender, DataGridViewCellEventArgs e)

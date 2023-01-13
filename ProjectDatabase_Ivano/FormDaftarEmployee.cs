@@ -35,7 +35,7 @@ namespace ProjectDatabase_Ivano
         {
             k = new Koneksi();
 
-            listEmployee = Employee.BacaData("", "");
+            listEmployee = Employee.BacaData("e.id not", "0");
 
             if (listEmployee.Count > 0)
             {

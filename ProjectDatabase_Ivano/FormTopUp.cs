@@ -52,8 +52,8 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
-            FormDaftarTabungan formDaftarTabungan = (FormDaftarTabungan)this.Owner;
-            formDaftarTabungan.FormDaftarTabungan_Load(buttonKeluar, e);
+            //FormDaftarTabungan formDaftarTabungan = (FormDaftarTabungan)this.Owner;
+            //formDaftarTabungan.FormDaftarTabungan_Load(buttonKeluar, e);
             Close();
         }
     }

@@ -249,8 +249,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonTransfer;
         private System.Windows.Forms.Button buttonKeluar;
@@ -264,6 +262,7 @@
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label labelRekening;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Label labelStatus;
+        public System.Windows.Forms.Panel panel1;
     }
 }

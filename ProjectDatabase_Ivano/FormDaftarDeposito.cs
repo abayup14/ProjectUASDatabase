@@ -28,6 +28,7 @@ namespace ProjectDatabase_Ivano
 
         public void FormDaftarDeposito_Load(object sender, EventArgs e)
         {
+            FormatDataGridDeposito();
             formUtama = (FormUtama)this.MdiParent;
 
             pengguna = formUtama.pengguna;
@@ -41,8 +42,6 @@ namespace ProjectDatabase_Ivano
             }    
             else if (pengguna != null)
             {
-                FormatDataGrid();
-
                 listDeposito = Deposito.BacaData("t.id_pengguna", pengguna.Nik);
             }
 
@@ -90,9 +89,10 @@ namespace ProjectDatabase_Ivano
             }
         }
 
-        private void FormatDataGrid()
+        private void FormatDataGridDeposito()
         {
             dataGridViewDeposito.Rows.Clear();
+            dataGridViewDeposito.Columns.Clear();
             dataGridViewDeposito.Columns.Add("IDDeposito", "ID Deposito");
             dataGridViewDeposito.Columns.Add("Nominal", "Nominal");
             dataGridViewDeposito.Columns.Add("Bunga", "Bunga");

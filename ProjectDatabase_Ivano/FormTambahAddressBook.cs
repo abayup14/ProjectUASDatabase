@@ -15,6 +15,12 @@ namespace ProjectDatabase_Ivano
     {
         FormDaftarAddressBook formDaftarAddressBook;
 
+        public Pengguna pengguna;
+
+        public List<Tabungan> listTabungan;
+
+        public Tabungan tabungan;
+
 
         public FormTambahAddressBook()
         {
@@ -24,6 +30,18 @@ namespace ProjectDatabase_Ivano
         private void FormTambahAddressBook_Load(object sender, EventArgs e)
         {
             formDaftarAddressBook = (FormDaftarAddressBook)this.Owner;
+
+            pengguna = formDaftarAddressBook.pengguna;
+
+            comboBoxPilihRekening.SelectedIndex = -1;
+
+            listTabungan = Tabungan.BacaData("p.nik not", pengguna.Nik);
+
+            if (listTabungan.Count > 0)
+            {
+                comboBoxPilihRekening.DataSource = listTabungan;
+                comboBoxPilihRekening.DisplayMember = "Rekening";
+            }
 
             //labelNamaPengguna.Text = Pengguna.AmbilNamaLengkap(formDaftarAddressBook.pengguna.Nik);
         }
@@ -37,13 +55,15 @@ namespace ProjectDatabase_Ivano
 
                 if (hasil == DialogResult.Yes)
                 {
-                    Tabungan a = new Tabungan(textBoxNoRekening.Text);
+                    //Tabungan t = new Tabungan(textBoxNoRekening.Text);
 
-                    Pengguna p = new Pengguna(formDaftarAddressBook.pengguna.Nik);
+                    //Pengguna p = new Pengguna(formDaftarAddressBook.pengguna.Nik);
 
-                    AddressBook ab = new AddressBook(p, a, textBoxPesan.Text);
+                    //AddressBook ab = new AddressBook(p, t, textBoxPesan.Text);
 
                     Koneksi k = new Koneksi();
+
+                    AddressBook ab = new AddressBook(pengguna, tabungan, textBoxPesan.Text);
 
                     AddressBook.TambahData(ab, k);
 
@@ -59,7 +79,8 @@ namespace ProjectDatabase_Ivano
         private void buttonKosongi_Click(object sender, EventArgs e)
         {
             //labelNamaPengguna.Text = "";
-            textBoxNoRekening.Clear();
+            //textBoxNoRekening.Clear();
+            comboBoxPilihRekening.SelectedIndex = -1;
             textBoxPesan.Clear();
         }
 
@@ -72,13 +93,16 @@ namespace ProjectDatabase_Ivano
             Close();
         }
 
-        private void buttonKeluar_Click_1(object sender, EventArgs e)
+        private void comboBoxPilihRekening_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FormDaftarAddressBook formDaftarAddressBook = new FormDaftarAddressBook();
+            if (comboBoxPilihRekening.SelectedIndex > -1)
+            {
+                tabungan = (Tabungan)comboBoxPilihRekening.SelectedItem;
 
-            formDaftarAddressBook.FormDaftarAddressBook_Load(buttonKeluar, e);
+                Pengguna penggunaDipilih = Tabungan.AmbilDataPengguna(tabungan.Rekening);
 
-            this.Close();
+                labelNama.Text = penggunaDipilih.Nama_depan + " " + penggunaDipilih.Nama_keluarga;
+            }
         }
     }
 }

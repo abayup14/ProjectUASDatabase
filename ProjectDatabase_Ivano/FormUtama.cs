@@ -25,7 +25,13 @@ namespace ProjectDatabase_Ivano
 
         private void FormUtama_Load(object sender, EventArgs e)
         {
-            this.Visible = false;
+            labelKode.Visible = false;
+            labelNama.Visible = false;
+            labelStrip.Visible = false;
+            labelAndaLogin.Visible = false;
+            MenuToolStripMenuItem.Visible = false;
+            penggunaToolStripMenuItem1.Visible = false;
+            transaksiToolStripMenuItem.Visible = false;
             this.WindowState = FormWindowState.Maximized;
             this.IsMdiContainer = true;
 
@@ -48,11 +54,6 @@ namespace ProjectDatabase_Ivano
                         {
                             labelKode.Text = pengguna.Nik;
                             labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
-
-                            MessageBox.Show("Selamat datang di aplikasi DiBa, " + labelNama.Text + "." +
-                                            "\nSemoga harimu menyenangkan", "Selamat Datang!");
-
-                            this.Visible = true;
                         }
                     }
                 }
@@ -66,15 +67,18 @@ namespace ProjectDatabase_Ivano
                             {
                                 labelKode.Text = employee.Id.ToString();
                                 labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
-
-                                MessageBox.Show("Selamat datang di aplikasi DiBa, " + labelNama.Text + "." +
-                                                "\nSemoga harimu menyenangkan", "Selamat Datang!");
-
-                                this.Visible = true;
                             }
                         }
                     }
                 }
+
+                MessageBox.Show("Selamat datang di aplikasi DiBa, " + labelNama.Text + "." +
+                                            "\nSemoga harimu menyenangkan", "Selamat Datang!");
+
+                labelNama.Visible = true;
+                labelKode.Visible = true;
+                labelStrip.Visible = true;
+                labelAndaLogin.Visible = true;
 
                 SetHakAkses();
             }
@@ -90,12 +94,36 @@ namespace ProjectDatabase_Ivano
             if (pengguna != null)
             {
                 MenuToolStripMenuItem.Visible = false;
+                transaksiToolStripMenuItem.Visible = true;
+                penggunaToolStripMenuItem1.Visible = true;
             }
             else if (employee != null)
             {
                 MenuToolStripMenuItem.Visible = true;
-                transaksiToolStripMenuItem.Visible = false;
             }
+        }
+
+        public void DisplayStatusPicture(string status, Panel panel)
+        {
+            PictureBox pictureBox = new PictureBox();
+
+            pictureBox.Parent = panel;
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox.BackColor = Color.Transparent;
+            Image statusPicture = null;
+            if (status == "Unverified")
+            {
+                statusPicture = new Bitmap(Properties.Resources.silang);
+            }
+            else if (status == "Aktif")
+            {
+                statusPicture = new Bitmap(Properties.Resources.centang);
+            }
+            pictureBox.Image = statusPicture;
+            pictureBox.Size = new Size(75, 75);
+            pictureBox.Location = new Point(400, 50);
+            pictureBox.Visible = true;
+            pictureBox.BringToFront();
         }
 
         private void penggunaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -160,7 +188,16 @@ namespace ProjectDatabase_Ivano
 
         private void keluarSistemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult hasil = MessageBox.Show("Apakah anda ingin keluar dari aplikasi?",
+                                                "Konfirmasi",
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Warning);
+
+            if (hasil == DialogResult.Yes)
+            {
+                MessageBox.Show("Sampai berjumpa lagi.", "Goodbye", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Exit();
+            }
         }
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -386,6 +423,26 @@ namespace ProjectDatabase_Ivano
                 formDaftarDeposito.MdiParent = this;
 
                 formDaftarDeposito.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void addressBookPenggunaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarAddressBook"];
+
+            if (form == null)
+            {
+                FormDaftarAddressBook formDaftarAddressBook = new FormDaftarAddressBook();
+
+                formDaftarAddressBook.MdiParent = this;
+
+                formDaftarAddressBook.Show();
             }
             else
             {

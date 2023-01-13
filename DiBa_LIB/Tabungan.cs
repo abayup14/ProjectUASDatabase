@@ -50,13 +50,13 @@ namespace DiBa_LIB
 
             if (kriteria == "")
             {
-                sql = "SELECT t.no_rekening, t.id_pengguna, t.saldo, t.status, t.keterangan, t.tgl_buat, t.tgl_perubahan, t.verifikator " +
+                sql = "SELECT * " +
                       "FROM tabungan t INNER JOIN pengguna p on t.id_pengguna = p.nik " +
                       "INNER JOIN employee e on t.verifikator = e.id";
             }
             else
             {
-                sql = "SELECT t.no_rekening, t.id_pengguna, t.saldo, t.status, t.keterangan, t.tgl_buat, t.tgl_perubahan, t.verifikator " +
+                sql = "SELECT * " +
                       "FROM tabungan t INNER JOIN pengguna p on t.id_pengguna = p.nik " +
                       "INNER JOIN employee e on t.verifikator = e.id " +
                       "WHERE " + kriteria + " LIKE '%" + nilaiKriteria + "%'";
@@ -68,7 +68,16 @@ namespace DiBa_LIB
 
             while (hasil.Read() == true)
             {
-                Pengguna p = new Pengguna(hasil.GetValue(1).ToString());
+                Pengguna p = new Pengguna(hasil.GetValue(8).ToString(),
+                                          hasil.GetString(9),
+                                          hasil.GetString(10),
+                                          hasil.GetString(11),
+                                          hasil.GetString(12),
+                                          hasil.GetString(13),
+                                          hasil.GetString(14),
+                                          hasil.GetString(15),
+                                          DateTime.Parse(hasil.GetString(16)),
+                                          DateTime.Parse(hasil.GetString(17)));
 
                 Employee e = new Employee(int.Parse(hasil.GetValue(7).ToString()));
 
@@ -86,7 +95,7 @@ namespace DiBa_LIB
 
             return listTabungan;
         }
-        public static void UbahData(Tabungan t, Employee e, Koneksi k)
+        public static void UbahStatus(Tabungan t, Employee e, Koneksi k)
         {
             string sql = "UPDATE tabungan set status = 'Aktif', verifikator = " + e.Id + ", tgl_perubahan = '" 
                 + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
@@ -135,7 +144,7 @@ namespace DiBa_LIB
                     }
                     else if (hasilKode.Length < 10)
                     {
-                        hasilGenerate = hasilKode.PadLeft(10 - hasilKode.Length, '0');
+                        hasilGenerate = hasilKode.PadLeft(11 - hasilKode.Length, '0');
                     }
                 }
                 else
@@ -172,12 +181,69 @@ namespace DiBa_LIB
             {
                 Pengguna pe = new Pengguna(hasil.GetValue(1).ToString());
                 Employee em = new Employee(int.Parse(hasil.GetValue(7).ToString()));
-                Tabungan t = new Tabungan(hasil.GetValue(0).ToString(), pe, double.Parse(hasil.GetValue(2).ToString()), 
-                                          hasil.GetValue(3).ToString(), hasil.GetValue(4).ToString(), 
-                                          DateTime.Parse(hasil.GetValue(5).ToString()), DateTime.Parse(hasil.GetValue(6).ToString()),
+                Tabungan t = new Tabungan(hasil.GetValue(0).ToString(), 
+                                          pe, 
+                                          double.Parse(hasil.GetValue(2).ToString()), 
+                                          hasil.GetValue(3).ToString(), 
+                                          hasil.GetValue(4).ToString(), 
+                                          DateTime.Parse(hasil.GetValue(5).ToString()), 
+                                          DateTime.Parse(hasil.GetValue(6).ToString()),
                                           em);
 
                 return t;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static Tabungan AmbilDataTabungan(string no_rekening)
+        {
+            string sql = "SELECT * from tabungan t inner join pengguna p on t.id_pengguna = p.nik where t.no_rekening = '" + no_rekening + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                Pengguna pe = new Pengguna(hasil.GetValue(1).ToString());
+                Employee em = new Employee(int.Parse(hasil.GetValue(7).ToString()));
+                Tabungan t = new Tabungan(hasil.GetValue(0).ToString(),
+                                          pe,
+                                          double.Parse(hasil.GetValue(2).ToString()),
+                                          hasil.GetValue(3).ToString(),
+                                          hasil.GetValue(4).ToString(),
+                                          DateTime.Parse(hasil.GetValue(5).ToString()),
+                                          DateTime.Parse(hasil.GetValue(6).ToString()),
+                                          em);
+
+                return t;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static Pengguna AmbilDataPengguna(string no_rekening)
+        {
+            string sql = "SELECT * FROM tabungan t inner join pengguna p on p.nik = t.id_pengguna " +
+                         "where t.no_rekening = '" + no_rekening + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                Pengguna p = new Pengguna(hasil.GetString(8),
+                                          hasil.GetString(9),
+                                          hasil.GetString(10),
+                                          hasil.GetString(11),
+                                          hasil.GetString(12),
+                                          hasil.GetString(13),
+                                          hasil.GetString(14),
+                                          hasil.GetString(15),
+                                          DateTime.Parse(hasil.GetString(16)),
+                                          DateTime.Parse(hasil.GetString(17)));
+
+                return p;
             }
             else
             {

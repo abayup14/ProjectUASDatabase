@@ -100,11 +100,13 @@ namespace DiBa_LIB
         }
         public static void TambahData(Transaksi t, Koneksi k)
         {
-            string sql = "insert into transaksi (rekening_sumber, id_transaksi, tgl_transaksi, id_jenis_transaksi, rekening_tujuan, nominal, keterangan, promo_id, jenis_tagihan_id) " +
+            string sql1 = "insert into transaksi (rekening_sumber, id_transaksi, tgl_transaksi, id_jenis_transaksi, rekening_tujuan, nominal, keterangan, promo_id, jenis_tagihan_id) " +
                          "values ('" + t.Rekening_sumber.Rekening + "', '" + t.TransaksiId + "', '" + t.Tgl_transaksi.ToString("yyyy-MM-dd HH:mm:ss") + "', '" +
                          t.Id_jenis_transaksi.Id_jenis_transaksi + "', '" + t.Rekening_tujuan.Rekening + "', '" + t.Nominal + "', '" + t.Keterangan + "', '" + t.Id_promo + "', '" + t.Id_jenis_transaksi + "')";
 
-            Koneksi.JalankanPerintahDML(sql, k);
+            Koneksi.JalankanPerintahDML(sql1, k);
+
+            
         }
         public static void UbahData(Transaksi t, Koneksi k)
         {

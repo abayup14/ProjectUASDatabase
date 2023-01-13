@@ -247,6 +247,12 @@
     <Compile Include="FormTambahPromo.Designer.cs">
       <DependentUpon>FormTambahPromo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTambahTabungan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahTabungan.Designer.cs">
+      <DependentUpon>FormTambahTabungan.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTambahTransaksi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -416,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahPromo.resx">
       <DependentUpon>FormTambahPromo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahTabungan.resx">
+      <DependentUpon>FormTambahTabungan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahTransaksi.resx">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>

@@ -13,7 +13,8 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormTabunganPengguna : Form
     {
-        FormUtama formUtama;
+        //FormUtama formUtama;
+        FormDaftarTabungan formDaftarTabungan;
 
         public Pengguna p;
 
@@ -26,46 +27,25 @@ namespace ProjectDatabase_Ivano
 
         private void FormTabunganPengguna_Load(object sender, EventArgs e)
         {
-            formUtama = (FormUtama)this.MdiParent;
+            formDaftarTabungan = (FormDaftarTabungan)this.Owner;
 
-            p = Pengguna.AmbilDataByKode(formUtama.pengguna.Nik);
+            //formUtama = (FormUtama)this.MdiParent;
 
-            t = Tabungan.AmbilDataTabungan(p);
+            p = formDaftarTabungan.pengguna;
 
-            labelRekening.Text = t.Rekening;
+            t = Tabungan.AmbilDataTabungan(formDaftarTabungan.dataGridViewTabungan.CurrentRow.Cells["NoRekening"].Value.ToString());
 
-            labelSaldo.Text = "Rp. " + t.Saldo.ToString("N0");
+            //labelRekening.Text = t.Rekening;
 
-            labelKeterangan.Text = t.Keterangan;
+            //labelSaldo.Text = "Rp. " + t.Saldo.ToString("N0");
 
-            labelTanggal.Text = t.Tgl_buat.ToShortDateString();
+            //labelKeterangan.Text = t.Keterangan;
 
-            labelStatus.Text = t.Status;
+            //labelTanggal.Text = t.Tgl_buat.ToShortDateString();
 
-            DisplayStatusPicture(t.Status);
-        }
+            //labelStatus.Text = t.Status;
 
-        private void DisplayStatusPicture(string status)
-        {
-            PictureBox pictureBox = new PictureBox();
-
-            pictureBox.Parent = panel1;
-            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox.BackColor = Color.Transparent;
-            Image statusPicture = null;
-            if (status == "Unverified")
-            {
-                statusPicture = new Bitmap(Properties.Resources.silang);
-            }
-            else if (status == "Aktif")
-            {
-                statusPicture = new Bitmap(Properties.Resources.centang);
-            }
-            pictureBox.Image = statusPicture;
-            pictureBox.Size = new Size(75, 75);
-            pictureBox.Location = new Point(400, 50);
-            pictureBox.Visible = true;
-            pictureBox.BringToFront();
+            
         }
 
         private void buttonTopUp_Click(object sender, EventArgs e)
@@ -122,6 +102,7 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
+            formDaftarTabungan.FormDaftarTabungan_Load(buttonKeluar, e);
             Close();
         }
     }

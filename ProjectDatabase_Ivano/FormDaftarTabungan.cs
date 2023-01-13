@@ -23,6 +23,8 @@ namespace ProjectDatabase_Ivano
 
         public Pengguna pengguna;
 
+        Tabungan tabungan;
+
         public FormDaftarTabungan()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace ProjectDatabase_Ivano
 
         public void FormDaftarTabungan_Load(object sender, EventArgs e)
         {
+            FormatDataGridTabungan();
             k = new Koneksi();
 
             formUtama = (FormUtama)this.MdiParent;
@@ -45,8 +48,6 @@ namespace ProjectDatabase_Ivano
             }
             else if (pengguna != null)
             {
-                FormatDataGrid();
-
                 listTabungan = Tabungan.BacaData("p.nik", pengguna.Nik);
             }
 
@@ -60,19 +61,31 @@ namespace ProjectDatabase_Ivano
                 }
                 if (dataGridViewTabungan.ColumnCount < 8)
                 {
-                    DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
-                    bcol1.HeaderText = "Aksi";
-                    bcol1.Text = "Ubah Status";
-                    bcol1.Name = "buttonUbahStatusGrid";
-                    bcol1.UseColumnTextForButtonValue = true;
-                    dataGridViewTabungan.Columns.Add(bcol1);
+                    if (pengguna != null)
+                    {
+                        DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
+                        bcol.HeaderText = "Aksi";
+                        bcol.Text = "Detail";
+                        bcol.Name = "buttonDetailGrid";
+                        bcol.UseColumnTextForButtonValue = true;
+                        dataGridViewTabungan.Columns.Add(bcol);
+                    }
+                    if (employee != null)
+                    {
+                        DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
+                        bcol1.HeaderText = "Aksi";
+                        bcol1.Text = "Ubah Status";
+                        bcol1.Name = "buttonUbahStatusGrid";
+                        bcol1.UseColumnTextForButtonValue = true;
+                        dataGridViewTabungan.Columns.Add(bcol1);
 
-                    DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                    bcol2.HeaderText = "Aksi";
-                    bcol2.Text = "Hapus Data";
-                    bcol2.Name = "buttonHapusGrid";
-                    bcol2.UseColumnTextForButtonValue = true;
-                    dataGridViewTabungan.Columns.Add(bcol2);
+                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                        bcol2.HeaderText = "Aksi";
+                        bcol2.Text = "Hapus Data";
+                        bcol2.Name = "buttonHapusGrid";
+                        bcol2.UseColumnTextForButtonValue = true;
+                        dataGridViewTabungan.Columns.Add(bcol2);
+                    }
                 }
             }
             else
@@ -81,9 +94,10 @@ namespace ProjectDatabase_Ivano
             }
         }
 
-        private void FormatDataGrid()
+        private void FormatDataGridTabungan()
         {
             dataGridViewTabungan.Rows.Clear();
+            dataGridViewTabungan.Columns.Clear();
             dataGridViewTabungan.Columns.Add("NoRekening", "No. Rekening");
             dataGridViewTabungan.Columns.Add("Saldo", "Saldo");
             dataGridViewTabungan.Columns.Add("Status", "Status");
@@ -93,61 +107,94 @@ namespace ProjectDatabase_Ivano
             dataGridViewTabungan.Columns["NoRekening"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
+        
+
         private void dataGridViewTabungan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
+            if (pengguna != null)
             {
-                string nik = dataGridViewTabungan.CurrentRow.Cells["pengguna"].Value.ToString();
-                string id_pengguna = Pengguna.AmbilNamaLengkap(nik);
-                string no_rekening = dataGridViewTabungan.CurrentRow.Cells["rekening"].Value.ToString();
-                double saldo = double.Parse(dataGridViewTabungan.CurrentRow.Cells["saldo"].Value.ToString());
-                string status = dataGridViewTabungan.CurrentRow.Cells["status"].Value.ToString();
-                string keterangan = dataGridViewTabungan.CurrentRow.Cells["keterangan"].Value.ToString();
-                DateTime tgl_buat = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["tgl_buat"].Value.ToString());
-                DateTime tgl_perubahan = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
-                string id = dataGridViewTabungan.CurrentRow.Cells["verifikator"].Value.ToString();
-                string verifikator = Employee.AmbilNamaLengkap(id);
-
-                DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah " +
-                                                     "\nNo Rekening : " + no_rekening +
-                                                     "\nNama Pengguna : " + id_pengguna +
-                                                     "\nSaldo : " + saldo +
-                                                     "\nStatus : " + status +
-                                                     "\nKeterangan : " + keterangan +
-                                                     "\ntgl_buat : " + tgl_buat +
-                                                     "\ntgl_perubahan : " + tgl_perubahan +
-                                                     "\nVerifikator : " + verifikator +
-                                                     "\n\nApakah anda yakin ingin menghapus data di atas?",
-                                                     "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (hasil == DialogResult.Yes)
+                if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonDetailGrid"].Index && e.RowIndex >= 0)
                 {
-                    Tabungan t = new Tabungan(no_rekening);
-                    Tabungan.HapusData(t, k);
-                    MessageBox.Show("Data Berhasil Dihapus.", "Informasi");
-                    FormDaftarTabungan_Load(buttonKeluar, e);
-
+                    tabungan = Tabungan.AmbilDataTabungan(dataGridViewTabungan.CurrentRow.Cells["NoRekening"].Value.ToString());
+                    FormTabunganPengguna formTabunganPengguna = new FormTabunganPengguna();
+                    formTabunganPengguna.Owner = this;
+                    formTabunganPengguna.labelRekening.Text = tabungan.Rekening;
+                    formTabunganPengguna.labelSaldo.Text = "Rp. " + tabungan.Saldo.ToString();
+                    formTabunganPengguna.labelKeterangan.Text = tabungan.Keterangan;
+                    formTabunganPengguna.labelTanggal.Text = tabungan.Tgl_buat.ToShortDateString();
+                    formTabunganPengguna.labelStatus.Text = tabungan.Status;
+                    formUtama.DisplayStatusPicture(tabungan.Status, formTabunganPengguna.panel1);
+                    formTabunganPengguna.ShowDialog();
                 }
             }
-            else if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonUbahStatusGrid"].Index && e.RowIndex >= 0)
+            else if (employee != null)
             {
-                FormUtama formUtama = (FormUtama)this.MdiParent;
-                string nik = dataGridViewTabungan.CurrentRow.Cells["pengguna"].Value.ToString();
-                Pengguna id_pengguna = Pengguna.AmbilDataByKode(nik);
-                string no_rekening = dataGridViewTabungan.CurrentRow.Cells["rekening"].Value.ToString();
-                double saldo = double.Parse(dataGridViewTabungan.CurrentRow.Cells["saldo"].Value.ToString());
-                string status = dataGridViewTabungan.CurrentRow.Cells["status"].Value.ToString();
-                string keterangan = dataGridViewTabungan.CurrentRow.Cells["keterangan"].Value.ToString();
-                DateTime tgl_buat = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["tgl_buat"].Value.ToString());
-                //DateTime tgl_perubahan = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
-                int id = int.Parse(dataGridViewTabungan.CurrentRow.Cells["verifikator"].Value.ToString());
-                Employee verifikator = formUtama.employee;
+                if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
+                {
+                    string nik = dataGridViewTabungan.CurrentRow.Cells["pengguna"].Value.ToString();
+                    string id_pengguna = Pengguna.AmbilNamaLengkap(nik);
+                    string no_rekening = dataGridViewTabungan.CurrentRow.Cells["rekening"].Value.ToString();
+                    double saldo = double.Parse(dataGridViewTabungan.CurrentRow.Cells["saldo"].Value.ToString());
+                    string status = dataGridViewTabungan.CurrentRow.Cells["status"].Value.ToString();
+                    string keterangan = dataGridViewTabungan.CurrentRow.Cells["keterangan"].Value.ToString();
+                    DateTime tgl_buat = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["tgl_buat"].Value.ToString());
+                    DateTime tgl_perubahan = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
+                    string id = dataGridViewTabungan.CurrentRow.Cells["verifikator"].Value.ToString();
+                    string verifikator = Employee.AmbilNamaLengkap(id);
 
-                Tabungan t = new Tabungan(no_rekening, id_pengguna, saldo, status, keterangan, tgl_buat, 
-                    DateTime.Now, verifikator);
-                Tabungan.UbahData(t, verifikator, k);
-                MessageBox.Show("Data Berhasil Dirubah.", "Informasi");
-                FormDaftarTabungan_Load(buttonKeluar, e);
+                    DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah " +
+                                                         "\nNo Rekening : " + no_rekening +
+                                                         "\nNama Pengguna : " + id_pengguna +
+                                                         "\nSaldo : " + saldo +
+                                                         "\nStatus : " + status +
+                                                         "\nKeterangan : " + keterangan +
+                                                         "\ntgl_buat : " + tgl_buat +
+                                                         "\ntgl_perubahan : " + tgl_perubahan +
+                                                         "\nVerifikator : " + verifikator +
+                                                         "\n\nApakah anda yakin ingin menghapus data di atas?",
+                                                         "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (hasil == DialogResult.Yes)
+                    {
+                        Tabungan t = new Tabungan(no_rekening);
+                        Tabungan.HapusData(t, k);
+                        MessageBox.Show("Data Berhasil Dihapus.", "Informasi");
+                        
+                        FormDaftarTabungan_Load(buttonKeluar, e);
+
+                    }
+                }
+                else if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonUbahStatusGrid"].Index && e.RowIndex >= 0)
+                {
+                    //FormUtama formUtama = (FormUtama)this.MdiParent;
+                    //string nik = dataGridViewTabungan.CurrentRow.Cells["pengguna"].Value.ToString();
+                    //Pengguna id_pengguna = Pengguna.AmbilDataByKode(nik);
+                    //string status = dataGridViewTabungan.CurrentRow.Cells["status"].Value.ToString();
+                    //DateTime tgl_perubahan = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
+                    //int id = int.Parse(dataGridViewTabungan.CurrentRow.Cells["verifikator"].Value.ToString());
+                    //Employee verifikator = formUtama.employee;
+                    if (dataGridViewTabungan.CurrentRow.Cells["Status"].Value.ToString() == "Aktif")
+                    {
+                        MessageBox.Show("Tabungan sudah berstatus aktif. Anda tidak perlu mengaktifkannya lagi.");
+                    }
+                    else
+                    {
+                        tabungan = Tabungan.AmbilDataTabungan(dataGridViewTabungan.CurrentRow.Cells["NoRekening"].Value.ToString());
+                        Pengguna pengguna = Tabungan.AmbilDataPengguna(dataGridViewTabungan.CurrentRow.Cells["NoRekening"].Value.ToString());
+                        string no_rekening = dataGridViewTabungan.CurrentRow.Cells["NoRekening"].Value.ToString();
+                        double saldo = double.Parse(dataGridViewTabungan.CurrentRow.Cells["Saldo"].Value.ToString());
+                        string status = tabungan.Status;
+                        string keterangan = dataGridViewTabungan.CurrentRow.Cells["Keterangan"].Value.ToString();
+                        DateTime tgl_buat = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["TanggalBuat"].Value.ToString());
+                        Employee verifikator = tabungan.Verifikator;
+
+                        Tabungan t = new Tabungan(no_rekening, pengguna, saldo, status, keterangan, tgl_buat,
+                            DateTime.Now, verifikator);
+                        Tabungan.UbahStatus(t, verifikator, k);
+                        MessageBox.Show("Tabungan berhasil diaktifkan.", "Informasi");
+                    }
+                    
+                    FormDaftarTabungan_Load(buttonKeluar, e);
+                }
             }
         }
 
@@ -158,7 +205,10 @@ namespace ProjectDatabase_Ivano
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
-
+            FormTambahTabungan formTambahTabungan = new FormTambahTabungan();
+            formTambahTabungan.Owner = this;
+            formTambahTabungan.textBoxNoRekening.Text = Tabungan.GenerateNomorRekening();
+            formTambahTabungan.ShowDialog();
         }
     }
 }

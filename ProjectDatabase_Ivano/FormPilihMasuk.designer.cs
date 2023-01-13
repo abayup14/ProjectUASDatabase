@@ -32,8 +32,8 @@
             this.buttonPegawai = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
             this.buttonKeluar = new System.Windows.Forms.Button();
+            this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,17 +87,6 @@
             this.panel1.Size = new System.Drawing.Size(529, 200);
             this.panel1.TabIndex = 52;
             // 
-            // checkBoxTunjukkan
-            // 
-            this.checkBoxTunjukkan.AutoSize = true;
-            this.checkBoxTunjukkan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxTunjukkan.Location = new System.Drawing.Point(688, 62);
-            this.checkBoxTunjukkan.Name = "checkBoxTunjukkan";
-            this.checkBoxTunjukkan.Size = new System.Drawing.Size(107, 22);
-            this.checkBoxTunjukkan.TabIndex = 25;
-            this.checkBoxTunjukkan.Text = "Tunjukkan";
-            this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
-            // 
             // buttonKeluar
             // 
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
@@ -111,6 +100,17 @@
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
             this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
+            // 
+            // checkBoxTunjukkan
+            // 
+            this.checkBoxTunjukkan.AutoSize = true;
+            this.checkBoxTunjukkan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxTunjukkan.Location = new System.Drawing.Point(688, 62);
+            this.checkBoxTunjukkan.Name = "checkBoxTunjukkan";
+            this.checkBoxTunjukkan.Size = new System.Drawing.Size(107, 22);
+            this.checkBoxTunjukkan.TabIndex = 25;
+            this.checkBoxTunjukkan.Text = "Tunjukkan";
+            this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
             // 
             // FormPilihMasuk
             // 

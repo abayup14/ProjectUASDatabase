@@ -252,3 +252,4 @@ D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Iva
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTabunganPengguna.resources
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormMasukkanPIN.resources
 D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDepositoPengguna.resources
+D:\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahTabungan.resources

@@ -47,15 +47,16 @@ namespace ProjectDatabase_Ivano
             this.penggunaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.profilPenggunaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabunganPenggunaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.depositoPenggunaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.daftarNomorRekeningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.keluarSistemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelStrip = new System.Windows.Forms.Label();
             this.labelNama = new System.Windows.Forms.Label();
             this.labelKode = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.depositoPenggunaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelAndaLogin = new System.Windows.Forms.Label();
+            this.addressBookPenggunaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -189,7 +190,8 @@ namespace ProjectDatabase_Ivano
             this.penggunaToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.profilPenggunaToolStripMenuItem,
             this.tabunganPenggunaToolStripMenuItem,
-            this.depositoPenggunaToolStripMenuItem});
+            this.depositoPenggunaToolStripMenuItem,
+            this.addressBookPenggunaToolStripMenuItem});
             this.penggunaToolStripMenuItem1.Name = "penggunaToolStripMenuItem1";
             this.penggunaToolStripMenuItem1.Size = new System.Drawing.Size(88, 24);
             this.penggunaToolStripMenuItem1.Text = "Pengguna";
@@ -207,6 +209,13 @@ namespace ProjectDatabase_Ivano
             this.tabunganPenggunaToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.tabunganPenggunaToolStripMenuItem.Text = "Tabungan Pengguna";
             this.tabunganPenggunaToolStripMenuItem.Click += new System.EventHandler(this.tabunganPenggunaToolStripMenuItem_Click);
+            // 
+            // depositoPenggunaToolStripMenuItem
+            // 
+            this.depositoPenggunaToolStripMenuItem.Name = "depositoPenggunaToolStripMenuItem";
+            this.depositoPenggunaToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.depositoPenggunaToolStripMenuItem.Text = "Deposito Pengguna";
+            this.depositoPenggunaToolStripMenuItem.Click += new System.EventHandler(this.depositoPenggunaToolStripMenuItem_Click);
             // 
             // transaksiToolStripMenuItem
             // 
@@ -236,15 +245,15 @@ namespace ProjectDatabase_Ivano
             this.keluarSistemToolStripMenuItem.Text = "Keluar Sistem";
             this.keluarSistemToolStripMenuItem.Click += new System.EventHandler(this.keluarSistemToolStripMenuItem_Click);
             // 
-            // label4
+            // labelStrip
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(700, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(15, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "-";
+            this.labelStrip.AutoSize = true;
+            this.labelStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStrip.Location = new System.Drawing.Point(700, 9);
+            this.labelStrip.Name = "labelStrip";
+            this.labelStrip.Size = new System.Drawing.Size(15, 20);
+            this.labelStrip.TabIndex = 8;
+            this.labelStrip.Text = "-";
             // 
             // labelNama
             // 
@@ -266,32 +275,32 @@ namespace ProjectDatabase_Ivano
             this.labelKode.TabIndex = 6;
             this.labelKode.Text = "Kode";
             // 
-            // label1
+            // labelAndaLogin
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(442, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Anda login sebagai :";
+            this.labelAndaLogin.AutoSize = true;
+            this.labelAndaLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAndaLogin.Location = new System.Drawing.Point(442, 9);
+            this.labelAndaLogin.Name = "labelAndaLogin";
+            this.labelAndaLogin.Size = new System.Drawing.Size(145, 20);
+            this.labelAndaLogin.TabIndex = 5;
+            this.labelAndaLogin.Text = "Anda login sebagai :";
             // 
-            // depositoPenggunaToolStripMenuItem
+            // addressBookPenggunaToolStripMenuItem
             // 
-            this.depositoPenggunaToolStripMenuItem.Name = "depositoPenggunaToolStripMenuItem";
-            this.depositoPenggunaToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
-            this.depositoPenggunaToolStripMenuItem.Text = "Deposito Pengguna";
-            this.depositoPenggunaToolStripMenuItem.Click += new System.EventHandler(this.depositoPenggunaToolStripMenuItem_Click);
+            this.addressBookPenggunaToolStripMenuItem.Name = "addressBookPenggunaToolStripMenuItem";
+            this.addressBookPenggunaToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.addressBookPenggunaToolStripMenuItem.Text = "Address Book Pengguna";
+            this.addressBookPenggunaToolStripMenuItem.Click += new System.EventHandler(this.addressBookPenggunaToolStripMenuItem_Click);
             // 
             // FormUtama
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 526);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelStrip);
             this.Controls.Add(this.labelNama);
             this.Controls.Add(this.labelKode);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelAndaLogin);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormUtama";
@@ -317,9 +326,9 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.ToolStripMenuItem transferToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem daftarNomorRekeningToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem keluarSistemToolStripMenuItem;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelStrip;
         private System.Windows.Forms.Label labelNama;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelAndaLogin;
         private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inboxToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tabunganToolStripMenuItem;
@@ -335,6 +344,7 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.ToolStripMenuItem riwayatHadiahToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tabunganPenggunaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem depositoPenggunaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addressBookPenggunaToolStripMenuItem;
     }
 }
 

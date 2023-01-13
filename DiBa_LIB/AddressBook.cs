@@ -31,11 +31,16 @@ namespace DiBa_LIB
 
             if (kriteria == "")
             {
-                sql = "select * from address_book";
+                sql = "select * from address_book ab " +
+                      "inner join pengguna p on ab.id_pengguna = p.nik " +
+                      "inner join tabungan t on ab.no_rekening = t.no_rekening";
             }
             else
             {
-                sql = "select * from address_book where '" + kriteria + "' LIKE '%" + nilaiKriteria + "%'";
+                sql = "select * from address_book ab " +
+                      "inner join pengguna p on ab.id_pengguna = p.nik " +
+                      "inner join tabungan t on ab.no_rekening = t.no_rekening " + 
+                      "where " + kriteria + " LIKE '%" + nilaiKriteria + "%'";
             }
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
@@ -44,8 +49,28 @@ namespace DiBa_LIB
 
             while (hasil.Read() == true)
             {
-                Pengguna p = new Pengguna(hasil.GetString(0));
-                Tabungan t = new Tabungan(hasil.GetValue(1).ToString());
+                Pengguna p = new Pengguna(hasil.GetString(3),
+                                          hasil.GetString(4),
+                                          hasil.GetString(5),
+                                          hasil.GetString(6),
+                                          hasil.GetString(7),
+                                          hasil.GetString(8),
+                                          hasil.GetString(9),
+                                          hasil.GetString(10),
+                                          DateTime.Parse(hasil.GetString(11)),
+                                          DateTime.Parse(hasil.GetString(12)));
+                
+                Employee verifikator = new Employee(int.Parse(hasil.GetString(20)));
+
+                Tabungan t = new Tabungan(hasil.GetValue(13).ToString(),
+                                          p,
+                                          double.Parse(hasil.GetString(15)),
+                                          hasil.GetString(16),
+                                          hasil.GetString(17),
+                                          DateTime.Parse(hasil.GetString(18)),
+                                          DateTime.Parse(hasil.GetString(19)),
+                                          verifikator);
+
                 AddressBook ab = new AddressBook(p, t, hasil.GetString(2));
                 listOfAdressBook.Add(ab);
             }

@@ -201,6 +201,7 @@ namespace DiBa_LIB
                 return null;
             }
         }
+        
         public static bool CekPIN(Pengguna p)
         {
             string sql = "SELECT SHA2('', 512), pin from pengguna where nik = '" + p.Nik + "'";

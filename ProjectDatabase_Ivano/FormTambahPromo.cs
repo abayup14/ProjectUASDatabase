@@ -20,17 +20,7 @@ namespace ProjectDatabase_Ivano
 
         public List<Promo> listPromo = new List<Promo>();
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void buttonKirim_Click(object sender, EventArgs e)
+        private void buttonTambah_Click(object sender, EventArgs e)
         {
             try
             {
@@ -40,9 +30,9 @@ namespace ProjectDatabase_Ivano
 
                 if (hasil == DialogResult.Yes)
                 {
-                    Promo p = new Promo(Promo.GenerateKode(), textBoxNamaPromo.Text, dateTimePickerTglAwal.Value, dateTimePickerTglAwal.Value, textBoxKeterangan.Text); 
+                    Promo p = new Promo(Promo.GenerateKode(), textBoxNamaPromo.Text, dateTimePickerTglAwal.Value, dateTimePickerTglAwal.Value, textBoxKeterangan.Text);
 
-                    
+
 
                     Promo.TambahData(p, k);
 
@@ -53,11 +43,6 @@ namespace ProjectDatabase_Ivano
             {
                 MessageBox.Show("Promo gagal ditambah. Pesan kesalahan : " + ex.Message, "Error");
             }
-        }
-
-        private void FormTambahPromo_Load(object sender, EventArgs e)
-        {
-
         }
     }
     

@@ -151,19 +151,8 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
-            DialogResult hasil = MessageBox.Show("Jika anda menekan tombol keluar, maka aplikasi akan ditutup." +
-                                                 "\nApakah anda yakin ingin keluar?", "Konfirmasi", MessageBoxButtons.YesNo,
-                                                 MessageBoxIcon.Warning);
-            if (hasil == DialogResult.Yes)
-            {
-                Close();
-                Application.Exit();
-            }
+            Close();
         }
 
-        private void linkLabelLupaPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
     }
 }

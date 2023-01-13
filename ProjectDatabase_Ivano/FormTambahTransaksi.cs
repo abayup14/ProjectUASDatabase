@@ -23,7 +23,8 @@ namespace ProjectDatabase_Ivano
         List<Tabungan> listTabungan = new List<Tabungan>();
         public List<Promo> listPromo = new List<Promo>();
         public List<JenisTagihan> listJenisTagihan = new List<JenisTagihan>();
-        FormDaftarTransaksi formDaftarTransaksi;
+        //FormDaftarTransaksi formDaftarTransaksi;
+        FormTabunganPengguna formTabunganPengguna;
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
@@ -61,11 +62,12 @@ namespace ProjectDatabase_Ivano
 
         private void FormTambahTransaksi_Load(object sender, EventArgs e)
         {
-            formDaftarTransaksi = (FormDaftarTransaksi)this.Owner;
-            labelNoRekening.Text = Tabungan.AmbilDataNoRekening(formDaftarTransaksi.pengguna.Nik);
+            formTabunganPengguna = (FormTabunganPengguna)this.Owner;
+            //formDaftarTransaksi = (FormDaftarTransaksi)this.Owner;
+            labelNoRekening.Text = formTabunganPengguna.labelRekening.Text;
 
             listJenisTransaksi = JenisTransaksi.ReadData("", "");
-            listTabungan = Tabungan.BacaData("", ""); 
+            listTabungan = Tabungan.BacaData("t.no_rekening not", labelNoRekening.Text);
 
             comboBoxJenisTransaksi.DataSource = listJenisTransaksi;
             comboBoxJenisTransaksi.DisplayMember = "nama";
