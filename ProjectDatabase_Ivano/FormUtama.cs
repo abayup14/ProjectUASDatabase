@@ -94,6 +94,7 @@ namespace ProjectDatabase_Ivano
             else if (employee != null)
             {
                 MenuToolStripMenuItem.Visible = true;
+                transaksiToolStripMenuItem.Visible = false;
             }
         }
 
@@ -362,6 +363,23 @@ namespace ProjectDatabase_Ivano
                 formTabunganPengguna.MdiParent = this;
 
                 formTabunganPengguna.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void depositoPenggunaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDepositoPengguna"];
+            if (form == null)
+            {
+                FormDepositoPengguna formDepositoPengguna = new FormDepositoPengguna();
+                formDepositoPengguna.MdiParent = this;
+                formDepositoPengguna.Show();
             }
             else
             {

@@ -19,11 +19,6 @@ namespace ProjectDatabase_Ivano
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonUbah_Click(object sender, EventArgs e)
         {
             DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin mencairkan deposito anda?", "Konfirmasi", MessageBoxButtons.YesNo,

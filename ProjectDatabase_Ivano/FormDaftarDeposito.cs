@@ -26,14 +26,7 @@ namespace ProjectDatabase_Ivano
             InitializeComponent();
         }
 
-        private void buttonTambah_Click(object sender, EventArgs e)
-        {
-            FormTambahDeposito formTambahDeposito = new FormTambahDeposito();
 
-            formTambahDeposito.Owner = this;
-
-            formTambahDeposito.Show();
-        }
 
         public void FormDaftarDeposito_Load(object sender, EventArgs e)
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Win32.SafeHandles;
 using MySql.Data.MySqlClient;
 
 namespace DiBa_LIB
@@ -194,6 +195,38 @@ namespace DiBa_LIB
             else
             {
                 return false;
+            }
+        }
+        public static Deposito AmbilDataDeposito(Pengguna p)
+        {
+            string sql = "SELECT * from deposito d " +
+                         "inner join tabungan t on d.no_rekening = t.no_rekening " +
+                         "inner join pengguna p on t.id_pengguna = p.nik " +
+                         "where p.nik = '" + p.Nik + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                Tabungan t = new Tabungan(hasil.GetValue(1).ToString());
+                Employee vBuka = new Employee(int.Parse(hasil.GetValue(8).ToString()));
+                Employee vCair = new Employee(int.Parse(hasil.GetValue(9).ToString()));
+                Deposito d = new Deposito(hasil.GetValue(0).ToString(),
+                                          t,
+                                          int.Parse(hasil.GetValue(2).ToString()),
+                                          double.Parse(hasil.GetValue(3).ToString()),
+                                          double.Parse(hasil.GetValue(4).ToString()),
+                                          hasil.GetValue(5).ToString(),
+                                          DateTime.Parse(hasil.GetValue(6).ToString()),
+                                          DateTime.Parse(hasil.GetValue(7).ToString()),
+                                          vBuka,
+                                          vCair);
+
+                return d;
+            }
+            else
+            {
+                return null;
             }
         }
         #endregion

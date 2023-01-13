@@ -35,7 +35,6 @@ namespace ProjectDatabase_Ivano
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonKeluar = new System.Windows.Forms.Button();
-            this.buttonTambah = new System.Windows.Forms.Button();
             this.dataGridViewDeposito = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDeposito)).BeginInit();
@@ -118,20 +117,6 @@ namespace ProjectDatabase_Ivano
             this.buttonKeluar.UseVisualStyleBackColor = false;
             this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
-            // buttonTambah
-            // 
-            this.buttonTambah.BackColor = System.Drawing.Color.Navy;
-            this.buttonTambah.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(15, 500);
-            this.buttonTambah.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonTambah.Name = "buttonTambah";
-            this.buttonTambah.Size = new System.Drawing.Size(201, 53);
-            this.buttonTambah.TabIndex = 42;
-            this.buttonTambah.Text = "&TAMBAH";
-            this.buttonTambah.UseVisualStyleBackColor = false;
-            this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
-            // 
             // dataGridViewDeposito
             // 
             this.dataGridViewDeposito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -151,7 +136,6 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonKeluar);
-            this.Controls.Add(this.buttonTambah);
             this.Controls.Add(this.dataGridViewDeposito);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDaftarDeposito";
@@ -172,7 +156,6 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonKeluar;
-        private System.Windows.Forms.Button buttonTambah;
         public System.Windows.Forms.DataGridView dataGridViewDeposito;
     }
 }
