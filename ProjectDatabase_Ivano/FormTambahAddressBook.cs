@@ -33,8 +33,6 @@ namespace ProjectDatabase_Ivano
 
             pengguna = formDaftarAddressBook.pengguna;
 
-            comboBoxPilihRekening.SelectedIndex = -1;
-
             listTabungan = Tabungan.BacaData("p.nik not", pengguna.Nik);
 
             if (listTabungan.Count > 0)
@@ -81,12 +79,13 @@ namespace ProjectDatabase_Ivano
             //labelNamaPengguna.Text = "";
             //textBoxNoRekening.Clear();
             comboBoxPilihRekening.SelectedIndex = -1;
+            labelNama.Text = "";
             textBoxPesan.Clear();
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
-            FormDaftarAddressBook formDaftarAddressBook = (FormDaftarAddressBook)this.Owner;
+            //FormDaftarAddressBook formDaftarAddressBook = (FormDaftarAddressBook)this.Owner;
 
             formDaftarAddressBook.FormDaftarAddressBook_Load(buttonKeluar, e);
 

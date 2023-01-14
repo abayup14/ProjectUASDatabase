@@ -106,7 +106,7 @@ namespace DiBa_LIB
 
             Koneksi.JalankanPerintahDML(sql1, k);
 
-            
+          
         }
         public static void UbahData(Transaksi t, Koneksi k)
         {

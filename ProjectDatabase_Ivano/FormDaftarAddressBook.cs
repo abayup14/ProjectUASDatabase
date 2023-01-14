@@ -69,6 +69,13 @@ namespace ProjectDatabase_Ivano
 
                 if (dataGridViewAddressBook.ColumnCount == 3)
                 {
+                    DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
+                    bcol1.HeaderText = "Aksi";
+                    bcol1.Text = "Transfer";
+                    bcol1.Name = "buttonTransaksiGrid";
+                    bcol1.UseColumnTextForButtonValue = true;
+                    dataGridViewAddressBook.Columns.Add(bcol1);
+
                     DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
                     bcol2.HeaderText = "Aksi";
                     bcol2.Text = "Hapus";
