@@ -32,7 +32,6 @@ namespace ProjectDatabase_Ivano
 
         public void FormDaftarTabungan_Load(object sender, EventArgs e)
         {
-            FormatDataGridTabungan();
             k = new Koneksi();
 
             formUtama = (FormUtama)this.MdiParent;
@@ -48,16 +47,25 @@ namespace ProjectDatabase_Ivano
             }
             else if (pengguna != null)
             {
+                FormatDataGridTabungan();
                 listTabungan = Tabungan.BacaData("p.nik", pengguna.Nik);
             }
 
             if (listTabungan.Count > 0)
             {
-                //dataGridViewTabungan.DataSource = listTabungan;
-                foreach (Tabungan tabungan in listTabungan)
+                
+                if (pengguna != null)
                 {
-                    dataGridViewTabungan.Rows.Add(tabungan.Rekening, tabungan.Saldo.ToString(), tabungan.Tgl_buat.ToShortDateString());
+                    foreach (Tabungan tabungan in listTabungan)
+                    {
+                        dataGridViewTabungan.Rows.Add(tabungan.Rekening, tabungan.Saldo.ToString(), tabungan.Tgl_buat.ToShortDateString());
+                    }
                 }
+                else
+                {
+                    dataGridViewTabungan.DataSource = listTabungan;
+                }
+
                 if (dataGridViewTabungan.ColumnCount < 8)
                 {
                     if (pengguna != null)
@@ -69,7 +77,7 @@ namespace ProjectDatabase_Ivano
                         bcol.UseColumnTextForButtonValue = true;
                         dataGridViewTabungan.Columns.Add(bcol);
                     }
-                    if (employee != null)
+                    else if (employee != null)
                     {
                         DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
                         bcol1.HeaderText = "Aksi";
