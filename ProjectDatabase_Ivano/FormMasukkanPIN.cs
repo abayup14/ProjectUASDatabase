@@ -18,6 +18,8 @@ namespace ProjectDatabase_Ivano
 
         //public Tabungan tabungan;
 
+        int countMistake = 0;
+
         public FormMasukkanPIN()
         {
             InitializeComponent();
@@ -38,16 +40,6 @@ namespace ProjectDatabase_Ivano
             {
                 textBoxPIN.UseSystemPasswordChar = true;
             }
-        }
-
-        private void textBoxPIN_Enter(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBoxPIN_Leave(object sender, EventArgs e)
-        {
-            
         }
 
         private void buttonSimpan_Click(object sender, EventArgs e)
@@ -108,27 +100,49 @@ namespace ProjectDatabase_Ivano
 
                     if (hasil == DialogResult.Yes)
                     {
-                        for (int i = 0; i < 3; i++)
+                        if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == true)
                         {
-                            if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == true && i <= 2)
+                            string no_rekening = Tabungan.AmbilDataNoRekening(pengguna.Nik);
+                            Tabungan t = new Tabungan(no_rekening);
+                            Tabungan.UbahSaldo(t, double.Parse(formTopUp.textBoxJumlah.Text), k);
+                            MessageBox.Show("Berhasil topup", "Informasi");
+                            Close();
+                        }
+                        else
+                        {
+                            countMistake++;
+                            if (countMistake <= 2)
                             {
-                                string no_rekening = Tabungan.AmbilDataNoRekening(pengguna.Nik);
-                                Tabungan t = new Tabungan(no_rekening);
-                                Tabungan.UbahSaldo(t, double.Parse(formTopUp.textBoxJumlah.Text), k);
-                                MessageBox.Show("Berhasil topup", "Informasi");
-                                Close();
+                                MessageBox.Show("Maaf, PIN yang anda masukkan salah. Silahkan coba lagi");
                             }
-                            else if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == false && i > 2)
+                            else
                             {
                                 Tabungan.UbahStatusSuspend(tabungan, k);
                                 MessageBox.Show("Anda memasukkan PIN 3x berturut-turut dan gagal. Tabungan anda diblokir.");
                                 Close();
                             }
-                            else if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == false && i <= 2)
-                            {
-                                MessageBox.Show("Maaf, PIN yang anda masukkan salah. Silahkan coba lagi");
-                            }
                         }
+                        //for (int i = 0; i < 3; i++)
+                        //{
+                        //    if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == true && i <= 2)
+                        //    {
+                        //        string no_rekening = Tabungan.AmbilDataNoRekening(pengguna.Nik);
+                        //        Tabungan t = new Tabungan(no_rekening);
+                        //        Tabungan.UbahSaldo(t, double.Parse(formTopUp.textBoxJumlah.Text), k);
+                        //        MessageBox.Show("Berhasil topup", "Informasi");
+                        //        Close();
+                        //    }
+                        //    else if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == false && i > 2)
+                        //    {
+                        //        Tabungan.UbahStatusSuspend(tabungan, k);
+                        //        MessageBox.Show("Anda memasukkan PIN 3x berturut-turut dan gagal. Tabungan anda diblokir.");
+                        //        Close();
+                        //    }
+                        //    else if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == false && i <= 2)
+                        //    {
+                        //        MessageBox.Show("Maaf, PIN yang anda masukkan salah. Silahkan coba lagi");
+                        //    }
+                        //}
                     }
                 }
             }

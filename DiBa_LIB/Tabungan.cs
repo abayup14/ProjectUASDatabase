@@ -105,7 +105,7 @@ namespace DiBa_LIB
         }
         public static void UbahStatusSuspend(Tabungan t, Koneksi k)
         {
-            string sql = "UPDATE tabungan set status = 'Suspend', tgl_perubahan = '" + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + " " +
+            string sql = "UPDATE tabungan set status = 'Suspend', tgl_perubahan = '" + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
                          "WHERE no_rekening = '" + t.Rekening + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
