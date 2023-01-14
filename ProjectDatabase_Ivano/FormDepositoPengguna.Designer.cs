@@ -242,8 +242,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Label labelJatuhTempo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
@@ -258,5 +256,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelInbox;
         public System.Windows.Forms.Label labelStatus;
+        public System.Windows.Forms.Panel panel1;
     }
 }

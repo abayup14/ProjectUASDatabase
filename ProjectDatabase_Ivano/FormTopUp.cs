@@ -17,6 +17,8 @@ namespace ProjectDatabase_Ivano
 
         public Pengguna p;
 
+        public Tabungan tabungan;
+
         public FormTopUp()
         {
             InitializeComponent();
@@ -30,11 +32,22 @@ namespace ProjectDatabase_Ivano
                                                      MessageBoxIcon.Question);
                 if (hasil == DialogResult.Yes)
                 {
-                    Koneksi k = new Koneksi();
-                    string no_rekening = Tabungan.AmbilDataNoRekening(p.Nik);
-                    Tabungan t = new Tabungan(no_rekening);
-                    Tabungan.UbahSaldo(t, double.Parse(textBoxJumlah.Text), k);
-                    MessageBox.Show("Berhasil topup", "Informasi");
+                    if (tabungan.Status == "Aktif")
+                    {
+                        FormMasukkanPIN formMasukkanPIN = new FormMasukkanPIN();
+
+                        formMasukkanPIN.Owner = this;
+
+                        formMasukkanPIN.buttonCek.Visible = true;
+                        formMasukkanPIN.buttonSimpan.Visible = false;
+
+                        formMasukkanPIN.ShowDialog();
+                    }
+                    //Koneksi k = new Koneksi();
+                    //string no_rekening = Tabungan.AmbilDataNoRekening(p.Nik);
+                    //Tabungan t = new Tabungan(no_rekening);
+                    //Tabungan.UbahSaldo(t, double.Parse(textBoxJumlah.Text), k);
+                    //MessageBox.Show("Berhasil topup", "Informasi");
                 }
             }
             catch (Exception ex)
@@ -48,6 +61,8 @@ namespace ProjectDatabase_Ivano
             formTabunganPengguna = (FormTabunganPengguna)this.Owner;
 
             p = formTabunganPengguna.p;
+
+            tabungan = formTabunganPengguna.t;
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)

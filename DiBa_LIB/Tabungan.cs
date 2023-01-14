@@ -95,10 +95,17 @@ namespace DiBa_LIB
 
             return listTabungan;
         }
-        public static void UbahStatus(Tabungan t, Employee e, Koneksi k)
+        public static void UbahStatusAktif(Tabungan t, Employee e, Koneksi k)
         {
             string sql = "UPDATE tabungan set status = 'Aktif', verifikator = " + e.Id + ", tgl_perubahan = '" 
                 + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
+                         "WHERE no_rekening = '" + t.Rekening + "'";
+
+            Koneksi.JalankanPerintahDML(sql, k);
+        }
+        public static void UbahStatusSuspend(Tabungan t, Koneksi k)
+        {
+            string sql = "UPDATE tabungan set status = 'Suspend', tgl_perubahan = '" + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + " " +
                          "WHERE no_rekening = '" + t.Rekening + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);

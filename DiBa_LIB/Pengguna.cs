@@ -218,6 +218,22 @@ namespace DiBa_LIB
 
             return false;
         }
+        public static bool CekPIN(Pengguna p, string pin)
+        {
+            string sql = "SELECT SHA2('" + pin + "', 512), pin from pengguna where nik = '" + p.Nik + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                if (hasil.GetValue(0).ToString() == hasil.GetValue(1).ToString())
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
         #endregion
     }
 }

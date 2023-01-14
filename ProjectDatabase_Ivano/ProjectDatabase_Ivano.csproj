@@ -495,5 +495,8 @@
   <ItemGroup>
     <None Include="Properties\silang.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\suspend.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

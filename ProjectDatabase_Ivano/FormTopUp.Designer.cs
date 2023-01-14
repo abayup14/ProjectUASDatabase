@@ -130,10 +130,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBoxJumlah;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Button buttonSimpan;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox textBoxJumlah;
     }
 }

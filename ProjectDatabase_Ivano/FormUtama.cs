@@ -119,6 +119,10 @@ namespace ProjectDatabase_Ivano
             {
                 statusPicture = new Bitmap(Properties.Resources.centang);
             }
+            else if (status == "Suspend")
+            {
+                statusPicture = new Bitmap(Properties.Resources.suspend);
+            }
             pictureBox.Image = statusPicture;
             pictureBox.Size = new Size(75, 75);
             pictureBox.Location = new Point(400, 50);

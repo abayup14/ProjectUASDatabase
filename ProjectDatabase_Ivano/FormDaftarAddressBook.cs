@@ -71,7 +71,7 @@ namespace ProjectDatabase_Ivano
                 {
                     DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
                     bcol1.HeaderText = "Aksi";
-                    bcol1.Text = "Transfer";
+                    bcol1.Text = "Transaksi";
                     bcol1.Name = "buttonTransaksiGrid";
                     bcol1.UseColumnTextForButtonValue = true;
                     dataGridViewAddressBook.Columns.Add(bcol1);
@@ -105,8 +105,13 @@ namespace ProjectDatabase_Ivano
 
         private void dataGridViewAddressBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (e.ColumnIndex == dataGridViewAddressBook.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dataGridViewAddressBook.Columns["buttonTransaksiGrid"].Index && e.RowIndex >= 0)
+            {
+                FormTambahTransaksi formTambahTransaksi = new FormTambahTransaksi();
+                formTambahTransaksi.Owner = this;
+                formTambahTransaksi.ShowDialog();
+            }
+            else if (e.ColumnIndex == dataGridViewAddressBook.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
                 string id_pengguna = dataGridViewAddressBook.CurrentRow.Cells["pengguna"].Value.ToString();
                 string no_rekening = dataGridViewAddressBook.CurrentRow.Cells["no_rekening"].Value.ToString();

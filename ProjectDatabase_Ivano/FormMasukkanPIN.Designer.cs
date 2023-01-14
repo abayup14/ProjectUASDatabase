@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
             this.textBoxPIN = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.buttonSimpan = new System.Windows.Forms.Button();
-            this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
+            this.buttonCek = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,18 @@
             this.panel1.Size = new System.Drawing.Size(749, 99);
             this.panel1.TabIndex = 42;
             // 
+            // checkBoxTunjukkan
+            // 
+            this.checkBoxTunjukkan.AutoSize = true;
+            this.checkBoxTunjukkan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxTunjukkan.Location = new System.Drawing.Point(590, 32);
+            this.checkBoxTunjukkan.Name = "checkBoxTunjukkan";
+            this.checkBoxTunjukkan.Size = new System.Drawing.Size(107, 22);
+            this.checkBoxTunjukkan.TabIndex = 27;
+            this.checkBoxTunjukkan.Text = "Tunjukkan";
+            this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
+            this.checkBoxTunjukkan.CheckedChanged += new System.EventHandler(this.checkBoxTunjukkan_CheckedChanged);
+            // 
             // textBoxPIN
             // 
             this.textBoxPIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -58,8 +71,6 @@
             this.textBoxPIN.Name = "textBoxPIN";
             this.textBoxPIN.Size = new System.Drawing.Size(410, 30);
             this.textBoxPIN.TabIndex = 4;
-            this.textBoxPIN.Enter += new System.EventHandler(this.textBoxPIN_Enter);
-            this.textBoxPIN.Leave += new System.EventHandler(this.textBoxPIN_Leave);
             // 
             // label3
             // 
@@ -112,23 +123,26 @@
             this.buttonSimpan.UseVisualStyleBackColor = false;
             this.buttonSimpan.Click += new System.EventHandler(this.buttonSimpan_Click);
             // 
-            // checkBoxTunjukkan
+            // buttonCek
             // 
-            this.checkBoxTunjukkan.AutoSize = true;
-            this.checkBoxTunjukkan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxTunjukkan.Location = new System.Drawing.Point(590, 32);
-            this.checkBoxTunjukkan.Name = "checkBoxTunjukkan";
-            this.checkBoxTunjukkan.Size = new System.Drawing.Size(107, 22);
-            this.checkBoxTunjukkan.TabIndex = 27;
-            this.checkBoxTunjukkan.Text = "Tunjukkan";
-            this.checkBoxTunjukkan.UseVisualStyleBackColor = true;
-            this.checkBoxTunjukkan.CheckedChanged += new System.EventHandler(this.checkBoxTunjukkan_CheckedChanged);
+            this.buttonCek.BackColor = System.Drawing.Color.Navy;
+            this.buttonCek.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCek.ForeColor = System.Drawing.Color.White;
+            this.buttonCek.Location = new System.Drawing.Point(12, 190);
+            this.buttonCek.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCek.Name = "buttonCek";
+            this.buttonCek.Size = new System.Drawing.Size(203, 53);
+            this.buttonCek.TabIndex = 45;
+            this.buttonCek.Text = "&CEK";
+            this.buttonCek.UseVisualStyleBackColor = false;
+            this.buttonCek.Click += new System.EventHandler(this.buttonCek_Click);
             // 
             // FormMasukkanPIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 254);
+            this.Controls.Add(this.buttonCek);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonKeluar);
@@ -149,7 +163,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonKeluar;
-        private System.Windows.Forms.Button buttonSimpan;
         private System.Windows.Forms.CheckBox checkBoxTunjukkan;
+        public System.Windows.Forms.Button buttonSimpan;
+        public System.Windows.Forms.Button buttonCek;
     }
 }

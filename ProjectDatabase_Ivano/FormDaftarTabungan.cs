@@ -56,8 +56,7 @@ namespace ProjectDatabase_Ivano
                 //dataGridViewTabungan.DataSource = listTabungan;
                 foreach (Tabungan tabungan in listTabungan)
                 {
-                    dataGridViewTabungan.Rows.Add(tabungan.Rekening, tabungan.Saldo.ToString(), tabungan.Status,
-                                                  tabungan.Keterangan, tabungan.Tgl_buat.ToShortDateString());
+                    dataGridViewTabungan.Rows.Add(tabungan.Rekening, tabungan.Saldo.ToString(), tabungan.Tgl_buat.ToShortDateString());
                 }
                 if (dataGridViewTabungan.ColumnCount < 8)
                 {
@@ -100,11 +99,11 @@ namespace ProjectDatabase_Ivano
             dataGridViewTabungan.Columns.Clear();
             dataGridViewTabungan.Columns.Add("NoRekening", "No. Rekening");
             dataGridViewTabungan.Columns.Add("Saldo", "Saldo");
-            dataGridViewTabungan.Columns.Add("Status", "Status");
-            dataGridViewTabungan.Columns.Add("Keterangan", "Keterangan");
             dataGridViewTabungan.Columns.Add("TanggalBuat", "Tanggal Pembuatan");
 
             dataGridViewTabungan.Columns["NoRekening"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewTabungan.Columns["Saldo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewTabungan.Columns["TanggalBuat"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         
@@ -189,7 +188,7 @@ namespace ProjectDatabase_Ivano
 
                         Tabungan t = new Tabungan(no_rekening, pengguna, saldo, status, keterangan, tgl_buat,
                             DateTime.Now, verifikator);
-                        Tabungan.UbahStatus(t, verifikator, k);
+                        Tabungan.UbahStatusAktif(t, verifikator, k);
                         MessageBox.Show("Tabungan berhasil diaktifkan.", "Informasi");
                     }
                     

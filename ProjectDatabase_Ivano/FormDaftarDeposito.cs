@@ -50,13 +50,19 @@ namespace ProjectDatabase_Ivano
                 //dataGridViewDeposito.DataSource = listDeposito;
                 foreach(Deposito deposito in listDeposito)
                 {
-                    dataGridViewDeposito.Rows.Add(deposito.Id_deposito, deposito.Nominal.ToString(), deposito.Bunga.ToString(),
-                                                  deposito.Jatuh_tempo.ToString(), deposito.Status, deposito.Tgl_buat.ToShortDateString());
+                    dataGridViewDeposito.Rows.Add(deposito.Id_deposito, deposito.Nominal.ToString(), deposito.Tgl_buat.ToShortDateString());
                 }    
                 if(dataGridViewDeposito.ColumnCount < 10)
                 {
                     if (pengguna != null)
                     {
+                        DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
+                        bcol.HeaderText = "Aksi";
+                        bcol.Text = "Detail";
+                        bcol.Name = "buttonDetailGrid";
+                        bcol.UseColumnTextForButtonValue = true;
+                        dataGridViewDeposito.Columns.Add(bcol);
+
                         DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
                         bcol1.HeaderText = "Aksi";
                         bcol1.Text = "Cairkan";
@@ -95,12 +101,11 @@ namespace ProjectDatabase_Ivano
             dataGridViewDeposito.Columns.Clear();
             dataGridViewDeposito.Columns.Add("IDDeposito", "ID Deposito");
             dataGridViewDeposito.Columns.Add("Nominal", "Nominal");
-            dataGridViewDeposito.Columns.Add("Bunga", "Bunga");
-            dataGridViewDeposito.Columns.Add("JatuhTempo", "Jatuh Tempo");
-            dataGridViewDeposito.Columns.Add("Status", "Status");
             dataGridViewDeposito.Columns.Add("TanggalBuat", "Tanggal Pembuatan");
 
             dataGridViewDeposito.Columns["IDDeposito"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewDeposito.Columns["Nominal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewDeposito.Columns["TanggalBuat"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             dataGridViewDeposito.AllowUserToAddRows = false;
         }
@@ -108,53 +113,72 @@ namespace ProjectDatabase_Ivano
         private void dataGridViewDeposito_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Koneksi k = new Koneksi();
-
-            if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonCairkanGrid"].Index && e.RowIndex >= 0)
+            if (pengguna != null)
             {
-                listDeposito = Deposito.BacaData("", "");
-                FormPencairanDeposito formPencairanDeposito = new FormPencairanDeposito();
-                formPencairanDeposito.Owner = this;
-                //formUbahDeposito.textBoxJatuhTempo.Text = dataGridViewDeposito.CurrentRow.Cells["jatuh_tempo"].Value.ToString();
-                //formUbahDeposito.textBoxNominal.Text = dataGridViewDeposito.CurrentRow.Cells["nominal"].Value.ToString();
-                //formUbahDeposito.textBoxBunga.Text = dataGridViewDeposito.CurrentRow.Cells["bunga"].Value.ToString();
-                //formUbahDeposito.textBoxStatus.Text = dataGridViewDeposito.CurrentRow.Cells["status"].Value.ToString();
-                formPencairanDeposito.Show();
-            }
-            else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
-            {
-                string id_deposito = dataGridViewDeposito.CurrentRow.Cells["id_deposito"].Value.ToString();
-                string no_rekening = dataGridViewDeposito.CurrentRow.Cells["no_rekening"].Value.ToString();
-                int jatuh_tempo = int.Parse(dataGridViewDeposito.CurrentRow.Cells["jatuh_tempo"].Value.ToString());
-                double nominal = double.Parse(dataGridViewDeposito.CurrentRow.Cells["nominal"].Value.ToString());
-                double bunga = double.Parse(dataGridViewDeposito.CurrentRow.Cells["bunga"].Value.ToString());
-
-                DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah : " +
-                    "\nId Deposito : " + id_deposito +
-                    "\nNo Rekening : " + no_rekening +
-                    "\nJatuh Tempo : " + jatuh_tempo +
-                    "\nNominal : " + nominal +
-                    "\nBunga : " + bunga +
-                    "\n\nApakah anda yakin ingin menghapus data ini?", "Konfirmasi",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if(hasil == DialogResult.Yes)
+                Deposito d = Deposito.AmbilDataDeposito(dataGridViewDeposito.CurrentRow.Cells["IDDeposito"].Value.ToString());
+                if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonDetailGrid"].Index && e.RowIndex >= 0)
                 {
-                    Deposito d = new Deposito(id_deposito);
-                    Deposito.HapusData(d, k);
-
-                    MessageBox.Show("Data berhasil dihapus.", "Informasi");
-                    FormDaftarDeposito_Load(buttonKeluar, e);
+                    FormDepositoPengguna formDepositoPengguna = new FormDepositoPengguna();
+                    formDepositoPengguna.Owner = this;
+                    formDepositoPengguna.labelIDDeposito.Text = dataGridViewDeposito.CurrentRow.Cells["IDDeposito"].Value.ToString();
+                    formDepositoPengguna.labelNominal.Text = dataGridViewDeposito.CurrentRow.Cells["Nominal"].Value.ToString();
+                    formDepositoPengguna.labelBunga.Text = (d.Bunga * 100).ToString() + " %";
+                    formDepositoPengguna.labelStatus.Text = d.Status;
+                    formDepositoPengguna.labelJatuhTempo.Text = d.Jatuh_tempo.ToString();
+                    formDepositoPengguna.labelTanggal.Text = d.Tgl_buat.ToShortDateString();
+                    formUtama.DisplayStatusPicture(d.Status, formDepositoPengguna.panel1);
+                    formDepositoPengguna.ShowDialog();
+                }
+                else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonCairkanGrid"].Index && e.RowIndex >= 0)
+                {
+                    listDeposito = Deposito.BacaData("", "");
+                    FormPencairanDeposito formPencairanDeposito = new FormPencairanDeposito();
+                    formPencairanDeposito.Owner = this;
+                    //formUbahDeposito.textBoxJatuhTempo.Text = dataGridViewDeposito.CurrentRow.Cells["jatuh_tempo"].Value.ToString();
+                    //formUbahDeposito.textBoxNominal.Text = dataGridViewDeposito.CurrentRow.Cells["nominal"].Value.ToString();
+                    //formUbahDeposito.textBoxBunga.Text = dataGridViewDeposito.CurrentRow.Cells["bunga"].Value.ToString();
+                    //formUbahDeposito.textBoxStatus.Text = dataGridViewDeposito.CurrentRow.Cells["status"].Value.ToString();
+                    formPencairanDeposito.Show();
                 }
             }
-            else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonAktifGrid"].Index && e.RowIndex >= 0)
+            else if (employee != null)
             {
-                string id_deposito = dataGridViewDeposito.CurrentRow.Cells["id_deposito"].Value.ToString();
+                if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
+                {
+                    string id_deposito = dataGridViewDeposito.CurrentRow.Cells["id_deposito"].Value.ToString();
+                    string no_rekening = dataGridViewDeposito.CurrentRow.Cells["no_rekening"].Value.ToString();
+                    int jatuh_tempo = int.Parse(dataGridViewDeposito.CurrentRow.Cells["jatuh_tempo"].Value.ToString());
+                    double nominal = double.Parse(dataGridViewDeposito.CurrentRow.Cells["nominal"].Value.ToString());
+                    double bunga = double.Parse(dataGridViewDeposito.CurrentRow.Cells["bunga"].Value.ToString());
 
-                Deposito d = new Deposito(id_deposito);
+                    DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah : " +
+                        "\nId Deposito : " + id_deposito +
+                        "\nNo Rekening : " + no_rekening +
+                        "\nJatuh Tempo : " + jatuh_tempo +
+                        "\nNominal : " + nominal +
+                        "\nBunga : " + bunga +
+                        "\n\nApakah anda yakin ingin menghapus data ini?", "Konfirmasi",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                Deposito.UbahStatus(d, employee, k);
+                    if (hasil == DialogResult.Yes)
+                    {
+                        Deposito d = new Deposito(id_deposito);
+                        Deposito.HapusData(d, k);
 
-                MessageBox.Show("Deposito berhasil diaktifkan");
+                        MessageBox.Show("Data berhasil dihapus.", "Informasi");
+                        FormDaftarDeposito_Load(buttonKeluar, e);
+                    }
+                }
+                else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonAktifGrid"].Index && e.RowIndex >= 0)
+                {
+                    string id_deposito = dataGridViewDeposito.CurrentRow.Cells["id_deposito"].Value.ToString();
+
+                    Deposito d = new Deposito(id_deposito);
+
+                    Deposito.UbahStatus(d, employee, k);
+
+                    MessageBox.Show("Deposito berhasil diaktifkan");
+                }
             }
         }
 

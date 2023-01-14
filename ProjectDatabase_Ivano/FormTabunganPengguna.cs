@@ -29,36 +29,38 @@ namespace ProjectDatabase_Ivano
         {
             formDaftarTabungan = (FormDaftarTabungan)this.Owner;
 
-            //formUtama = (FormUtama)this.MdiParent;
-
             p = formDaftarTabungan.pengguna;
 
             t = Tabungan.AmbilDataTabungan(formDaftarTabungan.dataGridViewTabungan.CurrentRow.Cells["NoRekening"].Value.ToString());
-
-            //labelRekening.Text = t.Rekening;
-
-            //labelSaldo.Text = "Rp. " + t.Saldo.ToString("N0");
-
-            //labelKeterangan.Text = t.Keterangan;
-
-            //labelTanggal.Text = t.Tgl_buat.ToShortDateString();
-
-            //labelStatus.Text = t.Status;
-
-            
         }
 
         private void buttonTopUp_Click(object sender, EventArgs e)
+        {
+            FormTopUp formTopUp = new FormTopUp();
+            formTopUp.Owner = this;
+            CekSudahGantiPIN(t, formTopUp);
+        }
+
+        private void buttonTransfer_Click(object sender, EventArgs e)
+        {
+            FormTambahTransaksi formTambahTransaksi = new FormTambahTransaksi();
+            formTambahTransaksi.Owner = this;
+            CekSudahGantiPIN(t, formTambahTransaksi);
+        }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            formDaftarTabungan.FormDaftarTabungan_Load(buttonKeluar, e);
+            Close();
+        }
+
+        private void CekSudahGantiPIN(Tabungan t, Form form)
         {
             if (t.Status == "Aktif")
             {
                 if (Pengguna.CekPIN(p) == true)
                 {
-                    FormTopUp formTopUp = new FormTopUp();
-
-                    formTopUp.Owner = this;
-
-                    formTopUp.ShowDialog();
+                    form.ShowDialog();
                 }
                 else
                 {
@@ -71,6 +73,8 @@ namespace ProjectDatabase_Ivano
                         FormMasukkanPIN formMasukkanPIN = new FormMasukkanPIN();
 
                         formMasukkanPIN.Owner = this;
+                        formMasukkanPIN.buttonSimpan.Visible = true;
+                        formMasukkanPIN.buttonCek.Visible = false;
 
                         formMasukkanPIN.ShowDialog();
                     }
@@ -81,29 +85,6 @@ namespace ProjectDatabase_Ivano
                 MessageBox.Show("Maaf, status tabungan anda sedang tidak aktif." +
                                 "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan anda.", "Informasi");
             }
-        }
-
-        private void buttonTransfer_Click(object sender, EventArgs e)
-        {
-            if (t.Status == "Aktif")
-            {
-                FormTambahTransaksi formTambahTransaksi = new FormTambahTransaksi();
-
-                formTambahTransaksi.Owner = this;
-
-                formTambahTransaksi.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Maaf, status tabungan anda sedang tidak aktif." +
-                                "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan anda.", "Informasi");
-            }
-        }
-
-        private void buttonKeluar_Click(object sender, EventArgs e)
-        {
-            formDaftarTabungan.FormDaftarTabungan_Load(buttonKeluar, e);
-            Close();
         }
     }
 }
