@@ -71,6 +71,8 @@
             this.textBoxPIN.Name = "textBoxPIN";
             this.textBoxPIN.Size = new System.Drawing.Size(410, 30);
             this.textBoxPIN.TabIndex = 4;
+            this.textBoxPIN.Enter += new System.EventHandler(this.textBoxPIN_Enter);
+            this.textBoxPIN.Leave += new System.EventHandler(this.textBoxPIN_Leave);
             // 
             // label3
             // 

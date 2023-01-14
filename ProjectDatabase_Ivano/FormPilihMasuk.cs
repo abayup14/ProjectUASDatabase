@@ -28,7 +28,10 @@ namespace ProjectDatabase_Ivano
             formLoginPegawai = new FormLoginPegawai();
             formLoginPegawai.Owner = formUtama;
             formLoginPegawai.ShowDialog();
-            Close();
+            if (formLoginPegawai.em != null)
+            {
+                Close();
+            }
         }
 
         public void FormPilihMasuk_Load(object sender, EventArgs e)
@@ -41,7 +44,10 @@ namespace ProjectDatabase_Ivano
             formLogin = new FormLogin();
             formLogin.Owner = formUtama;
             formLogin.ShowDialog();
-            Close();
+            if (formLogin.p != null)
+            {
+                Close();
+            }
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)

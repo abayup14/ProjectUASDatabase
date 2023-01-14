@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxRekening = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.textBoxJumlah = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonKeluar = new System.Windows.Forms.Button();
@@ -40,28 +42,51 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.comboBoxRekening);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBoxJumlah);
             this.panel1.Controls.Add(this.label3);
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.panel1.Location = new System.Drawing.Point(12, 78);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(749, 99);
+            this.panel1.Size = new System.Drawing.Size(749, 158);
             this.panel1.TabIndex = 38;
+            // 
+            // comboBoxRekening
+            // 
+            this.comboBoxRekening.FormattingEnabled = true;
+            this.comboBoxRekening.Location = new System.Drawing.Point(269, 28);
+            this.comboBoxRekening.Name = "comboBoxRekening";
+            this.comboBoxRekening.Size = new System.Drawing.Size(301, 33);
+            this.comboBoxRekening.TabIndex = 6;
+            this.comboBoxRekening.SelectedIndexChanged += new System.EventHandler(this.comboBoxRekening_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(44, 31);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "No. Rekening:";
             // 
             // textBoxJumlah
             // 
             this.textBoxJumlah.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxJumlah.Location = new System.Drawing.Point(194, 29);
+            this.textBoxJumlah.Location = new System.Drawing.Point(269, 94);
             this.textBoxJumlah.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxJumlah.Name = "textBoxJumlah";
-            this.textBoxJumlah.Size = new System.Drawing.Size(523, 30);
+            this.textBoxJumlah.Size = new System.Drawing.Size(447, 30);
             this.textBoxJumlah.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(45, 32);
+            this.label3.Location = new System.Drawing.Point(103, 99);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 25);
@@ -73,7 +98,7 @@
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(558, 205);
+            this.buttonKeluar.Location = new System.Drawing.Point(558, 242);
             this.buttonKeluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(203, 53);
@@ -87,7 +112,7 @@
             this.buttonSimpan.BackColor = System.Drawing.Color.Navy;
             this.buttonSimpan.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSimpan.ForeColor = System.Drawing.Color.White;
-            this.buttonSimpan.Location = new System.Drawing.Point(12, 205);
+            this.buttonSimpan.Location = new System.Drawing.Point(12, 242);
             this.buttonSimpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSimpan.Name = "buttonSimpan";
             this.buttonSimpan.Size = new System.Drawing.Size(203, 53);
@@ -113,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(777, 272);
+            this.ClientSize = new System.Drawing.Size(777, 311);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonSimpan);
@@ -135,5 +160,7 @@
         private System.Windows.Forms.Button buttonSimpan;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox textBoxJumlah;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxRekening;
     }
 }

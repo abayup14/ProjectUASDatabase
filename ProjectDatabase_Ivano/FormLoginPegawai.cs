@@ -13,6 +13,8 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormLoginPegawai : Form
     {
+        public Employee em;
+
         public FormLoginPegawai()
         {
             InitializeComponent();
@@ -38,7 +40,7 @@ namespace ProjectDatabase_Ivano
                 }
                 else
                 {
-                    Employee em = Employee.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
+                    em = Employee.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
 
                     if (em != null)
                     {

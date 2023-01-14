@@ -13,11 +13,15 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormTopUp : Form
     {
-        FormTabunganPengguna formTabunganPengguna;
+        //FormTabunganPengguna formTabunganPengguna;
+
+        FormUtama formUtama;
 
         public Pengguna p;
 
         public Tabungan tabungan;
+
+        public List<Tabungan> listTabungan = new List<Tabungan>();
 
         public FormTopUp()
         {
@@ -28,6 +32,11 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
+                if (comboBoxRekening.SelectedIndex > -1)
+                {
+                    tabungan = (Tabungan)comboBoxRekening.SelectedItem;
+                }
+
                 DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin melakukan topup?", "Konfirmasi", MessageBoxButtons.YesNo,
                                                      MessageBoxIcon.Question);
                 if (hasil == DialogResult.Yes)
@@ -43,11 +52,6 @@ namespace ProjectDatabase_Ivano
 
                         formMasukkanPIN.ShowDialog();
                     }
-                    //Koneksi k = new Koneksi();
-                    //string no_rekening = Tabungan.AmbilDataNoRekening(p.Nik);
-                    //Tabungan t = new Tabungan(no_rekening);
-                    //Tabungan.UbahSaldo(t, double.Parse(textBoxJumlah.Text), k);
-                    //MessageBox.Show("Berhasil topup", "Informasi");
                 }
             }
             catch (Exception ex)
@@ -58,11 +62,17 @@ namespace ProjectDatabase_Ivano
 
         private void FormTopUp_Load(object sender, EventArgs e)
         {
-            formTabunganPengguna = (FormTabunganPengguna)this.Owner;
+            //formTabunganPengguna = (FormTabunganPengguna)this.Owner;
+            formUtama = (FormUtama)this.MdiParent;
 
-            p = formTabunganPengguna.p;
+            p = formUtama.pengguna;
 
-            tabungan = formTabunganPengguna.t;
+            listTabungan = Tabungan.BacaData("", "");
+
+            comboBoxRekening.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxRekening.DataSource = listTabungan;
+            comboBoxRekening.DisplayMember = "Rekening";
+
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)
@@ -70,6 +80,14 @@ namespace ProjectDatabase_Ivano
             //FormDaftarTabungan formDaftarTabungan = (FormDaftarTabungan)this.Owner;
             //formDaftarTabungan.FormDaftarTabungan_Load(buttonKeluar, e);
             Close();
+        }
+
+        private void comboBoxRekening_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxRekening.SelectedIndex > -1)
+            {
+                tabungan = (Tabungan)comboBoxRekening.SelectedItem;
+            }    
         }
     }
 }

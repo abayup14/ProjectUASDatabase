@@ -27,7 +27,11 @@ namespace ProjectDatabase_Ivano
 
         private void FormMasukkanPIN_Load(object sender, EventArgs e)
         {
-            textBoxPIN.UseSystemPasswordChar = true;
+            ActiveControl = label1;
+            textBoxPIN.Text = "Masukkan PIN anda";
+            textBoxPIN.Font = new Font(textBoxPIN.Font, FontStyle.Italic);
+            textBoxPIN.ForeColor = Color.Gray;
+            textBoxPIN.UseSystemPasswordChar = false;
         }
 
         private void checkBoxTunjukkan_CheckedChanged(object sender, EventArgs e)
@@ -38,7 +42,14 @@ namespace ProjectDatabase_Ivano
             }
             else
             {
-                textBoxPIN.UseSystemPasswordChar = true;
+                if (textBoxPIN.Text == "Masukkan PIN anda")
+                {
+                    textBoxPIN.UseSystemPasswordChar = false;
+                }
+                else
+                {
+                    textBoxPIN.UseSystemPasswordChar = true;
+                }
             }
         }
 
@@ -48,10 +59,20 @@ namespace ProjectDatabase_Ivano
             {
                 Koneksi k = new Koneksi();
 
-                FormTabunganPengguna formTabunganPengguna = (FormTabunganPengguna)this.Owner;
+                FormUtama formUtama = (FormUtama)this.MdiParent;
 
-                Pengguna pengguna = formTabunganPengguna.p;
+                FormDaftarTabungan formDaftarTabungan = (FormDaftarTabungan)this.Owner;
 
+                Pengguna pengguna = null;
+                if (formUtama != null)
+                {
+                    pengguna = formUtama.pengguna;
+                }
+                else if (formDaftarTabungan != null)
+                {
+                    pengguna = formDaftarTabungan.pengguna;
+                }
+                
                 if (textBoxPIN.Text == "Wajib diisi")
                 {
                     MessageBox.Show("Anda harus mengisi PIN anda untuk melanjutkan aktivitas di aplikasi ini", "Informasi");
@@ -66,6 +87,8 @@ namespace ProjectDatabase_Ivano
                         Pengguna.UbahPIN(pengguna, textBoxPIN.Text, k);
 
                         MessageBox.Show("Berhasil melakukan aktivitas", "Informasi");
+
+                        DialogResult = DialogResult.OK;
 
                         Close();
                     }
@@ -85,70 +108,80 @@ namespace ProjectDatabase_Ivano
 
                 FormTopUp formTopUp = (FormTopUp)this.Owner;
 
+                //FormTambahTransaksi formTambahTransaksi = (FormTambahTransaksi)this.Owner;
+
                 Pengguna pengguna = formTopUp.p;
 
                 Tabungan tabungan = formTopUp.tabungan;
 
-                if (textBoxPIN.Text == "Wajib diisi")
+                if (textBoxPIN.Text == "Masukkan PIN anda")
                 {
                     MessageBox.Show("Anda harus mengisi PIN anda untuk melanjutkan aktivitas di aplikasi ini", "Informasi");
                 }
                 else
                 {
-                    DialogResult hasil = MessageBox.Show("Apakah anda yakin dengan PIN yang anda masukkan?", "Konfirmasi",
-                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (hasil == DialogResult.Yes)
+                    if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == true)
                     {
-                        if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == true)
+                        if (formTopUp != null)
                         {
-                            string no_rekening = Tabungan.AmbilDataNoRekening(pengguna.Nik);
-                            Tabungan t = new Tabungan(no_rekening);
-                            Tabungan.UbahSaldo(t, double.Parse(formTopUp.textBoxJumlah.Text), k);
-                            MessageBox.Show("Berhasil topup", "Informasi");
-                            Close();
-                        }
-                        else
-                        {
-                            countMistake++;
-                            if (countMistake <= 2)
+                            if (tabungan.Status == "Aktif")
                             {
-                                MessageBox.Show("Maaf, PIN yang anda masukkan salah. Silahkan coba lagi");
+                                Tabungan.UbahSaldo(tabungan, double.Parse(formTopUp.textBoxJumlah.Text), k);
+                                MessageBox.Show("Berhasil topup sebesar Rp. " + formTopUp.textBoxJumlah.Text, "Informasi");
                             }
                             else
                             {
-                                Tabungan.UbahStatusSuspend(tabungan, k);
-                                MessageBox.Show("Anda memasukkan PIN 3x berturut-turut dan gagal. Tabungan anda diblokir.");
-                                Close();
+                                MessageBox.Show("Maaf, tabungan yang anda pilih belum aktif." +
+                                                "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan.", "Informasi");
                             }
                         }
-                        //for (int i = 0; i < 3; i++)
-                        //{
-                        //    if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == true && i <= 2)
-                        //    {
-                        //        string no_rekening = Tabungan.AmbilDataNoRekening(pengguna.Nik);
-                        //        Tabungan t = new Tabungan(no_rekening);
-                        //        Tabungan.UbahSaldo(t, double.Parse(formTopUp.textBoxJumlah.Text), k);
-                        //        MessageBox.Show("Berhasil topup", "Informasi");
-                        //        Close();
-                        //    }
-                        //    else if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == false && i > 2)
-                        //    {
-                        //        Tabungan.UbahStatusSuspend(tabungan, k);
-                        //        MessageBox.Show("Anda memasukkan PIN 3x berturut-turut dan gagal. Tabungan anda diblokir.");
-                        //        Close();
-                        //    }
-                        //    else if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == false && i <= 2)
-                        //    {
-                        //        MessageBox.Show("Maaf, PIN yang anda masukkan salah. Silahkan coba lagi");
-                        //    }
-                        //}
+                        countMistake = 0;
+                        Close();
+                    }
+                    else
+                    {
+                        countMistake++;
+                        if (countMistake <= 2)
+                        {
+                            MessageBox.Show("Maaf, PIN yang anda masukkan salah. Silahkan coba lagi");
+                            textBoxPIN.Clear();
+                        }
+                        else
+                        {
+                            Tabungan.UbahStatusSuspend(tabungan, k);
+                            MessageBox.Show("Anda memasukkan PIN 3x berturut-turut dan gagal. Tabungan anda diblokir." +
+                                            "\nSilahkan hubungi pegawai kami untuk mengaktifkan kembali", "Informasi");
+                            countMistake = 0;
+                            Close();
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Gagal melakukan aktivitas. Pesan kesalahan: " + ex.Message, "Informasi");
+            }
+        }
+
+        private void textBoxPIN_Enter(object sender, EventArgs e)
+        {
+            if (textBoxPIN.Text == "Masukkan PIN anda")
+            {
+                textBoxPIN.Text = "";
+                textBoxPIN.Font = new Font(textBoxPIN.Font, FontStyle.Regular);
+                textBoxPIN.ForeColor = Color.Black;
+                textBoxPIN.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void textBoxPIN_Leave(object sender, EventArgs e)
+        {
+            if (textBoxPIN.Text == "")
+            {
+                textBoxPIN.Text = "Masukkan PIN anda";
+                textBoxPIN.Font = new Font(textBoxPIN.Font, FontStyle.Italic);
+                textBoxPIN.ForeColor = Color.Gray;
+                textBoxPIN.UseSystemPasswordChar = false;
             }
         }
     }

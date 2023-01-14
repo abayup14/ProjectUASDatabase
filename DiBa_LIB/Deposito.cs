@@ -134,8 +134,8 @@ namespace DiBa_LIB
 
         public static void UbahStatus(Deposito d, Employee e, Koneksi k)
         {
-            string sql = "UPDATE deposito set status = 'Aktif', verifikator_cair = " + e.Id + 
-                         " WHERE id_deposito = '" + d.Id_deposito + "'";
+            string sql = "UPDATE deposito set status = 'Aktif', verifikator_buka = " + e.Id + ", tgl_perubahan = '" + d.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' " +  
+                         "WHERE id_deposito = '" + d.Id_deposito + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }

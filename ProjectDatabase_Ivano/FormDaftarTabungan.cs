@@ -114,7 +114,41 @@ namespace ProjectDatabase_Ivano
             dataGridViewTabungan.Columns["TanggalBuat"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
-        
+        private void CekSudahGantiPIN(Tabungan t, Form form)
+        {
+            if (t.Status == "Aktif")
+            {
+                if (Pengguna.CekPIN(pengguna) == true)
+                {
+                    form.ShowDialog();
+                }
+                else
+                {
+                    DialogResult hasil = MessageBox.Show("Tabungan anda sudah aktif, namun anda belum pernah membuat PIN." +
+                                                         "\nSilahkan membuat PIN dengan menekan tombol \"OK\"", "Informasi",
+                                                         MessageBoxButtons.OKCancel);
+
+                    if (hasil == DialogResult.OK)
+                    {
+                        FormMasukkanPIN formMasukkanPIN = new FormMasukkanPIN();
+
+                        formMasukkanPIN.Owner = this;
+                        formMasukkanPIN.buttonSimpan.Visible = true;
+                        formMasukkanPIN.buttonCek.Visible = false;
+
+                        if (formMasukkanPIN.ShowDialog() == DialogResult.OK)
+                        {
+                            form.ShowDialog();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Maaf, status tabungan anda sedang tidak aktif." +
+                                "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan anda.", "Informasi");
+            }
+        }
 
         private void dataGridViewTabungan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -131,7 +165,7 @@ namespace ProjectDatabase_Ivano
                     formTabunganPengguna.labelTanggal.Text = tabungan.Tgl_buat.ToShortDateString();
                     formTabunganPengguna.labelStatus.Text = tabungan.Status;
                     formUtama.DisplayStatusPicture(tabungan.Status, formTabunganPengguna.panel1);
-                    formTabunganPengguna.ShowDialog();
+                    CekSudahGantiPIN(tabungan, formTabunganPengguna);
                 }
             }
             else if (employee != null)

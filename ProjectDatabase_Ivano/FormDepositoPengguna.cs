@@ -23,5 +23,12 @@ namespace ProjectDatabase_Ivano
         {
 
         }
+
+        private void buttonCairkan_Click(object sender, EventArgs e)
+        {
+            FormPencairanDeposito formPencairanDeposito = new FormPencairanDeposito();
+            formPencairanDeposito.Owner = this;
+            formPencairanDeposito.ShowDialog();
+        }
     }
 }

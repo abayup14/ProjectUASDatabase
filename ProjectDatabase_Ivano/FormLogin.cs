@@ -15,6 +15,8 @@ namespace ProjectDatabase_Ivano
     {
         FormUtama formUtama;
 
+        public Pengguna p;
+
         public FormLogin()
         {
             InitializeComponent();
@@ -40,7 +42,7 @@ namespace ProjectDatabase_Ivano
                 }
                 else
                 {
-                    Pengguna p = Pengguna.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
+                    p = Pengguna.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
 
                     if (p != null)
                     {
@@ -149,10 +151,10 @@ namespace ProjectDatabase_Ivano
             }
         }
 
-        private void buttonKeluar_Click(object sender, EventArgs e)
+        private void buttonKeluar_Click_1(object sender, EventArgs e)
         {
             Close();
+            
         }
-
     }
 }

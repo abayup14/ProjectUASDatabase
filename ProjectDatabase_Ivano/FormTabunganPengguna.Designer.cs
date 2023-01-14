@@ -30,9 +30,7 @@
         {
             this.labelStatus = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonTransfer = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
-            this.buttonTopUp = new System.Windows.Forms.Button();
             this.labelTanggal = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.labelInbox = new System.Windows.Forms.Label();
@@ -68,20 +66,6 @@
             this.label1.TabIndex = 49;
             this.label1.Text = "STATUS";
             // 
-            // buttonTransfer
-            // 
-            this.buttonTransfer.BackColor = System.Drawing.Color.Navy;
-            this.buttonTransfer.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold);
-            this.buttonTransfer.ForeColor = System.Drawing.Color.White;
-            this.buttonTransfer.Location = new System.Drawing.Point(339, 238);
-            this.buttonTransfer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonTransfer.Name = "buttonTransfer";
-            this.buttonTransfer.Size = new System.Drawing.Size(220, 53);
-            this.buttonTransfer.TabIndex = 47;
-            this.buttonTransfer.Text = "&TRANSAKSI";
-            this.buttonTransfer.UseVisualStyleBackColor = false;
-            this.buttonTransfer.Click += new System.EventHandler(this.buttonTransfer_Click);
-            // 
             // buttonKeluar
             // 
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
@@ -95,20 +79,6 @@
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
             this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
-            // 
-            // buttonTopUp
-            // 
-            this.buttonTopUp.BackColor = System.Drawing.Color.Navy;
-            this.buttonTopUp.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTopUp.ForeColor = System.Drawing.Color.White;
-            this.buttonTopUp.Location = new System.Drawing.Point(22, 238);
-            this.buttonTopUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonTopUp.Name = "buttonTopUp";
-            this.buttonTopUp.Size = new System.Drawing.Size(220, 53);
-            this.buttonTopUp.TabIndex = 45;
-            this.buttonTopUp.Text = "&TOP UP";
-            this.buttonTopUp.UseVisualStyleBackColor = false;
-            this.buttonTopUp.Click += new System.EventHandler(this.buttonTopUp_Click);
             // 
             // labelTanggal
             // 
@@ -215,9 +185,7 @@
             this.panel1.BackColor = System.Drawing.Color.Lavender;
             this.panel1.Controls.Add(this.labelStatus);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.buttonTransfer);
             this.panel1.Controls.Add(this.buttonKeluar);
-            this.panel1.Controls.Add(this.buttonTopUp);
             this.panel1.Controls.Add(this.labelTanggal);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.labelKeterangan);
@@ -240,7 +208,7 @@
             this.Controls.Add(this.labelInbox);
             this.Controls.Add(this.panel1);
             this.Name = "FormTabunganPengguna";
-            this.Text = "FormRekeningPengguna";
+            this.Text = "Detail Tabungan Pengguna";
             this.Load += new System.EventHandler(this.FormTabunganPengguna_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -250,9 +218,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonTransfer;
         private System.Windows.Forms.Button buttonKeluar;
-        private System.Windows.Forms.Button buttonTopUp;
         public System.Windows.Forms.Label labelTanggal;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label labelInbox;

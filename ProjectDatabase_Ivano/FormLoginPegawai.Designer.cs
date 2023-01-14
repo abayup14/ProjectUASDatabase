@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxTunjukkan = new System.Windows.Forms.CheckBox();
             this.buttonLogin = new System.Windows.Forms.Button();
@@ -36,27 +35,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxEmailNomorTelepon = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonKeluar
-            // 
-            this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
-            this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(494, 116);
-            this.buttonKeluar.Name = "buttonKeluar";
-            this.buttonKeluar.Size = new System.Drawing.Size(177, 53);
-            this.buttonKeluar.TabIndex = 22;
-            this.buttonKeluar.Text = "KELUAR";
-            this.buttonKeluar.UseVisualStyleBackColor = false;
-            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
-            this.panel1.Controls.Add(this.checkBoxTunjukkan);
             this.panel1.Controls.Add(this.buttonKeluar);
+            this.panel1.Controls.Add(this.checkBoxTunjukkan);
             this.panel1.Controls.Add(this.buttonLogin);
             this.panel1.Controls.Add(this.textBoxPassword);
             this.panel1.Controls.Add(this.label1);
@@ -88,7 +75,7 @@
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(177, 53);
             this.buttonLogin.TabIndex = 21;
-            this.buttonLogin.Text = "LOGIN";
+            this.buttonLogin.Text = "&LOGIN";
             this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
@@ -132,6 +119,19 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Email/No. Telepon :";
             // 
+            // buttonKeluar
+            // 
+            this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
+            this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKeluar.ForeColor = System.Drawing.Color.White;
+            this.buttonKeluar.Location = new System.Drawing.Point(494, 116);
+            this.buttonKeluar.Name = "buttonKeluar";
+            this.buttonKeluar.Size = new System.Drawing.Size(177, 53);
+            this.buttonKeluar.TabIndex = 26;
+            this.buttonKeluar.Text = "&KELUAR";
+            this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
+            // 
             // FormLoginPegawai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -149,8 +149,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox checkBoxTunjukkan;
         private System.Windows.Forms.Button buttonLogin;
@@ -158,5 +156,6 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox textBoxEmailNomorTelepon;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonKeluar;
     }
 }

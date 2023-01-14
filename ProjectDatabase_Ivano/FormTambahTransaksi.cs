@@ -20,11 +20,13 @@ namespace ProjectDatabase_Ivano
         }
         List<Transaksi> listTransaksi = new List<Transaksi>();
         List<JenisTransaksi> listJenisTransaksi = new List<JenisTransaksi>();
-        List<Tabungan> listTabungan = new List<Tabungan>();
+        List<Tabungan> listTabunganSumber = new List<Tabungan>();
+        List<Tabungan> listTabunganTujuan = new List<Tabungan>();
         public List<Promo> listPromo = new List<Promo>();
         public List<JenisTagihan> listJenisTagihan = new List<JenisTagihan>();
         //FormDaftarTransaksi formDaftarTransaksi;
-        FormTabunganPengguna formTabunganPengguna;
+        //FormTabunganPengguna formTabunganPengguna;
+        FormUtama formUtama;
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
@@ -37,7 +39,7 @@ namespace ProjectDatabase_Ivano
 
                 if (result == DialogResult.Yes)
                 {
-                    Tabungan rekening_sumber = new Tabungan(labelNoRekening.Text);
+                    Tabungan rekening_sumber = new Tabungan(comboBoxRekeningSumber.Text);
                     JenisTransaksi jt = new JenisTransaksi(comboBoxJenisTransaksi.SelectedIndex + 1);
                     Tabungan rekening_tujuan = (Tabungan)comboBoxRekeningTujuan.SelectedItem;
                     Promo p = (Promo)comboBoxPromo.SelectedItem;
@@ -62,20 +64,18 @@ namespace ProjectDatabase_Ivano
 
         private void FormTambahTransaksi_Load(object sender, EventArgs e)
         {
-            formTabunganPengguna = (FormTabunganPengguna)this.Owner;
+            formUtama = (FormUtama)this.MdiParent;
+            //formTabunganPengguna = (FormTabunganPengguna)this.Owner;
             //formDaftarTransaksi = (FormDaftarTransaksi)this.Owner;
-            labelNoRekening.Text = formTabunganPengguna.labelRekening.Text;
+            listTabunganSumber = Tabungan.BacaData("", "");
+            comboBoxRekeningSumber.DataSource = listTabunganSumber;
+            comboBoxRekeningSumber.DisplayMember = "no_rekening";
+            comboBoxRekeningSumber.DropDownStyle = ComboBoxStyle.DropDownList;
 
             listJenisTransaksi = JenisTransaksi.ReadData("", "");
-            listTabungan = Tabungan.BacaData("t.no_rekening not", labelNoRekening.Text);
-
             comboBoxJenisTransaksi.DataSource = listJenisTransaksi;
             comboBoxJenisTransaksi.DisplayMember = "nama";
             comboBoxJenisTransaksi.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            comboBoxRekeningTujuan.DataSource = listTabungan;
-            comboBoxRekeningTujuan.DisplayMember = "no_rekening";
-            comboBoxRekeningTujuan.DropDownStyle = ComboBoxStyle.DropDownList;
 
             comboBoxPromo.DataSource = listPromo;
             comboBoxPromo.DisplayMember = "namaPromo";
@@ -88,8 +88,6 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKosongi_Click(object sender, EventArgs e)
         {
-            labelNoRekening.Text = "";
-
             textBoxNominal.Clear();
         }
 
@@ -100,6 +98,42 @@ namespace ProjectDatabase_Ivano
             formDaftarTransaksi.FormDaftarTransaksi_Load(buttonKeluar, e);
 
             this.Close();
+        }
+
+        private void checkBoxPromo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxPromo.Checked == true)
+            {
+                comboBoxPromo.Enabled = true;
+            }
+            else
+            {
+                comboBoxPromo.Enabled = false;
+            }
+        }
+
+        private void checkBoxTagihan_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxTagihan.Checked == true)
+            {
+                comboBoxJenisTagihan.Enabled = true;
+            }
+            else
+            {
+                comboBoxJenisTagihan.Enabled = false;
+            }
+        }
+
+        private void comboBoxRekeningSumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxRekeningSumber.SelectedIndex > -1)
+            {
+                listTabunganTujuan.Clear();
+                listTabunganTujuan = Tabungan.BacaData("t.no_rekening not", comboBoxRekeningSumber.Text);
+                comboBoxRekeningTujuan.DataSource = listTabunganTujuan;
+                comboBoxRekeningTujuan.DisplayMember = "no_rekening";
+                comboBoxRekeningTujuan.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
         }
     }
 }

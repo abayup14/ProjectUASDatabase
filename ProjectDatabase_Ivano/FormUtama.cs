@@ -52,8 +52,7 @@ namespace ProjectDatabase_Ivano
                     {
                         if (pengguna != null)
                         {
-                            labelKode.Text = pengguna.Nik;
-                            labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
+                            SetHakAkses();
                         }
                     }
                 }
@@ -65,22 +64,13 @@ namespace ProjectDatabase_Ivano
                         {
                             if (employee != null)
                             {
-                                labelKode.Text = employee.Id.ToString();
-                                labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
+                                SetHakAkses();
                             }
                         }
                     }
                 }
 
-                MessageBox.Show("Selamat datang di aplikasi DiBa, " + labelNama.Text + "." +
-                                            "\nSemoga harimu menyenangkan", "Selamat Datang!");
-
-                labelNama.Visible = true;
-                labelKode.Visible = true;
-                labelStrip.Visible = true;
-                labelAndaLogin.Visible = true;
-
-                SetHakAkses();
+                
             }
             catch (Exception ex)
             {
@@ -91,16 +81,29 @@ namespace ProjectDatabase_Ivano
 
         private void SetHakAkses()
         {
+            labelNama.Visible = true;
+            labelKode.Visible = true;
+            labelStrip.Visible = true;
+            labelAndaLogin.Visible = true;
+
             if (pengguna != null)
             {
+                labelKode.Text = pengguna.Nik;
+                labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
+
+                
                 MenuToolStripMenuItem.Visible = false;
                 transaksiToolStripMenuItem.Visible = true;
                 penggunaToolStripMenuItem1.Visible = true;
             }
             else if (employee != null)
             {
+                labelKode.Text = employee.Id.ToString();
+                labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
                 MenuToolStripMenuItem.Visible = true;
             }
+            MessageBox.Show("Selamat datang di aplikasi DiBa, " + labelNama.Text +
+                            "\nSemoga harimu menyenangkan", "Selamat Datang!");
         }
 
         public void DisplayStatusPicture(string status, Panel panel)
@@ -447,6 +450,62 @@ namespace ProjectDatabase_Ivano
                 formDaftarAddressBook.MdiParent = this;
 
                 formDaftarAddressBook.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void transferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarTransaksi"];
+
+            if (form == null)
+            {
+                FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi();
+
+                formDaftarTransaksi.MdiParent = this;
+
+                formDaftarTransaksi.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void topUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormTopUp"];
+
+            if (form == null)
+            {
+                FormTopUp formTopUp = new FormTopUp();
+                formTopUp.MdiParent = this;
+                formTopUp.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void transaksiTransferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormTambahTransaksi"];
+
+            if (form == null)
+            {
+                FormTambahTransaksi formTambahTransaksi = new FormTambahTransaksi();
+                formTambahTransaksi.MdiParent = this;
+                formTambahTransaksi.Show();
             }
             else
             {

@@ -43,12 +43,14 @@
             this.labelIDDeposito = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelInbox = new System.Windows.Forms.Label();
+            this.buttonCairkan = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.buttonCairkan);
             this.panel1.Controls.Add(this.labelJatuhTempo);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.labelStatus);
@@ -225,6 +227,20 @@
             this.labelInbox.Text = "DEPOSITO PENGGUNA";
             this.labelInbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // buttonCairkan
+            // 
+            this.buttonCairkan.BackColor = System.Drawing.Color.Navy;
+            this.buttonCairkan.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCairkan.ForeColor = System.Drawing.Color.White;
+            this.buttonCairkan.Location = new System.Drawing.Point(22, 272);
+            this.buttonCairkan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCairkan.Name = "buttonCairkan";
+            this.buttonCairkan.Size = new System.Drawing.Size(220, 53);
+            this.buttonCairkan.TabIndex = 53;
+            this.buttonCairkan.Text = "&CAIRKAN";
+            this.buttonCairkan.UseVisualStyleBackColor = false;
+            this.buttonCairkan.Click += new System.EventHandler(this.buttonCairkan_Click);
+            // 
             // FormDepositoPengguna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -257,5 +273,6 @@
         private System.Windows.Forms.Label labelInbox;
         public System.Windows.Forms.Label labelStatus;
         public System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonCairkan;
     }
 }
