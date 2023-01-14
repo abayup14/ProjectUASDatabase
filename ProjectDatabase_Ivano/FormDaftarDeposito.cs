@@ -59,7 +59,7 @@ namespace ProjectDatabase_Ivano
                 {
                     dataGridViewDeposito.DataSource = listDeposito;
                 }
-                if (dataGridViewDeposito.ColumnCount < 10)
+                if (dataGridViewDeposito.ColumnCount < 20)
                 {
                     if (pengguna != null)
                     {

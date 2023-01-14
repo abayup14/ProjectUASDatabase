@@ -66,7 +66,7 @@ namespace ProjectDatabase_Ivano
                     dataGridViewTabungan.DataSource = listTabungan;
                 }
 
-                if (dataGridViewTabungan.ColumnCount < 8)
+                if (dataGridViewTabungan.ColumnCount < 20)
                 {
                     if (pengguna != null)
                     {
@@ -185,14 +185,14 @@ namespace ProjectDatabase_Ivano
                     }
                     else
                     {
-                        tabungan = Tabungan.AmbilDataTabungan(dataGridViewTabungan.CurrentRow.Cells["NoRekening"].Value.ToString());
-                        Pengguna pengguna = Tabungan.AmbilDataPengguna(dataGridViewTabungan.CurrentRow.Cells["NoRekening"].Value.ToString());
-                        string no_rekening = dataGridViewTabungan.CurrentRow.Cells["NoRekening"].Value.ToString();
+                        tabungan = Tabungan.AmbilDataTabungan(dataGridViewTabungan.CurrentRow.Cells["Rekening"].Value.ToString());
+                        Pengguna pengguna = Tabungan.AmbilDataPengguna(dataGridViewTabungan.CurrentRow.Cells["Rekening"].Value.ToString());
+                        string no_rekening = dataGridViewTabungan.CurrentRow.Cells["Rekening"].Value.ToString();
                         double saldo = double.Parse(dataGridViewTabungan.CurrentRow.Cells["Saldo"].Value.ToString());
                         string status = tabungan.Status;
                         string keterangan = dataGridViewTabungan.CurrentRow.Cells["Keterangan"].Value.ToString();
-                        DateTime tgl_buat = DateTime.Parse(dataGridViewTabungan.CurrentRow.Cells["TanggalBuat"].Value.ToString());
-                        Employee verifikator = tabungan.Verifikator;
+                        DateTime tgl_buat = tabungan.Tgl_buat;
+                        Employee verifikator = employee;
 
                         Tabungan t = new Tabungan(no_rekening, pengguna, saldo, status, keterangan, tgl_buat,
                             DateTime.Now, verifikator);
