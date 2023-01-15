@@ -111,5 +111,9 @@ namespace DiBa_LIB
 
             return hasilKode;
         }
+        public override string ToString()
+        {
+            return IdPromo.ToString();
+        }
     }
 }
