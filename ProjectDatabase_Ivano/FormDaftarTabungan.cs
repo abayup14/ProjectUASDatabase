@@ -152,9 +152,9 @@ namespace ProjectDatabase_Ivano
 
         private void dataGridViewTabungan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (pengguna != null)
+            if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonDetailGrid"].Index && e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonDetailGrid"].Index && e.RowIndex >= 0)
+                if (pengguna != null)
                 {
                     tabungan = Tabungan.AmbilDataTabungan(dataGridViewTabungan.CurrentRow.Cells["NoRekening"].Value.ToString());
                     FormTabunganPengguna formTabunganPengguna = new FormTabunganPengguna();
@@ -168,9 +168,9 @@ namespace ProjectDatabase_Ivano
                     CekSudahGantiPIN(tabungan, formTabunganPengguna);
                 }
             }
-            else if (employee != null)
+            else if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
+                if (employee != null)
                 {
                     string nik = dataGridViewTabungan.CurrentRow.Cells["pengguna"].Value.ToString();
                     string id_pengguna = Pengguna.AmbilNamaLengkap(nik);
@@ -199,14 +199,16 @@ namespace ProjectDatabase_Ivano
                         Tabungan t = new Tabungan(no_rekening);
                         Tabungan.HapusData(t, k);
                         MessageBox.Show("Data Berhasil Dihapus.", "Informasi");
-                        
-                        dataGridViewTabungan.Rows.Clear();
-                        dataGridViewTabungan.Columns.Clear();
-                        FormDaftarTabungan_Load(buttonKeluar, e);
-
                     }
                 }
-                else if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonUbahStatusGrid"].Index && e.RowIndex >= 0)
+
+                dataGridViewTabungan.Rows.Clear();
+                dataGridViewTabungan.Columns.Clear();
+                FormDaftarTabungan_Load(buttonKeluar, e);
+            }
+            else if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonUbahStatusGrid"].Index && e.RowIndex >= 0)
+            {
+                if (employee != null)
                 {
                     //FormUtama formUtama = (FormUtama)this.MdiParent;
                     //string nik = dataGridViewTabungan.CurrentRow.Cells["pengguna"].Value.ToString();
@@ -235,12 +237,13 @@ namespace ProjectDatabase_Ivano
                         Tabungan.UbahStatusAktif(t, k);
                         MessageBox.Show("Tabungan berhasil diaktifkan.", "Informasi");
                     }
-
-                    dataGridViewTabungan.Rows.Clear();
-                    dataGridViewTabungan.Columns.Clear();
-                    FormDaftarTabungan_Load(buttonKeluar, e);
                 }
+
+                dataGridViewTabungan.Rows.Clear();
+                dataGridViewTabungan.Columns.Clear();
+                FormDaftarTabungan_Load(buttonKeluar, e);
             }
+            
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)

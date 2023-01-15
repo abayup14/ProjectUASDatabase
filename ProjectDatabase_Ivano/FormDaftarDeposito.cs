@@ -147,9 +147,9 @@ namespace ProjectDatabase_Ivano
                 //    formPencairanDeposito.Show();
                 //}
             }
-            else if (employee != null)
+            else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
+                if (employee != null)
                 {
                     string id_deposito = dataGridViewDeposito.CurrentRow.Cells["id_deposito"].Value.ToString();
                     string no_rekening = dataGridViewDeposito.CurrentRow.Cells["no_rekening"].Value.ToString();
@@ -172,16 +172,19 @@ namespace ProjectDatabase_Ivano
                         Deposito.HapusData(d, k);
 
                         MessageBox.Show("Data berhasil dihapus.", "Informasi");
-
-                        dataGridViewDeposito.Rows.Clear();
-                        dataGridViewDeposito.Columns.Clear();
-                        FormDaftarDeposito_Load(buttonKeluar, e);
                     }
+
+                    dataGridViewDeposito.Rows.Clear();
+                    dataGridViewDeposito.Columns.Clear();
+                    FormDaftarDeposito_Load(buttonKeluar, e);
                 }
-                else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonAktifGrid"].Index && e.RowIndex >= 0)
+            }
+            else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonAktifGrid"].Index && e.RowIndex >= 0)
+            {
+                if (employee != null)
                 {
                     DialogResult hasil = MessageBox.Show("Apakah anda ingin mengaktifkan deposito ini?", "Konfirmasi",
-                                                          MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                                      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (hasil == DialogResult.Yes)
                     {
                         string id_deposito = dataGridViewDeposito.CurrentRow.Cells["id_deposito"].Value.ToString();
@@ -200,11 +203,11 @@ namespace ProjectDatabase_Ivano
 
                         MessageBox.Show("Deposito berhasil diaktifkan");
                     }
-
-                    dataGridViewDeposito.Rows.Clear();
-                    dataGridViewDeposito.Columns.Clear();
-                    FormDaftarDeposito_Load(buttonKeluar, e);
                 }
+
+                dataGridViewDeposito.Rows.Clear();
+                dataGridViewDeposito.Columns.Clear();
+                FormDaftarDeposito_Load(buttonKeluar, e);
             }
         }
 
