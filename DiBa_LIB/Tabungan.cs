@@ -242,6 +242,29 @@ namespace DiBa_LIB
                 return null;
             }
         }
+        public static Tabungan AmbilDataTabungan(Deposito deposito)
+        {
+            string sql = "SELECT * from deposito d inner join tabungan t on d.no_rekening = t.no_rekening where d.id_deposito = '" + deposito.Id_deposito + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                Pengguna p = new Pengguna(hasil.GetString(11));
+                Employee verif = new Employee(int.Parse(hasil.GetString(17)));
+                Tabungan t = new Tabungan(hasil.GetString(10),
+                                          p,
+                                          double.Parse(hasil.GetString(12)),
+                                          hasil.GetString(13),
+                                          hasil.GetString(14),
+                                          DateTime.Parse(hasil.GetString(15)),
+                                          DateTime.Parse(hasil.GetString(16)),
+                                          verif);
+                return t;
+            }
+
+            return null;
+        }
         public static Pengguna AmbilDataPengguna(string no_rekening)
         {
             string sql = "SELECT * FROM tabungan t inner join pengguna p on p.nik = t.id_pengguna " +

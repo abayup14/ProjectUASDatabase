@@ -150,15 +150,26 @@ namespace ProjectDatabase_Ivano
                                 if (e.RowIndex == i)
                                 {
                                     Hadiah h = new Hadiah(int.Parse(listHadiah[i].Id.ToString()));
-                                    RiwayatHadiah phh = new RiwayatHadiah(p, h);
+                                    RiwayatHadiah phh = new RiwayatHadiah(RiwayatHadiah.GenerateKode(), p, h, DateTime.Now);
                                     RiwayatHadiah.TambahData(phh, k);
+                                    Poin po = new Poin(phh.Pengguna, int.Parse(listHadiah[i].Harga_hadiah));
+                                    Poin.UpdateBeliHadiah(po, k);
+                                    Inbox inbox = new Inbox(phh.Pengguna,
+                                                        Inbox.GenerateKode(),
+                                                        "Berhasil beli " + listHadiah[i].Nama_hadiah + " dengan harga " +
+                                                        listHadiah[i].Harga_hadiah + " poin.",
+                                                        DateTime.Now,
+                                                        "Belum Terbaca",
+                                                        DateTime.Now);
+                                    Inbox.TambahData(inbox, k);
                                     MessageBox.Show("Pembelian Berhasil", "Informasi");
                                 }
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Pembelian Gagal, cek kembali poin anda", "Informasi");
+                            MessageBox.Show("Pembelian Gagal, Poin anda sekarang " + Poin.CekPoin(p).ToString() + 
+                                            "\nLakukan topup atau transaksi untuk meningkatkan poin anda", "Informasi");
                         }
                     }
                 }

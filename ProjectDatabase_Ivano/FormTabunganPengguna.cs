@@ -42,13 +42,21 @@ namespace ProjectDatabase_Ivano
 
         private void buttonUbah_Click(object sender, EventArgs e)
         {
-            FormUbahTabungan formUbahTabungan = new FormUbahTabungan();
+            if (t.Status != "Aktif")
+            {
+                MessageBox.Show("Maaf, status tabungan anda sedang tidak aktif." +
+                                "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan anda.", "Informasi");
+            }
+            else
+            {
+                FormUbahTabungan formUbahTabungan = new FormUbahTabungan();
 
-            formUbahTabungan.Owner = this;
+                formUbahTabungan.Owner = this;
 
-            formUbahTabungan.textBoxKeterangan.Text = labelKeterangan.Text;
+                formUbahTabungan.textBoxKeterangan.Text = labelKeterangan.Text;
 
-            formUbahTabungan.ShowDialog();
+                formUbahTabungan.ShowDialog();
+            }
         }
     }
 }

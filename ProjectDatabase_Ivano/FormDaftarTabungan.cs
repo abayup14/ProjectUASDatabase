@@ -145,8 +145,7 @@ namespace ProjectDatabase_Ivano
             }
             else
             {
-                MessageBox.Show("Maaf, status tabungan anda sedang tidak aktif." +
-                                "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan anda.", "Informasi");
+                form.ShowDialog();
             }
         }
 

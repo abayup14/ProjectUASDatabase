@@ -32,10 +32,10 @@ namespace ProjectDatabase_Ivano
             frmUtama = (FormUtama)this.MdiParent;
             pengguna = frmUtama.pengguna;
             employee = frmUtama.employee;
-            Koneksi k = new Koneksi();
-            FormatDataGridRiwayatHadiah();
+            //Koneksi k = new Koneksi();
             if (pengguna != null)
             {
+                FormatDataGridRiwayatHadiah();
                 listOfPenggunaHasHadiah = RiwayatHadiah.BacaData("p.nik", pengguna.Nik);
             }
             else if (employee != null)
@@ -44,24 +44,21 @@ namespace ProjectDatabase_Ivano
             }
             if (listOfPenggunaHasHadiah.Count > 0)
             {
-                foreach (RiwayatHadiah phh in listOfPenggunaHasHadiah)
+                if (pengguna != null)
                 {
-                    string nama = phh.Pengguna.Nama_depan + " " + phh.Pengguna.Nama_keluarga;
-                    dataGridViewRiwayat.Rows.Add(nama, phh.Hadiah.Nama_hadiah, phh.Hadiah.Harga_hadiah);
+                    foreach (RiwayatHadiah phh in listOfPenggunaHasHadiah)
+                    {
+                        dataGridViewRiwayat.Rows.Add(phh.Hadiah.Nama_hadiah, phh.Hadiah.Harga_hadiah, phh.Tanggal_beli.ToShortDateString());
+                    }
                 }
-
-                //dataGridViewRiwayat.DataSource = listOfPenggunaHasHadiah;
+                else if (employee != null)
+                {
+                    dataGridViewRiwayat.DataSource = listOfPenggunaHasHadiah;
+                }
                 if (dataGridViewRiwayat.ColumnCount < 10)
                 {
                     if (employee != null)
                     {
-                        DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
-                        bcol1.HeaderText = "Aksi";
-                        bcol1.Text = "Ubah Data";
-                        bcol1.Name = "buttonUbahGrid";
-                        bcol1.UseColumnTextForButtonValue = true;
-                        dataGridViewRiwayat.Columns.Add(bcol1);
-
                         DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
                         bcol2.HeaderText = "Aksi";
                         bcol2.Text = "Hapus Data";
@@ -80,13 +77,13 @@ namespace ProjectDatabase_Ivano
         {
             dataGridViewRiwayat.Rows.Clear();
             dataGridViewRiwayat.Columns.Clear();
-            dataGridViewRiwayat.Columns.Add("NamaPengguna", "Nama Pengguna");
             dataGridViewRiwayat.Columns.Add("NamaHadiah", "Nama Hadiah");
             dataGridViewRiwayat.Columns.Add("Harga", "Harga Hadiah");
+            dataGridViewRiwayat.Columns.Add("TanggalBeli", "Tanggal Pembelian");
 
-            dataGridViewRiwayat.Columns["NamaPengguna"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewRiwayat.Columns["NamaHadiah"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewRiwayat.Columns["Harga"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewRiwayat.Columns["TanggalBeli"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             dataGridViewRiwayat.AllowUserToAddRows = false;
         }
@@ -95,18 +92,12 @@ namespace ProjectDatabase_Ivano
         {
             if (employee != null)
             {
-                if (e.ColumnIndex == dataGridViewRiwayat.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
+                if (e.ColumnIndex == dataGridViewRiwayat.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
                 {
-                    FormUbahPengguna formUbahPengguna = new FormUbahPengguna();
-                    formUbahPengguna.Owner = this;
-                    formUbahPengguna.textBoxNIK.Text = dataGridViewRiwayat.CurrentRow.Cells["pengguna"].Value.ToString();
-                    formUbahPengguna.textBoxNamaDepan.Text = dataGridViewRiwayat.CurrentRow.Cells["hadiah"].Value.ToString();
-                    formUbahPengguna.ShowDialog();
-                }
-                else if (e.ColumnIndex == dataGridViewRiwayat.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
-                {
+                    int id = int.Parse(dataGridViewRiwayat.CurrentRow.Cells["id"].Value.ToString());
                     string id_pengguna = dataGridViewRiwayat.CurrentRow.Cells["pengguna"].Value.ToString();
                     string id_hadiah = dataGridViewRiwayat.CurrentRow.Cells["hadiah"].Value.ToString();
+                    DateTime tgl_beli = DateTime.Parse(dataGridViewRiwayat.CurrentRow.Cells["tanggal_beli"].Value.ToString());
                     DialogResult hasil = MessageBox.Show("Berikut merupakan data yang akan dihapus : " +
                         "\nPengguna = " + id_pengguna +
                         "\nHadiah = " + id_hadiah +
@@ -114,15 +105,21 @@ namespace ProjectDatabase_Ivano
 
                     if (hasil == DialogResult.Yes)
                     {
-                        Koneksi k = new Koneksi();
-                        Pengguna pengguna = new Pengguna(id_pengguna);
-                        Hadiah hadiah = new Hadiah(int.Parse(id_hadiah));
-                        RiwayatHadiah ph = new RiwayatHadiah(pengguna, hadiah);
-                        RiwayatHadiah.HapusData(ph, k);
-                        MessageBox.Show("Data berhasil dihapus.", "Informasi");
-                        dataGridViewRiwayat.Rows.Clear();
-                        dataGridViewRiwayat.Columns.Clear();
-                        FormRiwayatHadiah_Load(buttonKeluar, e);
+                        for (int i = 0; i < listOfPenggunaHasHadiah.Count; i++)
+                        {
+                            if (e.RowIndex == i)
+                            {
+                                Koneksi k = new Koneksi();
+                                Pengguna pengguna = new Pengguna(id_pengguna);
+                                Hadiah hadiah = new Hadiah(int.Parse(id_hadiah));
+                                RiwayatHadiah ph = new RiwayatHadiah(id ,pengguna, hadiah, tgl_beli);
+                                RiwayatHadiah.HapusData(ph, k);
+                                MessageBox.Show("Data berhasil dihapus.", "Informasi");
+                                FormRiwayatHadiah_Load(buttonKeluar, e);
+                                break;
+                            }
+                        }
+                        
                     }
                 }
             }
