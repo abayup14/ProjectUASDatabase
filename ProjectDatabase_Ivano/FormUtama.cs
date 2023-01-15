@@ -514,5 +514,10 @@ namespace ProjectDatabase_Ivano
                 form.BringToFront();
             }
         }
+
+        private void aktivitasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

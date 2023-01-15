@@ -122,11 +122,11 @@ namespace DiBa_LIB
             Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static int GenerateKode()
+        public static string GenerateKode()
         {
             string sql = "SELECT max(id_Transaksi) from Transaksi";
 
-            int hasilKode = 0;
+            string hasilKode = "";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -134,11 +134,13 @@ namespace DiBa_LIB
             {
                 if (hasil.GetValue(0).ToString() != "")
                 {
-                    hasilKode = int.Parse(hasil.GetValue(0).ToString()) + 1;
+                    int kodeBaru = int.Parse(hasil.GetValue(0).ToString()) + 1;
+
+                    hasilKode = kodeBaru.ToString();
                 }
                 else
                 {
-                    hasilKode = 1;
+                    hasilKode = "1";
                 }
             }
 

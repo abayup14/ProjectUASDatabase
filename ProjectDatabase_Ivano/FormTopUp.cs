@@ -52,6 +52,11 @@ namespace ProjectDatabase_Ivano
 
                         formMasukkanPIN.ShowDialog();
                     }
+                    else
+                    {
+                        MessageBox.Show("Tabungan ini berstatus tidak aktif." +
+                                        "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan ini.");
+                    }
                 }
             }
             catch (Exception ex)

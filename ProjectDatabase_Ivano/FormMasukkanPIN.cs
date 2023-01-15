@@ -126,7 +126,12 @@ namespace ProjectDatabase_Ivano
                         {
                             if (tabungan.Status == "Aktif")
                             {
+                                JenisTransaksi jt = new JenisTransaksi(1);
+                                Transaksi tr = new Transaksi(tabungan, Transaksi.GenerateKode(), DateTime.Now,
+                                                             jt, tabungan, double.Parse(formTopUp.textBoxJumlah.Text),
+                                                             "Top Up", null, null);
                                 Tabungan.UbahSaldo(tabungan, double.Parse(formTopUp.textBoxJumlah.Text), k);
+                                Transaksi.TambahData(tr, k);
                                 MessageBox.Show("Berhasil topup sebesar Rp. " + formTopUp.textBoxJumlah.Text, "Informasi");
                             }
                             else

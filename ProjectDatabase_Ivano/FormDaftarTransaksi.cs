@@ -46,10 +46,6 @@ namespace ProjectDatabase_Ivano
 
         }
 
-        private void buttonTambah_Click(object sender, EventArgs e)
-        {
-        }
-
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             this.Close();

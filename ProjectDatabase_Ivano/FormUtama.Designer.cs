@@ -58,7 +58,7 @@ namespace ProjectDatabase_Ivano
             this.labelAndaLogin = new System.Windows.Forms.Label();
             this.pencairanDepositoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aktivitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +73,7 @@ namespace ProjectDatabase_Ivano
             this.keluarSistemToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(979, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(979, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,7 +94,7 @@ namespace ProjectDatabase_Ivano
             this.riwayatTransaksiToolStripMenuItem,
             this.riwayatHadiahToolStripMenuItem});
             this.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem";
-            this.MenuToolStripMenuItem.Size = new System.Drawing.Size(68, 26);
+            this.MenuToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.MenuToolStripMenuItem.Text = "Master";
             // 
             // penggunaToolStripMenuItem
@@ -193,10 +193,9 @@ namespace ProjectDatabase_Ivano
             this.profilPenggunaToolStripMenuItem,
             this.tabunganPenggunaToolStripMenuItem,
             this.depositoPenggunaToolStripMenuItem,
-            this.addressBookPenggunaToolStripMenuItem,
-            this.transferToolStripMenuItem});
+            this.addressBookPenggunaToolStripMenuItem});
             this.penggunaToolStripMenuItem1.Name = "penggunaToolStripMenuItem1";
-            this.penggunaToolStripMenuItem1.Size = new System.Drawing.Size(88, 26);
+            this.penggunaToolStripMenuItem1.Size = new System.Drawing.Size(88, 24);
             this.penggunaToolStripMenuItem1.Text = "Pengguna";
             // 
             // profilPenggunaToolStripMenuItem
@@ -232,22 +231,23 @@ namespace ProjectDatabase_Ivano
             this.transaksiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.topUpToolStripMenuItem,
             this.transaksiTransferToolStripMenuItem,
-            this.pencairanDepositoToolStripMenuItem});
+            this.pencairanDepositoToolStripMenuItem,
+            this.aktivitasToolStripMenuItem});
             this.transaksiToolStripMenuItem.Name = "transaksiToolStripMenuItem";
-            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(82, 26);
-            this.transaksiToolStripMenuItem.Text = "Transaksi";
+            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.transaksiToolStripMenuItem.Text = "Aktivitas";
             // 
             // transaksiTransferToolStripMenuItem
             // 
             this.transaksiTransferToolStripMenuItem.Name = "transaksiTransferToolStripMenuItem";
             this.transaksiTransferToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.transaksiTransferToolStripMenuItem.Text = "Transfer/Transaksi";
+            this.transaksiTransferToolStripMenuItem.Text = "Transaksi/Transfer";
             this.transaksiTransferToolStripMenuItem.Click += new System.EventHandler(this.transaksiTransferToolStripMenuItem_Click);
             // 
             // keluarSistemToolStripMenuItem
             // 
             this.keluarSistemToolStripMenuItem.Name = "keluarSistemToolStripMenuItem";
-            this.keluarSistemToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
+            this.keluarSistemToolStripMenuItem.Size = new System.Drawing.Size(113, 24);
             this.keluarSistemToolStripMenuItem.Text = "Keluar Sistem";
             this.keluarSistemToolStripMenuItem.Click += new System.EventHandler(this.keluarSistemToolStripMenuItem_Click);
             // 
@@ -304,11 +304,12 @@ namespace ProjectDatabase_Ivano
             this.topUpToolStripMenuItem.Text = "Top Up";
             this.topUpToolStripMenuItem.Click += new System.EventHandler(this.topUpToolStripMenuItem_Click);
             // 
-            // transferToolStripMenuItem
+            // aktivitasToolStripMenuItem
             // 
-            this.transferToolStripMenuItem.Name = "transferToolStripMenuItem";
-            this.transferToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.transferToolStripMenuItem.Text = "Riwayat Transaksi";
+            this.aktivitasToolStripMenuItem.Name = "aktivitasToolStripMenuItem";
+            this.aktivitasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.aktivitasToolStripMenuItem.Text = "Riwayat Aktivitas";
+            this.aktivitasToolStripMenuItem.Click += new System.EventHandler(this.aktivitasToolStripMenuItem_Click);
             // 
             // FormUtama
             // 
@@ -362,9 +363,9 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.ToolStripMenuItem tabunganPenggunaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem depositoPenggunaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addressBookPenggunaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem transferToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem topUpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pencairanDepositoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aktivitasToolStripMenuItem;
     }
 }
 
