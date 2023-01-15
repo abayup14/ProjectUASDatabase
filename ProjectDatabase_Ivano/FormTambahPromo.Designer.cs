@@ -99,7 +99,7 @@
             // textBoxNamaPromo
             // 
             this.textBoxNamaPromo.Location = new System.Drawing.Point(259, 57);
-            this.textBoxNamaPromo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNamaPromo.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNamaPromo.Name = "textBoxNamaPromo";
             this.textBoxNamaPromo.Size = new System.Drawing.Size(265, 22);
             this.textBoxNamaPromo.TabIndex = 25;
@@ -118,7 +118,7 @@
             // dateTimePickerTglAkhir
             // 
             this.dateTimePickerTglAkhir.Location = new System.Drawing.Point(259, 148);
-            this.dateTimePickerTglAkhir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerTglAkhir.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerTglAkhir.Name = "dateTimePickerTglAkhir";
             this.dateTimePickerTglAkhir.Size = new System.Drawing.Size(265, 22);
             this.dateTimePickerTglAkhir.TabIndex = 23;
@@ -126,7 +126,7 @@
             // dateTimePickerTglAwal
             // 
             this.dateTimePickerTglAwal.Location = new System.Drawing.Point(259, 100);
-            this.dateTimePickerTglAwal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerTglAwal.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerTglAwal.Name = "dateTimePickerTglAwal";
             this.dateTimePickerTglAwal.Size = new System.Drawing.Size(265, 22);
             this.dateTimePickerTglAwal.TabIndex = 22;
@@ -198,9 +198,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.buttonTambah);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormTambahPromo";
-            this.Text = "FormTambahPromo";
+            this.Text = "Tambah Promo";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

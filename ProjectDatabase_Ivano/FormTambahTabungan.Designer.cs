@@ -179,7 +179,7 @@
             this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.buttonTambah);
             this.Name = "FormTambahTabungan";
-            this.Text = "FormTambahTabungan";
+            this.Text = "Tambah Tabungan";
             this.Load += new System.EventHandler(this.FormTambahTabungan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

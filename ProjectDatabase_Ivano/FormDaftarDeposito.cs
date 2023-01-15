@@ -51,7 +51,7 @@ namespace ProjectDatabase_Ivano
                 {
                     foreach (Deposito deposito in listDeposito)
                     {
-                        dataGridViewDeposito.Rows.Add(deposito.Id_deposito, deposito.Nominal.ToString(), deposito.Tgl_buat.ToShortDateString());
+                        dataGridViewDeposito.Rows.Add(deposito.Id_deposito, deposito.No_rekening.Rekening, deposito.Nominal.ToString(), deposito.Tgl_buat.ToShortDateString());
                     }
                 }
                 else
@@ -99,10 +99,12 @@ namespace ProjectDatabase_Ivano
             dataGridViewDeposito.Rows.Clear();
             dataGridViewDeposito.Columns.Clear();
             dataGridViewDeposito.Columns.Add("IDDeposito", "ID Deposito");
+            dataGridViewDeposito.Columns.Add("NoRekening", "Nomor Rekening");
             dataGridViewDeposito.Columns.Add("Nominal", "Nominal");
             dataGridViewDeposito.Columns.Add("TanggalBuat", "Tanggal Pembuatan");
 
             dataGridViewDeposito.Columns["IDDeposito"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewDeposito.Columns["NoRekening"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewDeposito.Columns["Nominal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewDeposito.Columns["TanggalBuat"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 

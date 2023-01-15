@@ -157,7 +157,7 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.buttonSimpan);
             this.Controls.Add(this.label1);
             this.Name = "FormUbahHadiah";
-            this.Text = "FormUbahHadiah";
+            this.Text = "Ubah Hadiah";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

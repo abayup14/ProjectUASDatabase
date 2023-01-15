@@ -17,7 +17,11 @@ namespace ProjectDatabase_Ivano
 
         List<double> bungaJatuhTempo = new List<double>() { 0.03, 0.05, 0.06, 0.08, 0.08, 0.08 };
 
+        List<Tabungan> listTabungan = new List<Tabungan>();
+
         FormDaftarDeposito formDaftarDeposito;
+
+        Tabungan tabungan;
 
         //FormDepositoPengguna formDepositoPengguna;
 
@@ -34,13 +38,9 @@ namespace ProjectDatabase_Ivano
 
                 int indexJatuhTempoDipilih = comboBoxJatuhTempo.SelectedIndex;
 
-                string nik = formDaftarDeposito.pengguna.Nik;
+                string kode = Deposito.GenerateKode(tabungan.Rekening);
 
-                string no_rekening = Tabungan.AmbilDataNoRekening(nik);
-
-                string kode = Deposito.GenerateKode(no_rekening);
-
-                Tabungan t = new Tabungan(no_rekening);
+                Tabungan t = tabungan;
 
                 int jatuhTempo = bulanJatuhTempo[indexJatuhTempoDipilih];
 
@@ -62,6 +62,8 @@ namespace ProjectDatabase_Ivano
 
                 Deposito.TambahData(d, k);
 
+                Tabungan.UpdateSaldo(t, double.Parse(textBoxNominal.Text), k);
+
                 MessageBox.Show("Deposito berhasil ditambah");
             }
             catch (Exception ex)
@@ -73,6 +75,11 @@ namespace ProjectDatabase_Ivano
         private void FormTambahDeposito_Load(object sender, EventArgs e)
         {
             formDaftarDeposito = (FormDaftarDeposito)this.Owner;
+
+            listTabungan = Tabungan.BacaData("p.nik", formDaftarDeposito.pengguna.Nik);
+
+            comboBoxRekening.DataSource = listTabungan;
+            comboBoxRekening.DisplayMember = "Rekening";
 
             //formDepositoPengguna = (FormDepositoPengguna)this.Owner;
 
@@ -86,6 +93,14 @@ namespace ProjectDatabase_Ivano
             formDaftarDeposito.FormDaftarDeposito_Load(buttonKeluar, e);
 
             this.Close();
+        }
+
+        private void comboBoxRekening_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxRekening.SelectedIndex > -1)
+            {
+                tabungan = (Tabungan)comboBoxRekening.SelectedItem;
+            }
         }
     }
 }
