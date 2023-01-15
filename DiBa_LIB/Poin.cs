@@ -48,11 +48,11 @@ namespace DiBa_LIB
             string sql = "insert into poin(id_pengguna, jumlah_poin) values ('"+p.Pengguna+"', '"+p.Jumlah+"')";
             Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void UbahData(Poin p, Koneksi k)
-        {
-            string sql = "UPDATE poin set jumlah_poin = '"+p.Jumlah+"'";
-            Koneksi.JalankanPerintahDML(sql, k);
-        }
+        //public static void UpdatePoin(Poin p, Koneksi k)
+        //{
+        //    string sql = "UPDATE poin set jumlah_poin = jumlah_poin + " + p
+        //    Koneksi.JalankanPerintahDML(sql, k);
+        //}
         public static void HapusData(Poin p, Koneksi k)
         {
             string sql = "delete from poin where = id_pengguna = '"+p.Pengguna+"'";
