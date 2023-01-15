@@ -115,16 +115,24 @@ namespace ProjectDatabase_Ivano
 
         private void dataGridViewInbox_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridViewInbox.Columns["buttonBacaGrid"].Index && e.RowIndex >= 0)
+            if (pengguna != null)
             {
-                if (pengguna != null)
+                if (e.ColumnIndex == dataGridViewInbox.Columns["buttonBacaGrid"].Index && e.RowIndex >= 0)
                 {
-                    
+                    for (int i = 0; i < listInbox.Count; i++)
+                    {
+                        if (e.RowIndex == i)
+                        {
+                            MessageBox.Show(listInbox[i].Pesan, "Informasi");
+                            Inbox.UbahStatusPesan(listInbox[i], k);
+                            break;
+                        }
+                    }
                 }
             }
-            else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
+            else if (employee != null)
             {
-                if (employee != null)
+                if (e.ColumnIndex == dataGridViewInbox.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
                 {
                     FormUbahInbox frmUbahInbox = new FormUbahInbox();
                     frmUbahInbox.Owner = this;
@@ -137,10 +145,7 @@ namespace ProjectDatabase_Ivano
                     frmUbahInbox.textBoxPesan.Text = dataGridViewInbox.CurrentRow.Cells["pesan"].Value.ToString();
                     frmUbahInbox.ShowDialog();
                 }
-            }
-            else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
-            {
-                if (employee != null)
+                else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
                 {
                     string nik = dataGridViewInbox.CurrentRow.Cells["pengguna"].Value.ToString();
                     string nama = Pengguna.AmbilNamaLengkap(nik);
@@ -162,6 +167,8 @@ namespace ProjectDatabase_Ivano
                         Inbox i = new Inbox(id_pesan);
                         Inbox.HapusData(i, k);
                         MessageBox.Show("Data berhasil dihapus.", "Informasi");
+                        dataGridViewInbox.Rows.Clear();
+                        dataGridViewInbox.Columns.Clear();
                         FormDaftarInbox_Load(buttonKeluar, e);
                     }
                 }

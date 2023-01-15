@@ -154,7 +154,6 @@ namespace ProjectDatabase_Ivano
         private void buttonKeluar_Click_1(object sender, EventArgs e)
         {
             Close();
-            
         }
     }
 }

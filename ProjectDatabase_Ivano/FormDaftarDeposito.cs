@@ -68,13 +68,6 @@ namespace ProjectDatabase_Ivano
                         bcol.Name = "buttonDetailGrid";
                         bcol.UseColumnTextForButtonValue = true;
                         dataGridViewDeposito.Columns.Add(bcol);
-
-                        //DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
-                        //bcol1.HeaderText = "Aksi";
-                        //bcol1.Text = "Cairkan";
-                        //bcol1.Name = "buttonCairkanGrid";
-                        //bcol1.UseColumnTextForButtonValue = true;
-                        //dataGridViewDeposito.Columns.Add(bcol1);
                     }
 
                     if (employee != null)
@@ -135,21 +128,10 @@ namespace ProjectDatabase_Ivano
                     formUtama.DisplayStatusPicture(d.Status, formDepositoPengguna.panel1);
                     formDepositoPengguna.ShowDialog();
                 }
-                //else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonCairkanGrid"].Index && e.RowIndex >= 0)
-                //{
-                //    listDeposito = Deposito.BacaData("", "");
-                //    FormPencairanDeposito formPencairanDeposito = new FormPencairanDeposito();
-                //    formPencairanDeposito.Owner = this;
-                //    //formUbahDeposito.textBoxJatuhTempo.Text = dataGridViewDeposito.CurrentRow.Cells["jatuh_tempo"].Value.ToString();
-                //    //formUbahDeposito.textBoxNominal.Text = dataGridViewDeposito.CurrentRow.Cells["nominal"].Value.ToString();
-                //    //formUbahDeposito.textBoxBunga.Text = dataGridViewDeposito.CurrentRow.Cells["bunga"].Value.ToString();
-                //    //formUbahDeposito.textBoxStatus.Text = dataGridViewDeposito.CurrentRow.Cells["status"].Value.ToString();
-                //    formPencairanDeposito.Show();
-                //}
             }
-            else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
+            else if (employee != null)
             {
-                if (employee != null)
+                if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
                 {
                     string id_deposito = dataGridViewDeposito.CurrentRow.Cells["id_deposito"].Value.ToString();
                     string no_rekening = dataGridViewDeposito.CurrentRow.Cells["no_rekening"].Value.ToString();
@@ -178,36 +160,40 @@ namespace ProjectDatabase_Ivano
                     dataGridViewDeposito.Columns.Clear();
                     FormDaftarDeposito_Load(buttonKeluar, e);
                 }
-            }
-            else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonAktifGrid"].Index && e.RowIndex >= 0)
-            {
-                if (employee != null)
+                else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonAktifGrid"].Index && e.RowIndex >= 0)
                 {
-                    DialogResult hasil = MessageBox.Show("Apakah anda ingin mengaktifkan deposito ini?", "Konfirmasi",
-                                                      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (hasil == DialogResult.Yes)
+                    if (dataGridViewDeposito.CurrentRow.Cells["Status"].Value.ToString() == "Aktif")
                     {
-                        string id_deposito = dataGridViewDeposito.CurrentRow.Cells["id_deposito"].Value.ToString();
-                        Tabungan t = new Tabungan(dataGridViewDeposito.CurrentRow.Cells["no_rekening"].Value.ToString());
-                        int jatuh_tempo = int.Parse(dataGridViewDeposito.CurrentRow.Cells["jatuh_tempo"].Value.ToString());
-                        double nominal = double.Parse(dataGridViewDeposito.CurrentRow.Cells["nominal"].Value.ToString());
-                        double bunga = double.Parse(dataGridViewDeposito.CurrentRow.Cells["bunga"].Value.ToString());
-                        string status = dataGridViewDeposito.CurrentRow.Cells["status"].Value.ToString();
-                        DateTime tgl_buat = DateTime.Parse(dataGridViewDeposito.CurrentRow.Cells["tgl_buat"].Value.ToString());
-                        Employee verifikatorBuka = employee;
-                        Employee verifikatorCair = new Employee(int.Parse(dataGridViewDeposito.CurrentRow.Cells["verifikator_cair"].Value.ToString()));
-
-                        Deposito d = new Deposito(id_deposito, t, jatuh_tempo, nominal, bunga, status, tgl_buat, DateTime.Now, verifikatorBuka, verifikatorCair);
-
-                        Deposito.UbahStatus(d, employee, k);
-
-                        MessageBox.Show("Deposito berhasil diaktifkan");
+                        MessageBox.Show("Deposito sudah berstatus aktif. Anda tidak perlu mengaktifkannya lagi.");
                     }
-                }
+                    else
+                    {
+                        DialogResult hasil = MessageBox.Show("Apakah anda ingin mengaktifkan deposito ini?", "Konfirmasi",
+                                                          MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (hasil == DialogResult.Yes)
+                        {
+                            string id_deposito = dataGridViewDeposito.CurrentRow.Cells["id_deposito"].Value.ToString();
+                            Tabungan t = new Tabungan(dataGridViewDeposito.CurrentRow.Cells["no_rekening"].Value.ToString());
+                            int jatuh_tempo = int.Parse(dataGridViewDeposito.CurrentRow.Cells["jatuh_tempo"].Value.ToString());
+                            double nominal = double.Parse(dataGridViewDeposito.CurrentRow.Cells["nominal"].Value.ToString());
+                            double bunga = double.Parse(dataGridViewDeposito.CurrentRow.Cells["bunga"].Value.ToString());
+                            string status = dataGridViewDeposito.CurrentRow.Cells["status"].Value.ToString();
+                            DateTime tgl_buat = DateTime.Parse(dataGridViewDeposito.CurrentRow.Cells["tgl_buat"].Value.ToString());
+                            Employee verifikatorBuka = employee;
+                            Employee verifikatorCair = new Employee(int.Parse(dataGridViewDeposito.CurrentRow.Cells["verifikator_cair"].Value.ToString()));
 
-                dataGridViewDeposito.Rows.Clear();
-                dataGridViewDeposito.Columns.Clear();
-                FormDaftarDeposito_Load(buttonKeluar, e);
+                            Deposito d = new Deposito(id_deposito, t, jatuh_tempo, nominal, bunga, status, tgl_buat, DateTime.Now, verifikatorBuka, verifikatorCair);
+
+                            Deposito.UbahStatus(d, employee, k);
+
+                            MessageBox.Show("Deposito berhasil diaktifkan");
+                        }
+                    }
+                    
+                    dataGridViewDeposito.Rows.Clear();
+                    dataGridViewDeposito.Columns.Clear();
+                    FormDaftarDeposito_Load(buttonKeluar, e);
+                }
             }
         }
 

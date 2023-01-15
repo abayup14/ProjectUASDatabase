@@ -46,10 +46,11 @@ namespace ProjectDatabase_Ivano
 
             employee = formUtama.employee;
 
-            FormatDataGridAddressBook();
+
 
             if (pengguna != null)
             {
+                FormatDataGridAddressBook();
                 listAddressBook = AddressBook.BacaData("ab.id_pengguna", pengguna.Nik);
             }
             else if (employee != null)
@@ -60,22 +61,21 @@ namespace ProjectDatabase_Ivano
             
             if (listAddressBook.Count > 0)
             {
-                //dataGridViewAddressBook.DataSource = listAddressBook;
-                foreach (AddressBook addressBook in listAddressBook)
+                if (pengguna != null)
                 {
-                    string nama = addressBook.Pengguna.Nama_depan + " " + addressBook.Pengguna.Nama_keluarga;
-                    dataGridViewAddressBook.Rows.Add(addressBook.No_rekening.Rekening, nama, addressBook.Keterangan);
+                    foreach (AddressBook addressBook in listAddressBook)
+                    {
+                        string nama = addressBook.Pengguna.Nama_depan + " " + addressBook.Pengguna.Nama_keluarga;
+                        dataGridViewAddressBook.Rows.Add(addressBook.No_rekening.Rekening, nama, addressBook.Keterangan);
+                    }
+                }
+                else if (employee != null)
+                {
+                    dataGridViewAddressBook.DataSource = listAddressBook;
                 }
 
                 if (dataGridViewAddressBook.ColumnCount < 10)
                 {
-                    //DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
-                    //bcol1.HeaderText = "Aksi";
-                    //bcol1.Text = "Transaksi";
-                    //bcol1.Name = "buttonTransaksiGrid";
-                    //bcol1.UseColumnTextForButtonValue = true;
-                    //dataGridViewAddressBook.Columns.Add(bcol1);
-
                     DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
                     bcol2.HeaderText = "Aksi";
                     bcol2.Text = "Hapus";
@@ -106,15 +106,6 @@ namespace ProjectDatabase_Ivano
         private void dataGridViewAddressBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Koneksi k = new Koneksi();
-            //if (e.ColumnIndex == dataGridViewAddressBook.Columns["buttonTransaksiGrid"].Index && e.RowIndex >= 0)
-            //{
-            //    if (pengguna != null)
-            //    {
-            //        FormTambahTransaksi formTambahTransaksi = new FormTambahTransaksi();
-            //        formTambahTransaksi.Owner = this;
-            //        formTambahTransaksi.ShowDialog();
-            //    }
-            //}
             if (e.ColumnIndex == dataGridViewAddressBook.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
                 if (employee != null)
