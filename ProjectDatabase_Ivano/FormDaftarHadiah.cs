@@ -16,6 +16,7 @@ namespace ProjectDatabase_Ivano
         List<Hadiah> listHadiah = new List<Hadiah>();
         FormUtama formUtama;
         Koneksi k;
+        Hadiah h;
         public Pengguna p;
         public FormDaftarHadiah()
         {
@@ -120,20 +121,20 @@ namespace ProjectDatabase_Ivano
                     }
                 }
             }
-            else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
+            else if (e.ColumnIndex == dataGridViewHadiah.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
             {
                 FormUbahHadiah frmUbahHadiah = new FormUbahHadiah();
                 frmUbahHadiah.Owner = this;
                 //frmUbahHadiah.Show();
-                frmUbahHadiah.textBoxNamaHadiah.Text = dataGridViewInbox.CurrentRow.Cells["nama_hadiah"].Value.ToString();
-                frmUbahHadiah.textBoxHargaHadiah.Text = dataGridViewInbox.CurrentRow.Cells["harga_hadiah"].Value.ToString();
+                frmUbahHadiah.textBoxNamaHadiah.Text = dataGridViewHadiah.CurrentRow.Cells["nama_hadiah"].Value.ToString();
+                frmUbahHadiah.textBoxHargaHadiah.Text = dataGridViewHadiah.CurrentRow.Cells["harga_hadiah"].Value.ToString();
                 frmUbahHadiah.Show();
             }
-            else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
+            else if (e.ColumnIndex == dataGridViewHadiah.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
-                int id = int.Parse(dataGridViewInbox.CurrentRow.Cells["id"].Value.ToString());
-                string nama_hadiah = dataGridViewInbox.CurrentRow.Cells["nama_hadiah"].Value.ToString();
-                int harga_hadiah = int.Parse(dataGridViewInbox.CurrentRow.Cells["harga_hadiah"].Value.ToString());
+                int id = int.Parse(dataGridViewHadiah.CurrentRow.Cells["id"].Value.ToString());
+                string nama_hadiah = dataGridViewHadiah.CurrentRow.Cells["nama_hadiah"].Value.ToString();
+                int harga_hadiah = int.Parse(dataGridViewHadiah.CurrentRow.Cells["harga_hadiah"].Value.ToString());
 
                 DialogResult hasil = MessageBox.Show("Data yang ingin dihapus : " +
                                                                     "\nnama_hadiah : " + nama_hadiah +

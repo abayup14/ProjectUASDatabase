@@ -175,6 +175,12 @@
     <Compile Include="FormProfilPengguna.Designer.cs">
       <DependentUpon>FormProfilPengguna.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRiwayatHadiah.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRiwayatHadiah.Designer.cs">
+      <DependentUpon>FormRiwayatHadiah.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTabunganPengguna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,6 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormProfilPengguna.resx">
       <DependentUpon>FormProfilPengguna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRiwayatHadiah.resx">
+      <DependentUpon>FormRiwayatHadiah.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTabunganPengguna.resx">
       <DependentUpon>FormTabunganPengguna.cs</DependentUpon>

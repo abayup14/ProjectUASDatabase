@@ -32,7 +32,7 @@ namespace ProjectDatabase_Ivano
                     int id = Hadiah.GenerateKode();
                     Hadiah h = new Hadiah(id, textBoxNamaHadiah.Text, textBoxHargaHadiah.Text);
                     Hadiah.TambahData(h, k);
-
+                    
                     MessageBox.Show("Berhasil", "Informasi");
                 }
             }

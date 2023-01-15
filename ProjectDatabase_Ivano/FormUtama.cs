@@ -519,5 +519,23 @@ namespace ProjectDatabase_Ivano
         {
 
         }
+
+        private void riwayatHadiahToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormRiwayatHadiah"];
+
+            if (form == null)
+            {
+                FormRiwayatHadiah frmRiwayatHadiah = new FormRiwayatHadiah();
+                frmRiwayatHadiah.MdiParent = this;
+                frmRiwayatHadiah.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
     }
 }

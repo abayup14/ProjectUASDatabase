@@ -15,6 +15,10 @@ namespace DiBa_LIB
         private DateTime tglAkhir;
         private string keterangan;
 
+        public Promo()
+        {
+            IdPromo = 0;
+        }
         public Promo(int idPromo, string namaPromo, DateTime tglAwal, DateTime tglAkhir, string keterangan)
         {
             this.IdPromo = idPromo;

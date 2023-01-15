@@ -244,3 +244,11 @@ C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahHadiah.resources
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahJenisTagihan.resources
 C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormUbahPromo.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormDepositoPengguna.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormLoginPegawai.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormMasukkanPIN.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormPilihMasuk.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormProfilPengguna.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormRiwayatHadiah.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTabunganPengguna.resources
+C:\Users\Asus\OneDrive\Documents\GitHub\ProjectDatabaseUAS\ProjectDatabase_Ivano\obj\Debug\ProjectDatabase_Ivano.FormTambahTabungan.resources

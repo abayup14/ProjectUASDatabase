@@ -55,7 +55,7 @@ namespace DiBa_LIB
         }
         public static void HapusData(Poin p, Koneksi k)
         {
-            string sql = "delete from poin where = id_pengguna = '"+p.Pengguna+"'";
+            string sql = "delete from poin where id_pengguna = '"+p.Pengguna+"'";
             Koneksi.JalankanPerintahDML(sql, k);
         }
         public static int CekPoin(Pengguna p)
