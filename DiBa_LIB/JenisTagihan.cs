@@ -107,5 +107,9 @@ namespace DiBa_LIB
 
             return hasilKode;
         }
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
     }
 }
