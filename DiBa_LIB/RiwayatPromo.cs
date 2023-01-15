@@ -22,10 +22,10 @@ namespace DiBa_LIB
 
         public RiwayatPromo(int id, Promo id_promo, Pengguna id_pengguna, DateTime tanggal_pakai)
         {
-            this.Id = id;
-            this.Id_promo = id_promo;
-            this.Id_pengguna = id_pengguna;
-            this.Tanggal_pakai = tanggal_pakai;
+           Id = id;
+            Id_promo = id_promo;
+            Id_pengguna = id_pengguna;
+            Tanggal_pakai = tanggal_pakai;
         }
 
         public int Id { get => id; set => id = value; }

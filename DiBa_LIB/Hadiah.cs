@@ -23,7 +23,6 @@ namespace DiBa_LIB
         public Hadiah(int id)
         {
             Id = id;
-            
         }
 
         public int Id { get => id; set => id = value; }

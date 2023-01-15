@@ -19,8 +19,8 @@ namespace DiBa_LIB
         }
         public JenisTagihan(int id, string nama)
         {
-            this.Id = id;
-            this.Nama = nama;
+            Id = id;
+            Nama = nama;
         }
         public JenisTagihan(int id)
         {

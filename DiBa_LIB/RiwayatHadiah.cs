@@ -16,10 +16,10 @@ namespace DiBa_LIB
 
         public RiwayatHadiah(int id, Pengguna pengguna, Hadiah hadiah, DateTime tanggal_beli)
         {
-            this.Id = id;
+            Id = id;
             Pengguna = pengguna;
             Hadiah = hadiah;
-            this.Tanggal_beli = tanggal_beli;
+            Tanggal_beli = tanggal_beli;
         }
 
         public Pengguna Pengguna { get => pengguna; set => pengguna = value; }

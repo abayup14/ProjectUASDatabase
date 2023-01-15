@@ -16,9 +16,9 @@ namespace DiBa_LIB
 
         public AddressBook(Pengguna pengguna, Tabungan no_rekening, string keterangan)
         {
-            this.Pengguna = pengguna;
-            this.No_rekening = no_rekening;
-            this.Keterangan = keterangan;
+            Pengguna = pengguna;
+            No_rekening = no_rekening;
+            .Keterangan = keterangan;
         }
 
         public Pengguna Pengguna { get => pengguna; set => pengguna = value; }

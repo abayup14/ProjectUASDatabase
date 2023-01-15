@@ -21,11 +21,11 @@ namespace DiBa_LIB
         }
         public Promo(int idPromo, string namaPromo, DateTime tglAwal, DateTime tglAkhir, string keterangan)
         {
-            this.IdPromo = idPromo;
-            this.NamaPromo = namaPromo;
-            this.TglAwal = tglAwal;
-            this.TglAkhir = tglAkhir;
-            this.Keterangan = keterangan;
+            IdPromo = idPromo;
+            NamaPromo = namaPromo;
+            TglAwal = tglAwal;
+            TglAkhir = tglAkhir;
+            Keterangan = keterangan;
         }
         
         public Promo (string namaPromo)

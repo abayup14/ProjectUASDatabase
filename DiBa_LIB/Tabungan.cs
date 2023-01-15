@@ -21,18 +21,18 @@ namespace DiBa_LIB
 
         public Tabungan(string rekening, Pengguna pengguna, double saldo, string status, string keterangan, DateTime tgl_buat, DateTime tgl_perubahan, Employee verifikator)
         {
-            this.Rekening = rekening;
-            this.Pengguna = pengguna;
-            this.Saldo = saldo;
-            this.Status = status;
-            this.Keterangan = keterangan;
-            this.Tgl_buat = tgl_buat;
-            this.Tgl_perubahan = tgl_perubahan;
-            this.Verifikator = verifikator;
+            Rekening = rekening;
+            Pengguna = pengguna;
+            Saldo = saldo;
+            Status = status;
+            Keterangan = keterangan;
+            Tgl_buat = tgl_buat;
+            Tgl_perubahan = tgl_perubahan;
+            Verifikator = verifikator;
         }
         public Tabungan(string rekening)
         {
-            this.Rekening = rekening;
+            Rekening = rekening;
         }
 
         public string Rekening { get => rekening; set => rekening = value; }
