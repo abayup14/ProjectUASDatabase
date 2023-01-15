@@ -117,7 +117,7 @@ namespace ProjectDatabase_Ivano
                     }
                     else
                     {
-                        MessageBox.Show("Pembelian Gagal, cek kembali saldo anda", "Informasi");
+                        MessageBox.Show("Pembelian Gagal, cek kembali poin anda", "Informasi");
                     }
                 }
             }

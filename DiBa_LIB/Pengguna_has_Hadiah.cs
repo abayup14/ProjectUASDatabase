@@ -24,7 +24,7 @@ namespace DiBa_LIB
         public static void TambahData(Pengguna_has_Hadiah phh, Koneksi k)
         {
             string sql = "insert into pengguna_has_hadiah(pengguna_nik, hadiah_id) values ('"+
-                phh.Pengguna+"', '"+phh.Hadiah+"')";
+                phh.Pengguna.Nik+"', '"+phh.Hadiah.Id+"')";
             Koneksi.JalankanPerintahDML(sql, k);
         }
         public static List<Pengguna_has_Hadiah> BacaData(string kriteria, string nilaiKriteria)

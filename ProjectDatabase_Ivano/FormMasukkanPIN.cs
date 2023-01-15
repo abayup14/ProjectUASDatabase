@@ -108,7 +108,7 @@ namespace ProjectDatabase_Ivano
 
                 FormTopUp formTopUp = (FormTopUp)this.Owner;
 
-                //FormTambahTransaksi formTambahTransaksi = (FormTambahTransaksi)this.Owner;
+                FormTambahTransaksi formTambahTransaksi = (FormTambahTransaksi)this.Owner;
 
                 Pengguna pengguna = formTopUp.p;
 
@@ -132,8 +132,9 @@ namespace ProjectDatabase_Ivano
                                 Transaksi tr = new Transaksi(tabungan, Transaksi.GenerateKode(), DateTime.Now,
                                                              jt, tabungan, double.Parse(formTopUp.textBoxJumlah.Text),
                                                              "Top Up", pr, jtg);
-                                Tabungan.UbahSaldo(tabungan, double.Parse(formTopUp.textBoxJumlah.Text), k);
+
                                 Transaksi.TambahData(tr, k);
+                                Tabungan.UbahSaldo(tabungan, double.Parse(formTopUp.textBoxJumlah.Text), k);
                                 MessageBox.Show("Berhasil topup sebesar Rp. " + formTopUp.textBoxJumlah.Text, "Informasi");
                             }
                             else
@@ -141,6 +142,45 @@ namespace ProjectDatabase_Ivano
                                 MessageBox.Show("Maaf, tabungan yang anda pilih belum aktif." +
                                                 "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan.", "Informasi");
                             }
+                        }
+                        else if (formTambahTransaksi != null)
+                        {
+                            Tabungan rekening_sumber = new Tabungan(formTambahTransaksi.comboBoxRekeningSumber.Text);
+                            JenisTransaksi jt = new JenisTransaksi(formTambahTransaksi.comboBoxJenisTransaksi.SelectedIndex + 1);
+                            Tabungan rekening_tujuan = (Tabungan)formTambahTransaksi.comboBoxRekeningTujuan.SelectedItem;
+                            Promo p = null;
+                            if (formTambahTransaksi.checkBoxPromo.Checked == true)
+                            {
+                                p = (Promo)formTambahTransaksi.comboBoxPromo.SelectedItem;
+                            }
+                            else
+                            {
+                                p = new Promo();
+                            }
+
+                            JenisTagihan j = null;
+                            if (formTambahTransaksi.checkBoxTagihan.Checked == true)
+                            {
+                                j = (JenisTagihan)formTambahTransaksi.comboBoxJenisTagihan.SelectedItem;
+                            }
+                            else
+                            {
+                                j = new JenisTagihan();
+                            }
+
+                            if (formTambahTransaksi.comboBoxPromo.Text != "")
+                            {
+                                RiwayatPromo rp = new RiwayatPromo(p, rekening_sumber.Pengguna);
+                            }
+
+                            Transaksi t = new Transaksi(rekening_sumber, 
+                                Transaksi.GenerateKode().ToString(), DateTime.Now, jt, 
+                                rekening_tujuan, double.Parse(formTambahTransaksi.textBoxNominal.Text), 
+                                formTambahTransaksi.textBoxKeterangan.Text, p, j);
+                            Transaksi.TambahData(t, k);
+                            Transaksi.UpdateSaldo(t, k);
+
+                            MessageBox.Show("Data transaksi telah tersimpan.", "Info");
                         }
                         countMistake = 0;
                         Close();
