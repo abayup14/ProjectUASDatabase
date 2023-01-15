@@ -119,7 +119,7 @@ namespace ProjectDatabase_Ivano
             {
                 if (pengguna != null)
                 {
-                    MessageBox.Show(dataGridViewInbox.CurrentRow.Cells["Pesan"].Value.ToString(), "Pesan");
+                    
                 }
             }
             else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)

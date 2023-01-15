@@ -143,9 +143,12 @@ namespace ProjectDatabase_Ivano
                                                     "Belum Terbaca",
                                                     DateTime.Now);
                                 Transaksi.TambahTransaksiTopUp(tr, k);
-                                Tabungan.UbahSaldo(tabungan, double.Parse(formTopUp.textBoxJumlah.Text), k);
+                                Tabungan.UpdateSaldoTopUp(tabungan, double.Parse(formTopUp.textBoxJumlah.Text), k);
                                 Inbox.TambahData(i, k);
-                                MessageBox.Show("Berhasil topup sebesar Rp. " + formTopUp.textBoxJumlah.Text, "Informasi");
+                                Poin poin = new Poin(pengguna, 50);
+                                Poin.UpdatePoin(poin, k);
+                                MessageBox.Show("Berhasil topup sebesar Rp. " + formTopUp.textBoxJumlah.Text + 
+                                                "\nAnda Mendapatkan 50 poin dari transaksi ini.", "Informasi");
                             }
                             else
                             {
@@ -206,7 +209,6 @@ namespace ProjectDatabase_Ivano
                         {
                             if (tabunganSumber.Status == "Aktif" && tabunganTujuan.Status == "Aktif")
                             {
-                                JenisTransaksi jt = new JenisTransaksi(formTambahTransaksi.comboBoxJenisTransaksi.SelectedIndex + 1);
                                 Promo p = null;
                                 if (formTambahTransaksi.checkBoxPromo.Checked == true)
                                 {
@@ -232,7 +234,7 @@ namespace ProjectDatabase_Ivano
                                     RiwayatPromo rp = new RiwayatPromo(p, tabunganSumber.Pengguna);
                                 }
 
-                                Transaksi t = new Transaksi(tabunganSumber,
+                                Transaksi tS = new Transaksi(tabunganSumber,
                                                             Transaksi.GenerateKode(),
                                                             DateTime.Now,
                                                             tabunganTujuan,
@@ -240,27 +242,46 @@ namespace ProjectDatabase_Ivano
                                                             formTambahTransaksi.textBoxKeterangan.Text,
                                                             p,
                                                             j);
+                                
+                                Transaksi.TambahTransaksiSumber(tS, k);
+
+                                Transaksi tT = new Transaksi(tabunganTujuan,
+                                                            Transaksi.GenerateKode(),
+                                                            DateTime.Now,
+                                                            tabunganSumber,
+                                                            double.Parse(formTambahTransaksi.textBoxNominal.Text),
+                                                            formTambahTransaksi.textBoxKeterangan.Text,
+                                                            p,
+                                                            j);
+                                Transaksi.TambahTransaksiTujuan(tT, k);
+
+                                Transaksi.UpdateSaldoTransaksi(tS, k);
+
                                 Inbox inboxSumber = new Inbox(tabunganSumber.Pengguna,
                                                               Inbox.GenerateKode(),
-                                                              "Berhasil transfer ke rekening " + tabunganTujuan.Rekening + 
-                                                              " sebesar Rp. " + formTambahTransaksi.textBoxNominal.Text + 
+                                                              "Berhasil transfer ke rekening " + tabunganTujuan.Rekening +
+                                                              " sebesar Rp. " + formTambahTransaksi.textBoxNominal.Text +
                                                               "\nKeterangan: " + formTambahTransaksi.textBoxKeterangan.Text,
                                                               DateTime.Now,
                                                               "Belum Terbaca",
                                                               DateTime.Now);
+                                Inbox.TambahData(inboxSumber, k);
+
                                 Inbox inboxTujuan = new Inbox(tabunganTujuan.Pengguna,
-                                                              Inbox.GenerateKode() + 1,
+                                                              Inbox.GenerateKode(),
                                                               "Mendapatkan transfer dari rekening " + tabunganSumber.Rekening +
                                                               " sebesar Rp. " + formTambahTransaksi.textBoxNominal.Text +
                                                               "\nKeterangan: " + formTambahTransaksi.textBoxKeterangan.Text,
                                                               DateTime.Now,
                                                               "Belum Terbaca",
                                                               DateTime.Now);
-                                Transaksi.TambahTransaksi(t, k);
-                                Transaksi.UpdateSaldoTransaksi(t, k);
-                                Inbox.TambahData(inboxSumber, k);
                                 Inbox.TambahData(inboxTujuan, k);
-                                MessageBox.Show("Transaksi berhasil dilakukan.", "Informasi");
+
+                                Poin poin = new Poin(pengguna, 100);
+                                Poin.UpdatePoin(poin, k);
+
+                                MessageBox.Show("Transaksi berhasil dilakukan." +
+                                                "\nAnda mendapatkan 100 poin dari transaksi ini.", "Informasi");
                             }
                             else
                             {

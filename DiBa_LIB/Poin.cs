@@ -48,11 +48,17 @@ namespace DiBa_LIB
             string sql = "insert into poin(id_pengguna, jumlah_poin) values ('"+p.Pengguna+"', '"+p.Jumlah+"')";
             Koneksi.JalankanPerintahDML(sql, k);
         }
-        //public static void UpdatePoin(Poin p, Koneksi k)
-        //{
-        //    string sql = "UPDATE poin set jumlah_poin = jumlah_poin + " + p
-        //    Koneksi.JalankanPerintahDML(sql, k);
-        //}
+        public static void UpdatePoin(Poin p, Koneksi k)
+        {
+            string sql = "UPDATE poin set jumlah_poin = jumlah_poin + " + p.Jumlah + " where id_pengguna = '" + p.Pengguna.Nik + "'";
+            Koneksi.JalankanPerintahDML(sql, k);
+        }
+        public static void UpdateBeliHadiah(Poin p, Koneksi k)
+        {
+            string sql = "UPDATE poin set jumlah_poin = jumlah_poin - " + p.Jumlah + " where id_pengguna = '" + p.Pengguna.Nik + "'";
+
+            Koneksi.JalankanPerintahDML(sql, k);
+        }
         public static void HapusData(Poin p, Koneksi k)
         {
             string sql = "delete from poin where id_pengguna = '"+p.Pengguna+"'";
@@ -61,13 +67,17 @@ namespace DiBa_LIB
         public static int CekPoin(Pengguna p)
         {
             string sql = "select jumlah_poin from poin p inner join " +
-                "pengguna pe on p.id_pengguna = pe.nik where p.id_pengguna = '" + p.Nik+ "'";
+                         "pengguna pe on p.id_pengguna = pe.nik where p.id_pengguna = '" + p.Nik+ "'";
+
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
             int jumlah = 0;
+
             if (hasil.Read() == true)
             {
                 jumlah = int.Parse(hasil.GetString(0));
             }
+
             return jumlah;
         }
     }

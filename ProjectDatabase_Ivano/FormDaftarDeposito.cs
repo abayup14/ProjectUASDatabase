@@ -172,6 +172,9 @@ namespace ProjectDatabase_Ivano
                         Deposito.HapusData(d, k);
 
                         MessageBox.Show("Data berhasil dihapus.", "Informasi");
+
+                        dataGridViewDeposito.Rows.Clear();
+                        dataGridViewDeposito.Columns.Clear();
                         FormDaftarDeposito_Load(buttonKeluar, e);
                     }
                 }

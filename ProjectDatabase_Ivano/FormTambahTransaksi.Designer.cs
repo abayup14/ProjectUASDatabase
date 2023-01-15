@@ -40,10 +40,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxKeterangan = new System.Windows.Forms.TextBox();
             this.comboBoxRekeningTujuan = new System.Windows.Forms.ComboBox();
-            this.comboBoxJenisTransaksi = new System.Windows.Forms.ComboBox();
             this.textBoxNominal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -90,10 +88,8 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.textBoxKeterangan);
             this.panel1.Controls.Add(this.comboBoxRekeningTujuan);
-            this.panel1.Controls.Add(this.comboBoxJenisTransaksi);
             this.panel1.Controls.Add(this.textBoxNominal);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -107,7 +103,7 @@
             // 
             this.comboBoxRekeningSumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRekeningSumber.FormattingEnabled = true;
-            this.comboBoxRekeningSumber.Location = new System.Drawing.Point(291, 37);
+            this.comboBoxRekeningSumber.Location = new System.Drawing.Point(289, 27);
             this.comboBoxRekeningSumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxRekeningSumber.Name = "comboBoxRekeningSumber";
             this.comboBoxRekeningSumber.Size = new System.Drawing.Size(259, 24);
@@ -118,7 +114,7 @@
             // 
             this.checkBoxTagihan.AutoSize = true;
             this.checkBoxTagihan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.checkBoxTagihan.Location = new System.Drawing.Point(576, 328);
+            this.checkBoxTagihan.Location = new System.Drawing.Point(574, 318);
             this.checkBoxTagihan.Name = "checkBoxTagihan";
             this.checkBoxTagihan.Size = new System.Drawing.Size(158, 22);
             this.checkBoxTagihan.TabIndex = 35;
@@ -130,7 +126,7 @@
             // 
             this.checkBoxPromo.AutoSize = true;
             this.checkBoxPromo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.checkBoxPromo.Location = new System.Drawing.Point(576, 281);
+            this.checkBoxPromo.Location = new System.Drawing.Point(574, 271);
             this.checkBoxPromo.Name = "checkBoxPromo";
             this.checkBoxPromo.Size = new System.Drawing.Size(150, 22);
             this.checkBoxPromo.TabIndex = 34;
@@ -142,7 +138,7 @@
             // 
             this.comboBoxPromo.Enabled = false;
             this.comboBoxPromo.FormattingEnabled = true;
-            this.comboBoxPromo.Location = new System.Drawing.Point(291, 278);
+            this.comboBoxPromo.Location = new System.Drawing.Point(289, 268);
             this.comboBoxPromo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxPromo.Name = "comboBoxPromo";
             this.comboBoxPromo.Size = new System.Drawing.Size(259, 24);
@@ -152,7 +148,7 @@
             // 
             this.comboBoxJenisTagihan.Enabled = false;
             this.comboBoxJenisTagihan.FormattingEnabled = true;
-            this.comboBoxJenisTagihan.Location = new System.Drawing.Point(291, 328);
+            this.comboBoxJenisTagihan.Location = new System.Drawing.Point(289, 318);
             this.comboBoxJenisTagihan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxJenisTagihan.Name = "comboBoxJenisTagihan";
             this.comboBoxJenisTagihan.Size = new System.Drawing.Size(259, 24);
@@ -162,7 +158,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(140, 329);
+            this.label6.Location = new System.Drawing.Point(138, 319);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(122, 18);
             this.label6.TabIndex = 31;
@@ -172,7 +168,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(190, 279);
+            this.label7.Location = new System.Drawing.Point(188, 269);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 18);
             this.label7.TabIndex = 30;
@@ -180,33 +176,25 @@
             // 
             // textBoxKeterangan
             // 
-            this.textBoxKeterangan.Location = new System.Drawing.Point(291, 230);
+            this.textBoxKeterangan.Location = new System.Drawing.Point(289, 164);
             this.textBoxKeterangan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKeterangan.Multiline = true;
             this.textBoxKeterangan.Name = "textBoxKeterangan";
-            this.textBoxKeterangan.Size = new System.Drawing.Size(505, 22);
+            this.textBoxKeterangan.Size = new System.Drawing.Size(505, 85);
             this.textBoxKeterangan.TabIndex = 28;
             // 
             // comboBoxRekeningTujuan
             // 
             this.comboBoxRekeningTujuan.FormattingEnabled = true;
-            this.comboBoxRekeningTujuan.Location = new System.Drawing.Point(291, 130);
+            this.comboBoxRekeningTujuan.Location = new System.Drawing.Point(289, 120);
             this.comboBoxRekeningTujuan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxRekeningTujuan.Name = "comboBoxRekeningTujuan";
             this.comboBoxRekeningTujuan.Size = new System.Drawing.Size(259, 24);
             this.comboBoxRekeningTujuan.TabIndex = 27;
             // 
-            // comboBoxJenisTransaksi
-            // 
-            this.comboBoxJenisTransaksi.FormattingEnabled = true;
-            this.comboBoxJenisTransaksi.Location = new System.Drawing.Point(291, 180);
-            this.comboBoxJenisTransaksi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxJenisTransaksi.Name = "comboBoxJenisTransaksi";
-            this.comboBoxJenisTransaksi.Size = new System.Drawing.Size(259, 24);
-            this.comboBoxJenisTransaksi.TabIndex = 26;
-            // 
             // textBoxNominal
             // 
-            this.textBoxNominal.Location = new System.Drawing.Point(291, 82);
+            this.textBoxNominal.Location = new System.Drawing.Point(289, 72);
             this.textBoxNominal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNominal.Name = "textBoxNominal";
             this.textBoxNominal.Size = new System.Drawing.Size(259, 22);
@@ -216,27 +204,17 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(156, 231);
+            this.label5.Location = new System.Drawing.Point(154, 165);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 18);
             this.label5.TabIndex = 23;
             this.label5.Text = "Keterangan :";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(125, 181);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 18);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Jenis Transaksi :";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(117, 131);
+            this.label3.Location = new System.Drawing.Point(115, 121);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(148, 18);
             this.label3.TabIndex = 21;
@@ -246,7 +224,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(185, 87);
+            this.label2.Location = new System.Drawing.Point(183, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 18);
             this.label2.TabIndex = 19;
@@ -256,7 +234,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(113, 38);
+            this.label1.Location = new System.Drawing.Point(111, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(156, 18);
             this.label1.TabIndex = 18;
@@ -294,7 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 526);
+            this.ClientSize = new System.Drawing.Size(861, 526);
             this.Controls.Add(this.labelInbox);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.panel1);
@@ -320,12 +298,10 @@
         private System.Windows.Forms.Button buttonKosongi;
         private System.Windows.Forms.Button buttonTambah;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.ComboBox comboBoxRekeningTujuan;
-        public System.Windows.Forms.ComboBox comboBoxJenisTransaksi;
         public System.Windows.Forms.TextBox textBoxNominal;
         public System.Windows.Forms.TextBox textBoxKeterangan;
         public System.Windows.Forms.ComboBox comboBoxPromo;

@@ -48,7 +48,7 @@ namespace ProjectDatabase_Ivano
 
             formUbahTabungan.textBoxKeterangan.Text = labelKeterangan.Text;
 
-            formDaftarTabungan.ShowDialog();
+            formUbahTabungan.ShowDialog();
         }
     }
 }

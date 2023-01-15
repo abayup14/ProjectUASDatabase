@@ -72,7 +72,7 @@
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(656, 238);
+            this.buttonKeluar.Location = new System.Drawing.Point(653, 249);
             this.buttonKeluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(220, 53);
@@ -85,7 +85,7 @@
             // 
             this.labelTanggal.AutoSize = true;
             this.labelTanggal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTanggal.Location = new System.Drawing.Point(251, 176);
+            this.labelTanggal.Location = new System.Drawing.Point(251, 179);
             this.labelTanggal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTanggal.Name = "labelTanggal";
             this.labelTanggal.Size = new System.Drawing.Size(75, 20);
@@ -96,7 +96,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(18, 176);
+            this.label8.Location = new System.Drawing.Point(18, 179);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(186, 20);
@@ -119,7 +119,7 @@
             // 
             this.labelKeterangan.AutoSize = true;
             this.labelKeterangan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKeterangan.Location = new System.Drawing.Point(251, 128);
+            this.labelKeterangan.Location = new System.Drawing.Point(251, 127);
             this.labelKeterangan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelKeterangan.Name = "labelKeterangan";
             this.labelKeterangan.Size = new System.Drawing.Size(104, 20);
@@ -130,7 +130,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(88, 128);
+            this.label6.Location = new System.Drawing.Point(88, 127);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(116, 20);
@@ -141,7 +141,7 @@
             // 
             this.labelSaldo.AutoSize = true;
             this.labelSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSaldo.Location = new System.Drawing.Point(251, 76);
+            this.labelSaldo.Location = new System.Drawing.Point(251, 75);
             this.labelSaldo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSaldo.Name = "labelSaldo";
             this.labelSaldo.Size = new System.Drawing.Size(56, 20);
@@ -152,7 +152,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(130, 76);
+            this.label4.Location = new System.Drawing.Point(130, 75);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 20);
@@ -199,7 +199,7 @@
             this.panel1.Location = new System.Drawing.Point(13, 59);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(893, 312);
+            this.panel1.Size = new System.Drawing.Size(893, 327);
             this.panel1.TabIndex = 46;
             // 
             // buttonUbah
@@ -207,7 +207,7 @@
             this.buttonUbah.BackColor = System.Drawing.Color.Navy;
             this.buttonUbah.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUbah.ForeColor = System.Drawing.Color.White;
-            this.buttonUbah.Location = new System.Drawing.Point(22, 238);
+            this.buttonUbah.Location = new System.Drawing.Point(22, 249);
             this.buttonUbah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUbah.Name = "buttonUbah";
             this.buttonUbah.Size = new System.Drawing.Size(220, 53);
@@ -220,7 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 388);
+            this.ClientSize = new System.Drawing.Size(919, 401);
             this.Controls.Add(this.labelInbox);
             this.Controls.Add(this.panel1);
             this.Name = "FormTabunganPengguna";

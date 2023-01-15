@@ -37,6 +37,8 @@ namespace ProjectDatabase_Ivano
             labelEMail.Text = pengguna.Email;
 
             labelNoTelepon.Text = pengguna.No_telepon;
+
+            labelPoin.Text = Poin.CekPoin(pengguna).ToString();
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)

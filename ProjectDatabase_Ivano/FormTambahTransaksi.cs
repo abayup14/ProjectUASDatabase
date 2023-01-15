@@ -83,15 +83,15 @@ namespace ProjectDatabase_Ivano
         {
             formUtama = (FormUtama)this.MdiParent;
             pengguna = formUtama.pengguna;
-            listTabunganSumber = Tabungan.BacaData("", "");
+            listTabunganSumber = Tabungan.BacaData("p.nik", formUtama.pengguna.Nik);
             comboBoxRekeningSumber.DataSource = listTabunganSumber;
             comboBoxRekeningSumber.DisplayMember = "no_rekening";
             comboBoxRekeningSumber.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            listJenisTransaksi = JenisTransaksi.ReadData("", "");
-            comboBoxJenisTransaksi.DataSource = listJenisTransaksi;
-            comboBoxJenisTransaksi.DisplayMember = "nama";
-            comboBoxJenisTransaksi.DropDownStyle = ComboBoxStyle.DropDownList;
+            //listJenisTransaksi = JenisTransaksi.ReadData("", "");
+            //comboBoxJenisTransaksi.DataSource = listJenisTransaksi;
+            //comboBoxJenisTransaksi.DisplayMember = "nama";
+            //comboBoxJenisTransaksi.DropDownStyle = ComboBoxStyle.DropDownList;
 
             comboBoxPromo.DataSource = listPromo;
             comboBoxPromo.DisplayMember = "namaPromo";

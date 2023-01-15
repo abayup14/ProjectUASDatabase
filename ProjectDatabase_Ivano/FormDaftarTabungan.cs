@@ -200,6 +200,8 @@ namespace ProjectDatabase_Ivano
                         Tabungan.HapusData(t, k);
                         MessageBox.Show("Data Berhasil Dihapus.", "Informasi");
                         
+                        dataGridViewTabungan.Rows.Clear();
+                        dataGridViewTabungan.Columns.Clear();
                         FormDaftarTabungan_Load(buttonKeluar, e);
 
                     }
@@ -230,10 +232,12 @@ namespace ProjectDatabase_Ivano
 
                         Tabungan t = new Tabungan(no_rekening, pengguna, saldo, status, keterangan, tgl_buat,
                             DateTime.Now, verifikator);
-                        Tabungan.UbahStatusAktif(t, verifikator, k);
+                        Tabungan.UbahStatusAktif(t, k);
                         MessageBox.Show("Tabungan berhasil diaktifkan.", "Informasi");
                     }
-                    
+
+                    dataGridViewTabungan.Rows.Clear();
+                    dataGridViewTabungan.Columns.Clear();
                     FormDaftarTabungan_Load(buttonKeluar, e);
                 }
             }

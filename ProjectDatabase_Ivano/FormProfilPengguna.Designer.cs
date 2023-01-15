@@ -43,12 +43,16 @@
             this.labelNIK = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelInbox = new System.Windows.Forms.Label();
+            this.labelPoin = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.labelPoin);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.buttonPassword);
             this.panel1.Controls.Add(this.buttonKeluar);
             this.panel1.Controls.Add(this.buttonUbah);
@@ -65,7 +69,7 @@
             this.panel1.Location = new System.Drawing.Point(13, 59);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(766, 356);
+            this.panel1.Size = new System.Drawing.Size(766, 426);
             this.panel1.TabIndex = 43;
             // 
             // buttonPassword
@@ -73,7 +77,7 @@
             this.buttonPassword.BackColor = System.Drawing.Color.Navy;
             this.buttonPassword.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPassword.ForeColor = System.Drawing.Color.White;
-            this.buttonPassword.Location = new System.Drawing.Point(272, 282);
+            this.buttonPassword.Location = new System.Drawing.Point(276, 339);
             this.buttonPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPassword.Name = "buttonPassword";
             this.buttonPassword.Size = new System.Drawing.Size(220, 53);
@@ -87,7 +91,7 @@
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(526, 282);
+            this.buttonKeluar.Location = new System.Drawing.Point(530, 339);
             this.buttonKeluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(220, 53);
@@ -101,7 +105,7 @@
             this.buttonUbah.BackColor = System.Drawing.Color.Navy;
             this.buttonUbah.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUbah.ForeColor = System.Drawing.Color.White;
-            this.buttonUbah.Location = new System.Drawing.Point(18, 282);
+            this.buttonUbah.Location = new System.Drawing.Point(22, 339);
             this.buttonUbah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUbah.Name = "buttonUbah";
             this.buttonUbah.Size = new System.Drawing.Size(220, 53);
@@ -114,7 +118,7 @@
             // 
             this.labelNoTelepon.AutoSize = true;
             this.labelNoTelepon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoTelepon.Location = new System.Drawing.Point(182, 229);
+            this.labelNoTelepon.Location = new System.Drawing.Point(211, 229);
             this.labelNoTelepon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNoTelepon.Name = "labelNoTelepon";
             this.labelNoTelepon.Size = new System.Drawing.Size(104, 20);
@@ -125,7 +129,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(18, 229);
+            this.label10.Location = new System.Drawing.Point(43, 229);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(121, 20);
@@ -136,7 +140,7 @@
             // 
             this.labelEMail.AutoSize = true;
             this.labelEMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEMail.Location = new System.Drawing.Point(182, 176);
+            this.labelEMail.Location = new System.Drawing.Point(211, 176);
             this.labelEMail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEMail.Name = "labelEMail";
             this.labelEMail.Size = new System.Drawing.Size(56, 20);
@@ -147,7 +151,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(71, 176);
+            this.label8.Location = new System.Drawing.Point(96, 176);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(68, 20);
@@ -158,7 +162,7 @@
             // 
             this.labelAlamat.AutoSize = true;
             this.labelAlamat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAlamat.Location = new System.Drawing.Point(182, 129);
+            this.labelAlamat.Location = new System.Drawing.Point(211, 129);
             this.labelAlamat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAlamat.Name = "labelAlamat";
             this.labelAlamat.Size = new System.Drawing.Size(67, 20);
@@ -169,7 +173,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(60, 129);
+            this.label6.Location = new System.Drawing.Point(85, 129);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 20);
@@ -180,7 +184,7 @@
             // 
             this.labelNama.AutoSize = true;
             this.labelNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNama.Location = new System.Drawing.Point(182, 76);
+            this.labelNama.Location = new System.Drawing.Point(211, 76);
             this.labelNama.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNama.Name = "labelNama";
             this.labelNama.Size = new System.Drawing.Size(117, 20);
@@ -191,7 +195,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(64, 76);
+            this.label4.Location = new System.Drawing.Point(89, 76);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 20);
@@ -202,7 +206,7 @@
             // 
             this.labelNIK.AutoSize = true;
             this.labelNIK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNIK.Location = new System.Drawing.Point(182, 23);
+            this.labelNIK.Location = new System.Drawing.Point(211, 23);
             this.labelNIK.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNIK.Name = "labelNIK";
             this.labelNIK.Size = new System.Drawing.Size(39, 20);
@@ -213,7 +217,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(88, 23);
+            this.label3.Location = new System.Drawing.Point(113, 23);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 20);
@@ -232,11 +236,33 @@
             this.labelInbox.Text = "PROFIL PENGGUNA";
             this.labelInbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // labelPoin
+            // 
+            this.labelPoin.AutoSize = true;
+            this.labelPoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPoin.Location = new System.Drawing.Point(211, 276);
+            this.labelPoin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPoin.Name = "labelPoin";
+            this.labelPoin.Size = new System.Drawing.Size(46, 20);
+            this.labelPoin.TabIndex = 55;
+            this.labelPoin.Text = "Poin";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(18, 276);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(146, 20);
+            this.label5.TabIndex = 54;
+            this.label5.Text = "Poin Pengguna :";
+            // 
             // FormProfilPengguna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 427);
+            this.ClientSize = new System.Drawing.Size(792, 498);
             this.Controls.Add(this.labelInbox);
             this.Controls.Add(this.panel1);
             this.Name = "FormProfilPengguna";
@@ -265,5 +291,7 @@
         public System.Windows.Forms.Label labelEMail;
         public System.Windows.Forms.Label labelAlamat;
         public System.Windows.Forms.Label labelNoTelepon;
+        public System.Windows.Forms.Label labelPoin;
+        private System.Windows.Forms.Label label5;
     }
 }
