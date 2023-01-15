@@ -134,7 +134,7 @@ namespace ProjectDatabase_Ivano
 
                         formMasukkanPIN.Owner = this;
                         formMasukkanPIN.buttonSimpan.Visible = true;
-                        formMasukkanPIN.buttonCek.Visible = false;
+                        formMasukkanPIN.buttonCekTopUp.Visible = false;
 
                         if (formMasukkanPIN.ShowDialog() == DialogResult.OK)
                         {

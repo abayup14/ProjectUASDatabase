@@ -32,7 +32,17 @@ namespace DiBa_LIB
             Id_promo = id_promo;
             Id_jenis_tagihan = id_jenis_tagihan;
         }
-
+        public Transaksi(Tabungan rekening_sumber, string transaksiId, DateTime tgl_transaksi, Tabungan rekening_tujuan, double nominal, string keterangan, Promo id_promo, JenisTagihan id_jenis_tagihan)
+        {
+            Rekening_sumber = rekening_sumber;
+            TransaksiId = transaksiId;
+            Tgl_transaksi = tgl_transaksi;
+            Rekening_tujuan = rekening_tujuan;
+            Nominal = nominal;
+            Keterangan = keterangan;
+            Id_promo = id_promo;
+            Id_jenis_tagihan = id_jenis_tagihan;
+        }
         public Tabungan Rekening_sumber { get => rekening_sumber; set => rekening_sumber = value; }
         public string TransaksiId { get => transaksiId; set => transaksiId = value; }
         public DateTime Tgl_transaksi { get => tgl_transaksi; set => tgl_transaksi = value; }
@@ -98,15 +108,26 @@ namespace DiBa_LIB
 
             return listTransaksi;
         }
-        public static void TambahData(Transaksi t, Koneksi k)
+        public static void TambahTransaksiTopUp(Transaksi t, Koneksi k)
         {
-            string sql1 = "insert into transaksi (rekening_sumber, id_transaksi, tgl_transaksi, id_jenis_transaksi, rekening_tujuan, nominal, keterangan, promo_id, jenis_tagihan_id) " +
+            string sql = "insert into transaksi (rekening_sumber, id_transaksi, tgl_transaksi, id_jenis_transaksi, rekening_tujuan, nominal, keterangan, promo_id, jenis_tagihan_id) " +
                          "values ('" + t.Rekening_sumber.Rekening + "', '" + t.TransaksiId + "', '" + t.Tgl_transaksi.ToString("yyyy-MM-dd HH:mm:ss") + "', '" +
                          t.Id_jenis_transaksi.Id_jenis_transaksi + "', '" + t.Rekening_tujuan.Rekening + "', '" + t.Nominal + "', '" + t.Keterangan + "', '" + t.Id_promo.IdPromo + "', '" + t.Id_jenis_tagihan.Id + "')";
 
-            Koneksi.JalankanPerintahDML(sql1, k);            
+            Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static void UpdateSaldo(Transaksi t, Koneksi k)
+        public static void TambahTransaksi(Transaksi t, Koneksi k)
+        {
+            string sql1 = "insert into transaksi (rekening_sumber, id_transaksi, tgl_transaksi, id_jenis_transaksi, rekening_tujuan, nominal, keterangan, promo_id, jenis_tagihan_id) " +
+                         "values ('" + t.Rekening_sumber.Rekening + "', '" + t.TransaksiId + "', '" + t.Tgl_transaksi.ToString("yyyy-MM-dd HH:mm:ss") + "', '1', '" + t.Rekening_tujuan.Rekening + "', '" + t.Nominal + "', '" + t.Keterangan + "', '" + t.Id_promo.IdPromo + "', '" + t.Id_jenis_tagihan.Id + "')";
+            Koneksi.JalankanPerintahDML(sql1, k);
+
+            string sql2 = "insert into transaksi (rekening_sumber, id_transaksi, tgl_transaksi, id_jenis_transaksi, rekening_tujuan, nominal, keterangan, promo_id, jenis_tagihan_id) " +
+                         "values ('" + t.Rekening_tujuan.Rekening + "', '" + t.TransaksiId + "', '" + t.Tgl_transaksi.ToString("yyyy-MM-dd HH:mm:ss") + "', '2', '" + t.Rekening_sumber.Rekening + "', '" + t.Nominal + "', '" + t.Keterangan + "', '" + t.Id_promo.IdPromo + "', '" + t.Id_jenis_tagihan.Id + "')";
+
+            Koneksi.JalankanPerintahDML(sql2, k);
+        }
+        public static void UpdateSaldoTransaksi(Transaksi t, Koneksi k)
         {
             string sql1 = "update tabungan set saldo = saldo - " + t.Nominal + " where no_rekening = '" + t.Rekening_sumber.Rekening + "'";
 
@@ -129,7 +150,6 @@ namespace DiBa_LIB
             string sql = "delete from transaksi where transaksi_id = '" + t.TransaksiId + "'";
             Koneksi.JalankanPerintahDML(sql, k);
         }
-
         public static string GenerateKode()
         {
             string sql = "SELECT max(id_Transaksi) from Transaksi";

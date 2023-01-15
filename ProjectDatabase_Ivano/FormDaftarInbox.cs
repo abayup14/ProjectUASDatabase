@@ -18,6 +18,12 @@ namespace ProjectDatabase_Ivano
         public List<Pengguna> listPengguna = new List<Pengguna>();
 
         Koneksi k;
+
+        FormUtama formUtama;
+
+        public Pengguna pengguna;
+
+        public Employee employee;
         public FormDaftarInbox()
         {
             InitializeComponent();
@@ -25,32 +31,74 @@ namespace ProjectDatabase_Ivano
 
         public void FormDaftarInbox_Load(object sender, EventArgs e)
         {
+            formUtama = (FormUtama)this.MdiParent;
+            pengguna = formUtama.pengguna;
+            employee = formUtama.employee;
             k = new Koneksi();
-            listInbox = Inbox.BacaData("", "");
+            if (employee != null)
+            {
+                listInbox = Inbox.BacaData("", "");
+            }
+            else if (pengguna != null)
+            {
+                FormatDataGridInboxPengguna();
+                listInbox = Inbox.BacaData("p.nik", pengguna.Nik);
+            }
             if (listInbox.Count > 0)
             {
-                dataGridViewInbox.DataSource = listInbox;
-                if (dataGridViewInbox.ColumnCount == 6)
+                if (employee != null)
                 {
-                    DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
-                    bcol1.HeaderText = "Aksi";
-                    bcol1.Text = "Ubah Data";
-                    bcol1.Name = "buttonUbahGrid";
-                    bcol1.UseColumnTextForButtonValue = true;
-                    dataGridViewInbox.Columns.Add(bcol1);
+                    dataGridViewInbox.DataSource = listInbox;
+                }
+                else if (pengguna != null)
+                {
+                    foreach (Inbox inbox in listInbox)
+                    {
+                        dataGridViewInbox.Rows.Add(inbox.Pesan, inbox.Tanggal_kirim.ToShortDateString());
+                    }
+                }
+                
+                if (dataGridViewInbox.ColumnCount < 10)
+                {
+                    if (pengguna != null)
+                    {
+                        DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
+                        bcol.HeaderText = "Aksi";
+                        bcol.Text = "Baca";
+                        bcol.Name = "buttonBacaGrid";
+                        bcol.UseColumnTextForButtonValue = true;
+                        dataGridViewInbox.Columns.Add(bcol);
+                    }
+                    if (employee != null)
+                    {
+                        DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
+                        bcol1.HeaderText = "Aksi";
+                        bcol1.Text = "Ubah Data";
+                        bcol1.Name = "buttonUbahGrid";
+                        bcol1.UseColumnTextForButtonValue = true;
+                        dataGridViewInbox.Columns.Add(bcol1);
 
-                    DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                    bcol2.HeaderText = "Aksi";
-                    bcol2.Text = "Hapus Data";
-                    bcol2.Name = "buttonHapusGrid";
-                    bcol2.UseColumnTextForButtonValue = true;
-                    dataGridViewInbox.Columns.Add(bcol2);
+                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                        bcol2.HeaderText = "Aksi";
+                        bcol2.Text = "Hapus Data";
+                        bcol2.Name = "buttonHapusGrid";
+                        bcol2.UseColumnTextForButtonValue = true;
+                        dataGridViewInbox.Columns.Add(bcol2);
+                    }
                 }
             }
             else
             {
                 dataGridViewInbox.DataSource = null;
             }
+        }
+
+        private void FormatDataGridInboxPengguna()
+        {
+            dataGridViewInbox.Rows.Clear();
+            dataGridViewInbox.Columns.Clear();
+            dataGridViewInbox.Columns.Add("Pesan", "Pesan");
+            dataGridViewInbox.Columns.Add("TglTerima", "Tanggal Terima");
         }
 
         private void ButtonKeluar_Click(object sender, EventArgs e)
@@ -67,42 +115,55 @@ namespace ProjectDatabase_Ivano
 
         private void dataGridViewInbox_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridViewInbox.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dataGridViewInbox.Columns["buttonBacaGrid"].Index && e.RowIndex >= 0)
             {
-                FormUbahInbox frmUbahInbox = new FormUbahInbox();
-                frmUbahInbox.Owner = this;
-               
-                listPengguna = Pengguna.BacaData("", "");
-                frmUbahInbox.comboBoxPengguna.DataSource = listPengguna;
-                frmUbahInbox.comboBoxPengguna.DisplayMember = "Nik";
+                if (pengguna != null)
+                {
+                    MessageBox.Show(dataGridViewInbox.CurrentRow.Cells["Pesan"].Value.ToString(), "Pesan");
+                }
+            }
+            else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
+            {
+                if (employee != null)
+                {
+                    FormUbahInbox frmUbahInbox = new FormUbahInbox();
+                    frmUbahInbox.Owner = this;
 
-                frmUbahInbox.comboBoxPengguna.Text = dataGridViewInbox.CurrentRow.Cells["pengguna"].Value.ToString();
-                frmUbahInbox.textBoxPesan.Text = dataGridViewInbox.CurrentRow.Cells["pesan"].Value.ToString();
-                frmUbahInbox.ShowDialog();
+                    listPengguna = Pengguna.BacaData("", "");
+                    frmUbahInbox.comboBoxPengguna.DataSource = listPengguna;
+                    frmUbahInbox.comboBoxPengguna.DisplayMember = "Nik";
+
+                    frmUbahInbox.comboBoxPengguna.Text = dataGridViewInbox.CurrentRow.Cells["pengguna"].Value.ToString();
+                    frmUbahInbox.textBoxPesan.Text = dataGridViewInbox.CurrentRow.Cells["pesan"].Value.ToString();
+                    frmUbahInbox.ShowDialog();
+                }
             }
             else if (e.ColumnIndex == dataGridViewInbox.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
-                string nik = dataGridViewInbox.CurrentRow.Cells["pengguna"].Value.ToString();
-                string nama = Pengguna.AmbilNamaLengkap(nik);
-                int id_pesan = int.Parse(dataGridViewInbox.CurrentRow.Cells["id"].Value.ToString());
-                string pesan= dataGridViewInbox.CurrentRow.Cells["pesan"].Value.ToString();
-                DateTime tanggal_kirim = DateTime.Parse(dataGridViewInbox.CurrentRow.Cells["tanggal_kirim"].Value.ToString());
-                string status = dataGridViewInbox.CurrentRow.Cells["status"].Value.ToString();
-
-                DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah " +
-                                                     "\nID Pengguna : " + nik + 
-                                                     "\nNama : " + nama +
-                                                     "\nPesan : " + pesan + 
-                                                     "\nTanggal Kirim : " + tanggal_kirim.ToShortDateString() +
-                                                     "\nStatus : " + status + 
-                                                     "\n\nApakah anda yakin ingin menghapus data di atas?", 
-                                                     "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (hasil == DialogResult.Yes)
+                if (employee != null)
                 {
-                    Inbox i = new Inbox(id_pesan);
-                    Inbox.HapusData(i, k);
-                    MessageBox.Show("Data berhasil dihapus.", "Informasi");
-                    FormDaftarInbox_Load(buttonKeluar, e);
+                    string nik = dataGridViewInbox.CurrentRow.Cells["pengguna"].Value.ToString();
+                    string nama = Pengguna.AmbilNamaLengkap(nik);
+                    int id_pesan = int.Parse(dataGridViewInbox.CurrentRow.Cells["id"].Value.ToString());
+                    string pesan = dataGridViewInbox.CurrentRow.Cells["pesan"].Value.ToString();
+                    DateTime tanggal_kirim = DateTime.Parse(dataGridViewInbox.CurrentRow.Cells["tanggal_kirim"].Value.ToString());
+                    string status = dataGridViewInbox.CurrentRow.Cells["status"].Value.ToString();
+
+                    DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah " +
+                                                         "\nID Pengguna : " + nik +
+                                                         "\nNama : " + nama +
+                                                         "\nPesan : " + pesan +
+                                                         "\nTanggal Kirim : " + tanggal_kirim.ToShortDateString() +
+                                                         "\nStatus : " + status +
+                                                         "\n\nApakah anda yakin ingin menghapus data di atas?",
+                                                         "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (hasil == DialogResult.Yes)
+                    {
+                        Inbox i = new Inbox(id_pesan);
+                        Inbox.HapusData(i, k);
+                        MessageBox.Show("Data berhasil dihapus.", "Informasi");
+                        FormDaftarInbox_Load(buttonKeluar, e);
+                    }
                 }
             }
         }

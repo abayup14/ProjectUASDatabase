@@ -110,6 +110,12 @@ namespace DiBa_LIB
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
+        public static void UbahKeterangan(Tabungan t, Koneksi k)
+        {
+            string sql = "UPDATE tabungan set keterangan = '" + t.Keterangan + "', tgl_perubahan = '" + t.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") +
+                         "' WHERE no_rekening = '" + t.Rekening + "'";
+            Koneksi.JalankanPerintahDML(sql, k);
+        }
         public static void HapusData(Tabungan t, Koneksi k)
         {
             string sql = "DELETE from tabungan where id = " + t.Rekening;

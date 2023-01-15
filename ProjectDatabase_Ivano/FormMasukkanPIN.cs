@@ -108,8 +108,6 @@ namespace ProjectDatabase_Ivano
 
                 FormTopUp formTopUp = (FormTopUp)this.Owner;
 
-                FormTambahTransaksi formTambahTransaksi = (FormTambahTransaksi)this.Owner;
-
                 Pengguna pengguna = formTopUp.p;
 
                 Tabungan tabungan = formTopUp.tabungan;
@@ -129,12 +127,24 @@ namespace ProjectDatabase_Ivano
                                 JenisTransaksi jt = new JenisTransaksi(1);
                                 Promo pr = new Promo();
                                 JenisTagihan jtg = new JenisTagihan();
-                                Transaksi tr = new Transaksi(tabungan, Transaksi.GenerateKode(), DateTime.Now,
-                                                             jt, tabungan, double.Parse(formTopUp.textBoxJumlah.Text),
-                                                             "Top Up", pr, jtg);
-
-                                Transaksi.TambahData(tr, k);
+                                Transaksi tr = new Transaksi(tabungan, 
+                                                             Transaksi.GenerateKode(), 
+                                                             DateTime.Now,
+                                                             jt, 
+                                                             tabungan, 
+                                                             double.Parse(formTopUp.textBoxJumlah.Text),
+                                                             "Top Up", 
+                                                             pr, 
+                                                             jtg);
+                                Inbox i = new Inbox(pengguna,
+                                                    Inbox.GenerateKode(),
+                                                    "Berhasil topup ke rekening " + tabungan.Rekening + " sebesar Rp. " + formTopUp.textBoxJumlah.Text,
+                                                    DateTime.Now,
+                                                    "Belum Terbaca",
+                                                    DateTime.Now);
+                                Transaksi.TambahTransaksiTopUp(tr, k);
                                 Tabungan.UbahSaldo(tabungan, double.Parse(formTopUp.textBoxJumlah.Text), k);
+                                Inbox.TambahData(i, k);
                                 MessageBox.Show("Berhasil topup sebesar Rp. " + formTopUp.textBoxJumlah.Text, "Informasi");
                             }
                             else
@@ -142,45 +152,6 @@ namespace ProjectDatabase_Ivano
                                 MessageBox.Show("Maaf, tabungan yang anda pilih belum aktif." +
                                                 "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan.", "Informasi");
                             }
-                        }
-                        else if (formTambahTransaksi != null)
-                        {
-                            Tabungan rekening_sumber = new Tabungan(formTambahTransaksi.comboBoxRekeningSumber.Text);
-                            JenisTransaksi jt = new JenisTransaksi(formTambahTransaksi.comboBoxJenisTransaksi.SelectedIndex + 1);
-                            Tabungan rekening_tujuan = (Tabungan)formTambahTransaksi.comboBoxRekeningTujuan.SelectedItem;
-                            Promo p = null;
-                            if (formTambahTransaksi.checkBoxPromo.Checked == true)
-                            {
-                                p = (Promo)formTambahTransaksi.comboBoxPromo.SelectedItem;
-                            }
-                            else
-                            {
-                                p = new Promo();
-                            }
-
-                            JenisTagihan j = null;
-                            if (formTambahTransaksi.checkBoxTagihan.Checked == true)
-                            {
-                                j = (JenisTagihan)formTambahTransaksi.comboBoxJenisTagihan.SelectedItem;
-                            }
-                            else
-                            {
-                                j = new JenisTagihan();
-                            }
-
-                            if (formTambahTransaksi.comboBoxPromo.Text != "")
-                            {
-                                RiwayatPromo rp = new RiwayatPromo(p, rekening_sumber.Pengguna);
-                            }
-
-                            Transaksi t = new Transaksi(rekening_sumber, 
-                                Transaksi.GenerateKode().ToString(), DateTime.Now, jt, 
-                                rekening_tujuan, double.Parse(formTambahTransaksi.textBoxNominal.Text), 
-                                formTambahTransaksi.textBoxKeterangan.Text, p, j);
-                            Transaksi.TambahData(t, k);
-                            Transaksi.UpdateSaldo(t, k);
-
-                            MessageBox.Show("Data transaksi telah tersimpan.", "Info");
                         }
                         countMistake = 0;
                         Close();
@@ -209,7 +180,129 @@ namespace ProjectDatabase_Ivano
                 MessageBox.Show("Gagal melakukan aktivitas. Pesan kesalahan: " + ex.Message, "Informasi");
             }
         }
+        private void buttonCekTransaksi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Koneksi k = new Koneksi();
 
+                FormTambahTransaksi formTambahTransaksi = (FormTambahTransaksi)this.Owner;
+
+                Pengguna pengguna = formTambahTransaksi.pengguna;
+
+                Tabungan tabunganSumber = formTambahTransaksi.tabunganSumber;
+
+                Tabungan tabunganTujuan = formTambahTransaksi.tabunganTujuan;
+
+                if (textBoxPIN.Text == "Masukkan PIN anda")
+                {
+                    MessageBox.Show("Anda harus mengisi PIN anda untuk melanjutkan aktivitas di aplikasi ini", "Informasi");
+                }
+                else
+                {
+                    if (Pengguna.CekPIN(pengguna, textBoxPIN.Text) == true)
+                    {
+                        if (formTambahTransaksi != null)
+                        {
+                            if (tabunganSumber.Status == "Aktif" && tabunganTujuan.Status == "Aktif")
+                            {
+                                JenisTransaksi jt = new JenisTransaksi(formTambahTransaksi.comboBoxJenisTransaksi.SelectedIndex + 1);
+                                Promo p = null;
+                                if (formTambahTransaksi.checkBoxPromo.Checked == true)
+                                {
+                                    p = (Promo)formTambahTransaksi.comboBoxPromo.SelectedItem;
+                                }
+                                else
+                                {
+                                    p = new Promo();
+                                }
+
+                                JenisTagihan j = null;
+                                if (formTambahTransaksi.checkBoxTagihan.Checked == true)
+                                {
+                                    j = (JenisTagihan)formTambahTransaksi.comboBoxJenisTagihan.SelectedItem;
+                                }
+                                else
+                                {
+                                    j = new JenisTagihan();
+                                }
+
+                                if (formTambahTransaksi.comboBoxPromo.Text != "")
+                                {
+                                    RiwayatPromo rp = new RiwayatPromo(p, tabunganSumber.Pengguna);
+                                }
+
+                                Transaksi t = new Transaksi(tabunganSumber,
+                                                            Transaksi.GenerateKode(),
+                                                            DateTime.Now,
+                                                            tabunganTujuan,
+                                                            double.Parse(formTambahTransaksi.textBoxNominal.Text),
+                                                            formTambahTransaksi.textBoxKeterangan.Text,
+                                                            p,
+                                                            j);
+                                Inbox inboxSumber = new Inbox(tabunganSumber.Pengguna,
+                                                              Inbox.GenerateKode(),
+                                                              "Berhasil transfer ke rekening " + tabunganTujuan.Rekening + 
+                                                              " sebesar Rp. " + formTambahTransaksi.textBoxNominal.Text + 
+                                                              "\nKeterangan: " + formTambahTransaksi.textBoxKeterangan.Text,
+                                                              DateTime.Now,
+                                                              "Belum Terbaca",
+                                                              DateTime.Now);
+                                Inbox inboxTujuan = new Inbox(tabunganTujuan.Pengguna,
+                                                              Inbox.GenerateKode() + 1,
+                                                              "Mendapatkan transfer dari rekening " + tabunganSumber.Rekening +
+                                                              " sebesar Rp. " + formTambahTransaksi.textBoxNominal.Text +
+                                                              "\nKeterangan: " + formTambahTransaksi.textBoxKeterangan.Text,
+                                                              DateTime.Now,
+                                                              "Belum Terbaca",
+                                                              DateTime.Now);
+                                Transaksi.TambahTransaksi(t, k);
+                                Transaksi.UpdateSaldoTransaksi(t, k);
+                                Inbox.TambahData(inboxSumber, k);
+                                Inbox.TambahData(inboxTujuan, k);
+                                MessageBox.Show("Transaksi berhasil dilakukan.", "Informasi");
+                            }
+                            else
+                            {
+                                if (tabunganSumber.Status != "Aktif")
+                                {
+                                    MessageBox.Show("Tabungan asal berstatus tidak aktif." +
+                                                    "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan ini.");
+                                }
+                                else if (tabunganTujuan.Status != "Aktif")
+                                {
+                                    MessageBox.Show("Tabungan tujuan berstatus tidak aktif." +
+                                                    "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan ini.");
+                                }
+                            }
+                        }
+                        countMistake = 0;
+                        Close();
+                    }
+                    else
+                    {
+                        countMistake++;
+                        if (countMistake <= 2)
+                        {
+                            MessageBox.Show("Maaf, PIN yang anda masukkan salah. Silahkan coba lagi");
+                            textBoxPIN.Clear();
+                        }
+                        else
+                        {
+                            Tabungan.UbahStatusSuspend(tabunganSumber, k);
+                            MessageBox.Show("Anda memasukkan PIN 3x berturut-turut dan gagal. Tabungan anda diblokir." +
+                                            "\nSilahkan hubungi pegawai kami untuk mengaktifkan kembali", "Informasi");
+                            countMistake = 0;
+                            Close();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal melakukan aktivitas. Pesan kesalahan: " + ex.Message, "Informasi");
+            }
+        }
         private void textBoxPIN_Enter(object sender, EventArgs e)
         {
             if (textBoxPIN.Text == "Masukkan PIN anda")

@@ -41,6 +41,7 @@
             this.labelRekening = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonUbah = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -183,6 +184,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.buttonUbah);
             this.panel1.Controls.Add(this.labelStatus);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.buttonKeluar);
@@ -199,6 +201,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(893, 312);
             this.panel1.TabIndex = 46;
+            // 
+            // buttonUbah
+            // 
+            this.buttonUbah.BackColor = System.Drawing.Color.Navy;
+            this.buttonUbah.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUbah.ForeColor = System.Drawing.Color.White;
+            this.buttonUbah.Location = new System.Drawing.Point(22, 238);
+            this.buttonUbah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonUbah.Name = "buttonUbah";
+            this.buttonUbah.Size = new System.Drawing.Size(220, 53);
+            this.buttonUbah.TabIndex = 51;
+            this.buttonUbah.Text = "&UBAH KETERANGAN";
+            this.buttonUbah.UseVisualStyleBackColor = false;
+            this.buttonUbah.Click += new System.EventHandler(this.buttonUbah_Click);
             // 
             // FormTabunganPengguna
             // 
@@ -230,5 +246,6 @@
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label labelStatus;
         public System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonUbah;
     }
 }

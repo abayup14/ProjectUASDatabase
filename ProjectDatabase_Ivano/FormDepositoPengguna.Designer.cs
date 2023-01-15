@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonCairkan = new System.Windows.Forms.Button();
             this.labelJatuhTempo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.labelStatus = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.labelIDDeposito = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelInbox = new System.Windows.Forms.Label();
-            this.buttonCairkan = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +69,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(893, 349);
             this.panel1.TabIndex = 48;
+            // 
+            // buttonCairkan
+            // 
+            this.buttonCairkan.BackColor = System.Drawing.Color.Navy;
+            this.buttonCairkan.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCairkan.ForeColor = System.Drawing.Color.White;
+            this.buttonCairkan.Location = new System.Drawing.Point(22, 272);
+            this.buttonCairkan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCairkan.Name = "buttonCairkan";
+            this.buttonCairkan.Size = new System.Drawing.Size(220, 53);
+            this.buttonCairkan.TabIndex = 53;
+            this.buttonCairkan.Text = "&CAIRKAN";
+            this.buttonCairkan.UseVisualStyleBackColor = false;
+            this.buttonCairkan.Click += new System.EventHandler(this.buttonCairkan_Click);
             // 
             // labelJatuhTempo
             // 
@@ -227,20 +241,6 @@
             this.labelInbox.Text = "DEPOSITO PENGGUNA";
             this.labelInbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // buttonCairkan
-            // 
-            this.buttonCairkan.BackColor = System.Drawing.Color.Navy;
-            this.buttonCairkan.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCairkan.ForeColor = System.Drawing.Color.White;
-            this.buttonCairkan.Location = new System.Drawing.Point(22, 272);
-            this.buttonCairkan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonCairkan.Name = "buttonCairkan";
-            this.buttonCairkan.Size = new System.Drawing.Size(220, 53);
-            this.buttonCairkan.TabIndex = 53;
-            this.buttonCairkan.Text = "&CAIRKAN";
-            this.buttonCairkan.UseVisualStyleBackColor = false;
-            this.buttonCairkan.Click += new System.EventHandler(this.buttonCairkan_Click);
-            // 
             // FormDepositoPengguna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -249,7 +249,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelInbox);
             this.Name = "FormDepositoPengguna";
-            this.Text = "FormDepositoPengguna";
+            this.Text = "Detail Deposito Pengguna";
             this.Load += new System.EventHandler(this.FormDepositoPengguna_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

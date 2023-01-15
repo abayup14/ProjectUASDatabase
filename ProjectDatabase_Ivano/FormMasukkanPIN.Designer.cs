@@ -35,7 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.buttonSimpan = new System.Windows.Forms.Button();
-            this.buttonCek = new System.Windows.Forms.Button();
+            this.buttonCekTopUp = new System.Windows.Forms.Button();
+            this.buttonCekTransaksi = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,26 +127,41 @@
             this.buttonSimpan.UseVisualStyleBackColor = false;
             this.buttonSimpan.Click += new System.EventHandler(this.buttonSimpan_Click);
             // 
-            // buttonCek
+            // buttonCekTopUp
             // 
-            this.buttonCek.BackColor = System.Drawing.Color.Navy;
-            this.buttonCek.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCek.ForeColor = System.Drawing.Color.White;
-            this.buttonCek.Location = new System.Drawing.Point(12, 190);
-            this.buttonCek.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonCek.Name = "buttonCek";
-            this.buttonCek.Size = new System.Drawing.Size(203, 53);
-            this.buttonCek.TabIndex = 45;
-            this.buttonCek.Text = "&CEK";
-            this.buttonCek.UseVisualStyleBackColor = false;
-            this.buttonCek.Click += new System.EventHandler(this.buttonCek_Click);
+            this.buttonCekTopUp.BackColor = System.Drawing.Color.Navy;
+            this.buttonCekTopUp.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCekTopUp.ForeColor = System.Drawing.Color.White;
+            this.buttonCekTopUp.Location = new System.Drawing.Point(12, 190);
+            this.buttonCekTopUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCekTopUp.Name = "buttonCekTopUp";
+            this.buttonCekTopUp.Size = new System.Drawing.Size(203, 53);
+            this.buttonCekTopUp.TabIndex = 45;
+            this.buttonCekTopUp.Text = "&CEK";
+            this.buttonCekTopUp.UseVisualStyleBackColor = false;
+            this.buttonCekTopUp.Click += new System.EventHandler(this.buttonCek_Click);
+            // 
+            // buttonCekTransaksi
+            // 
+            this.buttonCekTransaksi.BackColor = System.Drawing.Color.Navy;
+            this.buttonCekTransaksi.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCekTransaksi.ForeColor = System.Drawing.Color.White;
+            this.buttonCekTransaksi.Location = new System.Drawing.Point(12, 190);
+            this.buttonCekTransaksi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCekTransaksi.Name = "buttonCekTransaksi";
+            this.buttonCekTransaksi.Size = new System.Drawing.Size(203, 53);
+            this.buttonCekTransaksi.TabIndex = 46;
+            this.buttonCekTransaksi.Text = "&CEK";
+            this.buttonCekTransaksi.UseVisualStyleBackColor = false;
+            this.buttonCekTransaksi.Click += new System.EventHandler(this.buttonCekTransaksi_Click);
             // 
             // FormMasukkanPIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 254);
-            this.Controls.Add(this.buttonCek);
+            this.Controls.Add(this.buttonCekTransaksi);
+            this.Controls.Add(this.buttonCekTopUp);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonKeluar);
@@ -168,6 +184,7 @@
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.CheckBox checkBoxTunjukkan;
         public System.Windows.Forms.Button buttonSimpan;
-        public System.Windows.Forms.Button buttonCek;
+        public System.Windows.Forms.Button buttonCekTopUp;
+        public System.Windows.Forms.Button buttonCekTransaksi;
     }
 }

@@ -34,20 +34,21 @@ namespace ProjectDatabase_Ivano
             t = Tabungan.AmbilDataTabungan(formDaftarTabungan.dataGridViewTabungan.CurrentRow.Cells["NoRekening"].Value.ToString());
         }
 
-        private void buttonTopUp_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void buttonTransfer_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             formDaftarTabungan.FormDaftarTabungan_Load(buttonKeluar, e);
             Close();
+        }
+
+        private void buttonUbah_Click(object sender, EventArgs e)
+        {
+            FormUbahTabungan formUbahTabungan = new FormUbahTabungan();
+
+            formUbahTabungan.Owner = this;
+
+            formUbahTabungan.textBoxKeterangan.Text = labelKeterangan.Text;
+
+            formDaftarTabungan.ShowDialog();
         }
     }
 }

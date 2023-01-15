@@ -49,13 +49,14 @@ namespace DiBa_LIB
             string sql = "";
             if (kriteria == "")
             {
-                sql = "select i.id_pengguna, i.id_pesan, i.pesan, i.tanggal_kirim, i.status, i.tgl_perubahan from " +
-                    "inbox i inner join pengguna p on i.id_pengguna = p.nik";
+                sql = "select i.id_pengguna, i.id_pesan, i.pesan, i.tanggal_kirim, i.status, i.tgl_perubahan " +
+                      "from inbox i inner join pengguna p on i.id_pengguna = p.nik";
             }
             else
             { 
-                sql = "select i.id_pengguna, i.id_pesan, i.pesan, i.tanggal_kirim, i.status, i.tgl_perubahan from " +
-                    "inbox i inner join pengguna p on i.id_pengguna = p.nik where " + kriteria+" LIKE '%"+nilaiKriteria+"%'";
+                sql = "select i.id_pengguna, i.id_pesan, i.pesan, i.tanggal_kirim, i.status, i.tgl_perubahan " +
+                      "from inbox i inner join pengguna p on i.id_pengguna = p.nik " +
+                      "where " + kriteria+" LIKE '%"+nilaiKriteria+"%'";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
             List<Inbox> listInbox = new List<Inbox>();

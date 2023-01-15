@@ -517,7 +517,21 @@ namespace ProjectDatabase_Ivano
 
         private void aktivitasToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form form = Application.OpenForms["FormDaftarInbox"];
+            if (form == null)
+            {
+                FormDaftarInbox formDaftarInbox = new FormDaftarInbox();
 
+                formDaftarInbox.MdiParent = this;
+
+                formDaftarInbox.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
         }
 
         private void riwayatHadiahToolStripMenuItem_Click(object sender, EventArgs e)

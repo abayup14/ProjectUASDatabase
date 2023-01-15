@@ -24,10 +24,10 @@ namespace ProjectDatabase_Ivano
         List<Tabungan> listTabunganTujuan = new List<Tabungan>();
         public List<Promo> listPromo = new List<Promo>();
         public List<JenisTagihan> listJenisTagihan = new List<JenisTagihan>();
-        public Tabungan tabungan;
-        //FormDaftarTransaksi formDaftarTransaksi;
-        //FormTabunganPengguna formTabunganPengguna;
+        public Tabungan tabunganSumber;
+        public Tabungan tabunganTujuan;
         FormUtama formUtama;
+        public Pengguna pengguna;
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
@@ -35,28 +35,41 @@ namespace ProjectDatabase_Ivano
             {
                 if (comboBoxRekeningSumber.SelectedIndex > -1)
                 {
-                    tabungan = (Tabungan)comboBoxRekeningSumber.SelectedItem;
+                    tabunganSumber = (Tabungan)comboBoxRekeningSumber.SelectedItem;
+                }
+                if (comboBoxRekeningTujuan.SelectedIndex > -1)
+                {
+                    tabunganTujuan = (Tabungan)comboBoxRekeningTujuan.SelectedItem;
                 }
 
                 DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin melakukan topup?", "Konfirmasi", MessageBoxButtons.YesNo,
                                                      MessageBoxIcon.Question);
                 if (hasil == DialogResult.Yes)
                 {
-                    if (tabungan.Status == "Aktif")
+                    if (tabunganSumber.Status == "Aktif" && tabunganTujuan.Status == "Aktif")
                     {
                         FormMasukkanPIN formMasukkanPIN = new FormMasukkanPIN();
 
                         formMasukkanPIN.Owner = this;
 
-                        formMasukkanPIN.buttonCek.Visible = true;
+                        formMasukkanPIN.buttonCekTopUp.Visible = false;
+                        formMasukkanPIN.buttonCekTransaksi.Visible = true;
                         formMasukkanPIN.buttonSimpan.Visible = false;
 
                         formMasukkanPIN.ShowDialog();
                     }
                     else
                     {
-                        MessageBox.Show("Tabungan ini berstatus tidak aktif." +
+                        if (tabunganSumber.Status != "Aktif")
+                        {
+                            MessageBox.Show("Tabungan asal berstatus tidak aktif." +
                                         "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan ini.");
+                        }
+                        else if (tabunganTujuan.Status != "Aktif")
+                        {
+                            MessageBox.Show("Tabungan tujuan berstatus tidak aktif." +
+                                        "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan ini.");
+                        }
                     }
                 }
             }
@@ -64,62 +77,12 @@ namespace ProjectDatabase_Ivano
             {
                 MessageBox.Show("Gagal topup. Pesan kesalahan: " + ex.Message, "Kesalahan");
             }
-            //try
-            //{
-
-            //    Koneksi k = new Koneksi();
-
-            //    DialogResult result = MessageBox.Show("Apakah data yang ada masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
-            //        MessageBoxIcon.Question);
-
-            //    if (result == DialogResult.Yes)
-            //    {
-            //        Tabungan rekening_sumber = new Tabungan(comboBoxRekeningSumber.Text);
-            //        JenisTransaksi jt = new JenisTransaksi(comboBoxJenisTransaksi.SelectedIndex + 1);
-            //        Tabungan rekening_tujuan = (Tabungan)comboBoxRekeningTujuan.SelectedItem;
-            //        Promo p = null;
-            //        if (checkBoxPromo.Checked == true)
-            //        {
-            //            p = (Promo)comboBoxPromo.SelectedItem;
-            //        }
-            //        else
-            //        {
-            //            p = new Promo();
-            //        }
-
-            //        JenisTagihan j = null;
-            //        if (checkBoxTagihan.Checked == true)
-            //        {
-            //            j = (JenisTagihan)comboBoxJenisTagihan.SelectedItem;
-            //        }
-            //        else
-            //        {
-            //            j = new JenisTagihan();
-            //        }
-
-            //        if(comboBoxPromo.Text != "")
-            //        {
-            //            RiwayatPromo rp = new RiwayatPromo(p, rekening_sumber.Pengguna);
-            //        }
-
-            //        Transaksi t = new Transaksi(rekening_sumber, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, rekening_tujuan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text, p, j);
-            //        Transaksi.TambahData(t, k);
-            //        Transaksi.UpdateSaldo(t, k);
-
-            //        MessageBox.Show("Data transaksi telah tersimpan.", "Info");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Data transaksi gagal disimpan. Pesan kesalahan: " + ex.Message, "Kesalahan");
-            //}
         }
 
         private void FormTambahTransaksi_Load(object sender, EventArgs e)
         {
             formUtama = (FormUtama)this.MdiParent;
-            //formTabunganPengguna = (FormTabunganPengguna)this.Owner;
-            //formDaftarTransaksi = (FormDaftarTransaksi)this.Owner;
+            pengguna = formUtama.pengguna;
             listTabunganSumber = Tabungan.BacaData("", "");
             comboBoxRekeningSumber.DataSource = listTabunganSumber;
             comboBoxRekeningSumber.DisplayMember = "no_rekening";
@@ -146,9 +109,9 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
-            FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi();
+            //FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi();
 
-            formDaftarTransaksi.FormDaftarTransaksi_Load(buttonKeluar, e);
+            //formDaftarTransaksi.FormDaftarTransaksi_Load(buttonKeluar, e);
 
             this.Close();
         }

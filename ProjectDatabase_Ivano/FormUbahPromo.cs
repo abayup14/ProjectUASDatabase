@@ -31,7 +31,7 @@ namespace ProjectDatabase_Ivano
 
                 Promo.UbahData(p, k);
 
-                MessageBox.Show("Data position telah diubah.", "Info");
+                MessageBox.Show("Data promo telah diubah.", "Info");
             }
             catch (Exception ex)
             {
