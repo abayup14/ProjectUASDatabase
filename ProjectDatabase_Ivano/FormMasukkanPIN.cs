@@ -229,10 +229,6 @@ namespace ProjectDatabase_Ivano
                                     j = new JenisTagihan();
                                 }
 
-                                if (formTambahTransaksi.comboBoxPromo.Text != "")
-                                {
-                                    RiwayatPromo rp = new RiwayatPromo(p, tabunganSumber.Pengguna);
-                                }
 
                                 Transaksi tS = new Transaksi(tabunganSumber,
                                                             Transaksi.GenerateKode(),
@@ -256,6 +252,15 @@ namespace ProjectDatabase_Ivano
                                 Transaksi.TambahTransaksiTujuan(tT, k);
 
                                 Transaksi.UpdateSaldoTransaksi(tS, k);
+                                
+                                if (formTambahTransaksi.comboBoxPromo.Text != "")
+                                {
+                                    RiwayatPromo rp = new RiwayatPromo(RiwayatPromo.GenerateKode(),
+                                                                       p,
+                                                                       tabunganSumber.Pengguna,
+                                                                       DateTime.Now);
+                                    RiwayatPromo.TambahData(rp, k);
+                                }
 
                                 Inbox inboxSumber = new Inbox(tabunganSumber.Pengguna,
                                                               Inbox.GenerateKode(),
