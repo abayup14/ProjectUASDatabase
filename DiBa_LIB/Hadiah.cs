@@ -35,11 +35,11 @@ namespace DiBa_LIB
             string sql = "";
             if (kriteria == "")
             {
-                sql = "select h.id, h.nama, h.harga from hadiah h inner join pengguna p on h.id = p.nik";
+                sql = "select * from hadiah ";
             }
             else
             {
-                sql = "select * from hadiah h inner join pengguna p on h.id = p.nik " +
+                sql = "select * from hadiah " +
                     "where "+kriteria+" like '%"+nilaiKriterian+"%'";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
@@ -89,6 +89,10 @@ namespace DiBa_LIB
             }
 
             return hasilKode;
+        }
+        public override string ToString()
+        {
+            return Id.ToString();
         }
     }
 }

@@ -24,6 +24,7 @@ namespace ProjectDatabase_Ivano
         List<Tabungan> listTabunganTujuan = new List<Tabungan>();
         public List<Promo> listPromo = new List<Promo>();
         public List<JenisTagihan> listJenisTagihan = new List<JenisTagihan>();
+        public Tabungan tabungan;
         //FormDaftarTransaksi formDaftarTransaksi;
         //FormTabunganPengguna formTabunganPengguna;
         FormUtama formUtama;
@@ -32,52 +33,86 @@ namespace ProjectDatabase_Ivano
         {
             try
             {
-                Koneksi k = new Koneksi();
-
-                DialogResult result = MessageBox.Show("Apakah data yang ada masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
+                if (comboBoxRekeningSumber.SelectedIndex > -1)
                 {
-                    Tabungan rekening_sumber = new Tabungan(comboBoxRekeningSumber.Text);
-                    JenisTransaksi jt = new JenisTransaksi(comboBoxJenisTransaksi.SelectedIndex + 1);
-                    Tabungan rekening_tujuan = (Tabungan)comboBoxRekeningTujuan.SelectedItem;
-                    Promo p = null;
-                    if (checkBoxPromo.Checked == true)
+                    tabungan = (Tabungan)comboBoxRekeningSumber.SelectedItem;
+                }
+
+                DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin melakukan topup?", "Konfirmasi", MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+                if (hasil == DialogResult.Yes)
+                {
+                    if (tabungan.Status == "Aktif")
                     {
-                        p = (Promo)comboBoxPromo.SelectedItem;
+                        FormMasukkanPIN formMasukkanPIN = new FormMasukkanPIN();
+
+                        formMasukkanPIN.Owner = this;
+
+                        formMasukkanPIN.buttonCek.Visible = true;
+                        formMasukkanPIN.buttonSimpan.Visible = false;
+
+                        formMasukkanPIN.ShowDialog();
                     }
                     else
                     {
-                        p = new Promo();
+                        MessageBox.Show("Tabungan ini berstatus tidak aktif." +
+                                        "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan ini.");
                     }
-
-                    JenisTagihan j = null;
-                    if (checkBoxTagihan.Checked == true)
-                    {
-                        j = (JenisTagihan)comboBoxJenisTagihan.SelectedItem;
-                    }
-                    else
-                    {
-                        j = new JenisTagihan();
-                    }
-                    
-                    if(comboBoxPromo.Text != "")
-                    {
-                        RiwayatPromo rp = new RiwayatPromo(p, rekening_sumber.Pengguna);
-                    }
-
-                    Transaksi t = new Transaksi(rekening_sumber, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, rekening_tujuan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text, p, j);
-                    Transaksi.TambahData(t, k);
-                    Transaksi.UpdateSaldo(t, k);
-
-                    MessageBox.Show("Data transaksi telah tersimpan.", "Info");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Data transaksi gagal disimpan. Pesan kesalahan: " + ex.Message, "Kesalahan");
+                MessageBox.Show("Gagal topup. Pesan kesalahan: " + ex.Message, "Kesalahan");
             }
+            //try
+            //{
+
+            //    Koneksi k = new Koneksi();
+
+            //    DialogResult result = MessageBox.Show("Apakah data yang ada masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo,
+            //        MessageBoxIcon.Question);
+
+            //    if (result == DialogResult.Yes)
+            //    {
+            //        Tabungan rekening_sumber = new Tabungan(comboBoxRekeningSumber.Text);
+            //        JenisTransaksi jt = new JenisTransaksi(comboBoxJenisTransaksi.SelectedIndex + 1);
+            //        Tabungan rekening_tujuan = (Tabungan)comboBoxRekeningTujuan.SelectedItem;
+            //        Promo p = null;
+            //        if (checkBoxPromo.Checked == true)
+            //        {
+            //            p = (Promo)comboBoxPromo.SelectedItem;
+            //        }
+            //        else
+            //        {
+            //            p = new Promo();
+            //        }
+
+            //        JenisTagihan j = null;
+            //        if (checkBoxTagihan.Checked == true)
+            //        {
+            //            j = (JenisTagihan)comboBoxJenisTagihan.SelectedItem;
+            //        }
+            //        else
+            //        {
+            //            j = new JenisTagihan();
+            //        }
+
+            //        if(comboBoxPromo.Text != "")
+            //        {
+            //            RiwayatPromo rp = new RiwayatPromo(p, rekening_sumber.Pengguna);
+            //        }
+
+            //        Transaksi t = new Transaksi(rekening_sumber, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, rekening_tujuan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text, p, j);
+            //        Transaksi.TambahData(t, k);
+            //        Transaksi.UpdateSaldo(t, k);
+
+            //        MessageBox.Show("Data transaksi telah tersimpan.", "Info");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Data transaksi gagal disimpan. Pesan kesalahan: " + ex.Message, "Kesalahan");
+            //}
         }
 
         private void FormTambahTransaksi_Load(object sender, EventArgs e)

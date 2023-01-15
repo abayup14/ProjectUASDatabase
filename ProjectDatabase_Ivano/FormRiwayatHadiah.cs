@@ -14,6 +14,8 @@ namespace ProjectDatabase_Ivano
     public partial class FormRiwayatHadiah : Form
     {
         List<Pengguna_has_Hadiah> listOfPenggunaHasHadiah = new List<Pengguna_has_Hadiah>();
+        FormUtama frmUtama;
+        public Employee employee;
         public FormRiwayatHadiah()
         {
             InitializeComponent();
@@ -26,6 +28,8 @@ namespace ProjectDatabase_Ivano
 
         private void FormRiwayatHadiah_Load(object sender, EventArgs e)
         {
+            frmUtama = (FormUtama)this.MdiParent;
+            employee = frmUtama.employee;
             Koneksi k = new Koneksi();
             listOfPenggunaHasHadiah = Pengguna_has_Hadiah.BacaData("", "");
             if (listOfPenggunaHasHadiah.Count > 0)
@@ -33,19 +37,23 @@ namespace ProjectDatabase_Ivano
                 dataGridViewRwayat.DataSource = listOfPenggunaHasHadiah;
                 if (dataGridViewRwayat.ColumnCount == 2)
                 {
-                    DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
-                    bcol1.HeaderText = "Aksi";
-                    bcol1.Text = "Ubah Data";
-                    bcol1.Name = "buttonUbahGrid";
-                    bcol1.UseColumnTextForButtonValue = true;
-                    dataGridViewRwayat.Columns.Add(bcol1);
+                    if (employee != null)
+                    {
+                        DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
+                        bcol1.HeaderText = "Aksi";
+                        bcol1.Text = "Ubah Data";
+                        bcol1.Name = "buttonUbahGrid";
+                        bcol1.UseColumnTextForButtonValue = true;
+                        dataGridViewRwayat.Columns.Add(bcol1);
 
-                    DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                    bcol2.HeaderText = "Aksi";
-                    bcol2.Text = "Hapus Data";
-                    bcol2.Name = "buttonHapusGrid";
-                    bcol2.UseColumnTextForButtonValue = true;
-                    dataGridViewRwayat.Columns.Add(bcol2);
+                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                        bcol2.HeaderText = "Aksi";
+                        bcol2.Text = "Hapus Data";
+                        bcol2.Name = "buttonHapusGrid";
+                        bcol2.UseColumnTextForButtonValue = true;
+                        dataGridViewRwayat.Columns.Add(bcol2);
+                    }
+                    
                 }
             }
             else

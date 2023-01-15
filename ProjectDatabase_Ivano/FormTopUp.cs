@@ -84,7 +84,7 @@ namespace ProjectDatabase_Ivano
         {
             //FormDaftarTabungan formDaftarTabungan = (FormDaftarTabungan)this.Owner;
             //formDaftarTabungan.FormDaftarTabungan_Load(buttonKeluar, e);
-            Close();
+            this.Close();
         }
 
         private void comboBoxRekening_SelectedIndexChanged(object sender, EventArgs e)

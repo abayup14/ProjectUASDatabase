@@ -319,19 +319,19 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonKosongi;
         private System.Windows.Forms.Button buttonTambah;
-        private System.Windows.Forms.ComboBox comboBoxRekeningTujuan;
-        private System.Windows.Forms.ComboBox comboBoxJenisTransaksi;
-        private System.Windows.Forms.TextBox textBoxNominal;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxKeterangan;
-        private System.Windows.Forms.ComboBox comboBoxPromo;
-        private System.Windows.Forms.ComboBox comboBoxJenisTagihan;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox checkBoxTagihan;
-        private System.Windows.Forms.CheckBox checkBoxPromo;
-        private System.Windows.Forms.ComboBox comboBoxRekeningSumber;
+        public System.Windows.Forms.ComboBox comboBoxRekeningTujuan;
+        public System.Windows.Forms.ComboBox comboBoxJenisTransaksi;
+        public System.Windows.Forms.TextBox textBoxNominal;
+        public System.Windows.Forms.TextBox textBoxKeterangan;
+        public System.Windows.Forms.ComboBox comboBoxPromo;
+        public System.Windows.Forms.ComboBox comboBoxJenisTagihan;
+        public System.Windows.Forms.CheckBox checkBoxTagihan;
+        public System.Windows.Forms.CheckBox checkBoxPromo;
+        public System.Windows.Forms.ComboBox comboBoxRekeningSumber;
     }
 }

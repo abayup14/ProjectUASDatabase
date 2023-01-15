@@ -60,6 +60,7 @@ namespace ProjectDatabase_Ivano
             this.labelKode = new System.Windows.Forms.Label();
             this.labelAndaLogin = new System.Windows.Forms.Label();
             this.riwayatHadiahToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.beliHadiahToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -195,7 +196,8 @@ namespace ProjectDatabase_Ivano
             this.profilPenggunaToolStripMenuItem,
             this.tabunganPenggunaToolStripMenuItem,
             this.depositoPenggunaToolStripMenuItem,
-            this.addressBookPenggunaToolStripMenuItem});
+            this.addressBookPenggunaToolStripMenuItem,
+            this.beliHadiahToolStripMenuItem});
             this.penggunaToolStripMenuItem1.Name = "penggunaToolStripMenuItem1";
             this.penggunaToolStripMenuItem1.Size = new System.Drawing.Size(88, 24);
             this.penggunaToolStripMenuItem1.Text = "Pengguna";
@@ -321,6 +323,13 @@ namespace ProjectDatabase_Ivano
             this.riwayatHadiahToolStripMenuItem1.Text = "Riwayat Hadiah";
             this.riwayatHadiahToolStripMenuItem1.Click += new System.EventHandler(this.riwayatHadiahToolStripMenuItem1_Click);
             // 
+            // beliHadiahToolStripMenuItem
+            // 
+            this.beliHadiahToolStripMenuItem.Name = "beliHadiahToolStripMenuItem";
+            this.beliHadiahToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.beliHadiahToolStripMenuItem.Text = "Beli Hadiah";
+            this.beliHadiahToolStripMenuItem.Click += new System.EventHandler(this.beliHadiahToolStripMenuItem_Click);
+            // 
             // FormUtama
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -377,6 +386,7 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.ToolStripMenuItem pencairanDepositoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aktivitasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem riwayatHadiahToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem beliHadiahToolStripMenuItem;
     }
 }
 
