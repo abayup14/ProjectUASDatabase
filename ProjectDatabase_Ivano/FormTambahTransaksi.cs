@@ -42,16 +42,34 @@ namespace ProjectDatabase_Ivano
                     Tabungan rekening_sumber = new Tabungan(comboBoxRekeningSumber.Text);
                     JenisTransaksi jt = new JenisTransaksi(comboBoxJenisTransaksi.SelectedIndex + 1);
                     Tabungan rekening_tujuan = (Tabungan)comboBoxRekeningTujuan.SelectedItem;
-                    Promo p = (Promo)comboBoxPromo.SelectedItem;
-                    JenisTagihan j = (JenisTagihan)comboBoxJenisTagihan.SelectedItem;
-                    Transaksi t = new Transaksi(rekening_sumber, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, rekening_tujuan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text, p, j);
+                    Promo p = null;
+                    if (checkBoxPromo.Checked == true)
+                    {
+                        p = (Promo)comboBoxPromo.SelectedItem;
+                    }
+                    else
+                    {
+                        p = new Promo();
+                    }
 
+                    JenisTagihan j = null;
+                    if (checkBoxTagihan.Checked == true)
+                    {
+                        j = (JenisTagihan)comboBoxJenisTagihan.SelectedItem;
+                    }
+                    else
+                    {
+                        j = new JenisTagihan();
+                    }
+                    
                     if(comboBoxPromo.Text != "")
                     {
                         RiwayatPromo rp = new RiwayatPromo(p, rekening_sumber.Pengguna);
                     }
 
+                    Transaksi t = new Transaksi(rekening_sumber, Transaksi.GenerateKode().ToString(), DateTime.Now, jt, rekening_tujuan, double.Parse(textBoxNominal.Text), textBoxKeterangan.Text, p, j);
                     Transaksi.TambahData(t, k);
+                    Transaksi.UpdateSaldo(t, k);
 
                     MessageBox.Show("Data transaksi telah tersimpan.", "Info");
                 }

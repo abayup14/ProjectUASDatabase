@@ -104,9 +104,17 @@ namespace DiBa_LIB
                          "values ('" + t.Rekening_sumber.Rekening + "', '" + t.TransaksiId + "', '" + t.Tgl_transaksi.ToString("yyyy-MM-dd HH:mm:ss") + "', '" +
                          t.Id_jenis_transaksi.Id_jenis_transaksi + "', '" + t.Rekening_tujuan.Rekening + "', '" + t.Nominal + "', '" + t.Keterangan + "', '" + t.Id_promo.IdPromo + "', '" + t.Id_jenis_tagihan.Id + "')";
 
+            Koneksi.JalankanPerintahDML(sql1, k);            
+        }
+        public static void UpdateSaldo(Transaksi t, Koneksi k)
+        {
+            string sql1 = "update tabungan set saldo = saldo - " + t.Nominal + " where no_rekening = '" + t.Rekening_sumber.Rekening + "'";
+
             Koneksi.JalankanPerintahDML(sql1, k);
 
-          
+            string sql2 = "update tabungan set saldo = saldo + " + t.Nominal + " where no_rekening = '" + t.Rekening_tujuan.Rekening + "'";
+
+            Koneksi.JalankanPerintahDML(sql2, k);
         }
         public static void UbahData(Transaksi t, Koneksi k)
         {
