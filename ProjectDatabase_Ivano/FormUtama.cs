@@ -519,5 +519,10 @@ namespace ProjectDatabase_Ivano
         {
 
         }
+
+        private void riwayatHadiahToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
