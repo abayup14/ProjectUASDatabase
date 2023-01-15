@@ -139,11 +139,47 @@
     <Compile Include="FormDaftarTransaksi.Designer.cs">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDepositoPengguna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDepositoPengguna.Designer.cs">
+      <DependentUpon>FormDepositoPengguna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoginPegawai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoginPegawai.Designer.cs">
+      <DependentUpon>FormLoginPegawai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMasukkanPIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMasukkanPIN.Designer.cs">
+      <DependentUpon>FormMasukkanPIN.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPencairanDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPencairanDeposito.Designer.cs">
       <DependentUpon>FormPencairanDeposito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPilihMasuk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPilihMasuk.designer.cs">
+      <DependentUpon>FormPilihMasuk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProfilPengguna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProfilPengguna.Designer.cs">
+      <DependentUpon>FormProfilPengguna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTabunganPengguna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTabunganPengguna.Designer.cs">
+      <DependentUpon>FormTabunganPengguna.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahAddressBook.cs">
       <SubType>Form</SubType>
@@ -210,6 +246,12 @@
     </Compile>
     <Compile Include="FormTambahPromo.Designer.cs">
       <DependentUpon>FormTambahPromo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahTabungan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahTabungan.Designer.cs">
+      <DependentUpon>FormTambahTabungan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahTransaksi.cs">
       <SubType>Form</SubType>
@@ -333,8 +375,26 @@
     <EmbeddedResource Include="FormDaftarTransaksi.resx">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDepositoPengguna.resx">
+      <DependentUpon>FormDepositoPengguna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoginPegawai.resx">
+      <DependentUpon>FormLoginPegawai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMasukkanPIN.resx">
+      <DependentUpon>FormMasukkanPIN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPencairanDeposito.resx">
       <DependentUpon>FormPencairanDeposito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPilihMasuk.resx">
+      <DependentUpon>FormPilihMasuk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProfilPengguna.resx">
+      <DependentUpon>FormProfilPengguna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTabunganPengguna.resx">
+      <DependentUpon>FormTabunganPengguna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahAddressBook.resx">
       <DependentUpon>FormTambahAddressBook.cs</DependentUpon>
@@ -368,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahPromo.resx">
       <DependentUpon>FormTambahPromo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahTabungan.resx">
+      <DependentUpon>FormTambahTabungan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahTransaksi.resx">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
@@ -410,14 +473,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="db.Settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>db.Designer.cs</LastGenOutput>
@@ -426,6 +484,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -434,6 +497,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\centang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\silang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\suspend.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

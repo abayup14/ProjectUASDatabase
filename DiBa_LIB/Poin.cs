@@ -58,10 +58,10 @@ namespace DiBa_LIB
             string sql = "delete from poin where = id_pengguna = '"+p.Pengguna+"'";
             Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static int CekPoin(Pengguna p ,Koneksi k)
+        public static int CekPoin(Pengguna p)
         {
             string sql = "select jumlah_poin from poin p inner join " +
-                "pengguna pe on p.id_pengguna = pe.nik where id_pengguna = '" + p.Nik+ "'";
+                "pengguna pe on p.id_pengguna = pe.nik where p.id_pengguna = '" + p.Nik+ "'";
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
             int jumlah = 0;
             if (hasil.Read() == true)

@@ -48,22 +48,22 @@ namespace DiBa_LIB
             string sql = "";
             if (kriteria == "")
             {
-                sql = "select t.rekening_sumber, t.id_transaksi, t.tgl_transaksi, t.id_jenis_transaksi, t.rekening_tujuan, t.nominal, t.keterangan, p.id, j.id" +
+                sql = "select t.rekening_sumber, t.id_transaksi, t.tgl_transaksi, t.id_jenis_transaksi, t.rekening_tujuan, t.nominal, t.keterangan, p.id, j.id " +
                       "from transaksi t inner join tabungan ta on t.rekening_sumber = ta.no_rekening " +
                       "inner join tabungan tb on t.rekening_tujuan = tb.no_rekening " +
-                      "left join jenis_transaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi" + 
-                      "inner join promo p on t.promo_id = p.id" + 
+                      "left join jenis_transaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi " + 
+                      "inner join promo p on t.promo_id = p.id " + 
                       "inner join jenis_tagihan j on t.jenis_tagihan_id = j.id";
 
             }
             else
             {
-                sql = "select t.rekening_sumber, t.id_transaksi, t.tgl_transaksi, t.id_jenis_transaksi, t.rekening_tujuan, t.nominal, t.keterangan, p.id, j.id" +
+                sql = "select t.rekening_sumber, t.id_transaksi, t.tgl_transaksi, t.id_jenis_transaksi, t.rekening_tujuan, t.nominal, t.keterangan, p.id, j.id " +
                       "from transaksi t inner join tabungan ta on t.rekening_sumber = ta.no_rekening " +
                       "inner join tabungan tb on t.rekening_tujuan = tb.no_rekening " +
                       "left join jenis_transaksi jt on t.id_jenis_transaksi = jt.id_jenis_transaksi " +
-                      "inner join promo p on t.promo_id = p.id" +
-                      "inner join jenis_tagihan j on t.jenis_tagihan_id = j.id" +
+                      "inner join promo p on t.promo_id = p.id " +
+                      "inner join jenis_tagihan j on t.jenis_tagihan_id = j.id " +
                       "where " +kriteria + " like '%" + nilaiKriteria+"%'";
                 
             }
@@ -100,11 +100,13 @@ namespace DiBa_LIB
         }
         public static void TambahData(Transaksi t, Koneksi k)
         {
-            string sql = "insert into transaksi (rekening_sumber, id_transaksi, tgl_transaksi, id_jenis_transaksi, rekening_tujuan, nominal, keterangan, promo_id, jenis_tagihan_id) " +
+            string sql1 = "insert into transaksi (rekening_sumber, id_transaksi, tgl_transaksi, id_jenis_transaksi, rekening_tujuan, nominal, keterangan, promo_id, jenis_tagihan_id) " +
                          "values ('" + t.Rekening_sumber.Rekening + "', '" + t.TransaksiId + "', '" + t.Tgl_transaksi.ToString("yyyy-MM-dd HH:mm:ss") + "', '" +
                          t.Id_jenis_transaksi.Id_jenis_transaksi + "', '" + t.Rekening_tujuan.Rekening + "', '" + t.Nominal + "', '" + t.Keterangan + "', '" + t.Id_promo + "', '" + t.Id_jenis_transaksi + "')";
 
-            Koneksi.JalankanPerintahDML(sql, k);
+            Koneksi.JalankanPerintahDML(sql1, k);
+
+          
         }
         public static void UbahData(Transaksi t, Koneksi k)
         {
@@ -120,11 +122,11 @@ namespace DiBa_LIB
             Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static int GenerateKode()
+        public static string GenerateKode()
         {
             string sql = "SELECT max(id_Transaksi) from Transaksi";
 
-            int hasilKode = 0;
+            string hasilKode = "";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -132,11 +134,13 @@ namespace DiBa_LIB
             {
                 if (hasil.GetValue(0).ToString() != "")
                 {
-                    hasilKode = int.Parse(hasil.GetValue(0).ToString()) + 1;
+                    int kodeBaru = int.Parse(hasil.GetValue(0).ToString()) + 1;
+
+                    hasilKode = kodeBaru.ToString();
                 }
                 else
                 {
-                    hasilKode = 1;
+                    hasilKode = "1";
                 }
             }
 

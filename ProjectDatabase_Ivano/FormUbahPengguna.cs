@@ -14,6 +14,9 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormUbahPengguna : Form
     {
+        FormProfilPengguna formProfilPengguna;
+
+        public Pengguna pengguna;
         public FormUbahPengguna()
         {
             InitializeComponent();
@@ -29,14 +32,13 @@ namespace ProjectDatabase_Ivano
                 
                 if (hasil == DialogResult.Yes)
                 {
+                    //FormDaftarPengguna formDaftarPengguna = (FormDaftarPengguna)this.Owner;
 
-                    FormDaftarPengguna formDaftarPengguna = (FormDaftarPengguna)this.Owner;
+                    string password = pengguna.Password;
 
-                    string password = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["password"].Value.ToString();
+                    string pin = pengguna.Pin;
 
-                    string pin = formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["pin"].Value.ToString();
-
-                    DateTime tglBuat = DateTime.Parse(formDaftarPengguna.dataGridViewPengguna.CurrentRow.Cells["tgl_buat"].Value.ToString());
+                    DateTime tglBuat = pengguna.Tgl_buat;
 
                     Pengguna p = new Pengguna(textBoxNIK.Text, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, textBoxAlamat.Text, textBoxEmail.Text,
                                               textBoxNomorTelepon.Text, password, pin, tglBuat, DateTime.Now);
@@ -74,6 +76,25 @@ namespace ProjectDatabase_Ivano
             textBoxNomorTelepon.Clear();
 
             textBoxNamaDepan.Focus();
+        }
+
+        private void FormUbahPengguna_Load(object sender, EventArgs e)
+        {
+            formProfilPengguna = (FormProfilPengguna)this.Owner;
+
+            pengguna = Pengguna.AmbilDataByKode(formProfilPengguna.labelNIK.Text);
+
+            textBoxNIK.Text = pengguna.Nik;
+
+            textBoxNamaDepan.Text = pengguna.Nama_depan;
+
+            textBoxNamaKeluarga.Text = pengguna.Nama_keluarga;
+
+            textBoxAlamat.Text = pengguna.Alamat;
+
+            textBoxEmail.Text = pengguna.Email;
+
+            textBoxNomorTelepon.Text = pengguna.No_telepon;
         }
     }
 }

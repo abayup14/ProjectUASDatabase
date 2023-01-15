@@ -27,7 +27,7 @@ namespace DiBa_LIB
 
         #region CONSTRUCTORS
         public Pengguna(string nik, string nama_depan, string nama_keluarga, string alamat, string email, string no_telepon, 
-                        string password, string pin, DateTime tgl_buat, DateTime tgl_perubahan )
+                        string password, string pin, DateTime tgl_buat, DateTime tgl_perubahan)
         {
             Nik = nik;
             Nama_depan = nama_depan;
@@ -64,7 +64,6 @@ namespace DiBa_LIB
         #region METHODS
         public static void TambahData(Pengguna p, Koneksi k)
         {
-
             string sql = "INSERT into pengguna(nik, nama_depan, nama_keluarga, alamat, email, no_telepon, password, pin, tgl_buat, tgl_perubahan) " +
                                  "values ('" + p.Nik + "', '" + p.Nama_depan + "', '" + p.Nama_keluarga + "', '" + p.Alamat + "', '" + p.Email + "', '" + p.No_telepon + "', SHA2('" + p.Password + "', 512), SHA2('" + p.Pin + "', 512), '" + p.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + p.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
@@ -80,6 +79,13 @@ namespace DiBa_LIB
             string sql = "UPDATE pengguna set password = SHA2('" + passwordBaru + "', 512), tgl_perubahan = '" + 
                          p.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' where nik = '" + p.Nik + 
                          "' AND password = SHA2('" + passwordLama + "', 512)";
+
+            Koneksi.JalankanPerintahDML(sql, k);
+        }
+        public static void UbahPIN(Pengguna p, string PINBaru, Koneksi k)
+        {
+            string sql = "UPDATE pengguna set pin = SHA2('" + PINBaru + "', 512) " +
+                         "WHERE nik = '" + p.Nik + "' AND pin = '" + p.Pin + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
@@ -169,20 +175,24 @@ namespace DiBa_LIB
             AddressBook adress = new AddressBook(p, t, keterangan);
             ListAdressBook.Add(adress);
         }
-        public static Pengguna AmbilDataByKode(string id)
+        public static Pengguna AmbilDataByKode(string nik)
         {
-            string sql = "SELECT nik, nama_depan, nama_keluarga, alamat, email, no_telepon, " +
-                "password, pin, tgl_buat, tgl_perubahan " +
-                         "FROM pengguna " +
-                         "where nik = '" + id +"'";
+            string sql = "SELECT * FROM pengguna where nik = '" + nik +"'";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
             if (hasil.Read() == true)
             {
-                Pengguna p = new Pengguna(hasil.GetString(0), hasil.GetString(1), hasil.GetString(2), 
-                    hasil.GetString(3), hasil.GetString(4), hasil.GetString(5), hasil.GetString(6), 
-                    hasil.GetString(7), DateTime.Parse(hasil.GetString(8)), DateTime.Parse(hasil.GetString(9)));
+                Pengguna p = new Pengguna(hasil.GetString(0), 
+                                          hasil.GetString(1), 
+                                          hasil.GetString(2), 
+                                          hasil.GetString(3), 
+                                          hasil.GetString(4), 
+                                          hasil.GetString(5), 
+                                          hasil.GetString(6), 
+                                          hasil.GetString(7), 
+                                          DateTime.Parse(hasil.GetString(8)), 
+                                          DateTime.Parse(hasil.GetString(9)));
 
                 return p;
             }
@@ -190,7 +200,39 @@ namespace DiBa_LIB
             {
                 return null;
             }
+        }
+        
+        public static bool CekPIN(Pengguna p)
+        {
+            string sql = "SELECT SHA2('', 512), pin from pengguna where nik = '" + p.Nik + "'";
 
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                if (hasil.GetValue(0).ToString() != hasil.GetValue(1).ToString())
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        public static bool CekPIN(Pengguna p, string pin)
+        {
+            string sql = "SELECT SHA2('" + pin + "', 512), pin from pengguna where nik = '" + p.Nik + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                if (hasil.GetValue(0).ToString() == hasil.GetValue(1).ToString())
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
         #endregion
     }

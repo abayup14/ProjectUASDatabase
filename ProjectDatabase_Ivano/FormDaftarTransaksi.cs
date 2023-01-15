@@ -46,13 +46,6 @@ namespace ProjectDatabase_Ivano
 
         }
 
-        private void buttonTambah_Click(object sender, EventArgs e)
-        {
-            FormTambahTransaksi formTambahTransaksi = new FormTambahTransaksi();
-            formTambahTransaksi.Owner = this;
-            formTambahTransaksi.Show();
-        }
-
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -13,15 +13,10 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormPencairanDeposito : Form
     {
-        Deposito deposito;
+        //Deposito deposito;
         public FormPencairanDeposito()
         {
             InitializeComponent();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonUbah_Click(object sender, EventArgs e)
@@ -31,24 +26,29 @@ namespace ProjectDatabase_Ivano
 
             if (hasil == DialogResult.Yes)
             {
-                Koneksi k = new Koneksi();
-                Deposito d = new Deposito(deposito.Id_deposito);
-
-                DateTime tanggal = deposito.Tgl_buat.AddMonths(deposito.Jatuh_tempo);
-                if (tanggal > DateTime.Now)
+                if (Deposito.AmbilDataNoDeposito(textBoxNoDeposito.Text) == true)
                 {
-                    Deposito.UbahStatus(d, k);
-                    MessageBox.Show("Pencairan deposito kurang dari tanggal jatuh tempo sehingga anda dikenai denda sebanyak 5% dan tidak mendapatkan bunga.");
-                    Deposito.UbahNominal(d, k);
+                    Koneksi k = new Koneksi();
+                    Deposito d = new Deposito(textBoxNoDeposito.Text);
+
+                    DateTime tanggal = d.Tgl_buat.AddMonths(d.Jatuh_tempo);
+                    if (tanggal > DateTime.Now)
+                    {
+                        //Deposito.UbahStatus(d, k);
+                        MessageBox.Show("Pencairan deposito kurang dari tanggal jatuh tempo sehingga anda dikenai denda sebanyak 5% dan tidak mendapatkan bunga.");
+                        Deposito.UbahNominal(d, k);
+                    }
+                    else
+                    {
+                        //Deposito.UbahStatus(d, k);
+                        Deposito.TambahNominal(d, k);
+                        MessageBox.Show("Pencairan berhasil");
+                    }
                 }
                 else
                 {
-                    Deposito.UbahStatus(d, k);
-                    Deposito.TambahNominal(d, k);
-                    MessageBox.Show("Pencairan berhasil");
+                    MessageBox.Show("Data no deposito tidak dapat ditemukan", "Informasi");
                 }
-
-
             }
             else
             {

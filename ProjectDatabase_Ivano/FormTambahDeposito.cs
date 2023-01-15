@@ -19,6 +19,8 @@ namespace ProjectDatabase_Ivano
 
         FormDaftarDeposito formDaftarDeposito;
 
+        //FormDepositoPengguna formDepositoPengguna;
+
         public FormTambahDeposito()
         {
             InitializeComponent();
@@ -71,6 +73,8 @@ namespace ProjectDatabase_Ivano
         private void FormTambahDeposito_Load(object sender, EventArgs e)
         {
             formDaftarDeposito = (FormDaftarDeposito)this.Owner;
+
+            //formDepositoPengguna = (FormDepositoPengguna)this.Owner;
 
             //labelNoRekening.Text = Tabungan.AmbilDataNoRekening(formDaftarDeposito.pengguna.Nik);
         }

@@ -19,6 +19,8 @@ namespace ProjectDatabase_Ivano
 
         public Pengguna pengguna;
 
+        public Employee employee;
+
         public FormDaftarAddressBook()
         {
             InitializeComponent();
@@ -41,13 +43,38 @@ namespace ProjectDatabase_Ivano
             formUtama = (FormUtama)this.MdiParent;
 
             pengguna = formUtama.pengguna;
-          
-            listAddressBook = AddressBook.BacaData("", "");
+
+            employee = formUtama.employee;
+
+            FormatDataGridAddressBook();
+
+            if (pengguna != null)
+            {
+                listAddressBook = AddressBook.BacaData("ab.id_pengguna", pengguna.Nik);
+            }
+            else if (employee != null)
+            {
+                buttonTambah.Visible = false;
+                listAddressBook = AddressBook.BacaData("", "");
+            }
+            
             if (listAddressBook.Count > 0)
             {
-                dataGridViewAddressBook.DataSource = listAddressBook;
-                if (dataGridViewAddressBook.ColumnCount == 3)
+                //dataGridViewAddressBook.DataSource = listAddressBook;
+                foreach (AddressBook addressBook in listAddressBook)
                 {
+                    string nama = addressBook.Pengguna.Nama_depan + " " + addressBook.Pengguna.Nama_keluarga;
+                    dataGridViewAddressBook.Rows.Add(addressBook.No_rekening.Rekening, nama, addressBook.Keterangan);
+                }
+
+                if (dataGridViewAddressBook.ColumnCount < 10)
+                {
+                    //DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
+                    //bcol1.HeaderText = "Aksi";
+                    //bcol1.Text = "Transaksi";
+                    //bcol1.Name = "buttonTransaksiGrid";
+                    //bcol1.UseColumnTextForButtonValue = true;
+                    //dataGridViewAddressBook.Columns.Add(bcol1);
 
                     DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
                     bcol2.HeaderText = "Aksi";
@@ -63,33 +90,73 @@ namespace ProjectDatabase_Ivano
             }
         }
 
+        private void FormatDataGridAddressBook()
+        {
+            dataGridViewAddressBook.Rows.Clear();
+            dataGridViewAddressBook.Columns.Clear();
+            dataGridViewAddressBook.Columns.Add("NoRekening", "No. Rekening");
+            dataGridViewAddressBook.Columns.Add("Nama", "Nama");
+            dataGridViewAddressBook.Columns.Add("Keterangan", "Keterangan");
+
+            dataGridViewAddressBook.Columns["NoRekening"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewAddressBook.Columns["Nama"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewAddressBook.Columns["Keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+        }
+
         private void dataGridViewAddressBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            Koneksi k = new Koneksi();
+            //if (e.ColumnIndex == dataGridViewAddressBook.Columns["buttonTransaksiGrid"].Index && e.RowIndex >= 0)
+            //{
+            //    if (pengguna != null)
+            //    {
+            //        FormTambahTransaksi formTambahTransaksi = new FormTambahTransaksi();
+            //        formTambahTransaksi.Owner = this;
+            //        formTambahTransaksi.ShowDialog();
+            //    }
+            //}
             if (e.ColumnIndex == dataGridViewAddressBook.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
-                string id_pengguna = dataGridViewAddressBook.CurrentRow.Cells["pengguna"].Value.ToString();
-                string no_rekening = dataGridViewAddressBook.CurrentRow.Cells["no_rekening"].Value.ToString();
-                string keterangan = dataGridViewAddressBook.CurrentRow.Cells["keterangan"].Value.ToString();
-                
-                DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah : " +
-                    "\nId Pengguna : " + id_pengguna+
-                    "\nNo Rekening : " + no_rekening +
-                    "\nKeterangan : " + keterangan +                   
-                    "\n\nApakah anda yakin ingin menghapus data ini?", "Konfirmasi",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (hasil == DialogResult.Yes)
+                if (employee != null)
                 {
-                    Koneksi k = new Koneksi();
-                    Pengguna p = new Pengguna(id_pengguna);
-                    Tabungan t = new Tabungan(no_rekening);
-                    AddressBook ab = new AddressBook(p,t, keterangan);
-                    AddressBook.HapusData(ab, k);
+                    string id_pengguna = dataGridViewAddressBook.CurrentRow.Cells["pengguna"].Value.ToString();
+                    string no_rekening = dataGridViewAddressBook.CurrentRow.Cells["no_rekening"].Value.ToString();
+                    string keterangan = dataGridViewAddressBook.CurrentRow.Cells["keterangan"].Value.ToString();
+                    DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah : " +
+                                                         "\nId Pengguna : " + id_pengguna +
+                                                         "\nNo Rekening : " + no_rekening +
+                                                         "\nKeterangan : " + keterangan +
+                                                         "\n\nApakah anda yakin ingin menghapus data ini?", "Konfirmasi",
+                                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                    if (hasil == DialogResult.Yes)
+                    {
+                        Pengguna p = new Pengguna(id_pengguna);
+                        Tabungan t = new Tabungan(no_rekening);
+                        AddressBook ab = new AddressBook(p, t, keterangan);
+                        AddressBook.HapusData(ab, k);
 
-                    MessageBox.Show("Data berhasil dihapus.", "Informasi");
-                    FormDaftarAddressBook_Load(buttonKeluar, e);
+                        MessageBox.Show("Data berhasil dihapus.", "Informasi");
+                        FormDaftarAddressBook_Load(buttonKeluar, e);
+                    }
+                }
+                else if (pengguna != null)
+                {
+                    DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Konfirmasi",
+                                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (hasil == DialogResult.Yes)
+                    {
+                        Pengguna p = pengguna;
+                        Tabungan t = Tabungan.AmbilDataTabungan(dataGridViewAddressBook.CurrentRow.Cells["NoRekening"].Value.ToString());
+                        string keterangan = dataGridViewAddressBook.CurrentRow.Cells["Keterangan"].Value.ToString();
+
+                        AddressBook ab = new AddressBook(p, t, keterangan);
+                        AddressBook.HapusData(ab, k);
+
+                        MessageBox.Show("Data berhasil dihapus.", "Informasi");
+                        FormDaftarAddressBook_Load(buttonKeluar, e);
+                    }
                 }
             }
         }

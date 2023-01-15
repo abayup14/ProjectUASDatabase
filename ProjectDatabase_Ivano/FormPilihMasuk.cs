@@ -1,5 +1,4 @@
-﻿using DiBa_LIB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,31 +12,56 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormPilihMasuk : Form
     {
+        FormUtama formUtama;
+
+        public FormLogin formLogin;
+
+        public FormLoginPegawai formLoginPegawai;
+
         public FormPilihMasuk()
         {
             InitializeComponent();
         }
 
-        private void buttonPengguna_Click(object sender, EventArgs e)
-        {
-            FormLogin formLogin = new FormLogin();
-
-            formLogin.Owner = this;
-
-            formLogin.ShowDialog();
-
-            this.Close();
-        }
-
         private void buttonPegawai_Click(object sender, EventArgs e)
         {
-            FormLoginPegawai formLoginPegawai = new FormLoginPegawai();
-
-            formLoginPegawai.Owner = this;
-
+            formLoginPegawai = new FormLoginPegawai();
+            formLoginPegawai.Owner = formUtama;
             formLoginPegawai.ShowDialog();
+            if (formLoginPegawai.em != null)
+            {
+                Close();
+            }
+        }
 
-            this.Close();
+        public void FormPilihMasuk_Load(object sender, EventArgs e)
+        {
+            formUtama = (FormUtama)this.Owner;
+        }
+
+        private void buttonPengguna_Click(object sender, EventArgs e)
+        {
+            formLogin = new FormLogin();
+            formLogin.Owner = formUtama;
+            formLogin.ShowDialog();
+            if (formLogin.p != null)
+            {
+                Close();
+            }
+        }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            DialogResult hasil = MessageBox.Show("Apakah anda ingin keluar dari aplikasi?", 
+                                                 "Konfirmasi",
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Warning);
+
+            if (hasil == DialogResult.Yes)
+            {
+                MessageBox.Show("Sampai berjumpa lagi.", "Goodbye", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Exit();
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using DiBa_LIB;
 
 namespace ProjectDatabase_Ivano
@@ -24,63 +25,112 @@ namespace ProjectDatabase_Ivano
 
         private void FormUtama_Load(object sender, EventArgs e)
         {
+            labelKode.Visible = false;
+            labelNama.Visible = false;
+            labelStrip.Visible = false;
+            labelAndaLogin.Visible = false;
+            MenuToolStripMenuItem.Visible = false;
+            penggunaToolStripMenuItem1.Visible = false;
+            transaksiToolStripMenuItem.Visible = false;
             this.WindowState = FormWindowState.Maximized;
             this.IsMdiContainer = true;
+
             try
             {
                 Koneksi koneksi = new Koneksi();
 
-                FormLogin formLogin = new FormLogin();
+                FormPilihMasuk frmPilihMasuk = new FormPilihMasuk();
 
-                formLogin.Owner = this;
+                frmPilihMasuk.Owner = this;
+
+                frmPilihMasuk.ShowDialog();
 
                 //FormLogin formLogin = (FormLogin)this.Owner;
-
-                //FormLoginPegawai formLoginPegawai = (FormLoginPegawai)this.Owner;
-
-                //FormPilihMasuk formPilihMasuk = new FormPilihMasuk();
-
-                //formPilihMasuk.Owner = this;
-
-                //formPilihMasuk.Show();
-                if (formLogin.ShowDialog() == DialogResult.OK)
+                if (frmPilihMasuk.formLogin != null)
                 {
-                    if (pengguna != null)
+                    if (frmPilihMasuk.formLogin.DialogResult == DialogResult.OK)
                     {
-                        labelKode.Text = pengguna.Nik;
-
-                        labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
-
-                        MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
+                        if (pengguna != null)
+                        {
+                            SetHakAkses();
+                        }
                     }
-                    else
+                }
+                else
+                {
+                    if (frmPilihMasuk.formLoginPegawai != null)
                     {
-                        MessageBox.Show("Maaf, anda tidak dapat masuk ke dalam aplikasi.", "Kesalahan");
-                        Application.Exit();
+                        if (frmPilihMasuk.formLoginPegawai.DialogResult == DialogResult.OK)
+                        {
+                            if (employee != null)
+                            {
+                                SetHakAkses();
+                            }
+                        }
                     }
                 }
 
-                //else if (employee != null)
-                //{
-                //    labelKode.Text = employee.Id.ToString();
-
-                //    labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
-
-                //    MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
-                //}
                 
-                //MessageBox.Show("Halo, " + labelNama.Text + ". Selamat datang di aplikasi DiBa!", "Informasi");
-
-                //if (formLogin.ShowDialog() == DialogResult.OK || formLoginPegawai.ShowDialog() == DialogResult.OK)
-                //{
-
-                //}
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Koneksi gagal. Pesan Kesalahan : " + ex.Message, "Kesalahan");
+                Application.Exit();
             }
+        }
+
+        private void SetHakAkses()
+        {
+            labelNama.Visible = true;
+            labelKode.Visible = true;
+            labelStrip.Visible = true;
+            labelAndaLogin.Visible = true;
+
+            if (pengguna != null)
+            {
+                labelKode.Text = pengguna.Nik;
+                labelNama.Text = pengguna.Nama_depan + " " + pengguna.Nama_keluarga;
+
+                
+                MenuToolStripMenuItem.Visible = false;
+                transaksiToolStripMenuItem.Visible = true;
+                penggunaToolStripMenuItem1.Visible = true;
+            }
+            else if (employee != null)
+            {
+                labelKode.Text = employee.Id.ToString();
+                labelNama.Text = employee.Nama_depan + " " + employee.Nama_keluarga;
+                MenuToolStripMenuItem.Visible = true;
+            }
+            MessageBox.Show("Selamat datang di aplikasi DiBa, " + labelNama.Text +
+                            "\nSemoga harimu menyenangkan", "Selamat Datang!");
+        }
+
+        public void DisplayStatusPicture(string status, Panel panel)
+        {
+            PictureBox pictureBox = new PictureBox();
+
+            pictureBox.Parent = panel;
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox.BackColor = Color.Transparent;
+            Image statusPicture = null;
+            if (status == "Unverified")
+            {
+                statusPicture = new Bitmap(Properties.Resources.silang);
+            }
+            else if (status == "Aktif")
+            {
+                statusPicture = new Bitmap(Properties.Resources.centang);
+            }
+            else if (status == "Suspend")
+            {
+                statusPicture = new Bitmap(Properties.Resources.suspend);
+            }
+            pictureBox.Image = statusPicture;
+            pictureBox.Size = new Size(75, 75);
+            pictureBox.Location = new Point(400, 50);
+            pictureBox.Visible = true;
+            pictureBox.BringToFront();
         }
 
         private void penggunaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -145,7 +195,16 @@ namespace ProjectDatabase_Ivano
 
         private void keluarSistemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult hasil = MessageBox.Show("Apakah anda ingin keluar dari aplikasi?",
+                                                "Konfirmasi",
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Warning);
+
+            if (hasil == DialogResult.Yes)
+            {
+                MessageBox.Show("Sampai berjumpa lagi.", "Goodbye", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Exit();
+            }
         }
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -317,6 +376,148 @@ namespace ProjectDatabase_Ivano
 
                 form.BringToFront();
             }
+        }
+
+        private void profilPenggunaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormProfilPengguna"];
+            if (form == null)
+            {
+                FormProfilPengguna formProfilPengguna = new FormProfilPengguna();
+
+                formProfilPengguna.MdiParent = this;
+
+                formProfilPengguna.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void tabunganPenggunaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarTabungan"];
+
+            if (form == null)
+            {
+                FormDaftarTabungan frmDaftarTabungan = new FormDaftarTabungan();
+
+                frmDaftarTabungan.MdiParent = this;
+
+                frmDaftarTabungan.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void depositoPenggunaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDepositoPengguna"];
+            if (form == null)
+            {
+                //FormDepositoPengguna formDepositoPengguna = new FormDepositoPengguna();
+                //formDepositoPengguna.MdiParent = this;
+                //formDepositoPengguna.Show();
+                FormDaftarDeposito formDaftarDeposito = new FormDaftarDeposito();
+
+                formDaftarDeposito.MdiParent = this;
+
+                formDaftarDeposito.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void addressBookPenggunaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarAddressBook"];
+
+            if (form == null)
+            {
+                FormDaftarAddressBook formDaftarAddressBook = new FormDaftarAddressBook();
+
+                formDaftarAddressBook.MdiParent = this;
+
+                formDaftarAddressBook.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void transferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarTransaksi"];
+
+            if (form == null)
+            {
+                FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi();
+
+                formDaftarTransaksi.MdiParent = this;
+
+                formDaftarTransaksi.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void topUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormTopUp"];
+
+            if (form == null)
+            {
+                FormTopUp formTopUp = new FormTopUp();
+                formTopUp.MdiParent = this;
+                formTopUp.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void transaksiTransferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormTambahTransaksi"];
+
+            if (form == null)
+            {
+                FormTambahTransaksi formTambahTransaksi = new FormTambahTransaksi();
+                formTambahTransaksi.MdiParent = this;
+                formTambahTransaksi.Show();
+            }
+            else
+            {
+                form.Show();
+
+                form.BringToFront();
+            }
+        }
+
+        private void aktivitasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

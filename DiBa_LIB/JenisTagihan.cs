@@ -13,6 +13,10 @@ namespace DiBa_LIB
         private int id;
         private string nama;
 
+        public JenisTagihan()
+        {
+            Id = 0;
+        }
         public JenisTagihan(int id, string nama)
         {
             this.Id = id;

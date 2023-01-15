@@ -17,7 +17,7 @@ namespace ProjectDatabase_Ivano
 
         Koneksi k;
 
-        List<JenisTagihan> listJenisTagihan = new List<JenisTagihan>();
+        public List<JenisTagihan> listJenisTagihan = new List<JenisTagihan>();
 
         public FormDaftarJenisTagihan()
         {

@@ -13,6 +13,10 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormLogin : Form
     {
+        FormUtama formUtama;
+
+        public Pengguna p;
+
         public FormLogin()
         {
             InitializeComponent();
@@ -38,13 +42,11 @@ namespace ProjectDatabase_Ivano
                 }
                 else
                 {
-                    Pengguna p = Pengguna.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
-
-                    //Employee em = Employee.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
+                    p = Pengguna.CekLogin(textBoxEmailNomorTelepon.Text, textBoxPassword.Text);
 
                     if (p != null)
                     {
-                        FormUtama formUtama = (FormUtama)this.Owner;
+                        formUtama = (FormUtama)this.Owner;
 
                         formUtama.pengguna = p;
 
@@ -149,9 +151,10 @@ namespace ProjectDatabase_Ivano
             }
         }
 
-        private void buttonKeluar_Click(object sender, EventArgs e)
+        private void buttonKeluar_Click_1(object sender, EventArgs e)
         {
             Close();
+            
         }
     }
 }

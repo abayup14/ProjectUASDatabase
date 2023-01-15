@@ -45,17 +45,17 @@ namespace ProjectDatabase_Ivano
 
                     dataGridViewPengguna.Columns.Add(bcol1);
 
-                    DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                    //DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
 
-                    bcol2.HeaderText = "Aksi";
+                    //bcol2.HeaderText = "Aksi";
 
-                    bcol2.Text = "Ubah Password";
+                    //bcol2.Text = "Ubah Password";
 
-                    bcol2.Name = "buttonUbahPasswordGrid";
+                    //bcol2.Name = "buttonUbahPasswordGrid";
 
-                    bcol2.UseColumnTextForButtonValue = true;
+                    //bcol2.UseColumnTextForButtonValue = true;
 
-                    dataGridViewPengguna.Columns.Add(bcol2);
+                    //dataGridViewPengguna.Columns.Add(bcol2);
 
                     DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
 
@@ -103,14 +103,14 @@ namespace ProjectDatabase_Ivano
 
                 formUbahPengguna.ShowDialog();
             }
-            else if (e.ColumnIndex == dataGridViewPengguna.Columns["buttonUbahPasswordGrid"].Index && e.RowIndex >= 0)
-            {
-                FormUbahPasswordPengguna formUbahPassword = new FormUbahPasswordPengguna();
+            //else if (e.ColumnIndex == dataGridViewPengguna.Columns["buttonUbahPasswordGrid"].Index && e.RowIndex >= 0)
+            //{
+            //    FormUbahPasswordPengguna formUbahPassword = new FormUbahPasswordPengguna();
 
-                formUbahPassword.Owner = this;
+            //    formUbahPassword.Owner = this;
 
-                formUbahPassword.Show();
-            }
+            //    formUbahPassword.Show();
+            //}
             else if (e.ColumnIndex == dataGridViewPengguna.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
                 string nik = dataGridViewPengguna.CurrentRow.Cells["nik"].Value.ToString();

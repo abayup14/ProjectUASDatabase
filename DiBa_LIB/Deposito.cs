@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Win32.SafeHandles;
 using MySql.Data.MySqlClient;
 
 namespace DiBa_LIB
@@ -116,7 +117,7 @@ namespace DiBa_LIB
         public static void TambahData(Deposito d, Koneksi k)
         {
             string sql = "INSERT INTO deposito (id_deposito, no_rekening, jatuh_tempo, nominal, bunga, status, tgl_buat, tgl_perubahan, verifikator_buka, verifikator_cair) " +
-                "VALUES ('" + d.Id_deposito + "', '" + d.No_rekening + "', '" + d.Jatuh_tempo + "', '" + d.Nominal + "', '" + d.Bunga + "', '" + d.Status + "', '" + d.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") +
+                "VALUES ('" + d.Id_deposito + "', '" + d.No_rekening + "', '" + d.Jatuh_tempo + "', '" + d.Nominal + "', '" + d.Bunga.ToString().Replace(',', '.') + "', '" + d.Status + "', '" + d.Tgl_buat.ToString("yyyy-MM-dd HH:mm:ss") +
                 "', '" + d.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + d.Verifikator_buka + "', '" + d.Verifikator_cair + "')";
 
             Koneksi.JalankanPerintahDML(sql, k);
@@ -131,9 +132,10 @@ namespace DiBa_LIB
             Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void UbahStatus(Deposito d, Koneksi k)
+        public static void UbahStatus(Deposito d, Employee e, Koneksi k)
         {
-            string sql = "UPDATE deposito set status = 'Aktif' WHERE id_deposito = '" + d.Id_deposito + "'";
+            string sql = "UPDATE deposito set status = 'Aktif', verifikator_buka = " + e.Id + ", tgl_perubahan = '" + d.Tgl_perubahan.ToString("yyyy-MM-dd HH:mm:ss") + "' " +  
+                         "WHERE id_deposito = '" + d.Id_deposito + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
@@ -179,6 +181,53 @@ namespace DiBa_LIB
                 }
             }
             return hasilKode;
+        }
+        public static bool AmbilDataNoDeposito(string id_deposito)
+        {
+            string sql = "SELECT id_deposito from deposito where id_deposito = '" + id_deposito + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static Deposito AmbilDataDeposito(string id_deposito)
+        {
+            string sql = "SELECT * from deposito d " +
+                         "inner join tabungan t on d.no_rekening = t.no_rekening " +
+                         "inner join pengguna p on t.id_pengguna = p.nik " +
+                         "where d.id_deposito = '" + id_deposito + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                Tabungan t = new Tabungan(hasil.GetValue(1).ToString());
+                Employee vBuka = new Employee(int.Parse(hasil.GetValue(8).ToString()));
+                Employee vCair = new Employee(int.Parse(hasil.GetValue(9).ToString()));
+                Deposito d = new Deposito(hasil.GetValue(0).ToString(),
+                                          t,
+                                          int.Parse(hasil.GetValue(2).ToString()),
+                                          double.Parse(hasil.GetValue(3).ToString()),
+                                          double.Parse(hasil.GetValue(4).ToString()),
+                                          hasil.GetValue(5).ToString(),
+                                          DateTime.Parse(hasil.GetValue(6).ToString()),
+                                          DateTime.Parse(hasil.GetValue(7).ToString()),
+                                          vBuka,
+                                          vCair);
+
+                return d;
+            }
+            else
+            {
+                return null;
+            }
         }
         #endregion
     }

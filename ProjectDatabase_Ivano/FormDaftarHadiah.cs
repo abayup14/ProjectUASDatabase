@@ -16,7 +16,6 @@ namespace ProjectDatabase_Ivano
         List<Hadiah> listHadiah = new List<Hadiah>();
         FormUtama formUtama;
         Koneksi k;
-        Hadiah h;
         public Pengguna p;
         public FormDaftarHadiah()
         {
@@ -31,34 +30,34 @@ namespace ProjectDatabase_Ivano
             listHadiah = Hadiah.BacaData("", "");
             if (listHadiah.Count > 0)
             {
-                dataGridViewInbox.DataSource = listHadiah;
-                if (dataGridViewInbox.ColumnCount == 3)
+                dataGridViewHadiah.DataSource = listHadiah;
+                if (dataGridViewHadiah.ColumnCount == 3)
                 {
                     DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
                     bcol1.HeaderText = "Aksi";
                     bcol1.Text = "Ubah Data";
                     bcol1.Name = "buttonUbahGrid";
                     bcol1.UseColumnTextForButtonValue = true;
-                    dataGridViewInbox.Columns.Add(bcol1);
+                    dataGridViewHadiah.Columns.Add(bcol1);
 
                     DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
                     bcol2.HeaderText = "Aksi";
                     bcol2.Text = "Hapus Data";
                     bcol2.Name = "buttonHapusGrid";
                     bcol2.UseColumnTextForButtonValue = true;
-                    dataGridViewInbox.Columns.Add(bcol2);
+                    dataGridViewHadiah.Columns.Add(bcol2);
 
                     DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
                     bcol3.HeaderText = "Aksi";
                     bcol3.Text = "Beli";
                     bcol3.Name = "buttonBeliGrid";
                     bcol3.UseColumnTextForButtonValue = true;
-                    dataGridViewInbox.Columns.Add(bcol3);
+                    dataGridViewHadiah.Columns.Add(bcol3);
                 }
             }
             else
             {
-                dataGridViewInbox.DataSource = null;
+                dataGridViewHadiah.DataSource = null;
             }
             
             
@@ -80,11 +79,11 @@ namespace ProjectDatabase_Ivano
             }
             if (listHadiah.Count > 0)
             {
-                dataGridViewInbox.DataSource = listHadiah;
+                dataGridViewHadiah.DataSource = listHadiah;
             }
             else
             {
-                dataGridViewInbox.DataSource = null;
+                dataGridViewHadiah.DataSource = null;
             }
         }
 
@@ -102,14 +101,15 @@ namespace ProjectDatabase_Ivano
 
         private void dataGridViewInbox_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridViewInbox.Columns["buttonBeliGrid"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dataGridViewHadiah.Columns["buttonBeliGrid"].Index && e.RowIndex >= 0)
             {
                 DialogResult result = MessageBox.Show("Apakah barang yang dipilih sudah tepat ?", "Konfirmasi",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    if (Poin.CekPoin(p, k) >= int.Parse(dataGridViewInbox.CurrentRow.Cells["harga_hadiah"].Value.ToString()))
+                    if (Poin.CekPoin(p) >= int.Parse(dataGridViewHadiah.CurrentRow.Cells["harga_hadiah"].Value.ToString()))
                     {
+                        Hadiah h = new Hadiah(int.Parse(dataGridViewHadiah.CurrentRow.Cells["id"].Value.ToString()));
                         Pengguna_has_Hadiah phh = new Pengguna_has_Hadiah(p, h);
                         Pengguna_has_Hadiah.TambahData(phh, k);
                         MessageBox.Show("Pembelian Berhasil", "Informasi");

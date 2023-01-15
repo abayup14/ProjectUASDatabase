@@ -34,11 +34,11 @@ namespace ProjectDatabase_Ivano
             this.comboBoxKriteria = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewInbox = new System.Windows.Forms.DataGridView();
+            this.dataGridViewHadiah = new System.Windows.Forms.DataGridView();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.buttonTambah = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInbox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHadiah)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,17 +100,17 @@ namespace ProjectDatabase_Ivano
             this.label1.Text = "DAFTAR HADIAH";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridViewInbox
+            // dataGridViewHadiah
             // 
-            this.dataGridViewInbox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInbox.Location = new System.Drawing.Point(11, 128);
-            this.dataGridViewInbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridViewInbox.Name = "dataGridViewInbox";
-            this.dataGridViewInbox.RowHeadersWidth = 51;
-            this.dataGridViewInbox.RowTemplate.Height = 24;
-            this.dataGridViewInbox.Size = new System.Drawing.Size(829, 266);
-            this.dataGridViewInbox.TabIndex = 54;
-            this.dataGridViewInbox.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInbox_CellContentClick);
+            this.dataGridViewHadiah.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewHadiah.Location = new System.Drawing.Point(11, 128);
+            this.dataGridViewHadiah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewHadiah.Name = "dataGridViewHadiah";
+            this.dataGridViewHadiah.RowHeadersWidth = 51;
+            this.dataGridViewHadiah.RowTemplate.Height = 24;
+            this.dataGridViewHadiah.Size = new System.Drawing.Size(829, 266);
+            this.dataGridViewHadiah.TabIndex = 54;
+            this.dataGridViewHadiah.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInbox_CellContentClick);
             // 
             // buttonKeluar
             // 
@@ -148,14 +148,14 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.buttonTambah);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridViewInbox);
+            this.Controls.Add(this.dataGridViewHadiah);
             this.Controls.Add(this.buttonKeluar);
             this.Name = "FormDaftarHadiah";
-            this.Text = "FormDaftarHadiah";
+            this.Text = "Daftar Hadiah";
             this.Load += new System.EventHandler(this.FormDaftarHadiah_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInbox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHadiah)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -167,7 +167,7 @@ namespace ProjectDatabase_Ivano
         private System.Windows.Forms.ComboBox comboBoxKriteria;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.DataGridView dataGridViewInbox;
+        public System.Windows.Forms.DataGridView dataGridViewHadiah;
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Button buttonTambah;
     }
