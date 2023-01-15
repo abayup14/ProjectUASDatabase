@@ -150,8 +150,8 @@ namespace ProjectDatabase_Ivano
                                 if (e.RowIndex == i)
                                 {
                                     Hadiah h = new Hadiah(int.Parse(listHadiah[i].Id.ToString()));
-                                    Pengguna_has_Hadiah phh = new Pengguna_has_Hadiah(p, h);
-                                    Pengguna_has_Hadiah.TambahData(phh, k);
+                                    RiwayatHadiah phh = new RiwayatHadiah(p, h);
+                                    RiwayatHadiah.TambahData(phh, k);
                                     MessageBox.Show("Pembelian Berhasil", "Informasi");
                                 }
                             }

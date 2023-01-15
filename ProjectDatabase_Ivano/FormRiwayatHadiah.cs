@@ -13,7 +13,7 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormRiwayatHadiah : Form
     {
-        List<Pengguna_has_Hadiah> listOfPenggunaHasHadiah = new List<Pengguna_has_Hadiah>();
+        List<RiwayatHadiah> listOfPenggunaHasHadiah = new List<RiwayatHadiah>();
         FormUtama frmUtama;
         public Pengguna pengguna;
         public Employee employee;
@@ -36,15 +36,15 @@ namespace ProjectDatabase_Ivano
             FormatDataGridRiwayatHadiah();
             if (pengguna != null)
             {
-                listOfPenggunaHasHadiah = Pengguna_has_Hadiah.BacaData("p.nik", pengguna.Nik);
+                listOfPenggunaHasHadiah = RiwayatHadiah.BacaData("p.nik", pengguna.Nik);
             }
             else if (employee != null)
             {
-                listOfPenggunaHasHadiah = Pengguna_has_Hadiah.BacaData("", "");
+                listOfPenggunaHasHadiah = RiwayatHadiah.BacaData("", "");
             }
             if (listOfPenggunaHasHadiah.Count > 0)
             {
-                foreach (Pengguna_has_Hadiah phh in listOfPenggunaHasHadiah)
+                foreach (RiwayatHadiah phh in listOfPenggunaHasHadiah)
                 {
                     string nama = phh.Pengguna.Nama_depan + " " + phh.Pengguna.Nama_keluarga;
                     dataGridViewRiwayat.Rows.Add(nama, phh.Hadiah.Nama_hadiah, phh.Hadiah.Harga_hadiah);
@@ -117,8 +117,8 @@ namespace ProjectDatabase_Ivano
                         Koneksi k = new Koneksi();
                         Pengguna pengguna = new Pengguna(id_pengguna);
                         Hadiah hadiah = new Hadiah(int.Parse(id_hadiah));
-                        Pengguna_has_Hadiah ph = new Pengguna_has_Hadiah(pengguna, hadiah);
-                        Pengguna_has_Hadiah.HapusData(ph, k);
+                        RiwayatHadiah ph = new RiwayatHadiah(pengguna, hadiah);
+                        RiwayatHadiah.HapusData(ph, k);
                         MessageBox.Show("Data berhasil dihapus.", "Informasi");
                         dataGridViewRiwayat.Rows.Clear();
                         dataGridViewRiwayat.Columns.Clear();

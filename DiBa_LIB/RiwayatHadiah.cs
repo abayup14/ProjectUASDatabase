@@ -7,12 +7,12 @@ using MySql.Data.MySqlClient;
 
 namespace DiBa_LIB
 {
-    public class Pengguna_has_Hadiah
+    public class RiwayatHadiah
     {
         private Pengguna pengguna;
         private Hadiah hadiah;
 
-        public Pengguna_has_Hadiah(Pengguna pengguna, Hadiah hadiah)
+        public RiwayatHadiah(Pengguna pengguna, Hadiah hadiah)
         {
             Pengguna = pengguna;
             Hadiah = hadiah;
@@ -21,13 +21,13 @@ namespace DiBa_LIB
         public Pengguna Pengguna { get => pengguna; set => pengguna = value; }
         public Hadiah Hadiah { get => hadiah; set => hadiah = value; }
 
-        public static void TambahData(Pengguna_has_Hadiah phh, Koneksi k)
+        public static void TambahData(RiwayatHadiah phh, Koneksi k)
         {
             string sql = "insert into pengguna_has_hadiah(pengguna_nik, hadiah_id) values ('"+
                 phh.Pengguna.Nik+"', '"+phh.Hadiah.Id+"')";
             Koneksi.JalankanPerintahDML(sql, k);
         }
-        public static List<Pengguna_has_Hadiah> BacaData(string kriteria, string nilaiKriteria)
+        public static List<RiwayatHadiah> BacaData(string kriteria, string nilaiKriteria)
         {
             string sql = "";
             if (kriteria == null)
@@ -44,7 +44,7 @@ namespace DiBa_LIB
                       "where " + kriteria + " like '%" + nilaiKriteria + "%'";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
-            List<Pengguna_has_Hadiah> listofPenggunaHasHadiah = new List<Pengguna_has_Hadiah>();
+            List<RiwayatHadiah> listofPenggunaHasHadiah = new List<RiwayatHadiah>();
             while (hasil.Read() == true)
             {
                 Pengguna p = new Pengguna(hasil.GetString(0),
@@ -58,12 +58,12 @@ namespace DiBa_LIB
                                           DateTime.Parse(hasil.GetString(8)),
                                           DateTime.Parse(hasil.GetString(9)));
                 Hadiah h = new Hadiah(int.Parse(hasil.GetString(12)), hasil.GetString(13), hasil.GetString(14));
-                Pengguna_has_Hadiah ph = new Pengguna_has_Hadiah(p, h);
+                RiwayatHadiah ph = new RiwayatHadiah(p, h);
                 listofPenggunaHasHadiah.Add(ph);
             }
             return listofPenggunaHasHadiah;
         }
-        public static void HapusData(Pengguna_has_Hadiah ph, Koneksi k)
+        public static void HapusData(RiwayatHadiah ph, Koneksi k)
         {
             string sql = "delete from pengguna_has_hadiah where pengguna_nik = '" + ph.Pengguna +"'";
             Koneksi.JalankanPerintahDML(sql, k);
