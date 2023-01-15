@@ -37,7 +37,19 @@ namespace ProjectDatabase_Ivano
             listHadiah = Hadiah.BacaData("", "");
             if (listHadiah.Count > 0)
             {
-                dataGridViewHadiah.DataSource = listHadiah;
+                if (p != null)
+                {
+                    FormatDataGridHadiah();
+                    foreach (Hadiah hadiah in listHadiah)
+                    {
+                        dataGridViewHadiah.Rows.Add(hadiah.Nama_hadiah, hadiah.Harga_hadiah);
+                    }
+                }
+                else if (em != null)
+                {
+                    dataGridViewHadiah.DataSource = listHadiah;
+                }
+
                 if (dataGridViewHadiah.ColumnCount < 10)
                 {
                     if (em != null)
@@ -71,6 +83,18 @@ namespace ProjectDatabase_Ivano
             {
                 dataGridViewHadiah.DataSource = null;
             }
+        }
+        private void FormatDataGridHadiah()
+        {
+            dataGridViewHadiah.Rows.Clear();
+            dataGridViewHadiah.Columns.Clear();
+            dataGridViewHadiah.Columns.Add("Nama", "Nama Hadiah");
+            dataGridViewHadiah.Columns.Add("Harga", "Harga Hadiah");
+                
+            dataGridViewHadiah.Columns["Nama"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewHadiah.Columns["Harga"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+            dataGridViewHadiah.AllowUserToAddRows = false;
         }
 
         private void textBoxNilaiKriteria_TextChanged(object sender, EventArgs e)
@@ -111,20 +135,26 @@ namespace ProjectDatabase_Ivano
 
         private void dataGridViewInbox_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridViewHadiah.Columns["buttonBeliGrid"].Index && e.RowIndex >= 0)
+            if (p != null)
             {
-                if (p != null)
+                if (e.ColumnIndex == dataGridViewHadiah.Columns["buttonBeliGrid"].Index && e.RowIndex >= 0)
                 {
                     DialogResult result = MessageBox.Show("Apakah barang yang dipilih sudah tepat ?", "Konfirmasi",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                          MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        if (Poin.CekPoin(p) >= int.Parse(dataGridViewHadiah.CurrentRow.Cells["harga_hadiah"].Value.ToString()))
+                        if (Poin.CekPoin(p) >= int.Parse(dataGridViewHadiah.CurrentRow.Cells["Harga"].Value.ToString()))
                         {
-                            Hadiah h = new Hadiah(int.Parse(dataGridViewHadiah.CurrentRow.Cells["id"].Value.ToString()));
-                            Pengguna_has_Hadiah phh = new Pengguna_has_Hadiah(p, h);
-                            Pengguna_has_Hadiah.TambahData(phh, k);
-                            MessageBox.Show("Pembelian Berhasil", "Informasi");
+                            for (int i = 0; i < listHadiah.Count; i++)
+                            {
+                                if (e.RowIndex == i)
+                                {
+                                    Hadiah h = new Hadiah(int.Parse(listHadiah[i].Id.ToString()));
+                                    Pengguna_has_Hadiah phh = new Pengguna_has_Hadiah(p, h);
+                                    Pengguna_has_Hadiah.TambahData(phh, k);
+                                    MessageBox.Show("Pembelian Berhasil", "Informasi");
+                                }
+                            }
                         }
                         else
                         {
@@ -133,9 +163,9 @@ namespace ProjectDatabase_Ivano
                     }
                 }
             }
-            else if (e.ColumnIndex == dataGridViewHadiah.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
+            else if (em != null)
             {
-                if (em != null)
+                if (e.ColumnIndex == dataGridViewHadiah.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
                 {
                     FormUbahHadiah frmUbahHadiah = new FormUbahHadiah();
                     frmUbahHadiah.Owner = this;
@@ -143,28 +173,28 @@ namespace ProjectDatabase_Ivano
                     frmUbahHadiah.textBoxNamaHadiah.Text = dataGridViewHadiah.CurrentRow.Cells["nama_hadiah"].Value.ToString();
                     frmUbahHadiah.textBoxHargaHadiah.Text = dataGridViewHadiah.CurrentRow.Cells["harga_hadiah"].Value.ToString();
                     frmUbahHadiah.Show();
-                }    
-                
-            }
-            else if (e.ColumnIndex == dataGridViewHadiah.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
-            {
-                if (em != null)
-                {
-                    int id = int.Parse(dataGridViewHadiah.CurrentRow.Cells["id"].Value.ToString());
-                    string nama_hadiah = dataGridViewHadiah.CurrentRow.Cells["nama_hadiah"].Value.ToString();
-                    int harga_hadiah = int.Parse(dataGridViewHadiah.CurrentRow.Cells["harga_hadiah"].Value.ToString());
 
-                    DialogResult hasil = MessageBox.Show("Data yang ingin dihapus : " +
-                                                                        "\nnama_hadiah : " + nama_hadiah +
-                                                                        "\nharga_hadiah : " + harga_hadiah +
-                                                                        "Apakah anda yakin menghapus data tersebut ?", "Konfirmasi",
-                                                                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (hasil == DialogResult.Yes)
+                }
+                else if (e.ColumnIndex == dataGridViewHadiah.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
+                {
+                    if (em != null)
                     {
-                        h = new Hadiah(id);
-                        Hadiah.HapusData(h, k);
-                        MessageBox.Show("Data berhasil dihapus.", "Informasi");
-                        FormDaftarHadiah_Load(buttonKeluar, e);
+                        int id = int.Parse(dataGridViewHadiah.CurrentRow.Cells["id"].Value.ToString());
+                        string nama_hadiah = dataGridViewHadiah.CurrentRow.Cells["nama_hadiah"].Value.ToString();
+                        int harga_hadiah = int.Parse(dataGridViewHadiah.CurrentRow.Cells["harga_hadiah"].Value.ToString());
+
+                        DialogResult hasil = MessageBox.Show("Data yang ingin dihapus : " +
+                                                                            "\nnama_hadiah : " + nama_hadiah +
+                                                                            "\nharga_hadiah : " + harga_hadiah +
+                                                                            "Apakah anda yakin menghapus data tersebut ?", "Konfirmasi",
+                                                                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (hasil == DialogResult.Yes)
+                        {
+                            h = new Hadiah(id);
+                            Hadiah.HapusData(h, k);
+                            MessageBox.Show("Data berhasil dihapus.", "Informasi");
+                            FormDaftarHadiah_Load(buttonKeluar, e);
+                        }
                     }
                 }
             }

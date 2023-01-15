@@ -30,17 +30,34 @@ namespace DiBa_LIB
         public static List<Pengguna_has_Hadiah> BacaData(string kriteria, string nilaiKriteria)
         {
             string sql = "";
-            sql = "select ph.pengguna_nik, ph.hadiah_id from pengguna p inner join pengguna_has_hadiah ph on " +
-                "p.nik = ph.pengguna_nik inner join hadiah h on ph.hadiah_id = h.id";
-
-            sql = "select ph.pengguna_nik, ph.hadiah_id from pengguna p inner join pengguna_has_hadiah ph on " +
-                "p.nik = ph.pengguna_nik inner join hadiah h on ph.hadiah_id = h.id where '" + kriteria + "' like '%" + nilaiKriteria + "%'";
+            if (kriteria == null)
+            {
+                sql = "select * from pengguna p inner join pengguna_has_hadiah ph on " +
+                      "p.nik = ph.pengguna_nik inner join hadiah h on ph.hadiah_id = h.id";
+            }
+            else
+            {
+                sql = "select * " +
+                      "from pengguna p " +
+                      "inner join pengguna_has_hadiah ph on p.nik = ph.pengguna_nik " +
+                      "inner join hadiah h on ph.hadiah_id = h.id " +
+                      "where " + kriteria + " like '%" + nilaiKriteria + "%'";
+            }
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
             List<Pengguna_has_Hadiah> listofPenggunaHasHadiah = new List<Pengguna_has_Hadiah>();
             while (hasil.Read() == true)
             {
-                Pengguna p = new Pengguna(hasil.GetString(0));
-                Hadiah h = new Hadiah(int.Parse(hasil.GetString(1)));
+                Pengguna p = new Pengguna(hasil.GetString(0),
+                                          hasil.GetString(1),
+                                          hasil.GetString(2),
+                                          hasil.GetString(3),
+                                          hasil.GetString(4),
+                                          hasil.GetString(5),
+                                          hasil.GetString(6),
+                                          hasil.GetString(7),
+                                          DateTime.Parse(hasil.GetString(8)),
+                                          DateTime.Parse(hasil.GetString(9)));
+                Hadiah h = new Hadiah(int.Parse(hasil.GetString(12)), hasil.GetString(13), hasil.GetString(14));
                 Pengguna_has_Hadiah ph = new Pengguna_has_Hadiah(p, h);
                 listofPenggunaHasHadiah.Add(ph);
             }

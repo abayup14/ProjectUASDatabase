@@ -29,28 +29,28 @@ namespace ProjectDatabase_Ivano
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewRwayat = new System.Windows.Forms.DataGridView();
+            this.dataGridViewRiwayat = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxNilaiKriteria = new System.Windows.Forms.TextBox();
             this.comboBoxKriteria = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonKeluar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRwayat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRiwayat)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridViewRwayat
+            // dataGridViewRiwayat
             // 
-            this.dataGridViewRwayat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRwayat.Location = new System.Drawing.Point(6, 124);
-            this.dataGridViewRwayat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridViewRwayat.Name = "dataGridViewRwayat";
-            this.dataGridViewRwayat.RowHeadersWidth = 51;
-            this.dataGridViewRwayat.RowTemplate.Height = 24;
-            this.dataGridViewRwayat.Size = new System.Drawing.Size(829, 266);
-            this.dataGridViewRwayat.TabIndex = 55;
-            this.dataGridViewRwayat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRwayat_CellContentClick);
+            this.dataGridViewRiwayat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRiwayat.Location = new System.Drawing.Point(6, 124);
+            this.dataGridViewRiwayat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewRiwayat.Name = "dataGridViewRiwayat";
+            this.dataGridViewRiwayat.RowHeadersWidth = 51;
+            this.dataGridViewRiwayat.RowTemplate.Height = 24;
+            this.dataGridViewRiwayat.Size = new System.Drawing.Size(829, 266);
+            this.dataGridViewRiwayat.TabIndex = 55;
+            this.dataGridViewRiwayat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRwayat_CellContentClick);
             // 
             // panel1
             // 
@@ -110,7 +110,7 @@ namespace ProjectDatabase_Ivano
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(829, 39);
             this.label1.TabIndex = 51;
-            this.label1.Text = "DAFTAR RIWAYAT HADIAH";
+            this.label1.Text = "RIWAYAT HADIAH";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonKeluar
@@ -132,14 +132,14 @@ namespace ProjectDatabase_Ivano
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 454);
-            this.Controls.Add(this.dataGridViewRwayat);
+            this.Controls.Add(this.dataGridViewRiwayat);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonKeluar);
             this.Name = "FormRiwayatHadiah";
-            this.Text = "FormRiwayatHadiah";
+            this.Text = "Daftar Riwayat Hadiah";
             this.Load += new System.EventHandler(this.FormRiwayatHadiah_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRwayat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRiwayat)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -148,7 +148,7 @@ namespace ProjectDatabase_Ivano
 
         #endregion
 
-        public System.Windows.Forms.DataGridView dataGridViewRwayat;
+        public System.Windows.Forms.DataGridView dataGridViewRiwayat;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBoxNilaiKriteria;
         private System.Windows.Forms.ComboBox comboBoxKriteria;

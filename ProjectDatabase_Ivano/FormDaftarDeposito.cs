@@ -114,9 +114,9 @@ namespace ProjectDatabase_Ivano
             Koneksi k = new Koneksi();
             if (pengguna != null)
             {
-                Deposito d = Deposito.AmbilDataDeposito(dataGridViewDeposito.CurrentRow.Cells["IDDeposito"].Value.ToString());
                 if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonDetailGrid"].Index && e.RowIndex >= 0)
                 {
+                    Deposito d = Deposito.AmbilDataDeposito(dataGridViewDeposito.CurrentRow.Cells["IDDeposito"].Value.ToString());
                     FormDepositoPengguna formDepositoPengguna = new FormDepositoPengguna();
                     formDepositoPengguna.Owner = this;
                     formDepositoPengguna.labelIDDeposito.Text = dataGridViewDeposito.CurrentRow.Cells["IDDeposito"].Value.ToString();
@@ -154,11 +154,13 @@ namespace ProjectDatabase_Ivano
                         Deposito.HapusData(d, k);
 
                         MessageBox.Show("Data berhasil dihapus.", "Informasi");
+
+                        dataGridViewDeposito.Rows.Clear();
+                        dataGridViewDeposito.Columns.Clear();
+                        FormDaftarDeposito_Load(buttonKeluar, e);
                     }
 
-                    dataGridViewDeposito.Rows.Clear();
-                    dataGridViewDeposito.Columns.Clear();
-                    FormDaftarDeposito_Load(buttonKeluar, e);
+                    
                 }
                 else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonAktifGrid"].Index && e.RowIndex >= 0)
                 {
@@ -187,12 +189,12 @@ namespace ProjectDatabase_Ivano
                             Deposito.UbahStatus(d, employee, k);
 
                             MessageBox.Show("Deposito berhasil diaktifkan");
+
+                            dataGridViewDeposito.Rows.Clear();
+                            dataGridViewDeposito.Columns.Clear();
+                            FormDaftarDeposito_Load(buttonKeluar, e);
                         }
                     }
-                    
-                    dataGridViewDeposito.Rows.Clear();
-                    dataGridViewDeposito.Columns.Clear();
-                    FormDaftarDeposito_Load(buttonKeluar, e);
                 }
             }
         }
