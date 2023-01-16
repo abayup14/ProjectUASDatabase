@@ -19,7 +19,7 @@ namespace ProjectDatabase_Ivano
         }
         public List<Promo> listPromo = new List<Promo>();
         Koneksi k;
-        private void FormDaftarPromo_Load(object sender, EventArgs e)
+        public void FormDaftarPromo_Load(object sender, EventArgs e)
         {
             k = new Koneksi();
             listPromo = Promo.BacaData("id not", "0");

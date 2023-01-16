@@ -48,6 +48,8 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
+            FormDaftarPromo formDaftarPromo = (FormDaftarPromo)this.Owner;
+            formDaftarPromo.FormDaftarPromo_Load(buttonKeluar, e);
             this.Close();
         }
     }

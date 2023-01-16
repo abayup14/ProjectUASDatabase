@@ -78,7 +78,6 @@ namespace ProjectDatabase_Ivano
             comboBoxRekening.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRekening.DataSource = listTabungan;
             comboBoxRekening.DisplayMember = "Rekening";
-
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)

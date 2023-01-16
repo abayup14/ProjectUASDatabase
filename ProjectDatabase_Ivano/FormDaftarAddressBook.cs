@@ -129,7 +129,6 @@ namespace ProjectDatabase_Ivano
                         AddressBook.HapusData(ab, k);
 
                         MessageBox.Show("Data berhasil dihapus.", "Informasi");
-                        FormDaftarAddressBook_Load(buttonKeluar, e);
                     }
                 }
                 else if (pengguna != null)
@@ -147,9 +146,9 @@ namespace ProjectDatabase_Ivano
                         AddressBook.HapusData(ab, k);
 
                         MessageBox.Show("Data berhasil dihapus.", "Informasi");
-                        FormDaftarAddressBook_Load(buttonKeluar, e);
                     }
                 }
+                FormDaftarAddressBook_Load(buttonKeluar, e);
             }
         }
     }

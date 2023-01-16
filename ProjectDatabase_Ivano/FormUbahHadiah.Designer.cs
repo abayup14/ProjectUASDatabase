@@ -106,6 +106,7 @@ namespace ProjectDatabase_Ivano
             this.buttonKosongi.TabIndex = 46;
             this.buttonKosongi.Text = "&KOSONGI";
             this.buttonKosongi.UseVisualStyleBackColor = false;
+            this.buttonKosongi.Click += new System.EventHandler(this.buttonKosongi_Click);
             // 
             // buttonKeluar
             // 
@@ -119,6 +120,7 @@ namespace ProjectDatabase_Ivano
             this.buttonKeluar.TabIndex = 45;
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // buttonSimpan
             // 
@@ -132,6 +134,7 @@ namespace ProjectDatabase_Ivano
             this.buttonSimpan.TabIndex = 44;
             this.buttonSimpan.Text = "&SIMPAN";
             this.buttonSimpan.UseVisualStyleBackColor = false;
+            this.buttonSimpan.Click += new System.EventHandler(this.buttonSimpan_Click);
             // 
             // label1
             // 
@@ -158,6 +161,7 @@ namespace ProjectDatabase_Ivano
             this.Controls.Add(this.label1);
             this.Name = "FormUbahHadiah";
             this.Text = "Ubah Hadiah";
+            this.Load += new System.EventHandler(this.FormUbahHadiah_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

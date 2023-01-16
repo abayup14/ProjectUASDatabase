@@ -44,6 +44,8 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
+            FormDaftarHadiah formDaftarHadiah = (FormDaftarHadiah)this.Owner;
+            formDaftarHadiah.FormDaftarHadiah_Load(buttonKeluar, e);
             this.Close();
         }
 

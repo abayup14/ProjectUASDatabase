@@ -24,7 +24,7 @@ namespace ProjectDatabase_Ivano
             InitializeComponent();
         }
 
-        private void FormDaftarHadiah_Load(object sender, EventArgs e)
+        public void FormDaftarHadiah_Load(object sender, EventArgs e)
         {
             formUtama = (FormUtama)this.MdiParent;
             k = new Koneksi();
@@ -169,6 +169,7 @@ namespace ProjectDatabase_Ivano
                                                         DateTime.Now);
                                     Inbox.TambahData(inbox, k);
                                     MessageBox.Show("Pembelian Berhasil", "Informasi");
+                                    FormDaftarHadiah_Load(buttonKeluar, e);
                                 }
                             }
                         }
@@ -190,7 +191,6 @@ namespace ProjectDatabase_Ivano
                     frmUbahHadiah.textBoxNamaHadiah.Text = dataGridViewHadiah.CurrentRow.Cells["nama_hadiah"].Value.ToString();
                     frmUbahHadiah.textBoxHargaHadiah.Text = dataGridViewHadiah.CurrentRow.Cells["harga_hadiah"].Value.ToString();
                     frmUbahHadiah.Show();
-
                 }
                 else if (e.ColumnIndex == dataGridViewHadiah.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
                 {
