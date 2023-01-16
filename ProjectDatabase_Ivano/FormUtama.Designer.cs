@@ -44,6 +44,7 @@ namespace ProjectDatabase_Ivano
             this.poinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hadiahToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jenisTagihanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.promoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.penggunaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.profilPenggunaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabunganPenggunaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +61,6 @@ namespace ProjectDatabase_Ivano
             this.labelNama = new System.Windows.Forms.Label();
             this.labelKode = new System.Windows.Forms.Label();
             this.labelAndaLogin = new System.Windows.Forms.Label();
-            this.promoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,20 +82,20 @@ namespace ProjectDatabase_Ivano
             // MenuToolStripMenuItem
             // 
             this.MenuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.penggunaToolStripMenuItem,
-            this.employeeToolStripMenuItem,
-            this.tabunganToolStripMenuItem,
-            this.depositoToolStripMenuItem,
-            this.riwayatTransaksiToolStripMenuItem,
-            this.inboxToolStripMenuItem,
             this.addressBookToolStripMenuItem,
-            this.riwayatHadiahToolStripMenuItem,
-            this.jenisTransaksiToolStripMenuItem,
-            this.PositionToolStripMenuItem,
-            this.poinToolStripMenuItem,
+            this.depositoToolStripMenuItem,
+            this.employeeToolStripMenuItem,
             this.hadiahToolStripMenuItem,
+            this.inboxToolStripMenuItem,
             this.jenisTagihanToolStripMenuItem,
-            this.promoToolStripMenuItem});
+            this.jenisTransaksiToolStripMenuItem,
+            this.penggunaToolStripMenuItem,
+            this.poinToolStripMenuItem,
+            this.PositionToolStripMenuItem,
+            this.promoToolStripMenuItem,
+            this.riwayatHadiahToolStripMenuItem,
+            this.tabunganToolStripMenuItem,
+            this.riwayatTransaksiToolStripMenuItem});
             this.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem";
             this.MenuToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.MenuToolStripMenuItem.Text = "Master";
@@ -190,6 +190,13 @@ namespace ProjectDatabase_Ivano
             this.jenisTagihanToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.jenisTagihanToolStripMenuItem.Text = "Jenis Tagihan";
             this.jenisTagihanToolStripMenuItem.Click += new System.EventHandler(this.jenisTagihanToolStripMenuItem_Click);
+            // 
+            // promoToolStripMenuItem
+            // 
+            this.promoToolStripMenuItem.Name = "promoToolStripMenuItem";
+            this.promoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.promoToolStripMenuItem.Text = "Promo";
+            this.promoToolStripMenuItem.Click += new System.EventHandler(this.promoToolStripMenuItem_Click);
             // 
             // penggunaToolStripMenuItem1
             // 
@@ -323,13 +330,6 @@ namespace ProjectDatabase_Ivano
             this.labelAndaLogin.Size = new System.Drawing.Size(145, 20);
             this.labelAndaLogin.TabIndex = 5;
             this.labelAndaLogin.Text = "Anda login sebagai :";
-            // 
-            // promoToolStripMenuItem
-            // 
-            this.promoToolStripMenuItem.Name = "promoToolStripMenuItem";
-            this.promoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.promoToolStripMenuItem.Text = "Promo";
-            this.promoToolStripMenuItem.Click += new System.EventHandler(this.promoToolStripMenuItem_Click);
             // 
             // FormUtama
             // 
