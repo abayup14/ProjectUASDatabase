@@ -87,7 +87,7 @@ namespace DiBa_LIB
         }
         public static void HapusData(AddressBook ab, Koneksi k)
         {
-            string sql = "DELETE from address_book where id = '" + ab.Pengguna.Nik + "' and no_rekening = '" + ab.No_rekening + "'";
+            string sql = "DELETE from address_book where id_pengguna = '" + ab.Pengguna.Nik + "' and no_rekening = '" + ab.No_rekening + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }

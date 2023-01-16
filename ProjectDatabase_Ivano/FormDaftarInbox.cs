@@ -43,6 +43,7 @@ namespace ProjectDatabase_Ivano
             else if (pengguna != null)
             {
                 panel1.Visible = false;
+                label1.Text = "DAFTAR AKTIVITAS";
                 FormatDataGridInboxPengguna();
                 listInbox = Inbox.BacaData("p.nik", pengguna.Nik);
             }

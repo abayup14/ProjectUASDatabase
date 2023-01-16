@@ -28,7 +28,6 @@ namespace ProjectDatabase_Ivano
 
         public void FormDaftarDeposito_Load(object sender, EventArgs e)
         {
-            List<string> listPengguna = new List<string>() { "No. Deposito", "Saldo", "Tanggal Buat" };
             formUtama = (FormUtama)this.MdiParent;
 
             pengguna = formUtama.pengguna;
