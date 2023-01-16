@@ -46,19 +46,22 @@ namespace ProjectDatabase_Ivano
 
                 if (dataGridViewJenisTransaksi.ColumnCount == 3)
                 {
-                    DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
-                    bcol1.HeaderText = "Aksi";
-                    bcol1.Text = "Ubah Data";
-                    bcol1.Name = "buttonUbahGrid";
-                    bcol1.UseColumnTextForButtonValue = true;
-                    dataGridViewJenisTransaksi.Columns.Add(bcol1);
+                    if (!dataGridViewJenisTransaksi.Columns.Contains("buttonUbahGrid") && !dataGridViewJenisTransaksi.Columns.Contains("buttonHapusGrid"))
+                    {
+                        DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
+                        bcol1.HeaderText = "Aksi";
+                        bcol1.Text = "Ubah Data";
+                        bcol1.Name = "buttonUbahGrid";
+                        bcol1.UseColumnTextForButtonValue = true;
+                        dataGridViewJenisTransaksi.Columns.Add(bcol1);
 
-                    DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                    bcol2.HeaderText = "Aksi";
-                    bcol2.Text = "Hapus Data";
-                    bcol2.Name = "buttonHapusGrid";
-                    bcol2.UseColumnTextForButtonValue = true;
-                    dataGridViewJenisTransaksi.Columns.Add(bcol2);
+                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                        bcol2.HeaderText = "Aksi";
+                        bcol2.Text = "Hapus Data";
+                        bcol2.Name = "buttonHapusGrid";
+                        bcol2.UseColumnTextForButtonValue = true;
+                        dataGridViewJenisTransaksi.Columns.Add(bcol2);
+                    }   
                 }
             }
             else

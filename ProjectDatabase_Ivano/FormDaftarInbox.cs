@@ -64,28 +64,35 @@ namespace ProjectDatabase_Ivano
                 {
                     if (pengguna != null)
                     {
-                        DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
-                        bcol.HeaderText = "Aksi";
-                        bcol.Text = "Baca";
-                        bcol.Name = "buttonBacaGrid";
-                        bcol.UseColumnTextForButtonValue = true;
-                        dataGridViewInbox.Columns.Add(bcol);
+                        if (!dataGridViewInbox.Columns.Contains("buttonBacaGrid"))
+                        {
+                            DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
+                            bcol.HeaderText = "Aksi";
+                            bcol.Text = "Baca";
+                            bcol.Name = "buttonBacaGrid";
+                            bcol.UseColumnTextForButtonValue = true;
+                            dataGridViewInbox.Columns.Add(bcol);
+                        }
+                        
                     }
                     if (employee != null)
                     {
-                        DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
-                        bcol1.HeaderText = "Aksi";
-                        bcol1.Text = "Ubah Data";
-                        bcol1.Name = "buttonUbahGrid";
-                        bcol1.UseColumnTextForButtonValue = true;
-                        dataGridViewInbox.Columns.Add(bcol1);
+                        if (!dataGridViewInbox.Columns.Contains("buttonUbahGrid") && !dataGridViewInbox.Columns.Contains("buttonHapusGrid"))
+                        {
+                            DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
+                            bcol1.HeaderText = "Aksi";
+                            bcol1.Text = "Ubah Data";
+                            bcol1.Name = "buttonUbahGrid";
+                            bcol1.UseColumnTextForButtonValue = true;
+                            dataGridViewInbox.Columns.Add(bcol1);
 
-                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                        bcol2.HeaderText = "Aksi";
-                        bcol2.Text = "Hapus Data";
-                        bcol2.Name = "buttonHapusGrid";
-                        bcol2.UseColumnTextForButtonValue = true;
-                        dataGridViewInbox.Columns.Add(bcol2);
+                            DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                            bcol2.HeaderText = "Aksi";
+                            bcol2.Text = "Hapus Data";
+                            bcol2.Name = "buttonHapusGrid";
+                            bcol2.UseColumnTextForButtonValue = true;
+                            dataGridViewInbox.Columns.Add(bcol2);
+                        }
                     }
                 }
             }
@@ -169,8 +176,6 @@ namespace ProjectDatabase_Ivano
                         Inbox i = new Inbox(id_pesan);
                         Inbox.HapusData(i, k);
                         MessageBox.Show("Data berhasil dihapus.", "Informasi");
-                        dataGridViewInbox.Rows.Clear();
-                        dataGridViewInbox.Columns.Clear();
                         FormDaftarInbox_Load(buttonKeluar, e);
                     }
                 }

@@ -46,20 +46,22 @@ namespace ProjectDatabase_Ivano
 
                 if (dataGridViewJabatan.ColumnCount < 4)
                 {
-                    DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
+                    if (!dataGridViewJabatan.Columns.Contains("buttonUbahGrid") && !dataGridViewJabatan.Columns.Contains("buttonHapusGrid"))
+                    {
+                        DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
+                        bcol.HeaderText = "Aksi";
+                        bcol.Text = "Ubah";
+                        bcol.Name = "buttonUbahGrid";
+                        bcol.UseColumnTextForButtonValue = true;
+                        dataGridViewJabatan.Columns.Add(bcol);
 
-                    bcol.HeaderText = "Aksi";
-                    bcol.Text = "Ubah";
-                    bcol.Name = "buttonUbahGrid";
-                    bcol.UseColumnTextForButtonValue = true;
-                    dataGridViewJabatan.Columns.Add(bcol);
-
-                    DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                    bcol2.HeaderText = "Aksi";
-                    bcol2.Text = "Hapus";
-                    bcol2.Name = "buttonHapusGrid";
-                    bcol2.UseColumnTextForButtonValue = true;
-                    dataGridViewJabatan.Columns.Add(bcol2);
+                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                        bcol2.HeaderText = "Aksi";
+                        bcol2.Text = "Hapus";
+                        bcol2.Name = "buttonHapusGrid";
+                        bcol2.UseColumnTextForButtonValue = true;
+                        dataGridViewJabatan.Columns.Add(bcol2);
+                    }
                 }
             }
             else

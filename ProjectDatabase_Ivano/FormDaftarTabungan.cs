@@ -71,12 +71,15 @@ namespace ProjectDatabase_Ivano
                 {
                     if (pengguna != null)
                     {
-                        DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
-                        bcol.HeaderText = "Aksi";
-                        bcol.Text = "Detail";
-                        bcol.Name = "buttonDetailGrid";
-                        bcol.UseColumnTextForButtonValue = true;
-                        dataGridViewTabungan.Columns.Add(bcol);
+                        if (!dataGridViewTabungan.Columns.Contains("buttonDetailGrid"))
+                        {
+                            DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
+                            bcol.HeaderText = "Aksi";
+                            bcol.Text = "Detail";
+                            bcol.Name = "buttonDetailGrid";
+                            bcol.UseColumnTextForButtonValue = true;
+                            dataGridViewTabungan.Columns.Add(bcol);
+                        }
                     }
                     else if (employee != null)
                     {

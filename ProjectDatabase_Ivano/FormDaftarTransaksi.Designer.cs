@@ -43,12 +43,11 @@
             // 
             this.dataGridViewTransaksi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTransaksi.Location = new System.Drawing.Point(13, 171);
-            this.dataGridViewTransaksi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewTransaksi.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewTransaksi.Name = "dataGridViewTransaksi";
             this.dataGridViewTransaksi.RowHeadersWidth = 51;
             this.dataGridViewTransaksi.Size = new System.Drawing.Size(1051, 297);
             this.dataGridViewTransaksi.TabIndex = 36;
-            this.dataGridViewTransaksi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTransaksi_CellContentClick);
             // 
             // panel1
             // 
@@ -57,7 +56,7 @@
             this.panel1.Controls.Add(this.comboBoxKriteria);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(13, 74);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1051, 90);
             this.panel1.TabIndex = 35;
@@ -66,7 +65,7 @@
             // 
             this.textBoxKriteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKriteria.Location = new System.Drawing.Point(488, 30);
-            this.textBoxKriteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxKriteria.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxKriteria.Name = "textBoxKriteria";
             this.textBoxKriteria.Size = new System.Drawing.Size(523, 30);
             this.textBoxKriteria.TabIndex = 2;
@@ -80,7 +79,7 @@
             "Nama Position",
             "Keterangan"});
             this.comboBoxKriteria.Location = new System.Drawing.Point(245, 30);
-            this.comboBoxKriteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxKriteria.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxKriteria.Name = "comboBoxKriteria";
             this.comboBoxKriteria.Size = new System.Drawing.Size(220, 33);
             this.comboBoxKriteria.TabIndex = 1;

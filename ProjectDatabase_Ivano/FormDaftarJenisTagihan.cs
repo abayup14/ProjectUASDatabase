@@ -53,7 +53,6 @@ namespace ProjectDatabase_Ivano
                         bcol2.UseColumnTextForButtonValue = true;
                         dataGridViewJenisTagihan.Columns.Add(bcol2);
                     }
-                    
                 }
             }
             else

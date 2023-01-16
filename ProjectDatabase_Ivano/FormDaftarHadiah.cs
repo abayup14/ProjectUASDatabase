@@ -54,28 +54,34 @@ namespace ProjectDatabase_Ivano
                 {
                     if (em != null)
                     {
-                        DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
-                        bcol1.HeaderText = "Aksi";
-                        bcol1.Text = "Ubah Data";
-                        bcol1.Name = "buttonUbahGrid";
-                        bcol1.UseColumnTextForButtonValue = true;
-                        dataGridViewHadiah.Columns.Add(bcol1);
+                        if (!dataGridViewHadiah.Columns.Contains("buttonUbahGrid") && !dataGridViewHadiah.Columns.Contains("bittonHapusGrid"))
+                        {
+                            DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
+                            bcol1.HeaderText = "Aksi";
+                            bcol1.Text = "Ubah Data";
+                            bcol1.Name = "buttonUbahGrid";
+                            bcol1.UseColumnTextForButtonValue = true;
+                            dataGridViewHadiah.Columns.Add(bcol1);
 
-                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                        bcol2.HeaderText = "Aksi";
-                        bcol2.Text = "Hapus Data";
-                        bcol2.Name = "buttonHapusGrid";
-                        bcol2.UseColumnTextForButtonValue = true;
-                        dataGridViewHadiah.Columns.Add(bcol2);
+                            DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                            bcol2.HeaderText = "Aksi";
+                            bcol2.Text = "Hapus Data";
+                            bcol2.Name = "buttonHapusGrid";
+                            bcol2.UseColumnTextForButtonValue = true;
+                            dataGridViewHadiah.Columns.Add(bcol2);
+                        }
                     }    
                     else if (p != null)
                     {
-                        DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
-                        bcol3.HeaderText = "Aksi";
-                        bcol3.Text = "Beli";
-                        bcol3.Name = "buttonBeliGrid";
-                        bcol3.UseColumnTextForButtonValue = true;
-                        dataGridViewHadiah.Columns.Add(bcol3);
+                        if (!dataGridViewHadiah.Columns.Contains("buttonBeliGrid"))
+                        {
+                            DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
+                            bcol3.HeaderText = "Aksi";
+                            bcol3.Text = "Beli";
+                            bcol3.Name = "buttonBeliGrid";
+                            bcol3.UseColumnTextForButtonValue = true;
+                            dataGridViewHadiah.Columns.Add(bcol3);
+                        }
                     }
                 }
             }

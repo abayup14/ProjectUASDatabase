@@ -41,11 +41,6 @@ namespace ProjectDatabase_Ivano
             }
         }
 
-        private void dataGridViewTransaksi_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             this.Close();
