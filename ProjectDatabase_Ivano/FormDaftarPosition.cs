@@ -95,24 +95,26 @@ namespace ProjectDatabase_Ivano
         {
             if (e.ColumnIndex == dataGridViewJabatan.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
             {
-                //ambil kode kategori dari kolom dengan nama KodeKategori pada row yang sedang diklik
+                FormUbahPosition form = new FormUbahPosition();
+                form.Owner = this;
                 int pKodeKategori = int.Parse(dataGridViewJabatan.CurrentRow.Cells["PositionID"].Value.ToString());
+                form.textBoxNamaJabatan.Text = dataGridViewJabatan.CurrentRow.Cells["nama"].Value.ToString();
+                form.textBoxKeterangan.Text = dataGridViewJabatan.CurrentRow.Cells["keterangan"].Value.ToString();
+                form.Show();
+                //ambil kode kategori dari kolom dengan nama KodeKategori pada row yang sedang diklik
+                
 
                 //buat objek kategori baru untuk menampung hasil pengambilan data kategori sesuai kode yang dikirim
-                Position p = Position.AmbilDataByCode(pKodeKategori);
+                //Position p = Position.AmbilDataByCode(pKodeKategori);
 
-                if (p != null)
-                {
-                    FormUbahPosition form = new FormUbahPosition();
-                    form.Owner = this;
-                    form.textBoxNamaJabatan.Text = p.Nama;
-                    form.textBoxKeterangan.Text = p.Keterangan;
-                    form.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Terdapat kesalahan pada data");
-                }
+                //if (p != null)
+                //{
+                    
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Terdapat kesalahan pada data");
+                //}
             }
 
             //dataGridViewKategori.Columns["buttonHapusGrid"].Index --> periksa tombol hapus yang diklik

@@ -33,20 +33,20 @@ namespace ProjectDatabase_Ivano
 
                 if (dataGridViewPengguna.ColumnCount == 10)
                 {
-                    if (!dataGridViewPengguna.Columns.Contains("buttonHapusGrid"))
-                    {
-                        DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
+                    //if (!dataGridViewPengguna.Columns.Contains("buttonHapusGrid"))
+                    //{
+                    //    DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
 
-                        bcol3.HeaderText = "Aksi";
+                    //    bcol3.HeaderText = "Aksi";
 
-                        bcol3.Text = "Hapus";
+                    //    bcol3.Text = "Hapus";
 
-                        bcol3.Name = "buttonHapusGrid";
+                    //    bcol3.Name = "buttonHapusGrid";
 
-                        bcol3.UseColumnTextForButtonValue = true;
+                    //    bcol3.UseColumnTextForButtonValue = true;
 
-                        dataGridViewPengguna.Columns.Add(bcol3);
-                    }
+                    //    dataGridViewPengguna.Columns.Add(bcol3);
+                    //}
                     //DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
 
                     //bcol1.HeaderText = "Aksi";
@@ -113,49 +113,49 @@ namespace ProjectDatabase_Ivano
 
             //    formUbahPassword.Show();
             //}
-            if (e.ColumnIndex == dataGridViewPengguna.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
-            {
-                string nik = dataGridViewPengguna.CurrentRow.Cells["nik"].Value.ToString();
+            //if (e.ColumnIndex == dataGridViewPengguna.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
+            //{
+            //    string nik = dataGridViewPengguna.CurrentRow.Cells["nik"].Value.ToString();
 
-                string namaDepan = dataGridViewPengguna.CurrentRow.Cells["nama_depan"].Value.ToString();
+            //    string namaDepan = dataGridViewPengguna.CurrentRow.Cells["nama_depan"].Value.ToString();
 
-                string namaKeluarga = dataGridViewPengguna.CurrentRow.Cells["nama_keluarga"].Value.ToString();
+            //    string namaKeluarga = dataGridViewPengguna.CurrentRow.Cells["nama_keluarga"].Value.ToString();
 
-                string alamat = dataGridViewPengguna.CurrentRow.Cells["alamat"].Value.ToString();
+            //    string alamat = dataGridViewPengguna.CurrentRow.Cells["alamat"].Value.ToString();
 
-                string email = dataGridViewPengguna.CurrentRow.Cells["email"].Value.ToString();
+            //    string email = dataGridViewPengguna.CurrentRow.Cells["email"].Value.ToString();
 
-                string noTelepon = dataGridViewPengguna.CurrentRow.Cells["no_telepon"].Value.ToString();
+            //    string noTelepon = dataGridViewPengguna.CurrentRow.Cells["no_telepon"].Value.ToString();
 
-                string password = dataGridViewPengguna.CurrentRow.Cells["password"].Value.ToString();
+            //    string password = dataGridViewPengguna.CurrentRow.Cells["password"].Value.ToString();
 
-                string pin = dataGridViewPengguna.CurrentRow.Cells["pin"].Value.ToString();
+            //    string pin = dataGridViewPengguna.CurrentRow.Cells["pin"].Value.ToString();
 
-                //DateTime tglBuat = DateTime.Parse(dataGridViewPengguna.CurrentRow.Cells["tgl_buat"].Value.ToString());
+            //    //DateTime tglBuat = DateTime.Parse(dataGridViewPengguna.CurrentRow.Cells["tgl_buat"].Value.ToString());
 
-                //DateTime tglPerubahan = DateTime.Parse(dataGridViewPengguna.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
+            //    //DateTime tglPerubahan = DateTime.Parse(dataGridViewPengguna.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
 
-                DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah :" +
-                                                     "\nNIK : " + nik +
-                                                     "\nNama Depan : " + namaDepan +
-                                                     "\nNama Keluarga : " + namaKeluarga +
-                                                     "\nAlamat : " + alamat +
-                                                     "\nEmail : " + email +
-                                                     "\nNo Telepon : " + noTelepon +
-                                                     "\n\nApakah anda yakin ingin menghapus data di atas ?", "Konfirmasi", 
-                                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //    DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah :" +
+            //                                         "\nNIK : " + nik +
+            //                                         "\nNama Depan : " + namaDepan +
+            //                                         "\nNama Keluarga : " + namaKeluarga +
+            //                                         "\nAlamat : " + alamat +
+            //                                         "\nEmail : " + email +
+            //                                         "\nNo Telepon : " + noTelepon +
+            //                                         "\n\nApakah anda yakin ingin menghapus data di atas ?", "Konfirmasi", 
+            //                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (hasil == DialogResult.Yes)
-                {
-                    Pengguna p = new Pengguna(nik);
+            //    if (hasil == DialogResult.Yes)
+            //    {
+            //        Pengguna p = new Pengguna(nik);
 
-                    Pengguna.HapusData(p, k);
+            //        Pengguna.HapusData(p, k);
 
-                    MessageBox.Show("Data berhasil dihapus.", "Informasi");
+            //        MessageBox.Show("Data berhasil dihapus.", "Informasi");
 
-                    FormDaftarPengguna_Load(buttonKeluar, e);
-                }
-            }
+            //        FormDaftarPengguna_Load(buttonKeluar, e);
+            //    }
+            //}
         }
 
         private void textBoxNilaiKriteria_TextChanged(object sender, EventArgs e)

@@ -32,6 +32,8 @@
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxNominalDiskon = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.textBoxNamaPromo = new System.Windows.Forms.TextBox();
             this.textBoxKeterangan = new System.Windows.Forms.TextBox();
             this.dateTimePickerTglAkhir = new System.Windows.Forms.DateTimePicker();
@@ -41,8 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonKosongi = new System.Windows.Forms.Button();
             this.buttonTambah = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxNominalDiskon = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +54,7 @@
             this.labelInbox.Location = new System.Drawing.Point(15, 11);
             this.labelInbox.Name = "labelInbox";
             this.labelInbox.Size = new System.Drawing.Size(792, 53);
-            this.labelInbox.TabIndex = 44;
+            this.labelInbox.TabIndex = 0;
             this.labelInbox.Text = "TAMBAH PROMO";
             this.labelInbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -67,7 +67,7 @@
             this.buttonKeluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(203, 53);
-            this.buttonKeluar.TabIndex = 46;
+            this.buttonKeluar.TabIndex = 4;
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
             this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
@@ -79,7 +79,7 @@
             this.label5.Location = new System.Drawing.Point(91, 100);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 18);
-            this.label5.TabIndex = 7;
+            this.label5.TabIndex = 2;
             this.label5.Text = "Tanggal Awal : ";
             // 
             // panel1
@@ -99,7 +99,24 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(792, 336);
-            this.panel1.TabIndex = 45;
+            this.panel1.TabIndex = 1;
+            // 
+            // textBoxNominalDiskon
+            // 
+            this.textBoxNominalDiskon.Location = new System.Drawing.Point(556, 96);
+            this.textBoxNominalDiskon.Name = "textBoxNominalDiskon";
+            this.textBoxNominalDiskon.Size = new System.Drawing.Size(202, 22);
+            this.textBoxNominalDiskon.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(553, 57);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(138, 18);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Nominal Diskon :";
             // 
             // textBoxNamaPromo
             // 
@@ -107,7 +124,7 @@
             this.textBoxNamaPromo.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNamaPromo.Name = "textBoxNamaPromo";
             this.textBoxNamaPromo.Size = new System.Drawing.Size(265, 22);
-            this.textBoxNamaPromo.TabIndex = 25;
+            this.textBoxNamaPromo.TabIndex = 1;
             // 
             // textBoxKeterangan
             // 
@@ -118,7 +135,7 @@
             this.textBoxKeterangan.Name = "textBoxKeterangan";
             this.textBoxKeterangan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxKeterangan.Size = new System.Drawing.Size(425, 93);
-            this.textBoxKeterangan.TabIndex = 24;
+            this.textBoxKeterangan.TabIndex = 7;
             // 
             // dateTimePickerTglAkhir
             // 
@@ -126,7 +143,7 @@
             this.dateTimePickerTglAkhir.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerTglAkhir.Name = "dateTimePickerTglAkhir";
             this.dateTimePickerTglAkhir.Size = new System.Drawing.Size(265, 22);
-            this.dateTimePickerTglAkhir.TabIndex = 23;
+            this.dateTimePickerTglAkhir.TabIndex = 5;
             // 
             // dateTimePickerTglAwal
             // 
@@ -134,7 +151,7 @@
             this.dateTimePickerTglAwal.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerTglAwal.Name = "dateTimePickerTglAwal";
             this.dateTimePickerTglAwal.Size = new System.Drawing.Size(265, 22);
-            this.dateTimePickerTglAwal.TabIndex = 22;
+            this.dateTimePickerTglAwal.TabIndex = 3;
             // 
             // label3
             // 
@@ -143,7 +160,7 @@
             this.label3.Location = new System.Drawing.Point(107, 192);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 18);
-            this.label3.TabIndex = 21;
+            this.label3.TabIndex = 6;
             this.label3.Text = "Keterangan : ";
             // 
             // label1
@@ -153,7 +170,7 @@
             this.label1.Location = new System.Drawing.Point(88, 148);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 18);
-            this.label1.TabIndex = 20;
+            this.label1.TabIndex = 4;
             this.label1.Text = "Tanggal Akhir : ";
             // 
             // label2
@@ -163,7 +180,7 @@
             this.label2.Location = new System.Drawing.Point(141, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 18);
-            this.label2.TabIndex = 19;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Nama :";
             // 
             // buttonKosongi
@@ -175,9 +192,10 @@
             this.buttonKosongi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKosongi.Name = "buttonKosongi";
             this.buttonKosongi.Size = new System.Drawing.Size(203, 53);
-            this.buttonKosongi.TabIndex = 48;
+            this.buttonKosongi.TabIndex = 3;
             this.buttonKosongi.Text = "&KOSONGI";
             this.buttonKosongi.UseVisualStyleBackColor = false;
+            this.buttonKosongi.Click += new System.EventHandler(this.buttonKosongi_Click);
             // 
             // buttonTambah
             // 
@@ -188,27 +206,10 @@
             this.buttonTambah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTambah.Name = "buttonTambah";
             this.buttonTambah.Size = new System.Drawing.Size(203, 53);
-            this.buttonTambah.TabIndex = 47;
+            this.buttonTambah.TabIndex = 2;
             this.buttonTambah.Text = "&TAMBAH";
             this.buttonTambah.UseVisualStyleBackColor = false;
             this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(553, 57);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 18);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Nominal Diskon :";
-            // 
-            // textBoxNominalDiskon
-            // 
-            this.textBoxNominalDiskon.Location = new System.Drawing.Point(556, 96);
-            this.textBoxNominalDiskon.Name = "textBoxNominalDiskon";
-            this.textBoxNominalDiskon.Size = new System.Drawing.Size(202, 22);
-            this.textBoxNominalDiskon.TabIndex = 27;
             // 
             // FormTambahPromo
             // 

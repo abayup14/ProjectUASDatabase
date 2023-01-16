@@ -29,7 +29,7 @@ namespace ProjectDatabase_Ivano
                 if (hasil == DialogResult.Yes)
                 {
                     Koneksi k = new Koneksi();
-                    int id = int.Parse(formDaftarHadiah.dataGridViewHadiah.CurrentRow.Cells[id].Value.ToString());
+                    int id = int.Parse(formDaftarHadiah.dataGridViewHadiah.CurrentRow.Cells["id"].Value.ToString());
                     Hadiah h = new Hadiah(id, textBoxNamaHadiah.Text, textBoxHargaHadiah.Text);
                     Hadiah.UbahData(h, k);
                     MessageBox.Show("Berhasil ubah data hadiah", "Informasi");

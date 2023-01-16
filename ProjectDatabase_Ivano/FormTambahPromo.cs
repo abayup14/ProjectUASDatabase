@@ -52,6 +52,16 @@ namespace ProjectDatabase_Ivano
             formDaftarPromo.FormDaftarPromo_Load(buttonKeluar, e);
             this.Close();
         }
+
+        private void buttonKosongi_Click(object sender, EventArgs e)
+        {
+            textBoxNamaPromo.Clear();
+            dateTimePickerTglAwal.Value = DateTime.Now;
+            dateTimePickerTglAkhir.Value = DateTime.Now;
+            textBoxKeterangan.Clear();
+            textBoxNominalDiskon.Clear();
+            textBoxNamaPromo.Focus();
+        }
     }
     
 }
