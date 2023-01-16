@@ -46,8 +46,6 @@ namespace ProjectDatabase_Ivano
 
             employee = formUtama.employee;
 
-
-
             if (pengguna != null)
             {
                 FormatDataGridAddressBook();

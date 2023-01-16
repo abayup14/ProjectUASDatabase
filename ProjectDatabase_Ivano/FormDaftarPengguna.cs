@@ -131,9 +131,9 @@ namespace ProjectDatabase_Ivano
 
                 string pin = dataGridViewPengguna.CurrentRow.Cells["pin"].Value.ToString();
 
-                DateTime tglBuat = DateTime.Parse(dataGridViewPengguna.CurrentRow.Cells["tgl_buat"].Value.ToString());
+                //DateTime tglBuat = DateTime.Parse(dataGridViewPengguna.CurrentRow.Cells["tgl_buat"].Value.ToString());
 
-                DateTime tglPerubahan = DateTime.Parse(dataGridViewPengguna.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
+                //DateTime tglPerubahan = DateTime.Parse(dataGridViewPengguna.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
 
                 DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah :" +
                                                      "\nNIK : " + nik +
