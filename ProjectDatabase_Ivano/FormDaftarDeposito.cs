@@ -255,6 +255,7 @@ namespace ProjectDatabase_Ivano
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
+            
             FormTambahDeposito formTambahDeposito = new FormTambahDeposito();
             formTambahDeposito.Owner = this;
             formTambahDeposito.ShowDialog();

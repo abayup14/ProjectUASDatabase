@@ -98,6 +98,7 @@ namespace ProjectDatabase_Ivano
             comboBoxPromo.DisplayMember = "namaPromo";
             comboBoxPromo.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            listJenisTagihan = JenisTagihan.BacaData("id not", "0");
             comboBoxJenisTagihan.DataSource = listJenisTagihan;
             comboBoxJenisTagihan.DisplayMember = "nama";
             comboBoxJenisTagihan.DropDownStyle = ComboBoxStyle.DropDownList;

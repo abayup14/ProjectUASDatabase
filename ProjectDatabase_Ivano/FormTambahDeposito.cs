@@ -38,40 +38,47 @@ namespace ProjectDatabase_Ivano
                     "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (Hasil == DialogResult.Yes)
                 {
-                    Koneksi k = new Koneksi();
+                    if (tabungan.Status != "Aktif")
+                    {
+                        MessageBox.Show("Maaf, status tabungan yang anda pilih tidak aktif" +
+                                        "\nSilahkan hubungi pegawai kami untuk mengaktifkan tabungan anda.", "Informasi");
+                    }
+                    else
+                    {
+                        Koneksi k = new Koneksi();
 
-                    int indexJatuhTempoDipilih = comboBoxJatuhTempo.SelectedIndex;
+                        int indexJatuhTempoDipilih = comboBoxJatuhTempo.SelectedIndex;
 
-                    string kode = Deposito.GenerateKode(tabungan.Rekening);
+                        string kode = Deposito.GenerateKode(tabungan.Rekening);
 
-                    Tabungan t = tabungan;
+                        Tabungan t = tabungan;
 
-                    int jatuhTempo = bulanJatuhTempo[indexJatuhTempoDipilih];
+                        int jatuhTempo = bulanJatuhTempo[indexJatuhTempoDipilih];
 
-                    double nominal = double.Parse(textBoxNominal.Text);
+                        double nominal = double.Parse(textBoxNominal.Text);
 
-                    double bunga = bungaJatuhTempo[indexJatuhTempoDipilih];
+                        double bunga = bungaJatuhTempo[indexJatuhTempoDipilih];
 
-                    string status = "Unverified";
+                        string status = "Unverified";
 
-                    DateTime tgl_buat = DateTime.Now;
+                        DateTime tgl_buat = DateTime.Now;
 
-                    DateTime tgl_perubahan = DateTime.Now;
+                        DateTime tgl_perubahan = DateTime.Now;
 
-                    Employee verifikatorBuka = new Employee();
+                        Employee verifikatorBuka = new Employee();
 
-                    Employee verifikatorCair = new Employee();
+                        Employee verifikatorCair = new Employee();
 
-                    Deposito d = new Deposito(kode, t, jatuhTempo, nominal, bunga, status, tgl_buat, tgl_perubahan, verifikatorBuka, verifikatorCair);
+                        Deposito d = new Deposito(kode, t, jatuhTempo, nominal, bunga, status, tgl_buat, tgl_perubahan, verifikatorBuka, verifikatorCair);
 
-                    Deposito.TambahData(d, k);
+                        Deposito.TambahData(d, k);
 
-                    Tabungan.UpdateSaldo(t, double.Parse(textBoxNominal.Text), k);
+                        Tabungan.UpdateSaldo(t, double.Parse(textBoxNominal.Text), k);
 
-                    MessageBox.Show("Deposito berhasil ditambah");
-                    this.Close();
+                        MessageBox.Show("Deposito berhasil ditambah");
+                        this.Close();
+                    }
                 }
-                
             }
             catch (Exception ex)
             {
@@ -95,7 +102,7 @@ namespace ProjectDatabase_Ivano
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
-            FormDaftarDeposito formDaftarDeposito = (FormDaftarDeposito)this.Owner;
+            //FormDaftarDeposito formDaftarDeposito = (FormDaftarDeposito)this.Owner;
 
             formDaftarDeposito.FormDaftarDeposito_Load(buttonKeluar, e);
 
