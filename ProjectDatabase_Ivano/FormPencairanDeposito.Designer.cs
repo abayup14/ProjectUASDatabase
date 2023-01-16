@@ -132,6 +132,7 @@ namespace ProjectDatabase_Ivano
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPencairanDeposito";
             this.Text = "Pencairan Deposito";
+            this.Load += new System.EventHandler(this.FormPencairanDeposito_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

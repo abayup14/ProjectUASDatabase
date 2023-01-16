@@ -41,6 +41,7 @@ namespace ProjectDatabase_Ivano
                     Tabungan.TambahData(t, k);
 
                     MessageBox.Show("Tabungan berhasil ditambah.", "Informasi");
+                    this.Close();
                 }
             }
             catch (Exception ex)
@@ -62,6 +63,11 @@ namespace ProjectDatabase_Ivano
             textBoxSaldoAwal.Clear();
             textBoxKeterangan.Clear();
             textBoxSaldoAwal.Focus();
+        }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

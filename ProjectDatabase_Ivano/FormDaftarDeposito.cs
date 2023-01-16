@@ -28,6 +28,7 @@ namespace ProjectDatabase_Ivano
 
         public void FormDaftarDeposito_Load(object sender, EventArgs e)
         {
+            List<string> listPengguna = new List<string>() { "No. Deposito", "Saldo", "Tanggal Buat" };
             formUtama = (FormUtama)this.MdiParent;
 
             pengguna = formUtama.pengguna;
@@ -41,6 +42,8 @@ namespace ProjectDatabase_Ivano
             }    
             else if (pengguna != null)
             {
+                panel1.Visible = false;
+
                 FormatDataGridDeposito();
                 listDeposito = Deposito.BacaData("t.id_pengguna", pengguna.Nik);
             }
@@ -62,29 +65,35 @@ namespace ProjectDatabase_Ivano
                 {
                     if (pengguna != null)
                     {
-                        DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
-                        bcol.HeaderText = "Aksi";
-                        bcol.Text = "Detail";
-                        bcol.Name = "buttonDetailGrid";
-                        bcol.UseColumnTextForButtonValue = true;
-                        dataGridViewDeposito.Columns.Add(bcol);
+                        if (!dataGridViewDeposito.Columns.Contains("buttonDetailGrid"))
+                        {
+                            DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
+                            bcol.HeaderText = "Aksi";
+                            bcol.Text = "Detail";
+                            bcol.Name = "buttonDetailGrid";
+                            bcol.UseColumnTextForButtonValue = true;
+                            dataGridViewDeposito.Columns.Add(bcol);
+                        }
                     }
 
                     if (employee != null)
                     {
-                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                        bcol2.HeaderText = "Aksi";
-                        bcol2.Text = "Aktifkan";
-                        bcol2.Name = "buttonAktifGrid";
-                        bcol2.UseColumnTextForButtonValue = true;
-                        dataGridViewDeposito.Columns.Add(bcol2);
+                        if (!dataGridViewDeposito.Columns.Contains("buttonAktifGrid") && !dataGridViewDeposito.Columns.Contains("buttonHapusGrid"))
+                        {
+                            DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                            bcol2.HeaderText = "Aksi";
+                            bcol2.Text = "Aktifkan";
+                            bcol2.Name = "buttonAktifGrid";
+                            bcol2.UseColumnTextForButtonValue = true;
+                            dataGridViewDeposito.Columns.Add(bcol2);
 
-                        DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
-                        bcol3.HeaderText = "Aksi";
-                        bcol3.Text = "Hapus";
-                        bcol3.Name = "buttonHapusGrid";
-                        bcol3.UseColumnTextForButtonValue = true;
-                        dataGridViewDeposito.Columns.Add(bcol3);
+                            DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
+                            bcol3.HeaderText = "Aksi";
+                            bcol3.Text = "Hapus";
+                            bcol3.Name = "buttonHapusGrid";
+                            bcol3.UseColumnTextForButtonValue = true;
+                            dataGridViewDeposito.Columns.Add(bcol3);
+                        }
                     }
                 }
             }
@@ -125,7 +134,7 @@ namespace ProjectDatabase_Ivano
                     formDepositoPengguna.labelNominal.Text = dataGridViewDeposito.CurrentRow.Cells["Nominal"].Value.ToString();
                     formDepositoPengguna.labelBunga.Text = (d.Bunga * 100).ToString() + " %";
                     formDepositoPengguna.labelStatus.Text = d.Status;
-                    formDepositoPengguna.labelJatuhTempo.Text = d.Jatuh_tempo.ToString();
+                    formDepositoPengguna.labelJatuhTempo.Text = d.Jatuh_tempo.ToString() + " bulan";
                     formDepositoPengguna.labelTanggal.Text = d.Tgl_buat.ToShortDateString();
                     formUtama.DisplayStatusPicture(d.Status, formDepositoPengguna.panel1);
                     formDepositoPengguna.ShowDialog();
@@ -157,8 +166,6 @@ namespace ProjectDatabase_Ivano
 
                         MessageBox.Show("Data berhasil dihapus.", "Informasi");
 
-                        dataGridViewDeposito.Rows.Clear();
-                        dataGridViewDeposito.Columns.Clear();
                         FormDaftarDeposito_Load(buttonKeluar, e);
                     }
 
@@ -192,8 +199,6 @@ namespace ProjectDatabase_Ivano
 
                             MessageBox.Show("Deposito berhasil diaktifkan");
 
-                            dataGridViewDeposito.Rows.Clear();
-                            dataGridViewDeposito.Columns.Clear();
                             FormDaftarDeposito_Load(buttonKeluar, e);
                         }
                     }

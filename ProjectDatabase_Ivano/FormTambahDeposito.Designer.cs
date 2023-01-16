@@ -37,9 +37,9 @@ namespace ProjectDatabase_Ivano
             this.buttonKosongi = new System.Windows.Forms.Button();
             this.textBoxNominal = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBoxJatuhTempo = new System.Windows.Forms.ComboBox();
             this.comboBoxRekening = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxJatuhTempo = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,24 +140,6 @@ namespace ProjectDatabase_Ivano
             this.panel1.Size = new System.Drawing.Size(716, 175);
             this.panel1.TabIndex = 40;
             // 
-            // comboBoxJatuhTempo
-            // 
-            this.comboBoxJatuhTempo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxJatuhTempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxJatuhTempo.FormattingEnabled = true;
-            this.comboBoxJatuhTempo.Items.AddRange(new object[] {
-            "1 bulan",
-            "3 bulan",
-            "6 bulan",
-            "1 tahun",
-            "2 tahun",
-            "3 tahun"});
-            this.comboBoxJatuhTempo.Location = new System.Drawing.Point(227, 115);
-            this.comboBoxJatuhTempo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxJatuhTempo.Name = "comboBoxJatuhTempo";
-            this.comboBoxJatuhTempo.Size = new System.Drawing.Size(425, 26);
-            this.comboBoxJatuhTempo.TabIndex = 15;
-            // 
             // comboBoxRekening
             // 
             this.comboBoxRekening.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -183,9 +165,27 @@ namespace ProjectDatabase_Ivano
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(67, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 18);
+            this.label3.Size = new System.Drawing.Size(120, 18);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Jatuh Tempo :";
+            this.label3.Text = "No. Rekening :";
+            // 
+            // comboBoxJatuhTempo
+            // 
+            this.comboBoxJatuhTempo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxJatuhTempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxJatuhTempo.FormattingEnabled = true;
+            this.comboBoxJatuhTempo.Items.AddRange(new object[] {
+            "1 bulan",
+            "3 bulan",
+            "6 bulan",
+            "1 tahun",
+            "2 tahun",
+            "3 tahun"});
+            this.comboBoxJatuhTempo.Location = new System.Drawing.Point(227, 115);
+            this.comboBoxJatuhTempo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxJatuhTempo.Name = "comboBoxJatuhTempo";
+            this.comboBoxJatuhTempo.Size = new System.Drawing.Size(425, 26);
+            this.comboBoxJatuhTempo.TabIndex = 15;
             // 
             // FormTambahDeposito
             // 

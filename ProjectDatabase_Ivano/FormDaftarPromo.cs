@@ -22,7 +22,7 @@ namespace ProjectDatabase_Ivano
         private void FormDaftarPromo_Load(object sender, EventArgs e)
         {
             k = new Koneksi();
-            listPromo = Promo.BacaData("", "");
+            listPromo = Promo.BacaData("id not", "0");
             if (listPromo.Count > 0)
             {
                 dataGridViewPromo.DataSource = listPromo;
@@ -66,15 +66,17 @@ namespace ProjectDatabase_Ivano
             Koneksi k = new Koneksi();
             if (e.ColumnIndex == dataGridViewPromo.Columns["buttonUbahGrid"].Index && e.RowIndex >= 0)
             {
-                
+                FormUbahPromo form = new FormUbahPromo();
+                form.Owner = this;
+                form.Show();
             }
             else if (e.ColumnIndex == dataGridViewPromo.Columns["buttonHapusGrid"].Index && e.RowIndex >= 0)
             {
                 string nama = dataGridViewPromo.CurrentRow.Cells["NamaPromo"].Value.ToString();
-                int id_Promo = int.Parse(dataGridViewPromo.CurrentRow.Cells["id"].Value.ToString());
-                DateTime tgl_awal = DateTime.Parse(dataGridViewPromo.CurrentRow.Cells["tgl_awal"].Value.ToString());
-                DateTime tgl_akhir = DateTime.Parse(dataGridViewPromo.CurrentRow.Cells["tgl_akhir"].Value.ToString());
-                string keterangan = dataGridViewPromo.CurrentRow.Cells["keterangan"].Value.ToString();
+                int id_Promo = int.Parse(dataGridViewPromo.CurrentRow.Cells["idPromo"].Value.ToString());
+                DateTime tgl_awal = DateTime.Parse(dataGridViewPromo.CurrentRow.Cells["TglAwal"].Value.ToString());
+                DateTime tgl_akhir = DateTime.Parse(dataGridViewPromo.CurrentRow.Cells["TglAkhir"].Value.ToString());
+                string keterangan = dataGridViewPromo.CurrentRow.Cells["Keterangan"].Value.ToString();
 
                 DialogResult hasil = MessageBox.Show("Data yang akan dihapus adalah " +
                                                      "\nID Pen : " + id_Promo +
@@ -85,7 +87,7 @@ namespace ProjectDatabase_Ivano
                                                      "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question); 
                 if (hasil == DialogResult.Yes)
                 {
-                    Promo p = new Promo(nama);
+                    Promo p = new Promo(id_Promo);
                     Promo.HapusData(p, k);
                     MessageBox.Show("Data berhasil dihapus.", "Informasi");
                     FormDaftarPromo_Load(buttonKeluar, e);

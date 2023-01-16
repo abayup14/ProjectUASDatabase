@@ -21,7 +21,7 @@ namespace ProjectDatabase_Ivano
         List<Transaksi> listTransaksi = new List<Transaksi>();
         List<JenisTransaksi> listJenisTransaksi = new List<JenisTransaksi>();
         List<Tabungan> listTabunganSumber = new List<Tabungan>();
-        List<Tabungan> listTabunganTujuan = new List<Tabungan>();
+        List<AddressBook> listTabunganTujuan = new List<AddressBook>();
         public List<Promo> listPromo = new List<Promo>();
         public List<JenisTagihan> listJenisTagihan = new List<JenisTagihan>();
         public Tabungan tabunganSumber;
@@ -39,10 +39,11 @@ namespace ProjectDatabase_Ivano
                 }
                 if (comboBoxRekeningTujuan.SelectedIndex > -1)
                 {
-                    tabunganTujuan = (Tabungan)comboBoxRekeningTujuan.SelectedItem;
+                    string no_rekening = comboBoxRekeningTujuan.Text;
+                    tabunganTujuan = Tabungan.AmbilDataTabungan(no_rekening);
                 }
 
-                DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin melakukan topup?", "Konfirmasi", MessageBoxButtons.YesNo,
+                DialogResult hasil = MessageBox.Show("Apakah anda yakin ingin melakukan transaksi?", "Konfirmasi", MessageBoxButtons.YesNo,
                                                      MessageBoxIcon.Question);
                 if (hasil == DialogResult.Yes)
                 {
@@ -92,7 +93,7 @@ namespace ProjectDatabase_Ivano
             //comboBoxJenisTransaksi.DataSource = listJenisTransaksi;
             //comboBoxJenisTransaksi.DisplayMember = "nama";
             //comboBoxJenisTransaksi.DropDownStyle = ComboBoxStyle.DropDownList;
-
+            listPromo = Promo.BacaData("id not", "0");
             comboBoxPromo.DataSource = listPromo;
             comboBoxPromo.DisplayMember = "namaPromo";
             comboBoxPromo.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -145,7 +146,8 @@ namespace ProjectDatabase_Ivano
             if (comboBoxRekeningSumber.SelectedIndex > -1)
             {
                 listTabunganTujuan.Clear();
-                listTabunganTujuan = Tabungan.BacaData("t.no_rekening not", comboBoxRekeningSumber.Text);
+                //listTabunganTujuan = Tabungan.BacaData("t.no_rekening not", comboBoxRekeningSumber.Text);
+                listTabunganTujuan = AddressBook.BacaData("p.nik", pengguna.Nik);
                 comboBoxRekeningTujuan.DataSource = listTabunganTujuan;
                 comboBoxRekeningTujuan.DisplayMember = "no_rekening";
                 comboBoxRekeningTujuan.DropDownStyle = ComboBoxStyle.DropDownList;

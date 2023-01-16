@@ -30,19 +30,19 @@ namespace ProjectDatabase_Ivano
                 dataGridViewInbox.DataSource = listPoin;
                 if (dataGridViewInbox.ColumnCount == 2)
                 {
-                    DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
-                    bcol1.HeaderText = "Aksi";
-                    bcol1.Text = "Ubah Data";
-                    bcol1.Name = "buttonUbahGrid";
-                    bcol1.UseColumnTextForButtonValue = true;
-                    dataGridViewInbox.Columns.Add(bcol1);
+                    //DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
+                    //bcol1.HeaderText = "Aksi";
+                    //bcol1.Text = "Ubah Data";
+                   // bcol1.Name = "buttonUbahGrid";
+                   // bcol1.UseColumnTextForButtonValue = true;
+                    //dataGridViewInbox.Columns.Add(bcol1);
 
-                    DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                    bcol2.HeaderText = "Aksi";
-                    bcol2.Text = "Hapus Data";
-                    bcol2.Name = "buttonHapusGrid";
-                    bcol2.UseColumnTextForButtonValue = true;
-                    dataGridViewInbox.Columns.Add(bcol2);
+                   // DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                  //  bcol2.HeaderText = "Aksi";
+                    //bcol2.Text = "Hapus Data";
+                   // bcol2.Name = "buttonHapusGrid";
+                    //bcol2.UseColumnTextForButtonValue = true;
+                    //dataGridViewInbox.Columns.Add(bcol2);
                 }
             }
             else
@@ -74,6 +74,11 @@ namespace ProjectDatabase_Ivano
             {
                 dataGridViewInbox.DataSource = null;
             }
+        }
+
+        private void dataGridViewInbox_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

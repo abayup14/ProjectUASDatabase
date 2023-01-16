@@ -30,26 +30,30 @@ namespace ProjectDatabase_Ivano
 
             formUtama = (FormUtama)this.MdiParent;
 
-            listJenisTagihan = JenisTagihan.BacaData("", "");
+            listJenisTagihan = JenisTagihan.BacaData("id not", "0");
 
             if (listJenisTagihan.Count > 0)
             {
                 dataGridViewJenisTagihan.DataSource = listJenisTagihan;
-                if (dataGridViewJenisTagihan.ColumnCount == 2)
+                if (dataGridViewJenisTagihan.ColumnCount < 10)
                 {
-                    DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
-                    bcol.HeaderText = "Aksi";
-                    bcol.Text = "Ubah";
-                    bcol.Name = "buttonUbahGrid";
-                    bcol.UseColumnTextForButtonValue = true;
-                    dataGridViewJenisTagihan.Columns.Add(bcol);
+                    if (!dataGridViewJenisTagihan.Columns.Contains("buttonUbahGrid") && !dataGridViewJenisTagihan.Columns.Contains("buttonHapusGrid"))
+                    {
+                        DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
+                        bcol.HeaderText = "Aksi";
+                        bcol.Text = "Ubah";
+                        bcol.Name = "buttonUbahGrid";
+                        bcol.UseColumnTextForButtonValue = true;
+                        dataGridViewJenisTagihan.Columns.Add(bcol);
 
-                    DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                    bcol2.HeaderText = "Aksi";
-                    bcol2.Text = "Ubah";
-                    bcol2.Name = "buttonHapusGrid";
-                    bcol.UseColumnTextForButtonValue = true;
-                    dataGridViewJenisTagihan.Columns.Add(bcol2);
+                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                        bcol2.HeaderText = "Aksi";
+                        bcol2.Text = "Hapus";
+                        bcol2.Name = "buttonHapusGrid";
+                        bcol2.UseColumnTextForButtonValue = true;
+                        dataGridViewJenisTagihan.Columns.Add(bcol2);
+                    }
+                    
                 }
             }
             else

@@ -76,12 +76,15 @@ namespace ProjectDatabase_Ivano
 
                 if (dataGridViewAddressBook.ColumnCount < 10)
                 {
-                    DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                    bcol2.HeaderText = "Aksi";
-                    bcol2.Text = "Hapus";
-                    bcol2.Name = "buttonHapusGrid";
-                    bcol2.UseColumnTextForButtonValue = true;
-                    dataGridViewAddressBook.Columns.Add(bcol2);
+                    if (!dataGridViewAddressBook.Columns.Contains("buttonHapusGrid"))
+                    {
+                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                        bcol2.HeaderText = "Aksi";
+                        bcol2.Text = "Hapus";
+                        bcol2.Name = "buttonHapusGrid";
+                        bcol2.UseColumnTextForButtonValue = true;
+                        dataGridViewAddressBook.Columns.Add(bcol2);
+                    }
                 }
             }
             else

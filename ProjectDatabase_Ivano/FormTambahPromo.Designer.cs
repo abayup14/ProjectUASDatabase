@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonKosongi = new System.Windows.Forms.Button();
             this.buttonTambah = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxNominalDiskon = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +70,7 @@
             this.buttonKeluar.TabIndex = 46;
             this.buttonKeluar.Text = "&KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // label5
             // 
@@ -82,6 +85,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.textBoxNominalDiskon);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textBoxNamaPromo);
             this.panel1.Controls.Add(this.textBoxKeterangan);
             this.panel1.Controls.Add(this.dateTimePickerTglAkhir);
@@ -188,6 +193,23 @@
             this.buttonTambah.UseVisualStyleBackColor = false;
             this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(553, 57);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(138, 18);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Nominal Diskon :";
+            // 
+            // textBoxNominalDiskon
+            // 
+            this.textBoxNominalDiskon.Location = new System.Drawing.Point(556, 96);
+            this.textBoxNominalDiskon.Name = "textBoxNominalDiskon";
+            this.textBoxNominalDiskon.Size = new System.Drawing.Size(202, 22);
+            this.textBoxNominalDiskon.TabIndex = 27;
+            // 
             // FormTambahPromo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -222,5 +244,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxNamaPromo;
         private System.Windows.Forms.TextBox textBoxKeterangan;
+        private System.Windows.Forms.TextBox textBoxNominalDiskon;
+        private System.Windows.Forms.Label label4;
     }
 }

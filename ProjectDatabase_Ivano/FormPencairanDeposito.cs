@@ -13,7 +13,9 @@ namespace ProjectDatabase_Ivano
 {
     public partial class FormPencairanDeposito : Form
     {
-        //Deposito deposito;
+        FormDepositoPengguna formDepositoPengguna;
+        
+        public Deposito deposito;
         public FormPencairanDeposito()
         {
             InitializeComponent();
@@ -29,19 +31,27 @@ namespace ProjectDatabase_Ivano
                 if (Deposito.AmbilDataNoDeposito(textBoxNoDeposito.Text) == true)
                 {
                     Koneksi k = new Koneksi();
-                    Deposito d = new Deposito(textBoxNoDeposito.Text);
+                    //Deposito d = new Deposito(textBoxNoDeposito.Text);
 
-                    DateTime tanggal = d.Tgl_buat.AddMonths(d.Jatuh_tempo);
+                    DateTime tanggal = deposito.Tgl_buat.AddMonths(deposito.Jatuh_tempo);
                     if (tanggal > DateTime.Now)
                     {
+                        double saldo_akhir = 0;
                         //Deposito.UbahStatus(d, k);
-                        MessageBox.Show("Pencairan deposito kurang dari tanggal jatuh tempo sehingga anda dikenai denda sebanyak 5% dan tidak mendapatkan bunga.");
-                        Deposito.UbahNominal(d, k);
+                        double biaya_penalti = Deposito.BiayaPenalti(deposito);
+                        MessageBox.Show("Pencairan deposito kurang dari tanggal jatuh tempo sehingga anda dikenai denda sebanyak 5% dan tidak mendapatkan bunga." + 
+                                        "\nAnda mendapatkan penalti sebesar Rp. " + biaya_penalti.ToString());
+                        Tabungan tabunganDeposito = Tabungan.AmbilDataTabungan(deposito);
+                        saldo_akhir = deposito.Nominal - biaya_penalti;
+                        Tabungan t = new Tabungan(tabunganDeposito.Rekening, saldo_akhir);
+                        Tabungan.UpdateSaldo(t, k);
+                        MessageBox.Show("Berhasil menambah Rp. " + saldo_akhir.ToString() + " ke tabungan.", "Informasi");
+                        Deposito.HapusData(deposito, k);
                     }
                     else
                     {
                         //Deposito.UbahStatus(d, k);
-                        Deposito.TambahNominal(d, k);
+                        Deposito.TambahNominal(deposito, k);
                         MessageBox.Show("Pencairan berhasil");
                     }
                 }
@@ -56,6 +66,13 @@ namespace ProjectDatabase_Ivano
             }
   
 
+        }
+
+        private void FormPencairanDeposito_Load(object sender, EventArgs e)
+        {
+            formDepositoPengguna = (FormDepositoPengguna)this.Owner;
+
+            deposito = formDepositoPengguna.deposito;
         }
     }
 }

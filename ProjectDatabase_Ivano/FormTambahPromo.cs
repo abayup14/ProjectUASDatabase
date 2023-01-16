@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,7 +19,7 @@ namespace ProjectDatabase_Ivano
             InitializeComponent();
         }
 
-        public List<Promo> listPromo = new List<Promo>();
+        //public List<Promo> listPromo = new List<Promo>();
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
@@ -30,19 +31,24 @@ namespace ProjectDatabase_Ivano
 
                 if (hasil == DialogResult.Yes)
                 {
-                    Promo p = new Promo(Promo.GenerateKode(), textBoxNamaPromo.Text, dateTimePickerTglAwal.Value, dateTimePickerTglAwal.Value, textBoxKeterangan.Text);
+                    Promo p = new Promo(Promo.GenerateKode(), textBoxNamaPromo.Text, int.Parse(textBoxNominalDiskon.Text), dateTimePickerTglAwal.Value, dateTimePickerTglAwal.Value, textBoxKeterangan.Text);
 
 
 
                     Promo.TambahData(p, k);
 
-                    MessageBox.Show("Promo berhasil dotambah", "Informasi");
+                    MessageBox.Show("Promo berhasil ditambah", "Informasi");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Promo gagal ditambah. Pesan kesalahan : " + ex.Message, "Error");
             }
+        }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
     

@@ -209,13 +209,18 @@ namespace ProjectDatabase_Ivano
                         {
                             if (tabunganSumber.Status == "Aktif" && tabunganTujuan.Status == "Aktif")
                             {
+                                double nilai_diskon = 0;
+                                double total_harga = 0;
                                 Promo p = null;
                                 if (formTambahTransaksi.checkBoxPromo.Checked == true)
                                 {
                                     p = (Promo)formTambahTransaksi.comboBoxPromo.SelectedItem;
+                                    nilai_diskon = double.Parse(formTambahTransaksi.textBoxNominal.Text) * p.Nominal_diskon / 100.0;
+                                    total_harga = double.Parse(formTambahTransaksi.textBoxNominal.Text) - nilai_diskon;
                                 }
                                 else
                                 {
+                                    total_harga = double.Parse(formTambahTransaksi.textBoxNominal.Text);
                                     p = new Promo();
                                 }
 
@@ -234,7 +239,7 @@ namespace ProjectDatabase_Ivano
                                                             Transaksi.GenerateKode(),
                                                             DateTime.Now,
                                                             tabunganTujuan,
-                                                            double.Parse(formTambahTransaksi.textBoxNominal.Text),
+                                                            total_harga,
                                                             formTambahTransaksi.textBoxKeterangan.Text,
                                                             p,
                                                             j);
@@ -245,7 +250,7 @@ namespace ProjectDatabase_Ivano
                                                             Transaksi.GenerateKode(),
                                                             DateTime.Now,
                                                             tabunganSumber,
-                                                            double.Parse(formTambahTransaksi.textBoxNominal.Text),
+                                                            total_harga,
                                                             formTambahTransaksi.textBoxKeterangan.Text,
                                                             p,
                                                             j);
@@ -265,7 +270,7 @@ namespace ProjectDatabase_Ivano
                                 Inbox inboxSumber = new Inbox(tabunganSumber.Pengguna,
                                                               Inbox.GenerateKode(),
                                                               "Berhasil transfer ke rekening " + tabunganTujuan.Rekening +
-                                                              " sebesar Rp. " + formTambahTransaksi.textBoxNominal.Text +
+                                                              " sebesar Rp. " + total_harga.ToString() +
                                                               "\nKeterangan: " + formTambahTransaksi.textBoxKeterangan.Text,
                                                               DateTime.Now,
                                                               "Belum Terbaca",
@@ -275,7 +280,7 @@ namespace ProjectDatabase_Ivano
                                 Inbox inboxTujuan = new Inbox(tabunganTujuan.Pengguna,
                                                               Inbox.GenerateKode(),
                                                               "Mendapatkan transfer dari rekening " + tabunganSumber.Rekening +
-                                                              " sebesar Rp. " + formTambahTransaksi.textBoxNominal.Text +
+                                                              " sebesar Rp. " + total_harga.ToString() +
                                                               "\nKeterangan: " + formTambahTransaksi.textBoxKeterangan.Text,
                                                               DateTime.Now,
                                                               "Belum Terbaca",

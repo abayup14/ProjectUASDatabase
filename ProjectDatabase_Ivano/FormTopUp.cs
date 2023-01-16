@@ -73,7 +73,7 @@ namespace ProjectDatabase_Ivano
 
             p = formUtama.pengguna;
 
-            listTabungan = Tabungan.BacaData("", "");
+            listTabungan = Tabungan.BacaData("p.nik", p.Nik);
 
             comboBoxRekening.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRekening.DataSource = listTabungan;

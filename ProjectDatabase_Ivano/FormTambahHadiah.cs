@@ -24,7 +24,7 @@ namespace ProjectDatabase_Ivano
             try
             {
                 k = new Koneksi();
-                DialogResult result = MessageBox.Show("Apakah barang yang dipilih sudah tepat ?", "Konfirmasi",
+                DialogResult result = MessageBox.Show("Apakah hadiah yang ditambah sudah tepat ?", "Konfirmasi",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {

@@ -11,6 +11,7 @@ namespace DiBa_LIB
     {
         private int idPromo;
         private string namaPromo;
+        private int nominal_diskon;
         private DateTime tglAwal;
         private DateTime tglAkhir;
         private string keterangan;
@@ -19,18 +20,19 @@ namespace DiBa_LIB
         {
             IdPromo = 0;
         }
-        public Promo(int idPromo, string namaPromo, DateTime tglAwal, DateTime tglAkhir, string keterangan)
+        public Promo(int idPromo, string namaPromo, int nominal_diskon, DateTime tglAwal, DateTime tglAkhir, string keterangan)
         {
             IdPromo = idPromo;
             NamaPromo = namaPromo;
+            Nominal_diskon = nominal_diskon;
             TglAwal = tglAwal;
             TglAkhir = tglAkhir;
             Keterangan = keterangan;
         }
         
-        public Promo (string namaPromo)
+        public Promo (int id)
         {
-            NamaPromo = namaPromo;
+            IdPromo = id;
         }
 
         public int IdPromo { get => idPromo; set => idPromo = value; }
@@ -38,6 +40,7 @@ namespace DiBa_LIB
         public DateTime TglAwal { get => tglAwal; set => tglAwal = value; }
         public DateTime TglAkhir { get => tglAkhir; set => tglAkhir = value; }
         public string Keterangan { get => keterangan; set => keterangan = value; }
+        public int Nominal_diskon { get => nominal_diskon; set => nominal_diskon = value; }
 
         public static List<Promo> BacaData(string kriteria, string nilaiKriteria)
         {
@@ -60,9 +63,10 @@ namespace DiBa_LIB
             {
                 Promo p = new Promo(int.Parse(hasil.GetValue(0).ToString()),
                                           hasil.GetValue(1).ToString(),
-                                          DateTime.Parse(hasil.GetValue(2).ToString()),
+                                          int.Parse(hasil.GetString(2)),
                                           DateTime.Parse(hasil.GetValue(3).ToString()),
-                                          hasil.GetValue(4).ToString());
+                                          DateTime.Parse(hasil.GetValue(4).ToString()),
+                                          hasil.GetValue(5).ToString()); ;
 
                 listPromo.Add(p);
             }
@@ -72,14 +76,14 @@ namespace DiBa_LIB
 
         public static void TambahData(Promo p, Koneksi k)
         {
-            string sql = "insert into promo(nama,tgl_awal,tgl_akhir,keterangan) " + "values ('" + p.NamaPromo + "," + p.TglAwal + "," + p.TglAkhir + "," + p.Keterangan + "')";
+            string sql = "insert into promo(id,nama, nominal_diskon,tgl_awal,tgl_akhir,keterangan) " + "values ('" + p.IdPromo + "', '" + p.NamaPromo + "', '"+p.Nominal_diskon+"','" + p.TglAwal.ToString("yyyy-MM-dd HH:mm:ss") + "','" + p.TglAkhir.ToString("yyyy-MM-dd HH:mm:ss") + "','" + p.Keterangan + "')";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
 
         public static void UbahData(Promo p, Koneksi k)
         {
-            string sql = "UPDATE promo set nama = '" + p.NamaPromo + ", tgl_akhir = '" + p.TglAkhir;
+            string sql = "UPDATE promo set nama = '" + p.NamaPromo + "', tgl_akhir = '" + p.TglAkhir+"'";
             Koneksi.JalankanPerintahDML(sql, k);
         }
 

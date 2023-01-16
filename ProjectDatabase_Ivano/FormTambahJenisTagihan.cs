@@ -26,7 +26,7 @@ namespace ProjectDatabase_Ivano
             {
                 Koneksi k = new Koneksi();
 
-                DialogResult hasil = MessageBox.Show("Apakah data yang anda masukkan sudah benar?", "Konfirmasi");
+                DialogResult hasil = MessageBox.Show("Apakah data yang anda masukkan sudah benar?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (hasil == DialogResult.Yes)
                 {

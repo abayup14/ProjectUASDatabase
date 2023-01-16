@@ -585,5 +585,21 @@ namespace ProjectDatabase_Ivano
                 form.BringToFront();
             }
         }
+
+        private void promoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarPromo"];
+            if (form == null)
+            {
+                FormDaftarPromo frmDaftarPromo = new FormDaftarPromo();
+                frmDaftarPromo.MdiParent = this;
+                frmDaftarPromo.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
     }
 }

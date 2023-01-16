@@ -89,7 +89,7 @@ namespace DiBa_LIB
 
                 Tabungan taTujuan = new Tabungan(hasil.GetString(4));
 
-                Promo p = new Promo(hasil.GetString(7));
+                Promo p = new Promo(int.Parse(hasil.GetString(7)));
 
                 JenisTagihan j = new JenisTagihan(hasil.GetString(8));
 
@@ -156,7 +156,7 @@ namespace DiBa_LIB
         }
         public static string GenerateKode()
         {
-            string sql = "SELECT max(id_Transaksi) from Transaksi";
+            string sql = "SELECT max(id_transaksi) from transaksi";
 
             string hasilKode = "";
 
@@ -168,11 +168,13 @@ namespace DiBa_LIB
                 {
                     int kodeBaru = int.Parse(hasil.GetValue(0).ToString()) + 1;
 
-                    hasilKode = kodeBaru.ToString();
+                    string hasilBaru = kodeBaru.ToString().PadLeft(10, '0');
+
+                    hasilKode = hasilBaru;
                 }
                 else
                 {
-                    hasilKode = "1";
+                    hasilKode = "0000000001";
                 }
             }
 

@@ -52,7 +52,7 @@ namespace DiBa_LIB
 
             while (hasil.Read() == true)
             {
-                Promo p = new Promo(hasil.GetString(0));
+                Promo p = new Promo(int.Parse(hasil.GetString(0)));
                 Pengguna pe = new Pengguna(hasil.GetString(1));
                 RiwayatPromo rp = new RiwayatPromo(int.Parse(hasil.GetString(0)), p, pe, DateTime.Parse(hasil.GetString(4)));
                 listOfRiwayat.Add(rp);

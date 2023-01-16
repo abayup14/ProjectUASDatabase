@@ -37,10 +37,12 @@ namespace ProjectDatabase_Ivano
             k = new Koneksi();
             if (employee != null)
             {
+                buttonTambah.Visible = false;
                 listInbox = Inbox.BacaData("", "");
             }
             else if (pengguna != null)
             {
+                panel1.Visible = false;
                 FormatDataGridInboxPengguna();
                 listInbox = Inbox.BacaData("p.nik", pengguna.Nik);
             }

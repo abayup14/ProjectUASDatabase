@@ -27,7 +27,8 @@ namespace ProjectDatabase_Ivano
                 FormDaftarPromo formDaftarPromo = (FormDaftarPromo)this.Owner;
                 int id = int.Parse(formDaftarPromo.dataGridViewPromo.CurrentRow.Cells["id"].Value.ToString());
                 string nama = formDaftarPromo.dataGridViewPromo.CurrentRow.Cells["nama"].Value.ToString();
-                Promo p = new Promo(nama);
+                
+                Promo p = new Promo(id);
 
                 Promo.UbahData(p, k);
 

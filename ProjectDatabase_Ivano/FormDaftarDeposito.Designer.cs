@@ -66,15 +66,6 @@ namespace ProjectDatabase_Ivano
             // 
             this.comboBoxKriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxKriteria.FormattingEnabled = true;
-            this.comboBoxKriteria.Items.AddRange(new object[] {
-            "Id Employee",
-            "Nama Depan",
-            "Nama Keluarga",
-            "Nama Position",
-            "NIK",
-            "Email",
-            "Tanggal Buat",
-            "Tanggal Perubahan"});
             this.comboBoxKriteria.Location = new System.Drawing.Point(175, 27);
             this.comboBoxKriteria.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxKriteria.Name = "comboBoxKriteria";

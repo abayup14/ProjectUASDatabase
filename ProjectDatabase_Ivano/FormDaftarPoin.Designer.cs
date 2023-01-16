@@ -108,6 +108,7 @@ namespace ProjectDatabase_Ivano
             this.dataGridViewInbox.RowTemplate.Height = 24;
             this.dataGridViewInbox.Size = new System.Drawing.Size(829, 266);
             this.dataGridViewInbox.TabIndex = 50;
+            this.dataGridViewInbox.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInbox_CellContentClick);
             // 
             // buttonKeluar
             // 

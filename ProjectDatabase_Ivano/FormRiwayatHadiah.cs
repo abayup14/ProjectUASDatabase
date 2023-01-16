@@ -35,6 +35,7 @@ namespace ProjectDatabase_Ivano
             //Koneksi k = new Koneksi();
             if (pengguna != null)
             {
+                panel1.Visible = false;
                 FormatDataGridRiwayatHadiah();
                 listOfPenggunaHasHadiah = RiwayatHadiah.BacaData("p.nik", pengguna.Nik);
             }

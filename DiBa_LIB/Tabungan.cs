@@ -34,6 +34,11 @@ namespace DiBa_LIB
         {
             Rekening = rekening;
         }
+        public Tabungan (string rekening, double saldo)
+        {
+            Rekening = rekening;
+            Saldo = saldo;
+        }
 
         public string Rekening { get => rekening; set => rekening = value; }
         public Pengguna Pengguna { get => pengguna; set => pengguna = value; }
@@ -133,6 +138,12 @@ namespace DiBa_LIB
         public static void UpdateSaldo(Tabungan t, double saldo, Koneksi k)
         {
             string sql = "UPDATE tabungan set saldo = saldo - " + saldo + " where no_rekening = '" + t.Rekening + "'";
+
+            Koneksi.JalankanPerintahDML(sql, k);
+        }
+        public static void UpdateSaldo(Tabungan t, Koneksi k)
+        {
+            string sql = "UPDATE tabungan set saldo = saldo + " + t.Saldo + " where no_rekening = '" + t.Rekening + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }

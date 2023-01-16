@@ -109,7 +109,7 @@ namespace DiBa_LIB
 
         public static void HapusData(Deposito d, Koneksi k)
         {
-            string sql = "DELETE FROM deposito where id_deposito = " + d.Id_deposito;
+            string sql = "DELETE FROM deposito where id_deposito = '" + d.Id_deposito + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
@@ -140,11 +140,24 @@ namespace DiBa_LIB
             Koneksi.JalankanPerintahDML(sql, k);
         }
 
-        public static void UbahNominal(Deposito d, Koneksi k)
+        public static double BiayaPenalti(Deposito d)
         {
-            string sql = "UPDATE deposito set nominal = '" + d.Nominal * (95/100) + "'" + "WHERE id_deposito = " + d.Id_deposito;
+            //string sql = "UPDATE deposito set nominal = '" + d.Nominal * (95/100) + "'" + "WHERE id_deposito = " + d.Id_deposito;
 
-            Koneksi.JalankanPerintahDML(sql, k);
+            string sql = "SELECT nominal from deposito where id_deposito = '" + d.Id_deposito + "'";
+
+            double penalti = 0;
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                penalti = double.Parse(hasil.GetString(0)) * 5 / 100.0;
+
+                return penalti;
+            }
+
+            return 0;
         }
 
         public static void TambahNominal(Deposito d, Koneksi k)

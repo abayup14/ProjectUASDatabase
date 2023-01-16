@@ -47,6 +47,7 @@ namespace ProjectDatabase_Ivano
             }
             else if (pengguna != null)
             {
+                panel1.Visible = false;
                 FormatDataGridTabungan();
                 listTabungan = Tabungan.BacaData("p.nik", pengguna.Nik);
             }
@@ -79,19 +80,22 @@ namespace ProjectDatabase_Ivano
                     }
                     else if (employee != null)
                     {
-                        DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
-                        bcol1.HeaderText = "Aksi";
-                        bcol1.Text = "Ubah Status";
-                        bcol1.Name = "buttonUbahStatusGrid";
-                        bcol1.UseColumnTextForButtonValue = true;
-                        dataGridViewTabungan.Columns.Add(bcol1);
+                        if (!dataGridViewTabungan.Columns.Contains("buttonUbahStatusGrid") && !dataGridViewTabungan.Columns.Contains("buttonHapusGrid"))
+                        {
+                            DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
+                            bcol1.HeaderText = "Aksi";
+                            bcol1.Text = "Ubah Status";
+                            bcol1.Name = "buttonUbahStatusGrid";
+                            bcol1.UseColumnTextForButtonValue = true;
+                            dataGridViewTabungan.Columns.Add(bcol1);
 
-                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                        bcol2.HeaderText = "Aksi";
-                        bcol2.Text = "Hapus Data";
-                        bcol2.Name = "buttonHapusGrid";
-                        bcol2.UseColumnTextForButtonValue = true;
-                        dataGridViewTabungan.Columns.Add(bcol2);
+                            DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                            bcol2.HeaderText = "Aksi";
+                            bcol2.Text = "Hapus Data";
+                            bcol2.Name = "buttonHapusGrid";
+                            bcol2.UseColumnTextForButtonValue = true;
+                            dataGridViewTabungan.Columns.Add(bcol2);
+                        }
                     }
                 }
             }
@@ -200,8 +204,6 @@ namespace ProjectDatabase_Ivano
                         MessageBox.Show("Data Berhasil Dihapus.", "Informasi");
                     }
 
-                    dataGridViewTabungan.Rows.Clear();
-                    dataGridViewTabungan.Columns.Clear();
                     FormDaftarTabungan_Load(buttonKeluar, e);
                 }
                 else if (e.ColumnIndex == dataGridViewTabungan.Columns["buttonUbahStatusGrid"].Index && e.RowIndex >= 0)
@@ -231,9 +233,7 @@ namespace ProjectDatabase_Ivano
                             MessageBox.Show("Tabungan berhasil diaktifkan.", "Informasi");
                         }
                     }
-                  
-                    dataGridViewTabungan.Rows.Clear();
-                    dataGridViewTabungan.Columns.Clear();
+
                     FormDaftarTabungan_Load(buttonKeluar, e);
                 }
             }

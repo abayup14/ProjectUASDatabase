@@ -67,13 +67,6 @@ namespace ProjectDatabase_Ivano
             this.comboBoxKriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxKriteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxKriteria.FormattingEnabled = true;
-            this.comboBoxKriteria.Items.AddRange(new object[] {
-            "ID Pengguna",
-            "ID Pesan",
-            "Pesan",
-            "Tanggal Kirim",
-            "Status",
-            "Tanggal Perubahan"});
             this.comboBoxKriteria.Location = new System.Drawing.Point(193, 20);
             this.comboBoxKriteria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxKriteria.Name = "comboBoxKriteria";

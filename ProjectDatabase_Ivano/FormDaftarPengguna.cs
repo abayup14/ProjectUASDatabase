@@ -31,44 +31,45 @@ namespace ProjectDatabase_Ivano
             {
                 dataGridViewPengguna.DataSource = listPengguna;
 
-                if (dataGridViewPengguna.ColumnCount == 10)
-                {
-                    DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
+                //if (dataGridViewPengguna.ColumnCount == 10)
+                //{
+                    
+                //    DataGridViewButtonColumn bcol1 = new DataGridViewButtonColumn();
 
-                    bcol1.HeaderText = "Aksi";
+                //    bcol1.HeaderText = "Aksi";
 
-                    bcol1.Text = "Ubah Data";
+                //    bcol1.Text = "Ubah Data";
 
-                    bcol1.Name = "buttonUbahGrid";
+                //    bcol1.Name = "buttonUbahGrid";
 
-                    bcol1.UseColumnTextForButtonValue = true;
+                //    bcol1.UseColumnTextForButtonValue = true;
 
-                    dataGridViewPengguna.Columns.Add(bcol1);
+                //    dataGridViewPengguna.Columns.Add(bcol1);
 
-                    //DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                //    //DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
 
-                    //bcol2.HeaderText = "Aksi";
+                //    //bcol2.HeaderText = "Aksi";
 
-                    //bcol2.Text = "Ubah Password";
+                //    //bcol2.Text = "Ubah Password";
 
-                    //bcol2.Name = "buttonUbahPasswordGrid";
+                //    //bcol2.Name = "buttonUbahPasswordGrid";
 
-                    //bcol2.UseColumnTextForButtonValue = true;
+                //    //bcol2.UseColumnTextForButtonValue = true;
 
-                    //dataGridViewPengguna.Columns.Add(bcol2);
+                //    //dataGridViewPengguna.Columns.Add(bcol2);
 
-                    DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
+                //    DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
 
-                    bcol3.HeaderText = "Aksi";
+                //    bcol3.HeaderText = "Aksi";
 
-                    bcol3.Text = "Hapus";
+                //    bcol3.Text = "Hapus";
 
-                    bcol3.Name = "buttonHapusGrid";
+                //    bcol3.Name = "buttonHapusGrid";
 
-                    bcol3.UseColumnTextForButtonValue = true;
+                //    bcol3.UseColumnTextForButtonValue = true;
 
-                    dataGridViewPengguna.Columns.Add(bcol3);
-                }
+                //    dataGridViewPengguna.Columns.Add(bcol3);
+                //}
             }
             else
             {

@@ -63,7 +63,7 @@ namespace DiBa_LIB
 
         public static void TambahData(JenisTagihan jt, Koneksi k)
         {
-            string sql = "INSERT into jenis_tagihan(id, nama) VALUES (" + jt.Id + ", '" + jt.Nama + "')";
+            string sql = "INSERT into jenis_tagihan(id, nama) VALUES ('" + jt.Id + "', '" + jt.Nama + "')";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }
