@@ -96,7 +96,7 @@ namespace DiBa_LIB
 
         public static void UbahData(Position p, Koneksi k)
         {
-            string sql = "update position set Nama='" + p.Nama.Replace("'", "\\'") + ", Keterangan = '" + p.Keterangan + "' where id='" + p.PositionID + "'";
+            string sql = "update position set Nama='" + p.Nama.Replace("'", "\\'") + "', Keterangan = '" + p.Keterangan + "' where id='" + p.PositionID + "'";
 
             Koneksi.JalankanPerintahDML(sql, k);
         }

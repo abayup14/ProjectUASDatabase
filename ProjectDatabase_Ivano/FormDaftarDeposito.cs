@@ -168,8 +168,6 @@ namespace ProjectDatabase_Ivano
 
                         FormDaftarDeposito_Load(buttonKeluar, e);
                     }
-
-                    
                 }
                 else if (e.ColumnIndex == dataGridViewDeposito.Columns["buttonAktifGrid"].Index && e.RowIndex >= 0)
                 {

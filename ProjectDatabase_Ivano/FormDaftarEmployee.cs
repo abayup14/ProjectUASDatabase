@@ -43,26 +43,29 @@ namespace ProjectDatabase_Ivano
 
                 if (dataGridViewEmployee.ColumnCount == 9)
                 {
-                    DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
-                    bcol.HeaderText = "Aksi";
-                    bcol.Text = "Ubah";
-                    bcol.Name = "buttonUbahGrid";
-                    bcol.UseColumnTextForButtonValue = true;
-                    dataGridViewEmployee.Columns.Add(bcol);
+                    if (!dataGridViewEmployee.Columns.Contains("buttonUbahGrid") && !dataGridViewEmployee.Columns.Contains("buttonUbahPasswordGrid") && !dataGridViewEmployee.Columns.Contains("buttonHapusGrid"))
+                    {
+                        DataGridViewButtonColumn bcol = new DataGridViewButtonColumn();
+                        bcol.HeaderText = "Aksi";
+                        bcol.Text = "Ubah";
+                        bcol.Name = "buttonUbahGrid";
+                        bcol.UseColumnTextForButtonValue = true;
+                        dataGridViewEmployee.Columns.Add(bcol);
 
-                    DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
-                    bcol2.HeaderText = "Aksi";
-                    bcol2.Text = "Ubah Password";
-                    bcol2.Name = "buttonUbahPasswordGrid";
-                    bcol2.UseColumnTextForButtonValue = true;
-                    dataGridViewEmployee.Columns.Add(bcol2);
+                        DataGridViewButtonColumn bcol2 = new DataGridViewButtonColumn();
+                        bcol2.HeaderText = "Aksi";
+                        bcol2.Text = "Ubah Password";
+                        bcol2.Name = "buttonUbahPasswordGrid";
+                        bcol2.UseColumnTextForButtonValue = true;
+                        dataGridViewEmployee.Columns.Add(bcol2);
 
-                    DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
-                    bcol3.HeaderText = "Aksi";
-                    bcol3.Text = "Hapus";
-                    bcol3.Name = "buttonHapusGrid";
-                    bcol3.UseColumnTextForButtonValue = true;
-                    dataGridViewEmployee.Columns.Add(bcol3);
+                        DataGridViewButtonColumn bcol3 = new DataGridViewButtonColumn();
+                        bcol3.HeaderText = "Aksi";
+                        bcol3.Text = "Hapus";
+                        bcol3.Name = "buttonHapusGrid";
+                        bcol3.UseColumnTextForButtonValue = true;
+                        dataGridViewEmployee.Columns.Add(bcol3);
+                    }
                 }
             }
             else

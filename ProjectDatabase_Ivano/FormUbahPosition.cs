@@ -26,7 +26,7 @@ namespace ProjectDatabase_Ivano
 
                 FormDaftarPosition formDaftarPosition = (FormDaftarPosition)this.Owner;
 
-                int id = int.Parse(formDaftarPosition.dataGridViewJabatan.CurrentRow.Cells["id"].Value.ToString());
+                int id = int.Parse(formDaftarPosition.dataGridViewJabatan.CurrentRow.Cells["PositionID"].Value.ToString());
 
                 Position p = new Position(id, textBoxNamaJabatan.Text, textBoxKeterangan.Text);
 

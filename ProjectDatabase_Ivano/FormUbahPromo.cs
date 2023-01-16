@@ -25,10 +25,14 @@ namespace ProjectDatabase_Ivano
                 Koneksi k = new Koneksi();
 
                 FormDaftarPromo formDaftarPromo = (FormDaftarPromo)this.Owner;
-                int id = int.Parse(formDaftarPromo.dataGridViewPromo.CurrentRow.Cells["id"].Value.ToString());
-                string nama = formDaftarPromo.dataGridViewPromo.CurrentRow.Cells["nama"].Value.ToString();
+                int id = int.Parse(formDaftarPromo.dataGridViewPromo.CurrentRow.Cells["idPromo"].Value.ToString());
+                string nama = textBoxNamaJabatan.Text;
+                int nominal = int.Parse(formDaftarPromo.dataGridViewPromo.CurrentRow.Cells["nominal_diskon"].Value.ToString());
+                DateTime tglAwal = DateTime.Parse(formDaftarPromo.dataGridViewPromo.CurrentRow.Cells["tglAwal"].Value.ToString());
+                DateTime tglAkhir = dateTimePicker1.Value;
+                string keterangan = formDaftarPromo.dataGridViewPromo.CurrentRow.Cells["keterangan"].Value.ToString();
                 
-                Promo p = new Promo(id);
+                Promo p = new Promo(id, nama, nominal, tglAwal, tglAkhir, keterangan);
 
                 Promo.UbahData(p, k);
 

@@ -203,7 +203,7 @@ namespace ProjectDatabase_Ivano
                         DialogResult hasil = MessageBox.Show("Data yang ingin dihapus : " +
                                                                             "\nnama_hadiah : " + nama_hadiah +
                                                                             "\nharga_hadiah : " + harga_hadiah +
-                                                                            "Apakah anda yakin menghapus data tersebut ?", "Konfirmasi",
+                                                                            "\nApakah anda yakin menghapus data tersebut ?", "Konfirmasi",
                                                                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (hasil == DialogResult.Yes)
                         {

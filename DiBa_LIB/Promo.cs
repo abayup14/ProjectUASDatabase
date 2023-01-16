@@ -83,13 +83,13 @@ namespace DiBa_LIB
 
         public static void UbahData(Promo p, Koneksi k)
         {
-            string sql = "UPDATE promo set nama = '" + p.NamaPromo + "', tgl_akhir = '" + p.TglAkhir+"'";
+            string sql = "UPDATE promo set nama = '" + p.NamaPromo + "', tgl_akhir = '" + p.TglAkhir.ToString("yyyy-MM-dd HH:mm:ss")+"' where id = '" + p.IdPromo + "'";
             Koneksi.JalankanPerintahDML(sql, k);
         }
 
         public static void HapusData(Promo p, Koneksi k)
         {
-            string sql = "Delete from promo where nama = '" + p.NamaPromo + "'";
+            string sql = "Delete from promo where id = '" + p.IdPromo + "'";
             Koneksi.JalankanPerintahDML(sql, k);
         }
 
