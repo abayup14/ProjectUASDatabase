@@ -115,6 +115,7 @@ namespace ProjectDatabase_Ivano
             this.buttonKosongi.TabIndex = 43;
             this.buttonKosongi.Text = "&KOSONGI";
             this.buttonKosongi.UseVisualStyleBackColor = false;
+            this.buttonKosongi.Click += new System.EventHandler(this.buttonKosongi_Click);
             // 
             // textBoxNominal
             // 

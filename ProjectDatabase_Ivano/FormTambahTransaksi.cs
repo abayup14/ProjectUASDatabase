@@ -18,8 +18,8 @@ namespace ProjectDatabase_Ivano
         {
             InitializeComponent();
         }
-        List<Transaksi> listTransaksi = new List<Transaksi>();
-        List<JenisTransaksi> listJenisTransaksi = new List<JenisTransaksi>();
+        //List<Transaksi> listTransaksi = new List<Transaksi>();
+        //List<JenisTransaksi> listJenisTransaksi = new List<JenisTransaksi>();
         List<Tabungan> listTabunganSumber = new List<Tabungan>();
         List<AddressBook> listTabunganTujuan = new List<AddressBook>();
         public List<Promo> listPromo = new List<Promo>();

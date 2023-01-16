@@ -45,38 +45,46 @@ namespace ProjectDatabase_Ivano
                     }
                     else
                     {
-                        Koneksi k = new Koneksi();
+                        double sisaSaldo = tabungan.Saldo - double.Parse(textBoxNominal.Text);
+                        if (sisaSaldo >= tabungan.Saldo)
+                        {
+                            Koneksi k = new Koneksi();
 
-                        int indexJatuhTempoDipilih = comboBoxJatuhTempo.SelectedIndex;
+                            int indexJatuhTempoDipilih = comboBoxJatuhTempo.SelectedIndex;
 
-                        string kode = Deposito.GenerateKode(tabungan.Rekening);
+                            string kode = Deposito.GenerateKode(tabungan.Rekening);
 
-                        Tabungan t = tabungan;
+                            Tabungan t = tabungan;
 
-                        int jatuhTempo = bulanJatuhTempo[indexJatuhTempoDipilih];
+                            int jatuhTempo = bulanJatuhTempo[indexJatuhTempoDipilih];
 
-                        double nominal = double.Parse(textBoxNominal.Text);
+                            double nominal = double.Parse(textBoxNominal.Text);
 
-                        double bunga = bungaJatuhTempo[indexJatuhTempoDipilih];
+                            double bunga = bungaJatuhTempo[indexJatuhTempoDipilih];
 
-                        string status = "Unverified";
+                            string status = "Unverified";
 
-                        DateTime tgl_buat = DateTime.Now;
+                            DateTime tgl_buat = DateTime.Now;
 
-                        DateTime tgl_perubahan = DateTime.Now;
+                            DateTime tgl_perubahan = DateTime.Now;
 
-                        Employee verifikatorBuka = new Employee();
+                            Employee verifikatorBuka = new Employee();
 
-                        Employee verifikatorCair = new Employee();
+                            Employee verifikatorCair = new Employee();
 
-                        Deposito d = new Deposito(kode, t, jatuhTempo, nominal, bunga, status, tgl_buat, tgl_perubahan, verifikatorBuka, verifikatorCair);
+                            Deposito d = new Deposito(kode, t, jatuhTempo, nominal, bunga, status, tgl_buat, tgl_perubahan, verifikatorBuka, verifikatorCair);
 
-                        Deposito.TambahData(d, k);
+                            Deposito.TambahData(d, k);
 
-                        Tabungan.UpdateSaldo(t, double.Parse(textBoxNominal.Text), k);
+                            Tabungan.UpdateSaldo(t, double.Parse(textBoxNominal.Text), k);
 
-                        MessageBox.Show("Deposito berhasil ditambah");
-                        this.Close();
+                            MessageBox.Show("Deposito berhasil ditambah");
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Maaf, saldo anda tidak mencukupi untuk melakukan pembuatan deposito.", "Informasi");
+                        }
                     }
                 }
             }
@@ -115,6 +123,13 @@ namespace ProjectDatabase_Ivano
             {
                 tabungan = (Tabungan)comboBoxRekening.SelectedItem;
             }
+        }
+
+        private void buttonKosongi_Click(object sender, EventArgs e)
+        {
+            textBoxNominal.Clear();
+            comboBoxRekening.SelectedIndex = -1;
+            comboBoxJatuhTempo.SelectedIndex = -1;
         }
     }
 }
