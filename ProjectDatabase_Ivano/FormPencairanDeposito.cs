@@ -28,20 +28,21 @@ namespace ProjectDatabase_Ivano
 
             if (hasil == DialogResult.Yes)
             {
+                Koneksi k = new Koneksi();
+                Tabungan tabunganDeposito = Tabungan.AmbilDataTabungan(deposito);
                 if (Deposito.AmbilDataNoDeposito(textBoxNoDeposito.Text) == true)
                 {
-                    Koneksi k = new Koneksi();
+                    
                     //Deposito d = new Deposito(textBoxNoDeposito.Text);
 
                     DateTime tanggal = deposito.Tgl_buat.AddMonths(deposito.Jatuh_tempo);
                     if (tanggal > DateTime.Now)
                     {
                         double saldo_akhir = 0;
-                        //Deposito.UbahStatus(d, k);
-                        double biaya_penalti = Deposito.BiayaPenalti(deposito);
+                        double biaya_penalti = 0;
+                        biaya_penalti = Deposito.BiayaPenalti(deposito);
                         MessageBox.Show("Pencairan deposito kurang dari tanggal jatuh tempo sehingga anda dikenai denda sebanyak 5% dan tidak mendapatkan bunga." + 
                                         "\nAnda mendapatkan penalti sebesar Rp. " + biaya_penalti.ToString());
-                        Tabungan tabunganDeposito = Tabungan.AmbilDataTabungan(deposito);
                         saldo_akhir = deposito.Nominal - biaya_penalti;
                         Tabungan t = new Tabungan(tabunganDeposito.Rekening, saldo_akhir);
                         Tabungan.UpdateSaldo(t, k);
@@ -50,9 +51,16 @@ namespace ProjectDatabase_Ivano
                     }
                     else
                     {
-                        //Deposito.UbahStatus(d, k);
-                        Deposito.TambahNominal(deposito, k);
-                        MessageBox.Show("Pencairan berhasil");
+                        double bunga_deposito = 0;
+                        double saldo_akhir = 0;
+                        bunga_deposito = Deposito.TambahBunga(deposito);
+                        MessageBox.Show("Anda mendapatkan bunga sebesar Rp. " + bunga_deposito.ToString(), "Informasi");
+                        saldo_akhir = deposito.Nominal + bunga_deposito;
+                        Tabungan t = new Tabungan(tabunganDeposito.Rekening, saldo_akhir);
+                        Tabungan.UpdateSaldo(t, k);
+                        MessageBox.Show("Berhasil melakukan pencairan sebesar Rp. " + saldo_akhir.ToString() + 
+                                        " dan ditambahkan ke tabungan", "Informasi");
+                        Deposito.HapusData(deposito, k);
                     }
                 }
                 else

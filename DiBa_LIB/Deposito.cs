@@ -156,15 +156,32 @@ namespace DiBa_LIB
 
                 return penalti;
             }
-
-            return 0;
+            else
+            {
+                return 0;
+            }
+            
         }
 
-        public static void TambahNominal(Deposito d, Koneksi k)
+        public static double TambahBunga(Deposito d)
         {
-            string sql = "UPDATE deposito set nominal = '" + d.Nominal * (100+d.bunga/100) + "'" + "WHERE id_deposito = " + d.Id_deposito;
+            //string sql = "UPDATE deposito set nominal = '" + d.Nominal * (100+d.bunga/100) + "'" + "WHERE id_deposito = " + d.Id_deposito;
+            string sql = "SELECT nominal from deposito where id_deposito = '" + d.Id_deposito + "'";
 
-            Koneksi.JalankanPerintahDML(sql, k);
+            double bunga = 0;
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                bunga = double.Parse(hasil.GetString(0)) * d.bunga * d.jatuh_tempo / 12.0;
+
+                return bunga;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public static string GenerateKode(string no_rekening)
