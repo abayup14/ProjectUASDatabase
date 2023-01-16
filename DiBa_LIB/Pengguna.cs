@@ -147,6 +147,37 @@ namespace DiBa_LIB
 
             return null;
         }
+        public static bool CekEmailSama(string email)
+        {
+            string sql = "SELECT email from pengguna where email = '" + email + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        public static bool CekNoTeleponSama(string noTelepon)
+        {
+            string sql = "SELECT no_telepon from pengguna where no_telepon = '" + noTelepon + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            if (hasil.Read() == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public static string AmbilNamaLengkap(string nik)
         {
             string sql = "SELECT nama_depan, nama_keluarga from pengguna where nik = '" + nik + "'";

@@ -19,6 +19,8 @@ namespace ProjectDatabase_Ivano
 
         public Tabungan tabungan;
 
+        public Pengguna pengguna;
+
         public FormDepositoPengguna()
         {
             InitializeComponent();
@@ -31,6 +33,8 @@ namespace ProjectDatabase_Ivano
             deposito = Deposito.AmbilDataDeposito(formDaftarDeposito.dataGridViewDeposito.CurrentRow.Cells["IDDeposito"].Value.ToString());
 
             tabungan = Tabungan.AmbilDataTabungan(deposito);
+
+            pengguna = formDaftarDeposito.pengguna;
         }
 
         private void buttonCairkan_Click(object sender, EventArgs e)

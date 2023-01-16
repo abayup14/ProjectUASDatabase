@@ -16,6 +16,8 @@ namespace ProjectDatabase_Ivano
         FormDepositoPengguna formDepositoPengguna;
         
         public Deposito deposito;
+
+        public Pengguna pengguna;
         public FormPencairanDeposito()
         {
             InitializeComponent();
@@ -32,13 +34,10 @@ namespace ProjectDatabase_Ivano
                 Tabungan tabunganDeposito = Tabungan.AmbilDataTabungan(deposito);
                 if (Deposito.AmbilDataNoDeposito(textBoxNoDeposito.Text) == true)
                 {
-                    
-                    //Deposito d = new Deposito(textBoxNoDeposito.Text);
-
                     DateTime tanggal = deposito.Tgl_buat.AddMonths(deposito.Jatuh_tempo);
+                    double saldo_akhir = 0;
                     if (tanggal > DateTime.Now)
                     {
-                        double saldo_akhir = 0;
                         double biaya_penalti = 0;
                         biaya_penalti = Deposito.BiayaPenalti(deposito);
                         MessageBox.Show("Pencairan deposito kurang dari tanggal jatuh tempo sehingga anda dikenai denda sebanyak 5% dan tidak mendapatkan bunga." + 
@@ -47,21 +46,40 @@ namespace ProjectDatabase_Ivano
                         Tabungan t = new Tabungan(tabunganDeposito.Rekening, saldo_akhir);
                         Tabungan.UpdateSaldo(t, k);
                         MessageBox.Show("Berhasil menambah Rp. " + saldo_akhir.ToString() + " ke tabungan.", "Informasi");
-                        Deposito.HapusData(deposito, k);
+                        Inbox inb = new Inbox(pengguna,
+                                            Inbox.GenerateKode(),
+                                            "Anda mendapatkan penalti sebesar Rp. " + biaya_penalti.ToString() + " karena mencairkan deposito lebih awal ",
+                                            DateTime.Now,
+                                            "Belum Terbaca",
+                                            DateTime.Now);
+                        Inbox.TambahData(inb, k);
                     }
                     else
                     {
                         double bunga_deposito = 0;
-                        double saldo_akhir = 0;
                         bunga_deposito = Deposito.TambahBunga(deposito);
                         MessageBox.Show("Anda mendapatkan bunga sebesar Rp. " + bunga_deposito.ToString(), "Informasi");
                         saldo_akhir = deposito.Nominal + bunga_deposito;
                         Tabungan t = new Tabungan(tabunganDeposito.Rekening, saldo_akhir);
                         Tabungan.UpdateSaldo(t, k);
-                        MessageBox.Show("Berhasil melakukan pencairan sebesar Rp. " + saldo_akhir.ToString() + 
-                                        " dan ditambahkan ke tabungan", "Informasi");
-                        Deposito.HapusData(deposito, k);
+                        MessageBox.Show("Berhasil melakukan pencairan sebesar Rp. " + saldo_akhir.ToString() +
+                                        " dan ditambahkan ke tabungan", "Informasi"); 
+                        Inbox inb = new Inbox(pengguna,
+                                            Inbox.GenerateKode(),
+                                            "Anda mendapatkan bunga sebesar Rp. " + bunga_deposito.ToString(),
+                                            DateTime.Now,
+                                            "Belum Terbaca",
+                                            DateTime.Now);
+                        Inbox.TambahData(inb, k);
                     }
+                    Inbox i = new Inbox(pengguna,
+                                        Inbox.GenerateKode(),
+                                        "Berhasil cairkan deposito sebesar Rp. " + saldo_akhir.ToString() + " ke rekening " + tabunganDeposito.Rekening,
+                                        DateTime.Now,
+                                        "Belum Terbaca",
+                                        DateTime.Now);
+                    Inbox.TambahData(i, k);
+                    Deposito.HapusData(deposito, k);
                 }
                 else
                 {
@@ -72,8 +90,6 @@ namespace ProjectDatabase_Ivano
             {
                 MessageBox.Show("Pencairan dibatalkan");
             }
-  
-
         }
 
         private void FormPencairanDeposito_Load(object sender, EventArgs e)
@@ -81,6 +97,8 @@ namespace ProjectDatabase_Ivano
             formDepositoPengguna = (FormDepositoPengguna)this.Owner;
 
             deposito = formDepositoPengguna.deposito;
+
+            pengguna = formDepositoPengguna.pengguna;
         }
     }
 }

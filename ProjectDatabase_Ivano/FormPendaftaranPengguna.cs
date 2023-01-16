@@ -35,29 +35,44 @@ namespace ProjectDatabase_Ivano
 
                     if (hasil == DialogResult.Yes)
                     {
-                        string pin = "";
+                        if (Pengguna.CekEmailSama(textBoxEmail.Text) == true && Pengguna.CekNoTeleponSama(textBoxNomorTelepon.Text) == true)
+                        {
+                            MessageBox.Show("Terdapat email atau nomor telepon yang sudah terdaftar. Coba gunakan email atau nomor telepon yang lain.", "informasi");
+                        }
+                        else if (Pengguna.CekEmailSama(textBoxEmail.Text) == true)
+                        {
+                            MessageBox.Show("Email yang anda masukkan sudah terdaftar. Coba gunakan email yang lain.", "Informasi");
+                        }
+                        else if (Pengguna.CekNoTeleponSama(textBoxNomorTelepon.Text) == true)
+                        {
+                            MessageBox.Show("Nomor telepon yang anda masukkan sudah terdaftar. Coba gunakan nomor telepon yang lain.", "Informasi");
+                        }    
+                        else
+                        {
+                            string pin = "";
 
-                        Pengguna p = new Pengguna(textBoxNIK.Text, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, textBoxAlamat.Text,
-                                                  textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, pin, DateTime.Now, DateTime.Now);
+                            Pengguna p = new Pengguna(textBoxNIK.Text, textBoxNamaDepan.Text, textBoxNamaKeluarga.Text, textBoxAlamat.Text,
+                                                      textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, pin, DateTime.Now, DateTime.Now);
 
-                        Pengguna.TambahData(p, k);
+                            Pengguna.TambahData(p, k);
 
-                        Employee em = new Employee();
+                            Employee em = new Employee();
 
-                        string no_rekening = Tabungan.GenerateNomorRekening();
+                            string no_rekening = Tabungan.GenerateNomorRekening();
 
-                        Tabungan t = new Tabungan(no_rekening, p, 0, "Unverified", "", DateTime.Now, DateTime.Now, em);
+                            Tabungan t = new Tabungan(no_rekening, p, 0, "Unverified", "", DateTime.Now, DateTime.Now, em);
 
-                        Tabungan.TambahData(t, k);
+                            Tabungan.TambahData(t, k);
 
-                        MessageBox.Show("Selamat, anda sudah terdaftar di aplikasi ini. " +
-                                        "\nAnda juga sudah dibuatkan tabungan dengan nomor rekening " + no_rekening +
-                                        "\n Status tabungan anda adalah \"Unverified\". Silahkan hubungin pegawai terkait untuk mengaktifkan tabungan anda.", 
-                                        "Berhasil Membuat Akun");
-                        
-                        MessageBox.Show("Silahkan masuk dengan email atau nomor telepon dan password anda.", "Informasi");
+                            MessageBox.Show("Selamat, anda sudah terdaftar di aplikasi ini. " +
+                                            "\nAnda juga sudah dibuatkan tabungan dengan nomor rekening " + no_rekening +
+                                            "\n Status tabungan anda adalah \"Unverified\". Silahkan hubungin pegawai terkait untuk mengaktifkan tabungan anda.",
+                                            "Berhasil Membuat Akun");
 
-                        Close();
+                            MessageBox.Show("Silahkan masuk dengan email atau nomor telepon dan password anda.", "Informasi");
+
+                            Close();
+                        }
                     }
                 } 
             }
