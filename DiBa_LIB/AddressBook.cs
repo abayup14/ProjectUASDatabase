@@ -18,7 +18,7 @@ namespace DiBa_LIB
         {
             Pengguna = pengguna;
             No_rekening = no_rekening;
-            .Keterangan = keterangan;
+            Keterangan = keterangan;
         }
 
         public Pengguna Pengguna { get => pengguna; set => pengguna = value; }
