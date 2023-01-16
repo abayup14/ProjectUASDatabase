@@ -209,89 +209,97 @@ namespace ProjectDatabase_Ivano
                         {
                             if (tabunganSumber.Status == "Aktif" && tabunganTujuan.Status == "Aktif")
                             {
-                                double nilai_diskon = 0;
-                                double total_harga = 0;
-                                Promo p = null;
-                                if (formTambahTransaksi.checkBoxPromo.Checked == true)
+                                double sisaSaldo = tabunganSumber.Saldo - double.Parse(formTambahTransaksi.textBoxNominal.Text);
+                                if (sisaSaldo >= tabunganSumber.Saldo)
                                 {
-                                    p = (Promo)formTambahTransaksi.comboBoxPromo.SelectedItem;
-                                    nilai_diskon = double.Parse(formTambahTransaksi.textBoxNominal.Text) * p.Nominal_diskon / 100.0;
-                                    total_harga = double.Parse(formTambahTransaksi.textBoxNominal.Text) - nilai_diskon;
+                                    double nilai_diskon = 0;
+                                    double total_harga = 0;
+                                    Promo p = null;
+                                    if (formTambahTransaksi.checkBoxPromo.Checked == true)
+                                    {
+                                        p = (Promo)formTambahTransaksi.comboBoxPromo.SelectedItem;
+                                        nilai_diskon = double.Parse(formTambahTransaksi.textBoxNominal.Text) * p.Nominal_diskon / 100.0;
+                                        total_harga = double.Parse(formTambahTransaksi.textBoxNominal.Text) - nilai_diskon;
+                                    }
+                                    else
+                                    {
+                                        total_harga = double.Parse(formTambahTransaksi.textBoxNominal.Text);
+                                        p = new Promo();
+                                    }
+
+                                    JenisTagihan j = null;
+                                    if (formTambahTransaksi.checkBoxTagihan.Checked == true)
+                                    {
+                                        j = (JenisTagihan)formTambahTransaksi.comboBoxJenisTagihan.SelectedItem;
+                                    }
+                                    else
+                                    {
+                                        j = new JenisTagihan();
+                                    }
+
+
+                                    Transaksi tS = new Transaksi(tabunganSumber,
+                                                                Transaksi.GenerateKode(),
+                                                                DateTime.Now,
+                                                                tabunganTujuan,
+                                                                total_harga,
+                                                                formTambahTransaksi.textBoxKeterangan.Text,
+                                                                p,
+                                                                j);
+
+                                    Transaksi.TambahTransaksiSumber(tS, k);
+
+                                    Transaksi tT = new Transaksi(tabunganTujuan,
+                                                                Transaksi.GenerateKode(),
+                                                                DateTime.Now,
+                                                                tabunganSumber,
+                                                                total_harga,
+                                                                formTambahTransaksi.textBoxKeterangan.Text,
+                                                                p,
+                                                                j);
+                                    Transaksi.TambahTransaksiTujuan(tT, k);
+
+                                    Transaksi.UpdateSaldoTransaksi(tS, k);
+
+                                    if (formTambahTransaksi.comboBoxPromo.Text != "")
+                                    {
+                                        RiwayatPromo rp = new RiwayatPromo(RiwayatPromo.GenerateKode(),
+                                                                           p,
+                                                                           tabunganSumber.Pengguna,
+                                                                           DateTime.Now);
+                                        RiwayatPromo.TambahData(rp, k);
+                                    }
+
+                                    Inbox inboxSumber = new Inbox(tabunganSumber.Pengguna,
+                                                                  Inbox.GenerateKode(),
+                                                                  "Berhasil transfer ke rekening " + tabunganTujuan.Rekening +
+                                                                  " sebesar Rp. " + total_harga.ToString() +
+                                                                  "\nKeterangan: " + formTambahTransaksi.textBoxKeterangan.Text,
+                                                                  DateTime.Now,
+                                                                  "Belum Terbaca",
+                                                                  DateTime.Now);
+                                    Inbox.TambahData(inboxSumber, k);
+
+                                    Inbox inboxTujuan = new Inbox(tabunganTujuan.Pengguna,
+                                                                  Inbox.GenerateKode(),
+                                                                  "Mendapatkan transfer dari rekening " + tabunganSumber.Rekening +
+                                                                  " sebesar Rp. " + total_harga.ToString() +
+                                                                  "\nKeterangan: " + formTambahTransaksi.textBoxKeterangan.Text,
+                                                                  DateTime.Now,
+                                                                  "Belum Terbaca",
+                                                                  DateTime.Now);
+                                    Inbox.TambahData(inboxTujuan, k);
+
+                                    Poin poin = new Poin(pengguna, 100);
+                                    Poin.UpdatePoin(poin, k);
+
+                                    MessageBox.Show("Transaksi berhasil dilakukan." +
+                                                    "\nAnda mendapatkan 100 poin dari transaksi ini.", "Informasi");
                                 }
                                 else
                                 {
-                                    total_harga = double.Parse(formTambahTransaksi.textBoxNominal.Text);
-                                    p = new Promo();
+                                    MessageBox.Show("Saldo anda tidak mencukupi untuk melakukan transaksi ini.", "Informasi");
                                 }
-
-                                JenisTagihan j = null;
-                                if (formTambahTransaksi.checkBoxTagihan.Checked == true)
-                                {
-                                    j = (JenisTagihan)formTambahTransaksi.comboBoxJenisTagihan.SelectedItem;
-                                }
-                                else
-                                {
-                                    j = new JenisTagihan();
-                                }
-
-
-                                Transaksi tS = new Transaksi(tabunganSumber,
-                                                            Transaksi.GenerateKode(),
-                                                            DateTime.Now,
-                                                            tabunganTujuan,
-                                                            total_harga,
-                                                            formTambahTransaksi.textBoxKeterangan.Text,
-                                                            p,
-                                                            j);
-                                
-                                Transaksi.TambahTransaksiSumber(tS, k);
-
-                                Transaksi tT = new Transaksi(tabunganTujuan,
-                                                            Transaksi.GenerateKode(),
-                                                            DateTime.Now,
-                                                            tabunganSumber,
-                                                            total_harga,
-                                                            formTambahTransaksi.textBoxKeterangan.Text,
-                                                            p,
-                                                            j);
-                                Transaksi.TambahTransaksiTujuan(tT, k);
-
-                                Transaksi.UpdateSaldoTransaksi(tS, k);
-                                
-                                if (formTambahTransaksi.comboBoxPromo.Text != "")
-                                {
-                                    RiwayatPromo rp = new RiwayatPromo(RiwayatPromo.GenerateKode(),
-                                                                       p,
-                                                                       tabunganSumber.Pengguna,
-                                                                       DateTime.Now);
-                                    RiwayatPromo.TambahData(rp, k);
-                                }
-
-                                Inbox inboxSumber = new Inbox(tabunganSumber.Pengguna,
-                                                              Inbox.GenerateKode(),
-                                                              "Berhasil transfer ke rekening " + tabunganTujuan.Rekening +
-                                                              " sebesar Rp. " + total_harga.ToString() +
-                                                              "\nKeterangan: " + formTambahTransaksi.textBoxKeterangan.Text,
-                                                              DateTime.Now,
-                                                              "Belum Terbaca",
-                                                              DateTime.Now);
-                                Inbox.TambahData(inboxSumber, k);
-
-                                Inbox inboxTujuan = new Inbox(tabunganTujuan.Pengguna,
-                                                              Inbox.GenerateKode(),
-                                                              "Mendapatkan transfer dari rekening " + tabunganSumber.Rekening +
-                                                              " sebesar Rp. " + total_harga.ToString() +
-                                                              "\nKeterangan: " + formTambahTransaksi.textBoxKeterangan.Text,
-                                                              DateTime.Now,
-                                                              "Belum Terbaca",
-                                                              DateTime.Now);
-                                Inbox.TambahData(inboxTujuan, k);
-
-                                Poin poin = new Poin(pengguna, 100);
-                                Poin.UpdatePoin(poin, k);
-
-                                MessageBox.Show("Transaksi berhasil dilakukan." +
-                                                "\nAnda mendapatkan 100 poin dari transaksi ini.", "Informasi");
                             }
                             else
                             {
