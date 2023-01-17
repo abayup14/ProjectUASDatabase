@@ -46,7 +46,7 @@ namespace ProjectDatabase_Ivano
                     else
                     {
                         double sisaSaldo = tabungan.Saldo - double.Parse(textBoxNominal.Text);
-                        if (sisaSaldo >= tabungan.Saldo)
+                        if (tabungan.Saldo >= sisaSaldo)
                         {
                             Koneksi k = new Koneksi();
 
